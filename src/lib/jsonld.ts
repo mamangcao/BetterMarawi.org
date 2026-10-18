@@ -1,0 +1,92 @@
+import { SITE_CONFIG } from '@/config/site';
+import { FAQItem, ServicePageData } from '@/types';
+
+export function buildGovernmentOrganizationSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'GovernmentOrganization',
+    '@id': `${SITE_CONFIG.url}/#organization`,
+    name: 'City Government of the Islamic City of Marawi',
+    alternateName: ['BetterMarawi.org', 'LGU Marawi City', 'Islamic City of Marawi'],
+    url: SITE_CONFIG.url,
+    telephone: '(063) 520-2100',
+    email: SITE_CONFIG.contact.email,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Marawi City Hall Complex, Kilometer 0',
+      addressLocality: 'Marawi City',
+      addressRegion: 'Lanao del Sur, BARMM',
+      postalCode: '9700',
+      addressCountry: 'PH',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: SITE_CONFIG.geo.latitude,
+      longitude: SITE_CONFIG.geo.longitude,
+    },
+    areaServed: {
+      '@type': 'City',
+      name: 'Islamic City of Marawi',
+      containedInPlace: {
+        '@type': 'AdministrativeArea',
+        name: 'Lanao del Sur, Bangsamoro Autonomous Region in Muslim Mindanao',
+      },
+    },
+  };
+}
+
+export function buildBreadcrumbSchema(breadcrumbs: { name: string; url: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbs.map((item, idx) => ({
+      '@type': 'ListItem',
+      position: idx + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+}
+
+export function buildGovernmentServiceSchema(service: ServicePageData, pageUrl: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'GovernmentService',
+    name: `${service.title} — Islamic City of Marawi`,
+    description: service.heroSummary,
+    url: pageUrl,
+    serviceType: service.title,
+    serviceOperator: {
+      '@type': 'GovernmentOrganization',
+      name: service.responsibleOffice,
+      telephone: service.hotline,
+      email: service.email,
+      parentOrganization: { '@id': `${SITE_CONFIG.url}/#organization` },
+    },
+    areaServed: {
+      '@type': 'City',
+      name: 'Islamic City of Marawi, Lanao del Sur',
+    },
+    audience: {
+      '@type': 'Audience',
+      audienceType: service.whoMayAvail,
+    },
+    termsOfService: `Requirements: ${service.requirements.join('; ')}`,
+  };
+}
+
+export function buildFAQSchema(faqs: FAQItem[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+}
+
