@@ -61,11 +61,6 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  icons: {
-    icon: '/branding/logo.svg',
-    shortcut: '/branding/logo.svg',
-    apple: '/branding/logo.png',
-  },
 };
 
 export default function RootLayout({

@@ -133,11 +133,11 @@ export function Header() {
             className="flex items-center gap-2.5 text-xl font-bold tracking-tight text-stone-900 font-display whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
           >
             <Image
-              src="/branding/logo.svg"
-              alt="BetterMarawi.org"
-              width={32}
-              height={32}
-              className="shrink-0"
+              src="/branding/logo.png"
+              alt="BetterMarawi.org logo"
+              width={2000}
+              height={2000}
+              className="h-9 sm:h-10 lg:h-11 w-auto shrink-0"
               priority
             />
             <span>BetterMarawi.org</span>

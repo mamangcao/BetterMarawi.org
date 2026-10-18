@@ -35,11 +35,12 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
           <div className="flex items-center justify-between pb-3 border-b border-stone-200">
             <Link href="/" onClick={onClose} className="flex items-center gap-2">
               <Image
-                src="/branding/logo.svg"
-                alt="BetterMarawi.org"
-                width={28}
-                height={28}
-                className="shrink-0"
+                src="/branding/logo.png"
+                alt="BetterMarawi.org logo"
+                width={2000}
+                height={2000}
+                className="h-8 sm:h-9 w-auto shrink-0"
+                priority
               />
               <span className="font-display font-bold text-stone-900 text-lg">BetterMarawi.org</span>
             </Link>
