@@ -140,6 +140,28 @@
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
+/* Second Bar single-line ticker utilities */
+.ticker-bar-text {
+  font-size: clamp(10px, 2.8vw, 11px);
+}
+@media (min-width: 640px) {
+  .ticker-bar-text {
+    font-size: 11px;
+  }
+}
+
+/* Clock seconds display below and above 360px */
+@media (max-width: 359px) {
+  .clock-seconds {
+    display: none !important;
+  }
+}
+@media (min-width: 360px) {
+  .clock-no-seconds {
+    display: none !important;
+  }
+}
+
 @keyframes fx-slide {
   0% {
     opacity: 0;

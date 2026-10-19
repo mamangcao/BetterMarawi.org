@@ -67,7 +67,7 @@ export function FxTicker({ rates = DEFAULT_RATES }: FxTickerProps) {
       role="region"
       aria-label="Exchange rates"
       aria-live="off"
-      className="relative inline-flex items-center h-[18px] min-w-[108px] overflow-hidden select-none outline-none focus-visible:ring-1 focus-visible:ring-stone-400 rounded-sm"
+      className="relative inline-flex items-center h-[18px] w-[15.5ch] shrink-0 overflow-hidden select-none outline-none focus-visible:ring-1 focus-visible:ring-stone-400 rounded-sm"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onFocus={() => setIsPaused(true)}

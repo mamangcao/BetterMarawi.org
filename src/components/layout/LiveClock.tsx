@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from 'react';
 
 export function LiveClock() {
-  const [phtTime, setPhtTime] = useState<string>('Live PHT Clock');
+  const [timeWithSeconds, setTimeWithSeconds] = useState<string>('10:30:00 AM PHT');
+  const [timeWithoutSeconds, setTimeWithoutSeconds] = useState<string>('10:30 AM PHT');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -11,16 +12,24 @@ export function LiveClock() {
     const updateClock = () => {
       try {
         const now = new Date();
-        const formatted = new Intl.DateTimeFormat('en-US', {
+        const formattedFull = new Intl.DateTimeFormat('en-US', {
           timeZone: 'Asia/Manila',
           hour: '2-digit',
           minute: '2-digit',
           second: '2-digit',
           hour12: true,
         }).format(now);
-        setPhtTime(`${formatted} PHT`);
+        const formattedShort = new Intl.DateTimeFormat('en-US', {
+          timeZone: 'Asia/Manila',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: true,
+        }).format(now);
+        setTimeWithSeconds(`${formattedFull} PHT`);
+        setTimeWithoutSeconds(`${formattedShort} PHT`);
       } catch {
-        setPhtTime('Live PHT Clock');
+        setTimeWithSeconds('Live PHT Clock');
+        setTimeWithoutSeconds('Live PHT Clock');
       }
     };
     updateClock();
@@ -28,6 +37,11 @@ export function LiveClock() {
     return () => window.clearInterval(timer);
   }, []);
 
-  return <span>{mounted ? phtTime : '10:30:00 AM PHT'}</span>;
+  return (
+    <span className="shrink-0 whitespace-nowrap">
+      <span className="clock-seconds">{mounted ? timeWithSeconds : '10:30:00 AM PHT'}</span>
+      <span className="clock-no-seconds">{mounted ? timeWithoutSeconds : '10:30 AM PHT'}</span>
+    </span>
+  );
 }
 

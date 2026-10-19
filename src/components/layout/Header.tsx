@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Menu } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { ArrowUpRight } from "@/components/ui";
 import { NAV_DROPDOWNS } from "@/config/site";
 import { LanguageSwitcher } from "./LanguageSwitcher";
@@ -20,14 +20,39 @@ export function Header() {
   const pathname = usePathname();
   const [openDropdown, setOpenDropdown] = useState<DropdownKey | null>(null);
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
+  const [langDropdownOpen, setLangDropdownOpen] = useState(false);
+  const [headerBottom, setHeaderBottom] = useState(64);
   const navRef = useRef<HTMLElement>(null);
+  const toggleButtonRef = useRef<HTMLButtonElement>(null);
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Measure header bottom offset so mobile drawer opens directly below sticky header
+  useEffect(() => {
+    const updateHeaderBottom = () => {
+      if (navRef.current) {
+        const rect = navRef.current.getBoundingClientRect();
+        setHeaderBottom(rect.bottom);
+      }
+    };
+
+    updateHeaderBottom();
+    window.addEventListener("resize", updateHeaderBottom);
+    window.addEventListener("scroll", updateHeaderBottom, { passive: true });
+    return () => {
+      window.removeEventListener("resize", updateHeaderBottom);
+      window.removeEventListener("scroll", updateHeaderBottom);
+    };
+  }, [mobileDrawerOpen]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setOpenDropdown(null);
-        setMobileDrawerOpen(false);
+        setLangDropdownOpen(false);
+        if (mobileDrawerOpen) {
+          setMobileDrawerOpen(false);
+          toggleButtonRef.current?.focus();
+        }
       }
     };
     const handleClickOutside = (e: MouseEvent) => {
@@ -41,6 +66,28 @@ export function Header() {
       window.removeEventListener("keydown", handleKeyDown);
       document.removeEventListener("mousedown", handleClickOutside);
     };
+  }, [mobileDrawerOpen]);
+
+  // Opening one closes the other
+  const handleToggleMobileDrawer = () => {
+    if (!mobileDrawerOpen) {
+      setLangDropdownOpen(false);
+      setOpenDropdown(null);
+    }
+    setMobileDrawerOpen((prev) => !prev);
+  };
+
+  const handleLangDropdownChange = (open: boolean) => {
+    if (open) {
+      setMobileDrawerOpen(false);
+      setOpenDropdown(null);
+    }
+    setLangDropdownOpen(open);
+  };
+
+  const handleCloseMobileDrawer = useCallback(() => {
+    setMobileDrawerOpen(false);
+    toggleButtonRef.current?.focus();
   }, []);
 
   const handleMouseEnter = (key: DropdownKey) => {
@@ -72,17 +119,17 @@ export function Header() {
         {/* Bar 1 — Emergency Hotlines / Quick Contacts */}
         <QuickContacts />
 
-        {/* Bar 2 — Live Ticker Bar */}
+        {/* Bar 2 — Live Ticker Bar (Single-line on mobile & desktop) */}
         <div className="bg-stone-950/80 border-t border-stone-800/80 text-stone-400">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1.5 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono-tabular">
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-7 sm:h-8 flex flex-nowrap items-center justify-between overflow-hidden whitespace-nowrap font-mono-tabular ticker-bar-text">
+            <div className="flex flex-nowrap items-center gap-1.5 sm:gap-3 shrink-0">
               <FxTicker />
-              <span aria-hidden="true">|</span>
-              <span className="text-stone-300">Marawi City 22°C</span>
-              <span aria-hidden="true">|</span>
+              <span aria-hidden="true" className="text-stone-600 select-none">|</span>
+              <span className="text-stone-300 shrink-0 whitespace-nowrap">Marawi City 22°C</span>
+              <span aria-hidden="true" className="text-stone-600 select-none">|</span>
               <LiveClock />
             </div>
-            <div className="hidden sm:flex items-center gap-2 text-stone-400">
+            <div className="hidden sm:flex items-center gap-2 text-stone-400 shrink-0">
               <span>Islamic City of Marawi, Lanao del Sur · 700m ASL</span>
             </div>
           </div>
@@ -92,9 +139,9 @@ export function Header() {
       {/* Main Sticky Header */}
       <header
         ref={navRef}
-        className="sticky top-0 z-40 bg-surface/95 backdrop-blur-md border-b border-stone-200/90"
+        className="sticky top-0 z-50 bg-surface/95 backdrop-blur-md border-b border-stone-200/90"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2 sm:gap-8">
           {/* Brand Wordmark & Logo */}
           <Link
             href="/"
@@ -247,26 +294,37 @@ export function Header() {
           </nav>
 
           {/* Right Utility: Language Selector & Mobile Trigger */}
-          <div className="flex items-center gap-2">
-            <LanguageSwitcher />
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <LanguageSwitcher
+              isOpen={langDropdownOpen}
+              onOpenChange={handleLangDropdownChange}
+            />
 
             <button
+              ref={toggleButtonRef}
               type="button"
+              id="mobile-menu-toggle"
               aria-expanded={mobileDrawerOpen}
-              aria-label="Open navigation menu"
-              onClick={() => setMobileDrawerOpen(!mobileDrawerOpen)}
+              aria-controls="mobile-nav-drawer"
+              aria-label={mobileDrawerOpen ? "Close menu" : "Open menu"}
+              onClick={handleToggleMobileDrawer}
               className="lg:hidden p-2 rounded-lg text-stone-700 hover:bg-stone-200/60 focus-visible:outline-2 focus-visible:outline-emerald-800"
             >
-              <Menu className="w-6 h-6" />
+              {mobileDrawerOpen ? (
+                <X className="w-6 h-6" aria-hidden="true" />
+              ) : (
+                <Menu className="w-6 h-6" aria-hidden="true" />
+              )}
             </button>
           </div>
         </div>
-
-        <MobileNav
-          isOpen={mobileDrawerOpen}
-          onClose={() => setMobileDrawerOpen(false)}
-        />
       </header>
+
+      <MobileNav
+        isOpen={mobileDrawerOpen}
+        onClose={handleCloseMobileDrawer}
+        topOffset={headerBottom}
+      />
     </>
   );
 }

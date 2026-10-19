@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef, useEffect, useId } from 'react';
+import React, { useState, useRef, useEffect, useId, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
 import { Globe, ChevronDown, Check } from 'lucide-react';
 import { useTranslation } from '@/i18n';
@@ -20,21 +20,49 @@ const LANGUAGES: LanguageOption[] = [
 
 interface LanguageSwitcherProps {
   fullWidth?: boolean;
+  isOpen?: boolean;
+  onOpenChange?: (open: boolean) => void;
 }
 
-export function LanguageSwitcher({ fullWidth = false }: LanguageSwitcherProps) {
+export function LanguageSwitcher({
+  fullWidth = false,
+  isOpen: controlledIsOpen,
+  onOpenChange,
+}: LanguageSwitcherProps) {
   const { language, setLanguage } = useTranslation();
-  const [isOpen, setIsOpen] = useState(false);
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
+  const isControlled = controlledIsOpen !== undefined;
+  const isOpen = isControlled ? controlledIsOpen : internalIsOpen;
+
+  const isOpenRef = useRef(isOpen);
+  isOpenRef.current = isOpen;
+
+  const setIsOpen = useCallback(
+    (next: boolean | ((prev: boolean) => boolean)) => {
+      if (isControlled) {
+        const nextVal = typeof next === 'function' ? next(isOpenRef.current) : next;
+        onOpenChange?.(nextVal);
+      } else {
+        setInternalIsOpen(next);
+      }
+    },
+    [isControlled, onOpenChange]
+  );
+
   const [focusedIndex, setFocusedIndex] = useState<number>(-1);
   const pathname = usePathname();
+  const prevPathname = useRef(pathname);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const listboxId = useId();
 
-  // Close on route change
+  // Close on actual route change
   useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
+    if (prevPathname.current !== pathname) {
+      prevPathname.current = pathname;
+      setIsOpen(false);
+    }
+  }, [pathname, setIsOpen]);
 
   // Handle outside click/tap using pointerdown
   useEffect(() => {
@@ -50,7 +78,7 @@ export function LanguageSwitcher({ fullWidth = false }: LanguageSwitcherProps) {
     return () => {
       document.removeEventListener('pointerdown', handleClickOutside);
     };
-  }, [isOpen]);
+  }, [isOpen, setIsOpen]);
 
   // Set focused index to current language when opening
   useEffect(() => {
@@ -158,7 +186,7 @@ export function LanguageSwitcher({ fullWidth = false }: LanguageSwitcherProps) {
           aria-label="Select language"
           aria-activedescendant={focusedIndex >= 0 ? `lang-option-${LANGUAGES[focusedIndex].code}` : undefined}
           tabIndex={-1}
-          className={`absolute z-50 mt-1.5 py-1 bg-white rounded-xl shadow-lg border border-stone-200/90 text-stone-900 animate-in fade-in-0 zoom-in-95 duration-100 ${
+          className={`absolute z-[60] mt-1.5 py-1 bg-white rounded-xl shadow-lg border border-stone-200/90 text-stone-900 animate-in fade-in-0 zoom-in-95 duration-100 ${
             fullWidth ? 'left-0 right-0 w-full' : 'right-0 w-48 sm:w-52'
           }`}
         >

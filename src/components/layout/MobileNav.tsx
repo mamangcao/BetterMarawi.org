@@ -1,24 +1,56 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import Image from 'next/image';
-import { ChevronDown, Phone, X } from 'lucide-react';
+import { ChevronDown, Phone } from 'lucide-react';
+import { ArrowUpRight } from '@/components/ui';
 import { NAV_DROPDOWNS } from '@/config/site';
 import { ITEM_ICONS } from './navIcons';
-import { LanguageSwitcher } from './LanguageSwitcher';
 
 type DropdownKey = 'services' | 'government' | 'transparency' | 'statistics';
 
 interface MobileNavProps {
   isOpen: boolean;
   onClose: () => void;
+  topOffset?: number;
 }
 
-export function MobileNav({ isOpen, onClose }: MobileNavProps) {
+export function MobileNav({ isOpen, onClose, topOffset = 64 }: MobileNavProps) {
   const pathname = usePathname();
   const [mobileAccordion, setMobileAccordion] = useState<DropdownKey | null>('services');
+  const prevPathname = useRef(pathname);
+
+  // Close on route change
+  useEffect(() => {
+    if (prevPathname.current !== pathname) {
+      prevPathname.current = pathname;
+      onClose();
+    }
+  }, [pathname, onClose]);
+
+  // Lock body scroll while open
+  useEffect(() => {
+    if (isOpen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [isOpen]);
+
+  // Close on Escape key
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -30,36 +62,25 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
   ];
 
   return (
-    <div className="lg:hidden fixed inset-0 top-16 z-50 bg-stone-950/50 backdrop-blur-xs flex justify-end">
-      <div className="w-full max-w-md bg-surface h-[calc(100vh-4rem)] overflow-y-auto border-l border-stone-200 p-5 flex flex-col justify-between shadow-2xl">
+    <div
+      id="mobile-nav-drawer"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Navigation menu"
+      className="lg:hidden fixed inset-x-0 bottom-0 z-40 bg-stone-950/50 backdrop-blur-xs flex justify-end"
+      style={{ top: `${topOffset}px` }}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          onClose();
+        }
+      }}
+    >
+      <div
+        className="w-full max-w-md bg-surface h-full overflow-y-auto border-l border-stone-200 p-4 sm:p-5 pt-3.5 sm:pt-4 flex flex-col justify-between shadow-2xl"
+        style={{ maxHeight: `calc(100dvh - ${topOffset}px)` }}
+      >
         <div className="space-y-2">
-          <div className="flex items-center justify-between pb-3 border-b border-stone-200">
-            <Link href="/" onClick={onClose} className="flex items-center gap-2">
-              <Image
-                src="/branding/logo.png"
-                alt="BetterMarawi.org logo"
-                width={2000}
-                height={2000}
-                className="h-8 sm:h-9 w-auto shrink-0"
-                priority
-              />
-              <span className="font-display font-bold text-stone-900 text-lg">BetterMarawi.org</span>
-            </Link>
-            <button
-              type="button"
-              onClick={onClose}
-              aria-label="Close menu"
-              className="p-1.5 rounded-lg text-stone-600 hover:bg-stone-200"
-            >
-              <X className="w-5 h-5" />
-            </button>
-          </div>
-
-          {/* Language Switcher in Mobile Drawer */}
-          <div className="py-2 border-b border-stone-200/80">
-            <LanguageSwitcher fullWidth />
-          </div>
-
+          {/* First Item: Home directly (14px padding above, no empty row/divider) */}
           <Link
             href="/"
             onClick={onClose}
@@ -101,6 +122,14 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
 
                 {expanded && (
                   <div className="mt-1 pl-3 space-y-1">
+                    <Link
+                      href={rootHref}
+                      onClick={onClose}
+                      className="flex items-center gap-1 px-3 py-1.5 text-xs font-semibold text-emerald-800 hover:text-emerald-950"
+                    >
+                      View All {label}
+                      <ArrowUpRight className="w-3 h-3" />
+                    </Link>
                     {items.map((sub) => (
                       <Link
                         key={sub.href}
@@ -188,4 +217,3 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
     </div>
   );
 }
-
