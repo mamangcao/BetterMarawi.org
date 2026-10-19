@@ -94,18 +94,19 @@ export function HeroSearchCard({ popularServices, searchableServices }: HeroSear
   };
 
   return (
-    <div className="bg-[#F9FEFF] rounded-3xl shadow-2xl p-6 sm:p-8 text-foreground border border-stone-200/80">
-      <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground font-display mb-4">
+    <div className="w-full bg-[#F9FEFF] rounded-3xl shadow-xl p-5 sm:p-8 text-foreground border border-stone-200/80">
+      {/* Heading: body sans font, text-xl, semibold */}
+      <h2 className="text-xl font-semibold tracking-tight text-foreground mb-5">
         Search Services
       </h2>
 
-      {/* Instant Search Bar */}
+      {/* Instant Search Bar (h-[52px], rounded-xl, 18px icon) */}
       <div className="relative">
         <label htmlFor="hero-card-search" className="sr-only">
           Search for a service
         </label>
         <div className="relative flex items-center">
-          <Search className="w-5 h-5 text-foreground-subtle absolute left-4 pointer-events-none" aria-hidden="true" />
+          <Search className="w-[18px] h-[18px] text-foreground-subtle absolute left-4 pointer-events-none" aria-hidden="true" />
           <input
             id="hero-card-search"
             ref={inputRef}
@@ -114,13 +115,12 @@ export function HeroSearchCard({ popularServices, searchableServices }: HeroSear
             onChange={(e) => setSearchQuery(e.target.value)}
             onFocus={() => setIsFocused(true)}
             onBlur={() => {
-              // Delay blur so clicks on results register
               setTimeout(() => setIsFocused(false), 200);
             }}
             onKeyDown={handleKeyDown}
             placeholder="Search for a service..."
             autoComplete="off"
-            className="w-full h-12 sm:h-14 pl-12 pr-10 rounded-xl border border-stone-300 bg-white text-sm text-foreground placeholder:text-foreground-subtle/70 shadow-xs focus:outline-hidden focus:ring-2 focus:ring-brand-800 focus:border-brand-800 transition-shadow"
+            className="w-full h-[52px] pl-11 pr-10 rounded-xl border border-stone-300 bg-white text-base text-foreground placeholder:text-foreground-subtle/70 shadow-xs focus:outline-hidden focus:ring-2 focus:ring-brand-800 focus:border-brand-800 transition-shadow"
           />
           {searchQuery && (
             <button
@@ -136,11 +136,11 @@ export function HeroSearchCard({ popularServices, searchableServices }: HeroSear
           )}
         </div>
 
-        {/* Live Search Results Dropdown inside the Card */}
+        {/* Live Search Results Overlay: Absolute overlay directly under input */}
         {showResults && (
           <div
             ref={resultsContainerRef}
-            className="absolute left-0 right-0 top-full mt-2 bg-white rounded-2xl shadow-xl border border-stone-200/90 z-30 divide-y divide-stone-100 max-h-72 overflow-y-auto overflow-hidden animate-in fade-in-0 duration-150"
+            className="absolute left-0 right-0 top-full mt-1.5 bg-white rounded-xl shadow-lg border border-stone-200/90 z-30 divide-y divide-stone-100 max-h-[280px] overflow-y-auto overflow-hidden animate-in fade-in-0 duration-150"
           >
             {filteredResults.length > 0 ? (
               filteredResults.map((item, index) => {
@@ -150,13 +150,13 @@ export function HeroSearchCard({ popularServices, searchableServices }: HeroSear
                   <Link
                     key={item.slug}
                     href={`/services/${item.slug}`}
-                    className={`flex items-start gap-3 p-3.5 transition-colors ${
+                    className={`flex items-start gap-3 p-3 transition-colors ${
                       isSelected
                         ? 'bg-brand-50 text-brand-950'
                         : 'hover:bg-brand-50/60 text-stone-900'
                     }`}
                   >
-                    <div className="p-2 rounded-lg bg-brand-50 text-brand-900 shrink-0 mt-0.5">
+                    <div className="p-1.5 rounded-lg bg-brand-50 text-brand-900 shrink-0 mt-0.5">
                       <Icon className="w-4 h-4" />
                     </div>
                     <div className="flex-1 min-w-0">
@@ -172,7 +172,7 @@ export function HeroSearchCard({ popularServices, searchableServices }: HeroSear
                 );
               })
             ) : (
-              <div className="p-5 text-center text-xs text-stone-500 font-medium">
+              <div className="p-4 text-center text-xs text-stone-500 font-medium">
                 No services found matching &ldquo;{searchQuery}&rdquo;
               </div>
             )}
@@ -180,15 +180,15 @@ export function HeroSearchCard({ popularServices, searchableServices }: HeroSear
         )}
       </div>
 
-      {/* POPULAR SERVICES Header */}
-      <div className="mt-7 mb-3.5 flex items-center justify-between">
-        <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-foreground-muted">
+      {/* POPULAR SERVICES Header: 28px gap above, 12px below */}
+      <div className="mt-7 mb-3">
+        <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-foreground-muted">
           Popular Services
         </span>
       </div>
 
-      {/* 3x2 Grid of Tiles */}
-      <div className="grid grid-cols-2 min-[380px]:grid-cols-3 gap-2.5 sm:gap-3">
+      {/* 3x2 Grid of Tiles: min-height ~100px, 44-46px icon box, 22px icon, 14px font-medium label */}
+      <div className="grid grid-cols-2 min-[380px]:grid-cols-3 gap-3">
         {popularServices.map((service) => {
           const Icon = SERVICE_ICONS[service.slug] || Briefcase;
 
@@ -196,13 +196,13 @@ export function HeroSearchCard({ popularServices, searchableServices }: HeroSear
             <Link
               key={service.slug}
               href={`/services/${service.slug}`}
-              className="group flex flex-col items-center text-center justify-center p-3.5 sm:p-4 rounded-2xl border border-stone-200/90 bg-white hover:border-brand-800 hover:shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-800 transition-all motion-safe:hover:-translate-y-0.5"
+              className="group flex flex-col items-center text-center justify-center min-h-[100px] p-3.5 sm:p-4 rounded-2xl border border-stone-200/90 bg-white hover:border-brand-800 hover:shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-800 transition-all motion-safe:hover:-translate-y-0.5"
             >
-              {/* Rounded icon box with brand-green tint, switches to #FFE135 on hover */}
-              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-brand-50 text-brand-900 group-hover:bg-accent group-hover:text-brand-950 flex items-center justify-center transition-colors shrink-0 mb-2">
-                <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
+              {/* 44px-46px rounded-xl icon box with soft brand green tint */}
+              <div className="w-11 h-11 sm:w-[46px] sm:h-[46px] rounded-xl bg-brand-50 text-brand-900 group-hover:bg-accent group-hover:text-brand-950 flex items-center justify-center transition-colors shrink-0 mb-2">
+                <Icon className="w-[22px] h-[22px]" />
               </div>
-              <span className="text-xs sm:text-sm font-semibold text-stone-900 group-hover:text-brand-950 line-clamp-2 leading-tight">
+              <span className="text-sm font-medium text-stone-900 group-hover:text-brand-950 line-clamp-2 leading-tight">
                 {service.title}
               </span>
             </Link>
