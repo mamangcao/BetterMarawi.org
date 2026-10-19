@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import React, { useState, useRef, useEffect } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { usePathname } from 'next/navigation';
-import { ChevronDown, Menu } from 'lucide-react';
-import { ArrowUpRight } from '@/components/ui';
-import { NAV_DROPDOWNS } from '@/config/site';
-import { LanguageSwitcher } from './LanguageSwitcher';
-import { LiveClock } from './LiveClock';
-import { MobileNav } from './MobileNav';
-import { QuickContacts } from './QuickContacts';
-import { ITEM_ICONS } from './navIcons';
+import React, { useState, useRef, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { ChevronDown, Menu } from "lucide-react";
+import { ArrowUpRight } from "@/components/ui";
+import { NAV_DROPDOWNS } from "@/config/site";
+import { LanguageSwitcher } from "./LanguageSwitcher";
+import { LiveClock } from "./LiveClock";
+import { MobileNav } from "./MobileNav";
+import { QuickContacts } from "./QuickContacts";
+import { ITEM_ICONS } from "./navIcons";
 
-type DropdownKey = 'services' | 'government' | 'transparency' | 'statistics';
+type DropdownKey = "services" | "government" | "transparency" | "statistics";
 
 export function Header() {
   const pathname = usePathname();
@@ -24,7 +24,7 @@ export function Header() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
+      if (e.key === "Escape") {
         setOpenDropdown(null);
         setMobileDrawerOpen(false);
       }
@@ -34,11 +34,11 @@ export function Header() {
         setOpenDropdown(null);
       }
     };
-    window.addEventListener('keydown', handleKeyDown);
-    document.addEventListener('mousedown', handleClickOutside);
+    window.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      document.removeEventListener('mousedown', handleClickOutside);
+      window.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -56,12 +56,13 @@ export function Header() {
     }, 140);
   };
 
-  const dropdownMeta: { key: DropdownKey; label: string; rootHref: string }[] = [
-    { key: 'services', label: 'Services', rootHref: '/services' },
-    { key: 'government', label: 'Government', rootHref: '/government' },
-    { key: 'transparency', label: 'Transparency', rootHref: '/transparency' },
-    { key: 'statistics', label: 'Statistics', rootHref: '/statistics' },
-  ];
+  const dropdownMeta: { key: DropdownKey; label: string; rootHref: string }[] =
+    [
+      { key: "services", label: "Services", rootHref: "/services" },
+      { key: "government", label: "Government", rootHref: "/government" },
+      { key: "transparency", label: "Transparency", rootHref: "/transparency" },
+      { key: "statistics", label: "Statistics", rootHref: "/statistics" },
+    ];
 
   return (
     <>
@@ -98,17 +99,24 @@ export function Header() {
           {/* Brand Wordmark & Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2.5 text-xl font-bold tracking-tight text-stone-900 font-display whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
+            className="flex items-center text-xl font-bold tracking-tight text-stone-900 font-display whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
           >
             <Image
               src="/branding/logo.png"
               alt="BetterMarawi.org logo"
               width={2000}
               height={2000}
-              className="h-9 sm:h-10 lg:h-11 w-auto shrink-0"
+              className="h-18 sm:h-18 lg:h-20 w-auto shrink-0"
               priority
             />
-            <span>BetterMarawi.org</span>
+
+            <span className="flex flex-col leading-none text-primary">
+              <span>Better</span>
+              <span>Marawi</span>
+              <span className="-mt-0.5 self-end text-xs text-stone-700 sm:text-sm font-medium leading-none">
+                .org
+              </span>
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -119,9 +127,9 @@ export function Header() {
             <Link
               href="/"
               className={`py-2 transition-colors whitespace-nowrap shrink-0 border-b-2 ${
-                pathname === '/'
-                  ? 'border-emerald-800 text-emerald-950 font-semibold'
-                  : 'border-transparent hover:text-stone-950'
+                pathname === "/"
+                  ? "border-emerald-800 text-emerald-950 font-semibold"
+                  : "border-transparent hover:text-stone-950"
               }`}
             >
               Home
@@ -129,9 +137,10 @@ export function Header() {
 
             {dropdownMeta.map(({ key, label, rootHref }) => {
               const isOpen = openDropdown === key;
-              const isActive = pathname === rootHref || pathname.startsWith(`${rootHref}/`);
+              const isActive =
+                pathname === rootHref || pathname.startsWith(`${rootHref}/`);
               const items = NAV_DROPDOWNS[key];
-              const isWideGrid = key === 'services';
+              const isWideGrid = key === "services";
 
               return (
                 <div
@@ -145,8 +154,8 @@ export function Header() {
                       href={rootHref}
                       className={`py-2 transition-colors whitespace-nowrap shrink-0 border-b-2 ${
                         isActive
-                          ? 'border-emerald-800 text-emerald-950 font-semibold'
-                          : 'border-transparent hover:text-stone-950'
+                          ? "border-emerald-800 text-emerald-950 font-semibold"
+                          : "border-transparent hover:text-stone-950"
                       }`}
                     >
                       {label}
@@ -159,7 +168,7 @@ export function Header() {
                     >
                       <ChevronDown
                         className={`w-3.5 h-3.5 transition-transform duration-150 ${
-                          isOpen ? 'rotate-180 text-emerald-800' : ''
+                          isOpen ? "rotate-180 text-emerald-800" : ""
                         }`}
                       />
                     </button>
@@ -168,10 +177,18 @@ export function Header() {
                   {isOpen && (
                     <div
                       className={`absolute top-full left-0 mt-1 bg-white rounded-xl shadow-xl border border-stone-200/90 py-3 z-50 animate-in fade-in-0 duration-150 ${
-                        isWideGrid ? 'w-[640px] grid grid-cols-2 gap-1 p-3' : 'w-72'
+                        isWideGrid
+                          ? "w-[640px] grid grid-cols-2 gap-1 p-3"
+                          : "w-72"
                       }`}
                     >
-                      <div className={isWideGrid ? 'col-span-2 px-3 pb-2 mb-1 border-b border-stone-100 flex items-center justify-between' : 'px-4 pb-2 mb-1 border-b border-stone-100 flex items-center justify-between'}>
+                      <div
+                        className={
+                          isWideGrid
+                            ? "col-span-2 px-3 pb-2 mb-1 border-b border-stone-100 flex items-center justify-between"
+                            : "px-4 pb-2 mb-1 border-b border-stone-100 flex items-center justify-between"
+                        }
+                      >
                         <span className="text-[11px] font-bold uppercase tracking-wider text-stone-700">
                           {label} Directory
                         </span>
@@ -194,11 +211,13 @@ export function Header() {
                             onClick={() => setOpenDropdown(null)}
                             className={`flex items-start gap-3 p-2.5 rounded-lg transition-colors group ${
                               isSubActive
-                                ? 'bg-emerald-50 text-emerald-950 font-semibold'
-                                : 'hover:bg-stone-50 text-stone-700'
+                                ? "bg-emerald-50 text-emerald-950 font-semibold"
+                                : "hover:bg-stone-50 text-stone-700"
                             }`}
                           >
-                            <span className="mt-0.5">{ITEM_ICONS[sub.href]}</span>
+                            <span className="mt-0.5">
+                              {ITEM_ICONS[sub.href]}
+                            </span>
                             <div>
                               <div className="text-xs font-semibold text-stone-900 group-hover:text-emerald-900">
                                 {sub.label}
@@ -219,9 +238,9 @@ export function Header() {
             <Link
               href="/contact"
               className={`py-2 transition-colors whitespace-nowrap shrink-0 border-b-2 ${
-                pathname === '/contact'
-                  ? 'border-emerald-800 text-emerald-950 font-semibold'
-                  : 'border-transparent hover:text-stone-950'
+                pathname === "/contact"
+                  ? "border-emerald-800 text-emerald-950 font-semibold"
+                  : "border-transparent hover:text-stone-950"
               }`}
             >
               Contact
@@ -244,9 +263,11 @@ export function Header() {
           </div>
         </div>
 
-        <MobileNav isOpen={mobileDrawerOpen} onClose={() => setMobileDrawerOpen(false)} />
+        <MobileNav
+          isOpen={mobileDrawerOpen}
+          onClose={() => setMobileDrawerOpen(false)}
+        />
       </header>
     </>
   );
 }
-
