@@ -1,5 +1,6 @@
 import React from 'react';
 import { BUDGET_BREAKDOWN_2026 } from '@/data/budget';
+import { formatWithPeso } from '@/components/ui';
 
 export function BudgetChart() {
   return (
@@ -9,19 +10,19 @@ export function BudgetChart() {
         <div className="bg-white rounded-xl border border-stone-200/90 p-5">
           <div className="text-xs text-stone-500">FY 2026 Total Annual Budget</div>
           <div className="text-2xl font-bold text-stone-950 font-mono-tabular mt-1">
-            {BUDGET_BREAKDOWN_2026.totalBudget}
+            {formatWithPeso(BUDGET_BREAKDOWN_2026.totalBudget)}
           </div>
         </div>
         <div className="bg-white rounded-xl border border-stone-200/90 p-5">
           <div className="text-xs text-stone-500">National Tax Allotment (NTA)</div>
           <div className="text-lg font-bold text-emerald-900 font-mono-tabular mt-1">
-            {BUDGET_BREAKDOWN_2026.ntaShare}
+            {formatWithPeso(BUDGET_BREAKDOWN_2026.ntaShare)}
           </div>
         </div>
         <div className="bg-white rounded-xl border border-stone-200/90 p-5">
           <div className="text-xs text-stone-500">Local Revenue Sources</div>
           <div className="text-lg font-bold text-stone-900 font-mono-tabular mt-1">
-            {BUDGET_BREAKDOWN_2026.localSources}
+            {formatWithPeso(BUDGET_BREAKDOWN_2026.localSources)}
           </div>
         </div>
       </div>
@@ -45,7 +46,7 @@ export function BudgetChart() {
                   {item.sector}
                 </h3>
                 <div className="text-sm font-mono-tabular font-bold text-emerald-900">
-                  {item.amount} ({item.percentage}%)
+                  {formatWithPeso(item.amount)} ({item.percentage}%)
                 </div>
               </div>
               <div className="w-full h-3 bg-stone-100 rounded-full overflow-hidden">

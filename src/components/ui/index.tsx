@@ -103,3 +103,4 @@ export function Input({ className, ...props }: InputProps) {
 }
 
 export * from './ArrowUpRight';
+export * from './CurrencySymbol';

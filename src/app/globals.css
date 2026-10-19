@@ -118,7 +118,7 @@
   }
 
   .font-mono-tabular {
-    font-family: var(--font-mono), monospace;
+    font-family: var(--font-mono), var(--font-sans), monospace;
     font-variant-numeric: tabular-nums;
   }
 }
@@ -127,9 +127,39 @@
   font-variant-numeric: tabular-nums;
 }
 
+.peso {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: baseline;
+}
+
 .arrow-text {
   font-variant-emoji: text;
   font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+@keyframes fx-slide {
+  0% {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fx-slide {
+  animation: fx-slide 300ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fx-slide {
+    animation: none;
+    transform: none;
+  }
 }
 
 @keyframes marquee {

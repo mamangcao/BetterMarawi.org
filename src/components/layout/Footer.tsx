@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Code2, Leaf, Users } from 'lucide-react';
-import { ArrowUpRight } from '@/components/ui';
+import { ArrowUpRight, Peso } from '@/components/ui';
 
 export function Footer() {
   return (
@@ -140,7 +140,7 @@ export function Footer() {
         <div className="pt-8 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 text-xs text-stone-400">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
             <span className="text-accent font-semibold font-mono-tabular">
-              Cost to the People of Marawi: ₱0
+              Cost to the People of Marawi: <Peso />0
             </span>
             <span aria-hidden="true" className="text-stone-700">·</span>
             <Link

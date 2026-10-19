@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { ChevronDown, Phone, X } from 'lucide-react';
 import { NAV_DROPDOWNS } from '@/config/site';
 import { ITEM_ICONS } from './navIcons';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 type DropdownKey = 'services' | 'government' | 'transparency' | 'statistics';
 
@@ -52,6 +53,11 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
             >
               <X className="w-5 h-5" />
             </button>
+          </div>
+
+          {/* Language Switcher in Mobile Drawer */}
+          <div className="py-2 border-b border-stone-200/80">
+            <LanguageSwitcher fullWidth />
           </div>
 
           <Link

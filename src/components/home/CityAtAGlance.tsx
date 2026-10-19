@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Phone } from 'lucide-react';
-import { ArrowUpRight } from '@/components/ui';
+import { ArrowUpRight, Peso } from '@/components/ui';
 
 export function CityAtAGlance() {
   return (
@@ -118,7 +118,7 @@ export function CityAtAGlance() {
 
               {/* 3 Highlight Metrics */}
               <div className="pt-2 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-accent font-mono-tabular">
-                <span>₱20k Maintenance Medicines</span>
+                <span><Peso />20k Maintenance Medicines</span>
                 <span aria-hidden="true" className="text-emerald-700">·</span>
                 <span>13 Covered Labs (CBC, ECG, etc.)</span>
                 <span aria-hidden="true" className="text-emerald-700">·</span>

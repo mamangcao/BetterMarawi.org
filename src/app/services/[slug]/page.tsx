@@ -10,6 +10,7 @@ import { FeeSchedule } from '@/components/services/FeeSchedule';
 import { ServiceFAQ } from '@/components/services/ServiceFAQ';
 import { ServiceSidebar } from '@/components/services/ServiceSidebar';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
+import { formatWithPeso } from '@/components/ui';
 import { JsonLd } from '@/components/seo/JsonLd';
 import {
   buildBreadcrumbSchema,
@@ -88,7 +89,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   >
                     <div className="text-xs text-stone-500">{h.label}</div>
                     <div className="text-sm font-bold text-stone-900 font-mono-tabular mt-0.5">
-                      {h.value}
+                      {formatWithPeso(h.value)}
                     </div>
                   </div>
                 ))}

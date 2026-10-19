@@ -1,5 +1,6 @@
 import React from 'react';
 import { FeeItem } from '@/types';
+import { formatWithPeso } from '@/components/ui';
 
 interface FeeScheduleProps {
   fees: FeeItem[];
@@ -33,7 +34,7 @@ export function FeeSchedule({ fees }: FeeScheduleProps) {
                   {fee.particular}
                 </td>
                 <td className="py-3.5 px-4 font-mono-tabular font-bold text-emerald-900 whitespace-nowrap">
-                  {fee.amount}
+                  {formatWithPeso(fee.amount)}
                 </td>
                 <td className="py-3.5 pl-4 text-xs text-stone-500">
                   {fee.legalBasis}

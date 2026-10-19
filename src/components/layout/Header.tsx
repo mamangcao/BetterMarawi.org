@@ -11,6 +11,7 @@ import { LanguageSwitcher } from "./LanguageSwitcher";
 import { LiveClock } from "./LiveClock";
 import { MobileNav } from "./MobileNav";
 import { QuickContacts } from "./QuickContacts";
+import { FxTicker } from "./FxTicker";
 import { ITEM_ICONS } from "./navIcons";
 
 type DropdownKey = "services" | "government" | "transparency" | "statistics";
@@ -75,9 +76,7 @@ export function Header() {
         <div className="bg-stone-950/80 border-t border-stone-800/80 text-stone-400">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1.5 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono-tabular">
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-              <span>€1 EUR = ₱63.80</span>
-              <span aria-hidden="true">|</span>
-              <span>$1 USD = ₱57.40</span>
+              <FxTicker />
               <span aria-hidden="true">|</span>
               <span className="text-stone-300">Marawi City 22°C</span>
               <span aria-hidden="true">|</span>
