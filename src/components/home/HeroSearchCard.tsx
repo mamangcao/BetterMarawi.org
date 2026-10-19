@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React, { useState, useMemo, useRef, useEffect } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import React, { useState, useMemo, useRef, useEffect } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   Search,
   Briefcase,
@@ -16,33 +16,50 @@ import {
   Trash2,
   Trees,
   Compass,
-} from 'lucide-react';
-import { ArrowUpRight } from '@/components/ui';
-import { ServicePageData } from '@/types';
+} from "lucide-react";
+import { ArrowUpRight } from "@/components/ui";
+import { ServicePageData } from "@/types";
 
 // Map slug to Lucide Icon component for the popular service tiles
-const SERVICE_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
-  'business-and-livelihood': Briefcase,
-  'health-services': Stethoscope,
-  'social-welfare': HeartHandshake,
-  'housing-and-land-use': HomeIcon,
-  'education': GraduationCap,
-  'disaster-preparedness': ShieldAlert,
-  'agriculture-and-fisheries': Sprout,
-  'infrastructure-and-public-works': Hammer,
-  'garbage-and-waste-disposal': Trash2,
-  'environment': Trees,
-  'tourism': Compass,
+const SERVICE_ICONS: Record<
+  string,
+  React.ComponentType<{ className?: string }>
+> = {
+  "business-and-livelihood": Briefcase,
+  "health-services": Stethoscope,
+  "social-welfare": HeartHandshake,
+  "housing-and-land-use": HomeIcon,
+  education: GraduationCap,
+  "disaster-preparedness": ShieldAlert,
+  "agriculture-and-fisheries": Sprout,
+  "infrastructure-and-public-works": Hammer,
+  "garbage-and-waste-disposal": Trash2,
+  environment: Trees,
+  tourism: Compass,
 };
+
+const POPULAR_SERVICE_SLUGS = [
+  "health-services",
+  "education",
+  "social-welfare",
+  "business-and-livelihood",
+];
 
 interface HeroSearchCardProps {
   popularServices: ServicePageData[];
-  searchableServices: { slug: string; title: string; shortDescription: string }[];
+  searchableServices: {
+    slug: string;
+    title: string;
+    shortDescription: string;
+  }[];
 }
 
-export function HeroSearchCard({ popularServices, searchableServices }: HeroSearchCardProps) {
+export function HeroSearchCard({
+  popularServices,
+  searchableServices,
+}: HeroSearchCardProps) {
   const router = useRouter();
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [isFocused, setIsFocused] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -55,7 +72,7 @@ export function HeroSearchCard({ popularServices, searchableServices }: HeroSear
       .filter(
         (s) =>
           s.title.toLowerCase().includes(q) ||
-          s.shortDescription.toLowerCase().includes(q)
+          s.shortDescription.toLowerCase().includes(q),
       )
       .slice(0, 6);
   }, [searchQuery, searchableServices]);
@@ -70,28 +87,36 @@ export function HeroSearchCard({ popularServices, searchableServices }: HeroSear
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (!showResults) return;
 
-    if (e.key === 'ArrowDown') {
+    if (e.key === "ArrowDown") {
       e.preventDefault();
       setSelectedIndex((prev) =>
-        prev < filteredResults.length - 1 ? prev + 1 : 0
+        prev < filteredResults.length - 1 ? prev + 1 : 0,
       );
-    } else if (e.key === 'ArrowUp') {
+    } else if (e.key === "ArrowUp") {
       e.preventDefault();
       setSelectedIndex((prev) =>
-        prev > 0 ? prev - 1 : filteredResults.length - 1
+        prev > 0 ? prev - 1 : filteredResults.length - 1,
       );
-    } else if (e.key === 'Enter') {
+    } else if (e.key === "Enter") {
       if (selectedIndex >= 0 && selectedIndex < filteredResults.length) {
         e.preventDefault();
         const selected = filteredResults[selectedIndex];
         router.push(`/services/${selected.slug}`);
       }
-    } else if (e.key === 'Escape') {
+    } else if (e.key === "Escape") {
       e.preventDefault();
       inputRef.current?.blur();
       setIsFocused(false);
     }
   };
+
+  const featuredPopularServices = POPULAR_SERVICE_SLUGS.flatMap((slug) => {
+    const service =
+      popularServices.find((s) => s.slug === slug) ??
+      searchableServices.find((s) => s.slug === slug);
+
+    return service ? [service] : [];
+  });
 
   return (
     <div className="w-full bg-[#F9FEFF] rounded-3xl shadow-xl p-5 sm:p-8 text-foreground border border-stone-200/80">
@@ -99,14 +124,16 @@ export function HeroSearchCard({ popularServices, searchableServices }: HeroSear
       <h2 className="text-xl font-semibold tracking-tight text-foreground font-sans mb-5">
         Search Services
       </h2>
-
       {/* Instant Search Bar (h-[52px], rounded-xl, 18px icon) */}
       <div className="relative">
         <label htmlFor="hero-card-search" className="sr-only">
           Search for a service
         </label>
         <div className="relative flex items-center">
-          <Search className="w-[18px] h-[18px] text-foreground-subtle absolute left-4 pointer-events-none" aria-hidden="true" />
+          <Search
+            className="w-[18px] h-[18px] text-foreground-subtle absolute left-4 pointer-events-none"
+            aria-hidden="true"
+          />
           <input
             id="hero-card-search"
             ref={inputRef}
@@ -126,7 +153,7 @@ export function HeroSearchCard({ popularServices, searchableServices }: HeroSear
             <button
               type="button"
               onClick={() => {
-                setSearchQuery('');
+                setSearchQuery("");
                 inputRef.current?.focus();
               }}
               className="absolute right-3.5 p-1 text-xs font-semibold text-foreground-subtle hover:text-foreground transition-colors"
@@ -152,8 +179,8 @@ export function HeroSearchCard({ popularServices, searchableServices }: HeroSear
                     href={`/services/${item.slug}`}
                     className={`flex items-start gap-3 p-3 transition-colors ${
                       isSelected
-                        ? 'bg-brand-50 text-brand-950'
-                        : 'hover:bg-brand-50/60 text-stone-900'
+                        ? "bg-brand-50 text-brand-950"
+                        : "hover:bg-brand-50/60 text-stone-900"
                     }`}
                   >
                     <div className="p-1.5 rounded-lg bg-brand-50 text-brand-900 shrink-0 mt-0.5">
@@ -179,30 +206,29 @@ export function HeroSearchCard({ popularServices, searchableServices }: HeroSear
           </div>
         )}
       </div>
-
-      {/* POPULAR SERVICES Header: 28px gap above, 12px below */}
+      {/* Popular Services Header */}
       <div className="mt-7 mb-3">
         <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-foreground-muted">
           Popular Services
         </span>
       </div>
-
-      {/* 3x2 Grid of Tiles: min-height ~100px, 44-46px icon box, 22px icon, 14px font-medium label */}
-      <div className="grid grid-cols-2 min-[380px]:grid-cols-3 gap-3">
-        {popularServices.map((service) => {
+      {/* 2x2 Grid of Compact Horizontal Tiles */}
+      <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
+        {featuredPopularServices.map((service) => {
           const Icon = SERVICE_ICONS[service.slug] || Briefcase;
 
           return (
             <Link
               key={service.slug}
               href={`/services/${service.slug}`}
-              className="group flex flex-col items-center text-center justify-center min-h-[100px] p-3 sm:py-3.5 sm:px-3 rounded-2xl border border-stone-200/90 bg-white hover:border-brand-800 hover:shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-800 transition-all motion-safe:hover:-translate-y-0.5"
+              className="group flex items-center justify-start gap-2.5 min-w-0 min-h-[76px] p-3 rounded-xl border border-stone-200/90 bg-white hover:border-brand-800 hover:shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-800 transition-all motion-safe:hover:-translate-y-0.5"
             >
-              {/* 44px-46px rounded-xl icon box with soft brand green tint */}
-              <div className="w-11 h-11 sm:w-[46px] sm:h-[46px] rounded-xl bg-brand-50 text-brand-900 group-hover:bg-accent group-hover:text-brand-950 flex items-center justify-center transition-colors shrink-0 mb-2">
-                <Icon className="w-[22px] h-[22px]" />
+              {/* Icon beside label */}
+              <div className="w-10 h-10 rounded-lg bg-brand-50 text-brand-900 group-hover:bg-accent group-hover:text-brand-950 flex items-center justify-center transition-colors shrink-0">
+                <Icon className="w-5 h-5" aria-hidden="true" />
               </div>
-              <span className="text-sm font-medium text-stone-900 group-hover:text-brand-950 line-clamp-2 leading-tight">
+
+              <span className="min-w-0 text-left text-xs sm:text-sm font-medium text-stone-900 group-hover:text-brand-950 leading-tight line-clamp-2">
                 {service.title}
               </span>
             </Link>
