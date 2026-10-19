@@ -96,7 +96,7 @@ export function HeroSearchCard({ popularServices, searchableServices }: HeroSear
   return (
     <div className="w-full bg-[#F9FEFF] rounded-3xl shadow-xl p-5 sm:p-8 text-foreground border border-stone-200/80">
       {/* Heading: body sans font, text-xl, semibold */}
-      <h2 className="text-xl font-semibold tracking-tight text-foreground mb-5">
+      <h2 className="text-xl font-semibold tracking-tight text-foreground font-sans mb-5">
         Search Services
       </h2>
 
@@ -196,7 +196,7 @@ export function HeroSearchCard({ popularServices, searchableServices }: HeroSear
             <Link
               key={service.slug}
               href={`/services/${service.slug}`}
-              className="group flex flex-col items-center text-center justify-center min-h-[100px] p-3.5 sm:p-4 rounded-2xl border border-stone-200/90 bg-white hover:border-brand-800 hover:shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-800 transition-all motion-safe:hover:-translate-y-0.5"
+              className="group flex flex-col items-center text-center justify-center min-h-[100px] p-3 sm:py-3.5 sm:px-3 rounded-2xl border border-stone-200/90 bg-white hover:border-brand-800 hover:shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-800 transition-all motion-safe:hover:-translate-y-0.5"
             >
               {/* 44px-46px rounded-xl icon box with soft brand green tint */}
               <div className="w-11 h-11 sm:w-[46px] sm:h-[46px] rounded-xl bg-brand-50 text-brand-900 group-hover:bg-accent group-hover:text-brand-950 flex items-center justify-center transition-colors shrink-0 mb-2">

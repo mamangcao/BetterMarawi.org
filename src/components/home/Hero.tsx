@@ -17,12 +17,12 @@ export function Hero() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative bg-brand-900 text-[#F9FEFF] bg-dot-pattern py-14 sm:py-20 lg:py-28 border-b border-brand-950"
+      className="relative bg-brand-900 text-[#F9FEFF] bg-dot-pattern py-14 sm:py-20 lg:py-24 border-b border-brand-950"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 items-center">
-          {/* Left Column (52% on lg: 6 cols or 7 cols with right card taking 5) */}
-          <div className="lg:col-span-7 flex flex-col justify-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_minmax(0,48%)] items-center gap-10 lg:gap-12">
+          {/* Left Column */}
+          <div className="min-w-0 flex flex-col justify-center">
             {/* Small uppercase label */}
             <p className="text-sm font-semibold uppercase tracking-widest text-[#F9FEFF]/80 mb-3">
               WELCOME TO
@@ -31,7 +31,7 @@ export function Hero() {
             {/* Fluid responsive title */}
             <h1
               id="hero-heading"
-              className="font-bold tracking-tight text-[#F9FEFF] font-display text-[clamp(2.75rem,4.2vw,4.5rem)] leading-[1.05]"
+              className="font-bold tracking-tight text-[#F9FEFF] font-display text-[clamp(2.125rem,4.5vw,4.25rem)] leading-[1.05]"
             >
               BetterMarawi.org
             </h1>
@@ -60,8 +60,8 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Card takes ~48% on desktop (5 cols with lg:gap-20) */}
-          <div className="lg:col-span-5 w-full flex justify-end">
+          {/* Right Column: Card takes 48% on desktop */}
+          <div className="w-full flex justify-end">
             <HeroSearchCard
               popularServices={popularServices}
               searchableServices={searchableServices}
