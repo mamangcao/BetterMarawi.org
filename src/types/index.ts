@@ -47,6 +47,8 @@ export interface ServicePageData {
   fees: FeeItem[];
   faqs: FAQItem[];
   highlights: { label: string; value: string }[];
+  popular?: boolean;
+  popularRank?: number;
 }
 
 export interface DepartmentRecord {

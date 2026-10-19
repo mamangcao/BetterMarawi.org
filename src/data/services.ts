@@ -4,6 +4,8 @@ export const SERVICES_DATA: ServicePageData[] = [
   {
     slug: 'health-services',
     title: 'Health Services',
+    popular: true,
+    popularRank: 2,
     shortDescription:
       'Where to go for free check-ups, vaccines, and medicines, which hospitals (APMC, CHO) are available, and details on health programs in your area.',
     heroSummary:
@@ -81,6 +83,8 @@ export const SERVICES_DATA: ServicePageData[] = [
   {
     slug: 'education',
     title: 'Education',
+    popular: true,
+    popularRank: 5,
     shortDescription:
       'Where to enroll kids in daycare, public schools, or Madrasah programs, how to apply for MSU/city scholarships, and what education support your LGU offers.',
     heroSummary:
@@ -153,6 +157,8 @@ export const SERVICES_DATA: ServicePageData[] = [
   {
     slug: 'business-and-livelihood',
     title: 'Business and Livelihood',
+    popular: true,
+    popularRank: 1,
     shortDescription:
       "What permits and clearances you need, where to pay taxes or renew Mayor's permits at BPLO, and what Halal trade or livelihood opportunities are offered.",
     heroSummary:
@@ -227,6 +233,8 @@ export const SERVICES_DATA: ServicePageData[] = [
   {
     slug: 'social-welfare',
     title: 'Social Welfare',
+    popular: true,
+    popularRank: 3,
     shortDescription:
       'What assistance (AICS, CSWDO, MSSD-BARMM) is available for seniors, PWDs, solo parents, IDPs, and indigent families, plus details on relief and livelihood aid.',
     heroSummary:
@@ -585,6 +593,8 @@ export const SERVICES_DATA: ServicePageData[] = [
   {
     slug: 'disaster-preparedness',
     title: 'Disaster Preparedness',
+    popular: true,
+    popularRank: 6,
     shortDescription:
       'CDRRMO disaster preparedness plans, emergency response information, early warning alerts, and evacuation procedures.',
     heroSummary:
@@ -656,6 +666,8 @@ export const SERVICES_DATA: ServicePageData[] = [
   {
     slug: 'housing-and-land-use',
     title: 'Housing & Land Use',
+    popular: true,
+    popularRank: 4,
     shortDescription:
       'How to apply for housing and rehabilitation shelter projects, what zoning and building permits (CPDO/OBO) are needed, and where relocation sites are available.',
     heroSummary:

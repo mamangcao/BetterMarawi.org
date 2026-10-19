@@ -1,177 +1,69 @@
-'use client';
-
-import React, { useState, useMemo } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { Search } from 'lucide-react';
+import { Users } from 'lucide-react';
 import { ArrowUpRight } from '@/components/ui';
-import { useTranslation } from '@/i18n';
+import { getPopularServices } from '@/lib/services';
 import { SERVICES_DATA } from '@/data/services';
-import { NAV_DROPDOWNS } from '@/config/site';
+import { HeroSearchCard } from './HeroSearchCard';
 
 export function Hero() {
-  const { t } = useTranslation();
-  const [searchQuery, setSearchQuery] = useState('');
-
-  const allSearchableRoutes = useMemo(() => {
-    const list: { label: string; href: string; category: string; description: string }[] = [];
-    SERVICES_DATA.forEach((s) => {
-      list.push({
-        label: s.title,
-        href: `/services/${s.slug}`,
-        category: 'Citizen Service',
-        description: s.shortDescription,
-      });
-    });
-    NAV_DROPDOWNS.government.forEach((g) => {
-      list.push({
-        label: g.label,
-        href: g.href,
-        category: 'Government',
-        description: g.description,
-      });
-    });
-    NAV_DROPDOWNS.transparency.forEach((tr) => {
-      list.push({
-        label: tr.label,
-        href: tr.href,
-        category: 'Transparency',
-        description: tr.description,
-      });
-    });
-    NAV_DROPDOWNS.statistics.forEach((st) => {
-      list.push({
-        label: st.label,
-        href: st.href,
-        category: 'Statistics',
-        description: st.description,
-      });
-    });
-    return list;
-  }, []);
-
-  const searchResults = useMemo(() => {
-    if (!searchQuery.trim()) return [];
-    const q = searchQuery.toLowerCase().trim();
-    return allSearchableRoutes
-      .filter(
-        (item) =>
-          item.label.toLowerCase().includes(q) ||
-          item.description.toLowerCase().includes(q) ||
-          item.category.toLowerCase().includes(q)
-      )
-      .slice(0, 6);
-  }, [searchQuery, allSearchableRoutes]);
-
-  const popularLinks = [
-    { label: 'Health Services', href: '/services/health-services' },
-    { label: 'PhilHealth YAKAP', href: '/services/health-services' },
-    { label: 'Business Permits', href: '/services/business-and-livelihood' },
-    { label: '96 Barangays', href: '/statistics/barangay-data' },
-    { label: 'Annual Budget', href: '/transparency/annual-budget' },
-    { label: 'Full Disclosure (FDP)', href: '/transparency/full-disclosure-policy' },
-  ];
+  const popularServices = getPopularServices();
+  const searchableServices = SERVICES_DATA.map((s) => ({
+    slug: s.slug,
+    title: s.title,
+    shortDescription: s.shortDescription,
+  }));
 
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative border-b border-stone-200/90 bg-gradient-to-b from-surface-card to-surface py-14 sm:py-20"
+      className="relative bg-brand-900 text-[#F9FEFF] bg-dot-pattern py-14 sm:py-20 lg:py-24 border-b border-brand-950"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-widest text-emerald-800 mb-3">
-            {t.welcomeEyebrow}
-          </p>
-          <h1
-            id="hero-heading"
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-stone-950 font-display"
-          >
-            BetterMarawi.org
-          </h1>
-          <p className="mt-4 text-base sm:text-lg text-stone-700 leading-relaxed max-w-2xl">
-            {t.heroSubtitle}
-          </p>
-
-          {/* Primary CTAs */}
-          <div className="mt-7 flex flex-wrap items-center gap-3">
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent text-brand-950 text-sm font-bold hover:bg-accent-hover shadow-xs transition-colors whitespace-nowrap shrink-0"
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          {/* Left Column (55% on lg: 7 cols) */}
+          <div className="lg:col-span-7 space-y-6">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-[#F9FEFF]/80">
+              WELCOME TO
+            </p>
+            <h1
+              id="hero-heading"
+              className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#F9FEFF] font-display leading-[1.08]"
             >
-              {t.browseServices}
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white border border-stone-300 text-stone-800 text-sm font-semibold hover:bg-stone-100 transition-colors whitespace-nowrap shrink-0"
-            >
-              {t.contactUs}
-            </Link>
-          </div>
+              BetterMarawi.org
+            </h1>
+            <p className="text-base sm:text-lg text-[#F9FEFF]/90 leading-relaxed max-w-xl">
+              A community-run portal to find information and services of the Islamic City of Marawi, Lanao del Sur.
+            </p>
 
-          {/* Search Services Bar */}
-          <div className="mt-8 relative max-w-2xl">
-            <label htmlFor="hero-service-search" className="sr-only">
-              Search Services
-            </label>
-            <div className="relative flex items-center">
-              <Search className="w-5 h-5 text-stone-400 absolute left-4 pointer-events-none" />
-              <input
-                id="hero-service-search"
-                type="search"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder={t.searchPlaceholder || 'Search Services, Permits, Barangays...'}
-                className="w-full pl-12 pr-28 py-3.5 bg-white rounded-xl border border-stone-300 text-sm text-stone-900 placeholder:text-stone-400 shadow-xs focus:outline-none focus:ring-2 focus:ring-emerald-800 focus:border-emerald-800"
-              />
-              {searchQuery && (
-                <button
-                  type="button"
-                  onClick={() => setSearchQuery('')}
-                  className="absolute right-3 px-2.5 py-1 text-xs font-medium text-stone-500 hover:text-stone-800"
-                >
-                  Clear
-                </button>
-              )}
-            </div>
-
-            {/* Instant Search Results Dropdown */}
-            {searchResults.length > 0 && (
-              <div className="absolute left-0 right-0 mt-2 bg-white rounded-xl border border-stone-200 shadow-xl z-30 divide-y divide-stone-100 overflow-hidden">
-                {searchResults.map((res) => (
-                  <Link
-                    key={res.href}
-                    href={res.href}
-                    onClick={() => setSearchQuery('')}
-                    className="flex items-start justify-between gap-4 p-3.5 hover:bg-emerald-50/60 transition-colors"
-                  >
-                    <div>
-                      <div className="text-xs text-emerald-800 font-medium">{res.category}</div>
-                      <div className="text-sm font-semibold text-stone-900 mt-0.5">{res.label}</div>
-                      <div className="text-xs text-stone-500 line-clamp-1 mt-0.5">{res.description}</div>
-                    </div>
-                    <ArrowUpRight className="w-4 h-4 text-stone-400 shrink-0 mt-1" />
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Popular Services Quick-Links */}
-          <div className="mt-5 flex flex-wrap items-center gap-2">
-            <span className="text-xs font-medium text-stone-500 mr-1">{t.popularServices}</span>
-            {popularLinks.map((item) => (
+            {/* Action Buttons */}
+            <div className="pt-2 flex flex-wrap items-center gap-3">
               <Link
-                key={item.href}
-                href={item.href}
-                className="px-3 py-1.5 rounded-lg bg-white border border-stone-200/90 hover:border-emerald-800/50 hover:bg-emerald-50/40 text-xs font-medium text-stone-700 hover:text-emerald-950 transition-colors whitespace-nowrap shrink-0"
+                href="/services"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-[#F9FEFF] text-brand-900 hover:bg-accent hover:text-brand-950 text-sm font-semibold shadow-xs transition-colors whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
               >
-                {item.label}
+                <span>Browse Services</span>
+                <ArrowUpRight className="w-4 h-4" />
               </Link>
-            ))}
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-transparent border-2 border-[#F9FEFF] text-[#F9FEFF] hover:bg-white/10 text-sm font-semibold transition-colors whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              >
+                <Users className="w-4 h-4" aria-hidden="true" />
+                <span>Contact Us</span>
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Column (45% on lg: 5 cols) */}
+          <div className="lg:col-span-5 w-full">
+            <HeroSearchCard
+              popularServices={popularServices}
+              searchableServices={searchableServices}
+            />
           </div>
         </div>
       </div>
     </section>
   );
 }
-
