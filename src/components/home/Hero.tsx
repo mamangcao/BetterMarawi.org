@@ -2,7 +2,8 @@
 
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { Search, ArrowRight } from 'lucide-react';
+import { Search } from 'lucide-react';
+import { ArrowUpRight } from '@/components/ui';
 import { useTranslation } from '@/i18n';
 import { SERVICES_DATA } from '@/data/services';
 import { NAV_DROPDOWNS } from '@/config/site';
@@ -97,7 +98,7 @@ export function Hero() {
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent text-brand-950 text-sm font-bold hover:bg-accent-hover shadow-xs transition-colors whitespace-nowrap shrink-0"
             >
               {t.browseServices}
-              <ArrowRight className="w-4 h-4" />
+              <ArrowUpRight className="w-4 h-4" />
             </Link>
             <Link
               href="/contact"
@@ -148,7 +149,7 @@ export function Hero() {
                       <div className="text-sm font-semibold text-stone-900 mt-0.5">{res.label}</div>
                       <div className="text-xs text-stone-500 line-clamp-1 mt-0.5">{res.description}</div>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-stone-400 shrink-0 mt-1" />
+                    <ArrowUpRight className="w-4 h-4 text-stone-400 shrink-0 mt-1" />
                   </Link>
                 ))}
               </div>

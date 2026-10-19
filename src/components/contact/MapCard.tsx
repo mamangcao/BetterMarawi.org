@@ -1,5 +1,6 @@
 import React from 'react';
-import { MapPin, ArrowUpRight } from 'lucide-react';
+import { MapPin } from 'lucide-react';
+import { ArrowUpRight } from '@/components/ui';
 
 export function MapCard() {
   return (

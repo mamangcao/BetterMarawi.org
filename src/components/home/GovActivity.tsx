@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import {
-  ArrowRight,
   Scale,
   Building2,
   Megaphone,
@@ -10,6 +9,7 @@ import {
   MessageSquareShare,
   FileCheck2,
 } from 'lucide-react';
+import { ArrowUpRight } from '@/components/ui';
 
 export function GovActivity() {
   const govActivityCards = [
@@ -104,7 +104,7 @@ export function GovActivity() {
             </div>
             <div className="mt-5 pt-3 border-t border-stone-100 flex items-center justify-between text-xs font-semibold text-emerald-800">
               <span>Open Directory</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowUpRight className="w-4 h-4" />
             </div>
           </Link>
         ))}

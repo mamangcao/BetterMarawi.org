@@ -7,7 +7,7 @@ export const en = {
   searchPlaceholder: 'Search Services, Permits, Barangays, or Ordinances...',
   popularServices: 'Popular Services:',
   atAGlance: 'Marawi at a Glance',
-  viewCityProfile: 'View City Profile ->',
+  viewCityProfile: 'View City Profile',
   servicesHeading: 'Services & Information',
   servicesSubheading:
     'Access official government services quickly and easily. Find what you need for citizenship, business, education, and more.',

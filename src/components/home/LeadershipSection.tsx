@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Phone, Mail, MapPin } from 'lucide-react';
+import { ArrowUpRight } from '@/components/ui';
 
 export function LeadershipSection() {
   return (
@@ -25,9 +26,10 @@ export function LeadershipSection() {
             </div>
             <Link
               href="/government/local-officials-directory"
-              className="text-sm font-semibold text-emerald-800 hover:text-emerald-950 whitespace-nowrap shrink-0"
+              className="text-sm font-semibold text-emerald-800 hover:text-emerald-950 inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 group"
             >
-              View All Officials &rarr;
+              <span>View All Officials</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
@@ -99,9 +101,10 @@ export function LeadershipSection() {
             </div>
             <Link
               href="/government/departments-and-officials"
-              className="text-sm font-semibold text-emerald-800 hover:text-emerald-950 whitespace-nowrap shrink-0"
+              className="text-sm font-semibold text-emerald-800 hover:text-emerald-950 inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 group"
             >
-              View All Departments &rarr;
+              <span>View All Departments</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowUpRight } from '@/components/ui';
 import { SERVICES_DATA } from '@/data/services';
 import { ITEM_ICONS } from '@/components/layout/navIcons';
 
@@ -24,9 +24,10 @@ export function QuickServices() {
         </div>
         <Link
           href="/services"
-          className="text-sm font-semibold text-emerald-800 hover:text-emerald-950 inline-flex items-center gap-1 whitespace-nowrap shrink-0"
+          className="text-sm font-semibold text-emerald-800 hover:text-emerald-950 inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 group"
         >
-          View All 11 Services &rarr;
+          <span>View All 11 Services</span>
+          <ArrowUpRight className="w-4 h-4" />
         </Link>
       </div>
 
@@ -56,7 +57,7 @@ export function QuickServices() {
 
             <div className="mt-5 pt-4 border-t border-stone-100 flex items-center justify-between text-xs font-semibold text-emerald-800 group-hover:text-emerald-950">
               <span>View Citizen&apos;s Charter &amp; Requirements</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+              <ArrowUpRight className="w-4 h-4" />
             </div>
           </Link>
         ))}

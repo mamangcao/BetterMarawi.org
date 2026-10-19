@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import { FileText, ArrowRight } from 'lucide-react';
+import { FileText } from 'lucide-react';
+import { ArrowUpRight } from '@/components/ui';
 import { ServicePageData } from '@/types';
 
 interface ServiceCardProps {
@@ -30,7 +31,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
           <FileText className="w-3.5 h-3.5" />
           {service.requirements.length} Requirements · {service.charterSteps.length} Steps
         </span>
-        <ArrowRight className="w-4 h-4" />
+        <ArrowUpRight className="w-4 h-4" />
       </div>
     </Link>
   );

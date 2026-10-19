@@ -9,7 +9,7 @@ export const mrw: typeof en = {
   searchPlaceholder: 'Mbabanog sa Serbisyo, Permit, Barangay, odi na Kokoman...',
   popularServices: 'Piyaki-ilay a Serbisyo:',
   atAGlance: 'So Inged a Marawi',
-  viewCityProfile: 'Ilaya so City Profile ->',
+  viewCityProfile: 'Ilaya so City Profile',
   servicesHeading: 'Manga Serbisyo ago Totol',
   servicesSubheading:
     'Maleboda a kapaka-kawa ko manga оpisyal a serbisyo o Gobyerno para ko kapaganad, kandagang, kapiya o lawas, ago so salakaw.',

@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowUpRight, Code2, Leaf, Users } from 'lucide-react';
+import { Code2, Leaf, Users } from 'lucide-react';
+import { ArrowUpRight } from '@/components/ui';
 
 export function Footer() {
   return (

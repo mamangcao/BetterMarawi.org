@@ -2,7 +2,8 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Download, ExternalLink, Code2 } from 'lucide-react';
+import { Download, Code2 } from 'lucide-react';
+import { ArrowUpRight } from '@/components/ui';
 import { APP_ROUTES } from '@/lib/routes';
 import { SITE_CONFIG } from '@/config/site';
 import {
@@ -101,7 +102,7 @@ ${urls}
                   title={`Visit ${route.path}`}
                   className="p-1.5 rounded bg-stone-100 hover:bg-emerald-900 hover:text-white text-stone-700 shrink-0"
                 >
-                  <ExternalLink className="w-3.5 h-3.5" />
+                  <ArrowUpRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             );
@@ -119,9 +120,10 @@ ${urls}
             </div>
             <Link
               href={selectedRoute.path}
-              className="text-xs font-semibold text-emerald-800 hover:underline"
+              className="text-xs font-semibold text-emerald-800 hover:underline inline-flex items-center gap-1 group"
             >
-              Open {selectedRoute.path} &rarr;
+              <span>Open {selectedRoute.path}</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 

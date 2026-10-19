@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, ArrowUpRight, CloudSun, Car } from 'lucide-react';
+import { CloudSun, Car } from 'lucide-react';
+import { ArrowUpRight } from '@/components/ui';
 import { TOURISM_CATEGORIES } from '@/data/tourism';
 
 export function CultureSpotlight() {
@@ -24,9 +25,10 @@ export function CultureSpotlight() {
           </div>
           <Link
             href="/services/tourism"
-            className="text-sm font-semibold text-emerald-800 hover:text-emerald-950 inline-flex items-center gap-1 whitespace-nowrap shrink-0"
+            className="text-sm font-semibold text-emerald-800 hover:text-emerald-950 inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 group"
           >
-            View all tourism &rarr;
+            <span>View all tourism</span>
+            <ArrowUpRight className="w-4 h-4" />
           </Link>
         </div>
 
@@ -37,7 +39,7 @@ export function CultureSpotlight() {
               <Link
                 key={cat.id}
                 href="/services/tourism"
-                className="bg-white rounded-xl border border-stone-200/90 p-5 hover:border-emerald-800/50 transition-colors flex flex-col justify-between"
+                className="bg-white rounded-xl border border-stone-200/90 p-5 hover:border-emerald-800/50 transition-colors flex flex-col justify-between group"
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 text-xs text-stone-500 font-mono-tabular">
@@ -53,7 +55,7 @@ export function CultureSpotlight() {
                 </div>
                 <div className="mt-4 pt-2.5 border-t border-stone-100 text-xs font-medium text-emerald-800 flex items-center justify-between">
                   <span>Explore sites</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowUpRight className="w-3.5 h-3.5" />
                 </div>
               </Link>
             ))}

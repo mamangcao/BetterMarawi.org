@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, Phone } from 'lucide-react';
+import { Phone } from 'lucide-react';
+import { ArrowUpRight } from '@/components/ui';
 
 export function CityAtAGlance() {
   return (
@@ -24,9 +25,10 @@ export function CityAtAGlance() {
           </div>
           <Link
             href="/statistics/city-profile"
-            className="text-sm font-semibold text-emerald-800 hover:text-emerald-950 inline-flex items-center gap-1 whitespace-nowrap shrink-0"
+            className="text-sm font-semibold text-emerald-800 hover:text-emerald-950 inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 group"
           >
-            View City Profile &rarr;
+            <span>View City Profile</span>
+            <ArrowUpRight className="w-4 h-4" />
           </Link>
         </div>
 
@@ -127,10 +129,10 @@ export function CityAtAGlance() {
             <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3">
               <Link
                 href="/services/health-services"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-accent text-brand-950 text-sm font-bold hover:bg-accent-hover transition-colors whitespace-nowrap shrink-0 shadow-xs"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-accent text-brand-950 text-sm font-bold hover:bg-accent-hover transition-colors whitespace-nowrap shrink-0 shadow-xs group"
               >
                 Learn about Free Benefits
-                <ArrowRight className="w-4 h-4" />
+                <ArrowUpRight className="w-4 h-4" />
               </Link>
               <a
                 href="tel:0632212536"

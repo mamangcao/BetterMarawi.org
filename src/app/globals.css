@@ -127,3 +127,8 @@
   font-variant-numeric: tabular-nums;
 }
 
+.arrow-text {
+  font-variant-emoji: text;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+

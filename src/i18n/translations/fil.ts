@@ -9,7 +9,7 @@ export const fil: typeof en = {
   searchPlaceholder: 'Maghanap ng Serbisyo, Permit, Barangay, o Ordinansa...',
   popularServices: 'Mga Sikat na Serbisyo:',
   atAGlance: 'Ang Marawi sa Isang Sulyap',
-  viewCityProfile: 'Tingnan ang City Profile ->',
+  viewCityProfile: 'Tingnan ang City Profile',
   servicesHeading: 'Mga Serbisyo at Impormasyon',
   servicesSubheading:
     'Mabilis at madaling ma-access ang mga opisyal na serbisyo ng pamahalaan para sa negosyo, edukasyon, kalusugan, at iba pa.',
