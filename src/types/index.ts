@@ -108,3 +108,12 @@ export interface BarangayRecord {
   classification: 'Urban' | 'Rural';
   zoneStatus: 'Regular Barangay' | 'MAA Rehabilitated Sector';
 }
+
+export interface HotlineItem {
+  id: string;
+  label: string;
+  shortLabel: string;
+  number: string;
+  telHref: string;
+  icon: 'Siren' | 'Flame' | 'Shield' | 'HeartPulse';
+}

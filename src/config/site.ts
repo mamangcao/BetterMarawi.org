@@ -1,4 +1,4 @@
-import { NavSubItem } from '@/types';
+import { NavSubItem, HotlineItem } from '@/types';
 
 export const SITE_CONFIG = {
   name: 'BetterMarawi.org',
@@ -21,6 +21,41 @@ export const SITE_CONFIG = {
     officialEmail: 'lgu.marawicity@gmail.com',
   },
 };
+
+export const EMERGENCY_HOTLINES: HotlineItem[] = [
+  {
+    id: 'cdrrmo',
+    label: 'CDRRMO',
+    shortLabel: 'CDRRMO',
+    number: '(063) 352-0117',
+    telHref: 'tel:+63633520117',
+    icon: 'Siren',
+  },
+  {
+    id: 'bfp',
+    label: 'City Fire Station (BFP)',
+    shortLabel: 'BFP Fire',
+    number: '0917-842-9910',
+    telHref: 'tel:+639178429910',
+    icon: 'Flame',
+  },
+  {
+    id: 'pnp',
+    label: 'City Police Station (PNP)',
+    shortLabel: 'PNP Police',
+    number: '0998-598-6678',
+    telHref: 'tel:+639985986678',
+    icon: 'Shield',
+  },
+  {
+    id: 'cho-apmc',
+    label: 'City Health Office / APMC',
+    shortLabel: 'CHO / APMC',
+    number: '(063) 221-2536',
+    telHref: 'tel:+63632212536',
+    icon: 'HeartPulse',
+  },
+];
 
 export const NAV_DROPDOWNS: Record<'services' | 'government' | 'transparency' | 'statistics', NavSubItem[]> = {
   services: [

@@ -4,4 +4,5 @@ export * from './MobileNav';
 export * from './LanguageSwitcher';
 export * from './LiveClock';
 export * from './Breadcrumbs';
+export * from './QuickContacts';
 

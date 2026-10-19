@@ -4,12 +4,13 @@ import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { ChevronDown, Menu, Phone } from 'lucide-react';
+import { ChevronDown, Menu } from 'lucide-react';
 import { ArrowUpRight } from '@/components/ui';
 import { NAV_DROPDOWNS } from '@/config/site';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { LiveClock } from './LiveClock';
 import { MobileNav } from './MobileNav';
+import { QuickContacts } from './QuickContacts';
 import { ITEM_ICONS } from './navIcons';
 
 type DropdownKey = 'services' | 'government' | 'transparency' | 'statistics';
@@ -66,42 +67,8 @@ export function Header() {
     <>
       {/* Top Utility Bars */}
       <div className="bg-stone-900 text-stone-200 text-xs border-b border-stone-800">
-        {/* Bar 1 — Emergency Hotlines */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-wrap items-center justify-between gap-y-1.5 gap-x-4">
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-            <span className="font-semibold text-accent flex items-center gap-1.5 whitespace-nowrap">
-              <Phone className="w-3.5 h-3.5" aria-hidden="true" />
-              Emergency Hotlines:
-            </span>
-            <a
-              href="tel:0633520117"
-              className="hover:text-white transition-colors font-mono-tabular whitespace-nowrap"
-            >
-              CDRRMO: (063) 352-0117
-            </a>
-            <span className="text-stone-600" aria-hidden="true">|</span>
-            <a
-              href="tel:09178429910"
-              className="hover:text-white transition-colors font-mono-tabular whitespace-nowrap"
-            >
-              City Fire Station (BFP): 0917-842-9910
-            </a>
-            <span className="text-stone-600 hidden sm:inline" aria-hidden="true">|</span>
-            <a
-              href="tel:09985986678"
-              className="hover:text-white transition-colors font-mono-tabular whitespace-nowrap"
-            >
-              City Police Station (PNP): 0998-598-6678
-            </a>
-            <span className="text-stone-600 hidden md:inline" aria-hidden="true">|</span>
-            <a
-              href="tel:0632212536"
-              className="hover:text-white transition-colors font-mono-tabular whitespace-nowrap"
-            >
-              City Health Office / APMC: (063) 221-2536
-            </a>
-          </div>
-        </div>
+        {/* Bar 1 — Emergency Hotlines / Quick Contacts */}
+        <QuickContacts />
 
         {/* Bar 2 — Live Ticker Bar */}
         <div className="bg-stone-950/80 border-t border-stone-800/80 text-stone-400">
