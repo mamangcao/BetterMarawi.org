@@ -4,13 +4,11 @@ import { notFound } from 'next/navigation';
 import { Phone, MapPin, Clock, Stethoscope, Compass } from 'lucide-react';
 import { SERVICES_DATA } from '@/data/services';
 import { TOURISM_CATEGORIES } from '@/data/tourism';
-import {
-  RequirementsChecklist,
-  CharterSteps,
-  FeeSchedule,
-  ServiceFAQ,
-  ServiceSidebar,
-} from '@/components/services';
+import { RequirementsChecklist } from '@/components/services/RequirementsChecklist';
+import { CharterSteps } from '@/components/services/CharterSteps';
+import { FeeSchedule } from '@/components/services/FeeSchedule';
+import { ServiceFAQ } from '@/components/services/ServiceFAQ';
+import { ServiceSidebar } from '@/components/services/ServiceSidebar';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { JsonLd } from '@/components/seo/JsonLd';
 import {
@@ -63,7 +61,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       <Breadcrumbs items={breadcrumbs} />
 
       {/* Page Header Banner */}
-      <section className="bg-gradient-to-b from-[#F5F1EA] to-[#FAF8F5] border-b border-stone-200/90 py-10 sm:py-14">
+      <section className="bg-gradient-to-b from-surface-card to-surface border-b border-stone-200/90 py-10 sm:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
             <div className="max-w-3xl">
@@ -139,7 +137,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 aria-labelledby="yakap-detail-heading"
                 className="bg-emerald-950 text-stone-100 rounded-xl p-6 border border-emerald-900"
               >
-                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-amber-300">
+                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-accent">
                   <Stethoscope className="w-4 h-4" />
                   Universal Health Care (RA 11223) · Marawi City Network
                 </div>

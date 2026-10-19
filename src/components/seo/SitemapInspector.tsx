@@ -155,7 +155,7 @@ ${urls}
 
         <div className="bg-stone-950 text-stone-100 rounded-xl p-6 space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-mono-tabular text-amber-300 font-semibold">
+            <span className="text-xs font-mono-tabular text-accent font-semibold">
               Injected &lt;script type=&quot;application/ld+json&quot;&gt; ({schemas.length} Schemas)
             </span>
             <span className="text-[11px] font-mono-tabular text-stone-400">

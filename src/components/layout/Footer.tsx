@@ -47,7 +47,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/sitemap"
-                  className="hover:text-white transition-colors font-medium text-amber-300/90"
+                  className="hover:text-white transition-colors font-medium text-accent/90"
                 >
                   Sitemap
                 </Link>
@@ -138,7 +138,7 @@ export function Footer() {
         {/* Bottom Badges & Attribution */}
         <div className="pt-8 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 text-xs text-stone-400">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <span className="text-emerald-300 font-semibold font-mono-tabular">
+            <span className="text-accent font-semibold font-mono-tabular">
               Cost to the People of Marawi: ₱0
             </span>
             <span aria-hidden="true" className="text-stone-700">·</span>

@@ -7,7 +7,7 @@ export function CultureSpotlight() {
   return (
     <section
       aria-labelledby="discover-marawi-heading"
-      className="bg-[#F3EFE6] border-y border-stone-200/90 py-16"
+      className="bg-surface-card border-y border-stone-200/90 py-16"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">

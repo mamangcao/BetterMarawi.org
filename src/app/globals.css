@@ -1,11 +1,115 @@
 @import "tailwindcss";
 
+@theme {
+  /* Brand Scale (derived from #1B4D3E) */
+  --color-brand-50: #EBF5F1;
+  --color-brand-100: #D4EAE2;
+  --color-brand-200: #ACD5C5;
+  --color-brand-300: #7FBFA7;
+  --color-brand-400: #52A98A;
+  --color-brand-500: #358F70;
+  --color-brand-600: #29745B;
+  --color-brand-700: #225E4A;
+  --color-brand-800: #1D5341;
+  --color-brand-900: #1B4D3E; /* Primary Brand exact */
+  --color-brand-950: #0E2921;
+
+  --color-primary: #1B4D3E;
+  --color-primary-hover: #163F33;
+  --color-primary-active: #0E2921;
+
+  /* Accent Scale (derived from #FFE135) */
+  --color-accent: #FFE135;
+  --color-accent-hover: #F5D61E;
+  --color-accent-active: #D4B60B;
+  --color-accent-light: #FFF9D6;
+  --color-accent-muted: #E0C41B;
+
+  /* Surface Tokens */
+  --color-surface: #F9FEFF;
+  --color-surface-card: #F0F7F4;
+  --color-surface-elevated: #E4EFEA;
+  --color-surface-highlight: #D8E7E0;
+  --color-surface-border: #D3E2DC;
+  --color-surface-border-subtle: #E8F1ED;
+  --color-surface-border-strong: #A8C2B7;
+
+  /* Text Tokens */
+  --color-foreground: #0E1A16;
+  --color-foreground-secondary: #243831;
+  --color-foreground-muted: #3D544C;
+  --color-foreground-subtle: #567067;
+  --color-foreground-inverse: #F9FEFF;
+
+  /* Semantic Status Tokens */
+  --color-status-success: #227D52;
+  --color-status-success-bg: #EAF5EE;
+  --color-status-success-text: #145334;
+
+  --color-status-warning: #C07706;
+  --color-status-warning-bg: #FEF6E9;
+  --color-status-warning-text: #7C4600;
+
+  --color-status-error: #C53030;
+  --color-status-error-bg: #FDF2F2;
+  --color-status-error-text: #821818;
+
+  --color-status-info: #1E6B8C;
+  --color-status-info-bg: #EFF8FA;
+  --color-status-info-text: #13445A;
+
+  /* Harmony Aliases for standard scales */
+  --color-emerald-50: #EBF5F1;
+  --color-emerald-100: #D4EAE2;
+  --color-emerald-200: #ACD5C5;
+  --color-emerald-300: #7FBFA7;
+  --color-emerald-400: #52A98A;
+  --color-emerald-500: #358F70;
+  --color-emerald-600: #29745B;
+  --color-emerald-700: #225E4A;
+  --color-emerald-800: #1D5341;
+  --color-emerald-900: #1B4D3E;
+  --color-emerald-950: #0E2921;
+
+  --color-stone-50: #F0F7F4;
+  --color-stone-100: #E4EFEA;
+  --color-stone-200: #D3E2DC;
+  --color-stone-300: #B7CDC4;
+  --color-stone-400: #88A599;
+  --color-stone-500: #567067;
+  --color-stone-600: #3D544C;
+  --color-stone-700: #243831;
+  --color-stone-800: #162420;
+  --color-stone-900: #101B17;
+  --color-stone-950: #080E0C;
+}
+
 @layer base {
   body {
     font-family: var(--font-sans), system-ui, sans-serif;
-    background-color: #FAF8F5;
-    color: #1C1917;
+    background-color: var(--color-surface);
+    color: var(--color-foreground);
     overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-brand-100);
+    color: var(--color-brand-950);
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-surface);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-surface-border-strong);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-brand-700);
   }
 
   h1, h2, .font-display {

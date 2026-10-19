@@ -40,7 +40,7 @@ export function ServiceSidebar({ currentSlug, email }: ServiceSidebarProps) {
         </div>
 
         <div className="bg-stone-900 text-stone-200 rounded-xl p-5 space-y-3">
-          <div className="text-xs font-semibold uppercase tracking-wider text-amber-300">
+          <div className="text-xs font-semibold uppercase tracking-wider text-accent">
             Anti-Red Tape Act (RA 11032)
           </div>
           <p className="text-xs text-stone-300 leading-relaxed">
@@ -48,11 +48,11 @@ export function ServiceSidebar({ currentSlug, email }: ServiceSidebarProps) {
           </p>
           <div className="pt-2 border-t border-stone-800 text-xs font-mono-tabular space-y-1">
             <div className="flex items-center gap-2">
-              <Mail className="w-3.5 h-3.5 text-amber-300" />
+              <Mail className="w-3.5 h-3.5 text-accent" />
               <span>{email}</span>
             </div>
             <div className="flex items-center gap-2">
-              <Building2 className="w-3.5 h-3.5 text-amber-300" />
+              <Building2 className="w-3.5 h-3.5 text-accent" />
               <span>Marawi City Hall, 9700</span>
             </div>
           </div>

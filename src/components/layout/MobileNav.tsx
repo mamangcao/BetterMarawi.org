@@ -30,7 +30,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
 
   return (
     <div className="lg:hidden fixed inset-0 top-16 z-50 bg-stone-950/50 backdrop-blur-xs flex justify-end">
-      <div className="w-full max-w-md bg-[#FAF8F5] h-[calc(100vh-4rem)] overflow-y-auto border-l border-stone-200 p-5 flex flex-col justify-between shadow-2xl">
+      <div className="w-full max-w-md bg-surface h-[calc(100vh-4rem)] overflow-y-auto border-l border-stone-200 p-5 flex flex-col justify-between shadow-2xl">
         <div className="space-y-2">
           <div className="flex items-center justify-between pb-3 border-b border-stone-200">
             <Link href="/" onClick={onClose} className="flex items-center gap-2">

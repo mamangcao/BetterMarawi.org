@@ -20,7 +20,7 @@ export default function SitemapPage() {
     <main className="pb-16">
       <Breadcrumbs items={breadcrumbs} />
 
-      <section className="bg-gradient-to-b from-[#F5F1EA] to-[#FAF8F5] border-b border-stone-200/90 py-12">
+      <section className="bg-gradient-to-b from-surface-card to-surface border-b border-stone-200/90 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-xs font-semibold uppercase tracking-widest text-emerald-800 mb-2">
             SEO, Transparency &amp; Schema Registry

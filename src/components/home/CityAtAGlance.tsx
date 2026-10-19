@@ -101,7 +101,7 @@ export function CityAtAGlance() {
         <div className="bg-emerald-950 text-stone-100 rounded-2xl p-6 sm:p-10 border border-emerald-900">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-4">
-              <div className="text-xs font-semibold uppercase tracking-widest text-amber-300">
+              <div className="text-xs font-semibold uppercase tracking-widest text-accent">
                 Free Health Care For All
               </div>
               <h2
@@ -115,7 +115,7 @@ export function CityAtAGlance() {
               </p>
 
               {/* 3 Highlight Metrics */}
-              <div className="pt-2 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-amber-200 font-mono-tabular">
+              <div className="pt-2 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-accent font-mono-tabular">
                 <span>₱20k Maintenance Medicines</span>
                 <span aria-hidden="true" className="text-emerald-700">·</span>
                 <span>13 Covered Labs (CBC, ECG, etc.)</span>
@@ -127,7 +127,7 @@ export function CityAtAGlance() {
             <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3">
               <Link
                 href="/services/health-services"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-amber-400 text-stone-950 text-sm font-bold hover:bg-amber-300 transition-colors whitespace-nowrap shrink-0"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-accent text-brand-950 text-sm font-bold hover:bg-accent-hover transition-colors whitespace-nowrap shrink-0 shadow-xs"
               >
                 Learn about Free Benefits
                 <ArrowRight className="w-4 h-4" />
@@ -136,7 +136,7 @@ export function CityAtAGlance() {
                 href="tel:0632212536"
                 className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-emerald-900/90 border border-emerald-700 text-white text-sm font-semibold hover:bg-emerald-800 transition-colors font-mono-tabular whitespace-nowrap shrink-0"
               >
-                <Phone className="w-4 h-4 text-amber-300" />
+                <Phone className="w-4 h-4 text-accent" />
                 Call the CHO: (063) 221-2536
               </a>
             </div>

@@ -68,7 +68,7 @@ export function Header() {
         {/* Bar 1 — Emergency Hotlines */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-wrap items-center justify-between gap-y-1.5 gap-x-4">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-            <span className="font-semibold text-amber-300 flex items-center gap-1.5 whitespace-nowrap">
+            <span className="font-semibold text-accent flex items-center gap-1.5 whitespace-nowrap">
               <Phone className="w-3.5 h-3.5" aria-hidden="true" />
               Emergency Hotlines:
             </span>
@@ -124,7 +124,7 @@ export function Header() {
       {/* Main Sticky Header */}
       <header
         ref={navRef}
-        className="sticky top-0 z-40 bg-[#FAF8F5]/95 backdrop-blur-md border-b border-stone-200/90"
+        className="sticky top-0 z-40 bg-surface/95 backdrop-blur-md border-b border-stone-200/90"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-8">
           {/* Brand Wordmark & Logo */}

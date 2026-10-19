@@ -71,7 +71,7 @@ export function HistorySnapshot() {
       {/* Elevation Highlight Card */}
       <div className="mt-6 bg-stone-900 text-stone-100 rounded-xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div className="flex items-start gap-4">
-          <div className="p-3 rounded-xl bg-emerald-900/80 text-amber-300 shrink-0">
+          <div className="p-3 rounded-xl bg-emerald-900/80 text-accent shrink-0">
             <Mountain className="w-6 h-6" />
           </div>
           <div>

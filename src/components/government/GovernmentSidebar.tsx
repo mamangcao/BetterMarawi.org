@@ -47,7 +47,7 @@ export function GovernmentSidebar() {
         </div>
 
         <div className="bg-stone-900 text-stone-200 rounded-xl p-5 space-y-3">
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-amber-300">
+          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-accent">
             <Building2 className="w-4 h-4" />
             Marawi City Hall Seat
           </div>
@@ -56,11 +56,11 @@ export function GovernmentSidebar() {
           </p>
           <div className="pt-2 border-t border-stone-800 text-xs font-mono-tabular space-y-1">
             <div className="flex items-center gap-2">
-              <Scale className="w-3.5 h-3.5 text-amber-300" />
+              <Scale className="w-3.5 h-3.5 text-accent" />
               <span>SP Session: Tuesdays, 9:00 AM</span>
             </div>
             <div className="flex items-center gap-2">
-              <Users className="w-3.5 h-3.5 text-amber-300" />
+              <Users className="w-3.5 h-3.5 text-accent" />
               <span>96 Constituent Barangays</span>
             </div>
           </div>

@@ -23,7 +23,7 @@ export function OrdinancesTable({ ordinances }: OrdinancesTableProps) {
     <div className="space-y-8">
       {/* Presiding Officer Box */}
       <div className="bg-emerald-950 text-stone-100 rounded-xl p-6 border border-emerald-900">
-        <div className="text-xs font-semibold uppercase tracking-wider text-amber-300">
+        <div className="text-xs font-semibold uppercase tracking-wider text-accent">
           Presiding Officer · 2025–2028 Sangguniang Panlungsod
         </div>
         <h2 className="text-2xl font-bold text-white font-display mt-1">

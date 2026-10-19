@@ -17,7 +17,7 @@ export default function ErrorPage({
 
   return (
     <main className="max-w-2xl mx-auto px-4 py-20 text-center">
-      <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-red-100 text-red-700 mb-6">
+      <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-status-error-bg text-status-error-text mb-6">
         <AlertCircle className="w-8 h-8" />
       </div>
       <h1 className="text-2xl sm:text-3xl font-bold font-display text-stone-900">

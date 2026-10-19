@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Plus_Jakarta_Sans, Fraunces, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { Header, Footer } from '@/components/layout';
@@ -6,6 +6,10 @@ import { LanguageProvider } from '@/i18n';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { buildGovernmentOrganizationSchema } from '@/lib/jsonld';
 import { SITE_CONFIG } from '@/config/site';
+
+export const viewport: Viewport = {
+  themeColor: '#1B4D3E',
+};
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],

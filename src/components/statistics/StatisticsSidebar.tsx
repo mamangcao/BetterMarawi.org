@@ -47,7 +47,7 @@ export function StatisticsSidebar() {
         </div>
 
         <div className="bg-stone-900 text-stone-200 rounded-xl p-5 space-y-3">
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-amber-300">
+          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-accent">
             <MapPin className="w-4 h-4" />
             Geographic Benchmark
           </div>

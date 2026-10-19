@@ -73,7 +73,7 @@ export function Hero() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative border-b border-stone-200/90 bg-gradient-to-b from-[#F5F1EA] to-[#FAF8F5] py-14 sm:py-20"
+      className="relative border-b border-stone-200/90 bg-gradient-to-b from-surface-card to-surface py-14 sm:py-20"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
@@ -94,7 +94,7 @@ export function Hero() {
           <div className="mt-7 flex flex-wrap items-center gap-3">
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-900 text-white text-sm font-semibold hover:bg-emerald-950 transition-colors whitespace-nowrap shrink-0"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent text-brand-950 text-sm font-bold hover:bg-accent-hover shadow-xs transition-colors whitespace-nowrap shrink-0"
             >
               {t.browseServices}
               <ArrowRight className="w-4 h-4" />
