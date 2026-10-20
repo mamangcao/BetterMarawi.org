@@ -30,9 +30,9 @@ export function Hero() {
             {/* Fluid responsive title */}
             <h1
               id="hero-heading"
-              className="font-bold tracking-tight text-[#F9FEFF] font-display text-[clamp(1.8rem,6vw,4.5rem)] sm:text-[clamp(2.5rem,4.2vw,4.5rem)] leading-[1.05]"
+              className="font-bold text-accent tracking-tight text-[#F9FEFF] font-display text-[clamp(1.8rem,6vw,4.5rem)] sm:text-[clamp(2.5rem,4.2vw,4.5rem)] leading-[1.05]"
             >
-              BetterMarawi.org
+              BetterMarawi<span className="text-accent-light">.org</span>
             </h1>
             {/* Description balanced over two lines on desktop */}
             <p className="mt-6 sm:mt-7 text-lg sm:text-xl text-[#F9FEFF]/90 leading-relaxed max-w-[36rem] text-balance">
