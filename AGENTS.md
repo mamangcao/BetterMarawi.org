@@ -83,12 +83,10 @@ Rules:
 - Unverified data must be labeled or left out.
 - Keep existing service names and slugs unless the task says otherwise.
 
-## Design
+## Design and branding
 
-- Colors come from tokens in `src/app/globals.css`. No hardcoded hex in components.
-- Palette: background `#F9FEFF`, primary `#1B4D3E`, accent `#FFE135` (accent only, never forced).
-- Link and CTA arrows use the shared `ArrowUpRight` component, never the text character `↗`.
-- Never copy names, colors, or numbers from BetterIndang.org.
+For any UI, color, font, logo, hero, icon, or copy change, follow `.agents/skills/branding-consistency/SKILL.md`.
+Short version: tokens only (no hardcoded hex), yellow is accent only, shared `ArrowUpRight` for link arrows, never copy Indang names or colors.
 
 ## Security
 
