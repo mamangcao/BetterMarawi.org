@@ -2,8 +2,10 @@
 
 import React, { useState } from 'react';
 import { Send, CheckCircle2 } from 'lucide-react';
+import { useTranslation } from '@/i18n';
 
 export function ContactForm() {
+  const { t } = useTranslation();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [office, setOffice] = useState('Office of the City Mayor — Public Assistance');
@@ -19,14 +21,14 @@ export function ContactForm() {
   return (
     <section className="bg-white rounded-xl border border-stone-200/90 p-6 sm:p-8">
       <h2 className="text-xl font-bold text-stone-900 font-display pb-4 mb-6 border-b border-stone-100">
-        Send a Citizen Inquiry or Public Consultation Feedback
+        {t.contactFormTitle}
       </h2>
 
       {submittedRef ? (
         <div className="p-6 rounded-xl bg-emerald-50 border border-emerald-800/30 space-y-3">
           <div className="flex items-center gap-2 text-emerald-900 font-bold">
             <CheckCircle2 className="w-5 h-5" />
-            <span>Message Logged with Public Assistance Desk</span>
+            <span>{t.messageLoggedTitle}</span>
           </div>
           <p className="text-sm text-stone-700">
             Thank you, <strong>{name}</strong>. Your inquiry routed to <strong>{office}</strong> has been assigned Reference No. <span className="font-mono-tabular font-bold">{submittedRef}</span>. Expect a response within 2 business days.
@@ -39,7 +41,7 @@ export function ContactForm() {
             }}
             className="px-4 py-2 rounded-lg bg-emerald-900 text-white text-xs font-semibold hover:bg-emerald-950 transition-colors"
           >
-            Send Another Message
+            {t.sendAnotherMessage}
           </button>
         </div>
       ) : (
@@ -47,20 +49,20 @@ export function ContactForm() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-semibold text-stone-700 mb-1">
-                Your Full Name *
+                {t.fullNameLabel}
               </label>
               <input
                 type="text"
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Full Name"
+                placeholder={t.fullNamePlaceholder}
                 className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-800"
               />
             </div>
             <div>
               <label className="block text-xs font-semibold text-stone-700 mb-1">
-                Email or Mobile Number *
+                {t.emailOrPhoneLabel}
               </label>
               <input
                 type="text"
@@ -75,7 +77,7 @@ export function ContactForm() {
 
           <div>
             <label className="block text-xs font-semibold text-stone-700 mb-1">
-              Destination Office / Department
+              {t.destinationOfficeLabel}
             </label>
             <select
               value={office}
@@ -94,14 +96,14 @@ export function ContactForm() {
 
           <div>
             <label className="block text-xs font-semibold text-stone-700 mb-1">
-              Message, Service Inquiry, or Barangay Report *
+              {t.messageLabel}
             </label>
             <textarea
               rows={4}
               required
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              placeholder="Provide details including Barangay name if reporting a local issue..."
+              placeholder={t.messagePlaceholder}
               className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-800"
             />
           </div>
@@ -111,7 +113,7 @@ export function ContactForm() {
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-900 text-white text-sm font-semibold hover:bg-emerald-950 transition-colors"
           >
             <Send className="w-4 h-4" />
-            Submit Inquiry
+            {t.submitInquiry}
           </button>
         </form>
       )}

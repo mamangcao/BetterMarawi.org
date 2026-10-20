@@ -1,8 +1,11 @@
+'use client';
 import React from 'react';
 import { EMERGENCY_HOTLINES } from '@/config/site';
 import { DataStatus } from '@/components/ui';
+import { useTranslation } from '@/i18n';
 
 export function EmergencyBanners() {
+  const { t } = useTranslation();
   const cdrrmo = EMERGENCY_HOTLINES.find((h) => h.id === 'cdrrmo');
   const bfp = EMERGENCY_HOTLINES.find((h) => h.id === 'bfp');
   const pnp = EMERGENCY_HOTLINES.find((h) => h.id === 'pnp');
@@ -11,7 +14,7 @@ export function EmergencyBanners() {
   return (
     <div className="bg-stone-900 text-stone-100 rounded-xl p-6 space-y-3">
       <h2 className="text-base font-bold text-accent font-display">
-        24/7 Emergency Dispatch Numbers
+        {t.emergencyDispatchHeading}
       </h2>
       <div className="space-y-2 text-xs font-mono-tabular">
         <div className="flex items-center justify-between py-2 border-b border-stone-800 gap-2">

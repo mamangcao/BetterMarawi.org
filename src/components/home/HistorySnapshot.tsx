@@ -1,8 +1,11 @@
+'use client';
 import React from 'react';
 import Link from 'next/link';
 import { Mountain } from 'lucide-react';
+import { useTranslation } from '@/i18n';
 
 export function HistorySnapshot() {
+  const { t } = useTranslation();
   const historyTimeline = [
     {
       era: 'Pre-colonial Era',
@@ -40,10 +43,10 @@ export function HistorySnapshot() {
           id="history-heading"
           className="text-2xl sm:text-3xl font-bold text-stone-900 font-display"
         >
-          History of the Islamic City of Marawi
+          {t.historySectionHeading}
         </h2>
         <p className="text-sm text-stone-600 mt-1">
-          From the ancestral seat of Pat a Pangampong ko Ranao to the modern Islamic City of Marawi.
+          {t.historySectionSubheading}
         </p>
       </div>
 
@@ -76,10 +79,10 @@ export function HistorySnapshot() {
           </div>
           <div>
             <div className="text-xl font-bold text-white font-mono-tabular">
-              700m Elevation
+              {t.elevationHighlightTitle}
             </div>
             <p className="text-sm text-stone-300 mt-1 leading-relaxed max-w-3xl">
-              Marawi sits at ~700 meters above sea level at coordinates 8°00&apos;N, 124°17&apos;E overlooking Lake Lanao, giving it a cool highland climate (&ldquo;Summer Capital of the South&rdquo;).
+              {t.elevationHighlightDesc}
             </p>
           </div>
         </div>
@@ -87,7 +90,7 @@ export function HistorySnapshot() {
           href="/statistics/city-profile"
           className="px-4 py-2.5 rounded-lg bg-white text-stone-900 text-xs font-semibold hover:bg-stone-100 transition-colors whitespace-nowrap shrink-0"
         >
-          Explore Geography Profile
+          {t.exploreGeographyProfile}
         </Link>
       </div>
     </section>

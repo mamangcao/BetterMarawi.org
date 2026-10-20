@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import Link from 'next/link';
 import {
@@ -10,8 +11,10 @@ import {
   FileCheck2,
 } from 'lucide-react';
 import { ArrowUpRight } from '@/components/ui';
+import { useTranslation } from '@/i18n';
 
 export function GovActivity() {
+  const { t } = useTranslation();
   const govActivityCards = [
     {
       title: 'City Ordinances & Resolutions',
@@ -74,10 +77,10 @@ export function GovActivity() {
           id="gov-activity-heading"
           className="text-2xl sm:text-3xl font-bold text-stone-900 font-display"
         >
-          Government Activity &amp; Transparency
+          {t.govActivitySectionHeading}
         </h2>
         <p className="text-sm sm:text-base text-stone-600 mt-2">
-          Track official legislative enactments, financial disclosures, and open records from the City Government.
+          {t.govActivitySectionSubheading}
         </p>
       </div>
 
@@ -103,7 +106,7 @@ export function GovActivity() {
               </p>
             </div>
             <div className="mt-5 pt-3 border-t border-stone-100 flex items-center justify-between text-xs font-semibold text-emerald-800">
-              <span>Open Directory</span>
+              <span>{t.openDirectory}</span>
               <ArrowUpRight className="w-4 h-4" />
             </div>
           </Link>

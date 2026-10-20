@@ -1,11 +1,14 @@
+'use client';
 import React from 'react';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { useTranslation } from '@/i18n';
 
 export function DirectoryList() {
+  const { t } = useTranslation();
   return (
     <div className="bg-white rounded-xl border border-stone-200/90 p-6 space-y-4">
       <h2 className="text-lg font-bold text-stone-900 font-display">
-        Marawi City Hall Trunkline &amp; Location
+        {t.trunklineHeading}
       </h2>
       <div className="space-y-3 text-sm text-stone-700">
         <div className="flex items-start gap-3">
@@ -40,9 +43,9 @@ export function DirectoryList() {
         <div className="flex items-start gap-3">
           <Clock className="w-4 h-4 text-emerald-800 mt-1 shrink-0" />
           <div>
-            <div className="font-bold text-stone-900">No Noon Break Policy</div>
+            <div className="font-bold text-stone-900">{t.noNoonBreakPolicy}</div>
             <div className="text-xs text-stone-500">
-              Frontline windows open 8:00 AM – 5:00 PM under RA 11032
+              {t.noNoonBreakDesc}
             </div>
           </div>
         </div>

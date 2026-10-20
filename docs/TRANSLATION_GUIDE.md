@@ -94,6 +94,19 @@ Agree on one translation per term and reuse it everywhere. Add terms as you go.
 | Fees | Bayarin | (reviewer to fill) | |
 | Office hours | Oras ng opisina | (reviewer to fill) | |
 | Unverified | Hindi Pa Nabeberipika | (reviewer to fill) | Used in the data status badge (`dataStatus.unverified`) |
+| Home | Tahanan | (reviewer to fill) | Navigation item |
+| Services | Mga Serbisyo | (reviewer to fill) | Navigation item |
+| Government | Pamahalaan | (reviewer to fill) | Navigation item |
+| Transparency | Transparansya | (reviewer to fill) | Navigation item |
+| Statistics | Estadistika | (reviewer to fill) | Navigation item |
+| Contact | Makipag-ugnayan | (reviewer to fill) | Navigation item |
+| View All | Tingnan Lahat | (reviewer to fill) | Common action link |
+| Directory | Direktoryo | (reviewer to fill) | Section header label |
+| Download | I-download | (reviewer to fill) | Common action button |
+| Quick Links | Mabilis na mga Link | (reviewer to fill) | Footer section title |
+| Resources | Mga Sanggunian | (reviewer to fill) | Footer section title |
+| Frontline Services | Mga Pangunahing Serbisyo | (reviewer to fill) | Department card section |
+| Frequently Asked Questions (FAQs) | Mga Madalas Itanong (FAQ) | (reviewer to fill) | Service page section |
 
 Check the Filipino terms with a native speaker too. These are suggestions.
 

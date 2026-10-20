@@ -6,8 +6,10 @@ import { MARAWI_BARANGAYS } from '@/data/barangays';
 import { BUDGET_BREAKDOWN_2026 } from '@/data/budget';
 import { ORDINANCES_LIST } from '@/data/ordinances';
 import { downloadCSV, downloadJSON, generateBarangaysCSV } from '@/lib/csv';
+import { useTranslation } from '@/i18n';
 
 export function OpenDataDownloads() {
+  const { t } = useTranslation();
   const handleExportBarangaysCSV = () => {
     const csv = generateBarangaysCSV(MARAWI_BARANGAYS);
     downloadCSV('marawi_city_96_barangays_census.csv', csv);
@@ -18,10 +20,10 @@ export function OpenDataDownloads() {
       <div className="pb-4 border-b border-stone-100">
         <h2 className="text-xl font-bold text-stone-900 font-display flex items-center gap-2">
           <Database className="w-5 h-5 text-emerald-800" />
-          Open Civic Datasets (Creative Commons CC0 / Open Data PH)
+          {t.openDatasetsHeading}
         </h2>
         <p className="text-xs text-stone-500 mt-0.5">
-          Click any button below to download the live dataset in CSV or JSON format.
+          {t.clickToDownload}
         </p>
       </div>
 
@@ -44,7 +46,7 @@ export function OpenDataDownloads() {
               onClick={handleExportBarangaysCSV}
               className="px-3 py-2 rounded-lg bg-emerald-900 text-white text-xs font-semibold hover:bg-emerald-950 font-mono-tabular"
             >
-              Download CSV
+              {t.downloadCSV}
             </button>
             <button
               type="button"
@@ -53,7 +55,7 @@ export function OpenDataDownloads() {
               }
               className="px-3 py-2 rounded-lg bg-white border border-stone-300 text-stone-800 text-xs font-semibold hover:bg-stone-100 font-mono-tabular"
             >
-              Download JSON
+              {t.downloadJSON}
             </button>
           </div>
         </div>
@@ -77,7 +79,7 @@ export function OpenDataDownloads() {
             }
             className="px-3 py-2 rounded-lg bg-emerald-900 text-white text-xs font-semibold hover:bg-emerald-950 font-mono-tabular shrink-0"
           >
-            Download JSON
+            {t.downloadJSON}
           </button>
         </div>
 
@@ -100,7 +102,7 @@ export function OpenDataDownloads() {
             }
             className="px-3 py-2 rounded-lg bg-emerald-900 text-white text-xs font-semibold hover:bg-emerald-950 font-mono-tabular shrink-0"
           >
-            Download JSON
+            {t.downloadJSON}
           </button>
         </div>
       </div>

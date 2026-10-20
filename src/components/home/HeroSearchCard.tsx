@@ -18,6 +18,7 @@ import {
   Compass,
 } from "lucide-react";
 import { ArrowUpRight } from "@/components/ui";
+import { useTranslation } from "@/i18n";
 import { ServicePageData } from "@/types";
 
 // Map slug to Lucide Icon component for the popular service tiles
@@ -58,6 +59,7 @@ export function HeroSearchCard({
   popularServices,
   searchableServices,
 }: HeroSearchCardProps) {
+  const { t } = useTranslation();
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
   const [isFocused, setIsFocused] = useState(false);
@@ -122,12 +124,12 @@ export function HeroSearchCard({
     <div className="w-full bg-[#F9FEFF] rounded-3xl shadow-xl p-5 sm:p-8 text-foreground border border-stone-200/80">
       {/* Heading: body sans font, text-xl, semibold */}
       <h2 className="text-xl font-semibold tracking-tight text-foreground font-sans mb-5">
-        Find a Service
+        {t.findService}
       </h2>
       {/* Instant Search Bar (h-[52px], rounded-xl, 18px icon) */}
       <div className="relative">
         <label htmlFor="hero-card-search" className="sr-only">
-          Search for a service
+          {t.findService}
         </label>
         <div className="relative flex items-center">
           <Search
@@ -145,7 +147,7 @@ export function HeroSearchCard({
               setTimeout(() => setIsFocused(false), 200);
             }}
             onKeyDown={handleKeyDown}
-            placeholder="Search for a service..."
+            placeholder={t.searchServicePlaceholder}
             autoComplete="off"
             className="w-full h-[52px] pl-11 pr-10 rounded-xl border border-stone-300 bg-white text-base text-foreground placeholder:text-foreground-subtle/70 shadow-xs focus:outline-hidden focus:ring-2 focus:ring-brand-800 focus:border-brand-800 transition-shadow"
           />
@@ -158,7 +160,7 @@ export function HeroSearchCard({
               }}
               className="absolute right-3.5 p-1 text-xs font-semibold text-foreground-subtle hover:text-foreground transition-colors"
             >
-              Clear
+              {t.clear}
             </button>
           )}
         </div>
@@ -200,7 +202,7 @@ export function HeroSearchCard({
               })
             ) : (
               <div className="p-4 text-center text-xs text-stone-500 font-medium">
-                No services found matching &ldquo;{searchQuery}&rdquo;
+                {t.noServicesFound} &ldquo;{searchQuery}&rdquo;
               </div>
             )}
           </div>
@@ -209,7 +211,7 @@ export function HeroSearchCard({
       {/* Popular Services Header */}
       <div className="mt-7 mb-3">
         <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-foreground-muted">
-          Popular Services
+          {t.popularServicesTitle}
         </span>
       </div>
       {/* 2x2 Grid of Compact Horizontal Tiles */}

@@ -1,10 +1,14 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Code2, Leaf, Users } from 'lucide-react';
 import { ArrowUpRight, Peso } from '@/components/ui';
+import { useTranslation } from '@/i18n';
 
 export function Footer() {
+  const { t } = useTranslation();
   return (
     <footer className="bg-stone-900 text-stone-300 border-t border-stone-800 mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
@@ -25,7 +29,7 @@ export function Footer() {
               <span>BetterMarawi.org</span>
             </Link>
             <p className="text-sm text-stone-400 leading-relaxed max-w-sm">
-              A community-run portal to find information and services of the Islamic City of Marawi, Lanao del Sur.
+              {t.heroSubtitle}
             </p>
             <div className="pt-2 text-xs text-stone-400 space-y-1 font-mono-tabular">
               <div>Coordinates: 8°00&apos;N, 124°17&apos;E (8.0034, 124.2851)</div>
@@ -37,12 +41,12 @@ export function Footer() {
           {/* Column 2: Quick Links */}
           <div className="md:col-span-3 space-y-3">
             <h2 className="text-xs font-semibold uppercase tracking-wider text-stone-400 font-sans">
-              Quick Links
+              {t.quickLinks}
             </h2>
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link href="/statistics/city-profile" className="hover:text-white transition-colors">
-                  About the Portal
+                  {t.aboutPortal}
                 </Link>
               </li>
               <li>
@@ -55,7 +59,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/services" className="hover:text-white transition-colors">
-                  Accessibility
+                  {t.accessibility}
                 </Link>
               </li>
               <li>
@@ -65,7 +69,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/contact" className="hover:text-white transition-colors">
-                  Contact Us
+                  {t.contactUs}
                 </Link>
               </li>
             </ul>
@@ -74,7 +78,7 @@ export function Footer() {
           {/* Column 3: Resources */}
           <div className="md:col-span-4 space-y-3">
             <h2 className="text-xs font-semibold uppercase tracking-wider text-stone-400 font-sans">
-              Resources
+              {t.resources}
             </h2>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5 text-sm">
               <li>
@@ -140,7 +144,7 @@ export function Footer() {
         <div className="pt-8 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 text-xs text-stone-400">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
             <span className="text-accent font-semibold font-mono-tabular">
-              Cost to the People of Marawi: <Peso />0
+              {t.costToPeople}<Peso />0
             </span>
             <span aria-hidden="true" className="text-stone-700">·</span>
             <Link
@@ -148,7 +152,7 @@ export function Footer() {
               className="hover:text-white transition-colors inline-flex items-center gap-1.5"
             >
               <Users className="w-3.5 h-3.5 text-stone-500" />
-              Volunteer with Us
+              {t.volunteerWithUs}
             </Link>
             <span aria-hidden="true" className="text-stone-700">|</span>
             <Link
@@ -156,7 +160,7 @@ export function Footer() {
               className="hover:text-white transition-colors inline-flex items-center gap-1.5"
             >
               <Code2 className="w-3.5 h-3.5 text-stone-500" />
-              Contribute at GitHub
+              {t.contributeGithub}
             </Link>
             <span aria-hidden="true" className="text-stone-700">·</span>
             <span className="inline-flex items-center gap-1 text-stone-400">
@@ -166,7 +170,7 @@ export function Footer() {
           </div>
 
           <div className="text-stone-400 font-mono-tabular">
-            BetterGov.ph © 2026 BetterMarawi.org · Not an official government website. Built by the community · v0.7.4
+            BetterGov.ph © 2026 BetterMarawi.org · {t.communityDisclaimer} · v0.7.4
           </div>
         </div>
       </div>

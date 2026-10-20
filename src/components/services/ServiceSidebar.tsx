@@ -1,7 +1,9 @@
+'use client';
 import React from 'react';
 import Link from 'next/link';
 import { Mail, Building2 } from 'lucide-react';
 import { SERVICES_DATA } from '@/data/services';
+import { useTranslation } from '@/i18n';
 
 interface ServiceSidebarProps {
   currentSlug: string;
@@ -9,12 +11,13 @@ interface ServiceSidebarProps {
 }
 
 export function ServiceSidebar({ currentSlug, email }: ServiceSidebarProps) {
+  const { t } = useTranslation();
   return (
     <aside className="lg:col-span-4">
       <div className="sticky top-24 space-y-6">
         <div className="bg-white rounded-xl border border-stone-200/90 p-5">
           <div className="text-xs font-semibold uppercase tracking-wider text-stone-500 pb-3 mb-3 border-b border-stone-100">
-            All 11 Marawi Citizen Services
+            {t.allServicesTitle}
           </div>
           <nav aria-label="Services Sibling Navigation" className="space-y-1">
             {SERVICES_DATA.map((item) => {
@@ -44,7 +47,7 @@ export function ServiceSidebar({ currentSlug, email }: ServiceSidebarProps) {
             Anti-Red Tape Act (RA 11032)
           </div>
           <p className="text-xs text-stone-300 leading-relaxed">
-            No fixer allowed. Official receipts are issued strictly by the Office of the City Treasurer. Report any irregularity to the Public Assistance &amp; Complaints Desk (PACD).
+            {t.antiRedTapeNotice}
           </p>
           <div className="pt-2 border-t border-stone-800 text-xs font-mono-tabular space-y-1">
             <div className="flex items-center gap-2">

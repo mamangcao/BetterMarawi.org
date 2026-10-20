@@ -1,9 +1,12 @@
+'use client';
 import React from 'react';
 import { Phone } from 'lucide-react';
 import { EMERGENCY_HOTLINES } from '@/config/site';
+import { useTranslation } from '@/i18n';
 import { QuickContactsMarquee } from './QuickContactsMarquee';
 
 export function QuickContacts() {
+  const { t } = useTranslation();
   return (
     <div
       role="region"
@@ -15,10 +18,10 @@ export function QuickContacts() {
         <div className="flex items-center gap-1.5 shrink-0 pr-3 border-r border-white/15 z-10 bg-brand-950 py-1">
           <Phone className="w-3.5 h-3.5 text-accent shrink-0" aria-hidden="true" />
           <span className="font-bold uppercase tracking-wider text-[11px] text-accent hidden sm:inline whitespace-nowrap">
-            Quick Contacts
+            {t.quickContactsLabel}
           </span>
           <span className="font-bold uppercase tracking-wider text-[10px] text-accent sm:hidden whitespace-nowrap">
-            Hotlines
+            {t.hotlinesLabel}
           </span>
         </div>
 

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { CheckSquare, Square } from 'lucide-react';
 import { Verification } from '@/types';
 import { DataStatus } from '@/components/ui';
+import { useTranslation } from '@/i18n';
 
 interface RequirementsChecklistProps {
   requirements: string[];
@@ -16,6 +17,7 @@ export function RequirementsChecklist({
   whoMayAvail,
   verification,
 }: RequirementsChecklistProps) {
+  const { t } = useTranslation();
   const [checkedReqs, setCheckedReqs] = useState<Record<number, boolean>>({});
 
   const toggleReq = (index: number) => {
@@ -36,16 +38,16 @@ export function RequirementsChecklist({
               id="requirements-heading"
               className="text-xl font-bold text-stone-900 font-display"
             >
-              1. Documentary Requirements Checklist
+              {t.docRequirementsHeading}
             </h2>
             <DataStatus item={verification} />
           </div>
           <p className="text-xs text-stone-500 mt-0.5">
-            Who may avail: {whoMayAvail}
+            {t.whoMayAvail} {whoMayAvail}
           </p>
         </div>
         <span className="text-xs font-mono-tabular font-semibold text-emerald-800">
-          {completedCount} of {requirements.length} Prepared
+          {completedCount} {t.of} {requirements.length} {t.preparedCount}
         </span>
       </div>
 

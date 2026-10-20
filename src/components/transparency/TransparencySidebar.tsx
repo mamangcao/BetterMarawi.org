@@ -4,8 +4,10 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { NAV_DROPDOWNS } from '@/config/site';
+import { useTranslation } from '@/i18n';
 
 export function TransparencySidebar() {
+  const { t } = useTranslation();
   const pathname = usePathname();
 
   return (
@@ -13,7 +15,7 @@ export function TransparencySidebar() {
       <div className="sticky top-24 space-y-6">
         <div className="bg-white rounded-xl border border-stone-200/90 p-5">
           <div className="text-xs font-semibold uppercase tracking-wider text-stone-500 pb-3 mb-3 border-b border-stone-100">
-            Transparency Sections (5)
+            {t.transparencySections}
           </div>
           <nav aria-label="Transparency Sibling Links" className="space-y-1.5">
             {NAV_DROPDOWNS.transparency.map((item) => {

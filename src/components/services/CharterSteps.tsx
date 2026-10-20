@@ -1,5 +1,7 @@
+'use client';
 import React from 'react';
 import { CharterStep } from '@/types';
+import { useTranslation } from '@/i18n';
 
 interface CharterStepsProps {
   steps: CharterStep[];
@@ -7,6 +9,7 @@ interface CharterStepsProps {
 }
 
 export function CharterSteps({ steps, totalProcessingTime }: CharterStepsProps) {
+  const { t } = useTranslation();
   return (
     <section
       aria-labelledby="charter-steps-heading"
@@ -18,14 +21,14 @@ export function CharterSteps({ steps, totalProcessingTime }: CharterStepsProps) 
             id="charter-steps-heading"
             className="text-xl font-bold text-stone-900 font-display"
           >
-            2. Citizen&apos;s Charter Step-by-Step Procedure
+            {t.charterStepsHeading}
           </h2>
           <p className="text-xs text-stone-500 mt-0.5">
-            Compliant with Republic Act No. 11032 (Ease of Doing Business &amp; Efficient Government Service Delivery Act)
+            {t.charterCompliance}
           </p>
         </div>
         <span className="text-xs font-mono-tabular font-semibold text-stone-700">
-          Total Time: {totalProcessingTime}
+          {t.totalTime} {totalProcessingTime}
         </span>
       </div>
 
@@ -52,7 +55,7 @@ export function CharterSteps({ steps, totalProcessingTime }: CharterStepsProps) 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
               <div>
                 <div className="text-xs font-semibold uppercase tracking-wider text-stone-500 mb-1">
-                  Citizen / Client Action
+                  {t.citizenAction}
                 </div>
                 <p className="text-stone-800 leading-relaxed">
                   {step.clientAction}
@@ -60,7 +63,7 @@ export function CharterSteps({ steps, totalProcessingTime }: CharterStepsProps) 
               </div>
               <div>
                 <div className="text-xs font-semibold uppercase tracking-wider text-stone-500 mb-1">
-                  LGU Office Action
+                  {t.agencyAction}
                 </div>
                 <p className="text-stone-700 leading-relaxed">
                   {step.agencyAction}

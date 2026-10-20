@@ -1,13 +1,16 @@
+'use client';
 import React from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { DepartmentRecord } from '@/types';
 import { DataStatus } from '@/components/ui';
+import { useTranslation } from '@/i18n';
 
 interface DepartmentCardProps {
   dept: DepartmentRecord;
 }
 
 export function DepartmentCard({ dept }: DepartmentCardProps) {
+  const { t } = useTranslation();
   return (
     <div className="bg-white rounded-xl border border-stone-200/90 p-6 space-y-4">
       <div className="flex flex-wrap items-start justify-between gap-2 pb-3 border-b border-stone-100">
@@ -32,7 +35,7 @@ export function DepartmentCard({ dept }: DepartmentCardProps) {
 
       <div>
         <div className="text-xs font-semibold uppercase tracking-wider text-stone-500 mb-2">
-          Frontline Services
+          {t.frontlineServices}
         </div>
         <div className="flex flex-wrap items-center gap-2 text-xs text-stone-700">
           {dept.keyServices.map((srv, idx) => (

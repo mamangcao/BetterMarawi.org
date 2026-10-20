@@ -1,12 +1,15 @@
+'use client';
 import React from "react";
 import Link from "next/link";
 import { Users } from "lucide-react";
 import { ArrowUpRight } from "@/components/ui";
 import { getPopularServices } from "@/lib/services";
 import { SERVICES_DATA } from "@/data/services";
+import { useTranslation } from "@/i18n";
 import { HeroSearchCard } from "./HeroSearchCard";
 
 export function Hero() {
+  const { t } = useTranslation();
   const popularServices = getPopularServices();
   const searchableServices = SERVICES_DATA.map((s) => ({
     slug: s.slug,
@@ -25,7 +28,7 @@ export function Hero() {
           <div className="min-w-0 flex flex-col justify-center">
             {/* Small uppercase label */}
             <p className="text-sm font-semibold uppercase tracking-widest text-[#F9FEFF]/80 mb-3">
-              WELCOME TO
+              {t.welcomeEyebrow}
             </p>
             {/* Fluid responsive title */}
             <h1
@@ -36,8 +39,8 @@ export function Hero() {
             </h1>
             {/* Description balanced over two lines on desktop */}
             <p className="mt-6 sm:mt-7 text-lg sm:text-xl text-[#F9FEFF]/90 leading-relaxed max-w-[36rem] text-balance">
-              A community-driven portal for discovering information and services
-              in the Islamic City of Marawi, Lanao del Sur.
+              {t.heroSubtitle}
+
             </p>
             {/* Action Buttons */}
             <div className="mt-8 sm:mt-11 grid grid-cols-2 items-stretch gap-2 sm:gap-4">
@@ -45,7 +48,7 @@ export function Hero() {
                 href="/services"
                 className="inline-flex items-center justify-center gap-1.5 sm:gap-2 min-h-[48px] sm:min-h-[54px] w-full px-2.5 sm:px-6 rounded-lg bg-[#F9FEFF] text-brand-900 hover:bg-accent hover:text-brand-950 text-sm sm:text-base font-semibold shadow-xs transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
               >
-                <span>Browse Services</span>
+                <span>{t.browseServices}</span>
                 <ArrowUpRight className="w-4 h-4 shrink-0" aria-hidden="true" />
               </Link>
 
@@ -54,7 +57,7 @@ export function Hero() {
                 className="inline-flex items-center justify-center gap-1.5 sm:gap-2 min-h-[48px] sm:min-h-[54px] w-full px-2.5 sm:px-6 rounded-lg bg-transparent border-2 border-[#F9FEFF] text-[#F9FEFF] hover:bg-white/10 text-sm sm:text-base font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
               >
                 <Users className="w-4 h-4 shrink-0" aria-hidden="true" />
-                <span>Contact Us</span>
+                <span>{t.contactUs}</span>
               </Link>
             </div>
           </div>

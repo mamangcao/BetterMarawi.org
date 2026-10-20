@@ -3,12 +3,14 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { FAQItem } from '@/types';
+import { useTranslation } from '@/i18n';
 
 interface ServiceFAQProps {
   faqs: FAQItem[];
 }
 
 export function ServiceFAQ({ faqs }: ServiceFAQProps) {
+  const { t } = useTranslation();
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   if (!faqs || faqs.length === 0) return null;
@@ -23,10 +25,10 @@ export function ServiceFAQ({ faqs }: ServiceFAQProps) {
           id="faq-heading"
           className="text-xl font-bold text-stone-900 font-display"
         >
-          4. Frequently Asked Questions (FAQs)
+          {t.faqHeading}
         </h2>
         <p className="text-xs text-stone-500 mt-0.5">
-          Structured with Schema.org FAQPage JSON-LD for instant citizen answers
+          {t.faqSubheading}
         </p>
       </div>
       <div className="divide-y divide-stone-200/80">

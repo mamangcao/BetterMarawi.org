@@ -3,12 +3,14 @@
 import React, { useState } from 'react';
 import { ServicePageData } from '@/types';
 import { ServiceCard } from './ServiceCard';
+import { useTranslation } from '@/i18n';
 
 interface ServiceGridProps {
   services: ServicePageData[];
 }
 
 export function ServiceGrid({ services }: ServiceGridProps) {
+  const { t } = useTranslation();
   const [filterText, setFilterText] = useState('');
 
   const filtered = services.filter(
@@ -25,7 +27,7 @@ export function ServiceGrid({ services }: ServiceGridProps) {
           type="search"
           value={filterText}
           onChange={(e) => setFilterText(e.target.value)}
-          placeholder="Filter 11 services by keyword or office..."
+          placeholder={t.filterServicesPlaceholder}
           className="w-full px-4 py-2.5 rounded-xl bg-white border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-800"
         />
       </div>

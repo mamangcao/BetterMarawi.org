@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { ChevronDown, Phone } from 'lucide-react';
 import { ArrowUpRight } from '@/components/ui';
 import { NAV_DROPDOWNS } from '@/config/site';
+import { useTranslation } from '@/i18n';
 import { ITEM_ICONS } from './navIcons';
 
 type DropdownKey = 'services' | 'government' | 'transparency' | 'statistics' | 'emergency';
@@ -44,6 +45,7 @@ const EMERGENCY_MENU_ITEMS = [
 ];
 
 export function MobileNav({ isOpen, onClose, topOffset = 64 }: MobileNavProps) {
+  const { t } = useTranslation();
   const pathname = usePathname();
   // All dropdowns collapsed by default
   const [mobileAccordion, setMobileAccordion] = useState<DropdownKey | null>(null);
@@ -92,10 +94,10 @@ export function MobileNav({ isOpen, onClose, topOffset = 64 }: MobileNavProps) {
   if (!isOpen) return null;
 
   const dropdownMeta: { key: 'services' | 'government' | 'transparency' | 'statistics'; label: string; rootHref: string }[] = [
-    { key: 'services', label: 'Services', rootHref: '/services' },
-    { key: 'government', label: 'Government', rootHref: '/government' },
-    { key: 'transparency', label: 'Transparency', rootHref: '/transparency' },
-    { key: 'statistics', label: 'Statistics', rootHref: '/statistics' },
+    { key: 'services', label: t.navServices, rootHref: '/services' },
+    { key: 'government', label: t.navGovernment, rootHref: '/government' },
+    { key: 'transparency', label: t.navTransparency, rootHref: '/transparency' },
+    { key: 'statistics', label: t.navStatistics, rootHref: '/statistics' },
   ];
 
   const handleToggle = (key: DropdownKey) => {
@@ -107,7 +109,7 @@ export function MobileNav({ isOpen, onClose, topOffset = 64 }: MobileNavProps) {
       id="mobile-nav-drawer"
       role="dialog"
       aria-modal="true"
-      aria-label="Navigation menu"
+      aria-label={t.navMenu}
       className="lg:hidden fixed inset-x-0 bottom-0 z-40 bg-stone-950/50 backdrop-blur-xs flex justify-end"
       style={{ top: `${topOffset}px` }}
       onClick={(e) => {
@@ -132,7 +134,7 @@ export function MobileNav({ isOpen, onClose, topOffset = 64 }: MobileNavProps) {
                 : 'text-stone-900 hover:bg-stone-200/60'
             }`}
           >
-            Home
+            {t.navHome}
           </Link>
 
           {/* Standard Navigation Dropdowns */}
@@ -163,7 +165,7 @@ export function MobileNav({ isOpen, onClose, topOffset = 64 }: MobileNavProps) {
                       onClick={onClose}
                       className="flex items-center gap-1 px-3 py-1.5 text-xs font-semibold text-emerald-800 hover:text-emerald-950"
                     >
-                      View All {label}
+                      {t.viewAll} {label}
                       <ArrowUpRight className="w-3 h-3" />
                     </Link>
                     {items.map((sub) => (
@@ -203,7 +205,7 @@ export function MobileNav({ isOpen, onClose, topOffset = 64 }: MobileNavProps) {
             >
               <span className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-emerald-800 shrink-0" aria-hidden="true" />
-                <span>Emergency / Hotline</span>
+                <span>{t.emergencyHotline}</span>
               </span>
               <ChevronDown
                 className={`w-5 h-5 text-stone-600 transition-transform ${
@@ -244,7 +246,7 @@ export function MobileNav({ isOpen, onClose, topOffset = 64 }: MobileNavProps) {
                 : 'text-stone-900 hover:bg-stone-200/60'
             }`}
           >
-            Contact
+            {t.navContact}
           </Link>
 
           {/* Sitemap */}
@@ -253,7 +255,7 @@ export function MobileNav({ isOpen, onClose, topOffset = 64 }: MobileNavProps) {
             onClick={onClose}
             className="block px-3 py-2 rounded-lg text-sm font-medium text-stone-600 hover:bg-stone-200/60"
           >
-            Sitemap & SEO Schema Inspector
+            {t.sitemapAndInspector}
           </Link>
         </div>
       </div>

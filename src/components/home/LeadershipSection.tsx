@@ -1,9 +1,12 @@
+'use client';
 import React from 'react';
 import Link from 'next/link';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { ArrowUpRight } from '@/components/ui';
+import { useTranslation } from '@/i18n';
 
 export function LeadershipSection() {
+  const { t } = useTranslation();
   return (
     <section
       aria-labelledby="leadership-heading"
@@ -18,17 +21,17 @@ export function LeadershipSection() {
                 id="leadership-heading"
                 className="text-2xl font-bold text-stone-900 font-display"
               >
-                City Leadership
+                {t.leadershipHeading}
               </h2>
               <p className="text-xs text-stone-500 mt-0.5">
-                Executive &amp; Legislative Leadership of the Islamic City of Marawi
+                {t.cityLeadershipSubtitle}
               </p>
             </div>
             <Link
               href="/government/local-officials-directory"
               className="text-sm font-semibold text-emerald-800 hover:text-emerald-950 inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 group"
             >
-              <span>View All Officials</span>
+              <span>{t.viewAllOfficials}</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -43,7 +46,7 @@ export function LeadershipSection() {
                   </div>
                   <div>
                     <div className="text-xs font-medium text-emerald-800">
-                      Elected Mayor
+                      {t.electedMayor}
                     </div>
                     <h3 className="text-base font-bold text-stone-900 leading-snug">
                       Hon. Shariff Zain Lanto Gandamra
@@ -69,7 +72,7 @@ export function LeadershipSection() {
                   </div>
                   <div>
                     <div className="text-xs font-medium text-emerald-800">
-                      Elected Vice Mayor
+                      {t.electedViceMayor}
                     </div>
                     <h3 className="text-base font-bold text-stone-900 leading-snug">
                       Hon. Majul Usman Gandamra
@@ -93,17 +96,17 @@ export function LeadershipSection() {
           <div className="flex items-center justify-between gap-4">
             <div>
               <h2 className="text-2xl font-bold text-stone-900 font-display">
-                Contact Us
+                {t.contactUs}
               </h2>
               <p className="text-xs text-stone-500 mt-0.5">
-                Official Marawi City Hall Assistance &amp; Information
+                {t.cityHallAssistance}
               </p>
             </div>
             <Link
               href="/government/departments-and-officials"
               className="text-sm font-semibold text-emerald-800 hover:text-emerald-950 inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 group"
             >
-              <span>View All Departments</span>
+              <span>{t.viewAllDepartments}</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -112,7 +115,7 @@ export function LeadershipSection() {
             <div className="pb-3.5 flex items-start gap-3">
               <Phone className="w-4 h-4 text-emerald-800 mt-1 shrink-0" />
               <div>
-                <div className="text-xs text-stone-500">Phone</div>
+                <div className="text-xs text-stone-500">{t.phone}</div>
                 <a
                   href="tel:0633520117"
                   className="text-sm font-bold text-stone-900 font-mono-tabular hover:text-emerald-800"
@@ -120,7 +123,7 @@ export function LeadershipSection() {
                   (063) 352-0117
                 </a>
                 <span className="text-xs text-stone-500 ml-2">
-                  (Mon–Fri, 8AM–5PM)
+                  ({t.monFriHours})
                 </span>
               </div>
             </div>
@@ -128,7 +131,7 @@ export function LeadershipSection() {
             <div className="py-3.5 flex items-start gap-3">
               <Mail className="w-4 h-4 text-emerald-800 mt-1 shrink-0" />
               <div>
-                <div className="text-xs text-stone-500">Email</div>
+                <div className="text-xs text-stone-500">{t.email}</div>
                 <a
                   href="mailto:info@marawicity.gov.ph"
                   className="text-sm font-bold text-stone-900 font-mono-tabular hover:text-emerald-800"
@@ -136,7 +139,7 @@ export function LeadershipSection() {
                   info@marawicity.gov.ph
                 </a>
                 <span className="text-xs text-stone-500 ml-2">
-                  (Response within 2 business days)
+                  ({t.responseWindow})
                 </span>
               </div>
             </div>
@@ -144,7 +147,7 @@ export function LeadershipSection() {
             <div className="pt-3.5 flex items-start gap-3">
               <MapPin className="w-4 h-4 text-emerald-800 mt-1 shrink-0" />
               <div>
-                <div className="text-xs text-stone-500">Address</div>
+                <div className="text-xs text-stone-500">{t.address}</div>
                 <div className="text-sm font-semibold text-stone-900">
                   Marawi City Hall, Banggolo / Kormatan Matampay, Marawi City, Lanao del Sur 9700
                 </div>

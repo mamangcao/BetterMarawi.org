@@ -5,12 +5,14 @@ import { Search, Download } from 'lucide-react';
 import { BarangayRecord } from '@/types';
 import { downloadCSV, generateBarangaysCSV } from '@/lib/csv';
 import { UnverifiedNotice } from '@/components/ui';
+import { useTranslation } from '@/i18n';
 
 interface BarangayTableProps {
   barangays: BarangayRecord[];
 }
 
 export function BarangayTable({ barangays }: BarangayTableProps) {
+  const { t } = useTranslation();
   const [brgySearch, setBrgySearch] = useState('');
   const [districtFilter, setDistrictFilter] = useState<string>('ALL');
 
@@ -44,7 +46,7 @@ export function BarangayTable({ barangays }: BarangayTableProps) {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-stone-100">
         <div>
           <h2 className="text-xl font-bold text-stone-900 font-display">
-            Official 96 Barangays Census Directory
+            {t.barangaysCensusHeading}
           </h2>
           <p className="text-xs text-stone-500 mt-0.5">
             Showing {filteredBarangays.length} of 96 Barangays · Total Population: 259,993
@@ -56,7 +58,7 @@ export function BarangayTable({ barangays }: BarangayTableProps) {
           className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-emerald-900 text-white text-xs font-semibold hover:bg-emerald-950 transition-colors whitespace-nowrap shrink-0"
         >
           <Download className="w-3.5 h-3.5" />
-          Export All 96 Barangays (CSV)
+          {t.exportAllBarangays}
         </button>
       </div>
 
@@ -70,7 +72,7 @@ export function BarangayTable({ barangays }: BarangayTableProps) {
             type="search"
             value={brgySearch}
             onChange={(e) => setBrgySearch(e.target.value)}
-            placeholder="Search by Barangay name, PSGC code, or sector..."
+            placeholder={t.searchBarangayPlaceholder}
             className="w-full pl-10 pr-4 py-2 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-800"
           />
         </div>

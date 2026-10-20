@@ -3,6 +3,7 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { AlertCircle, RotateCcw, Home } from 'lucide-react';
+import { useTranslation } from '@/i18n';
 
 export default function ErrorPage({
   error,
@@ -11,6 +12,7 @@ export default function ErrorPage({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  const { t } = useTranslation();
   useEffect(() => {
     console.error('App Error:', error);
   }, [error]);
@@ -21,10 +23,10 @@ export default function ErrorPage({
         <AlertCircle className="w-8 h-8" />
       </div>
       <h1 className="text-2xl sm:text-3xl font-bold font-display text-stone-900">
-        Something went wrong
+        {t.somethingWentWrong}
       </h1>
       <p className="mt-3 text-sm text-stone-600 max-w-md mx-auto leading-relaxed">
-        An unexpected error occurred while loading this page. Please try again or return to the homepage.
+        {t.errorDesc}
       </p>
       <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
         <button
@@ -33,14 +35,14 @@ export default function ErrorPage({
           className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-emerald-900 text-white text-sm font-semibold hover:bg-emerald-950 transition-colors"
         >
           <RotateCcw className="w-4 h-4" />
-          Try Again
+          {t.tryAgain}
         </button>
         <Link
           href="/"
           className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white border border-stone-300 text-stone-800 text-sm font-semibold hover:bg-stone-50 transition-colors"
         >
           <Home className="w-4 h-4" />
-          Back to Home
+          {t.backToHome}
         </Link>
       </div>
     </main>

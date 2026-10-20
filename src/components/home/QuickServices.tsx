@@ -1,10 +1,13 @@
+'use client';
 import React from 'react';
 import Link from 'next/link';
 import { ArrowUpRight } from '@/components/ui';
 import { SERVICES_DATA } from '@/data/services';
+import { useTranslation } from '@/i18n';
 import { ITEM_ICONS } from '@/components/layout/navIcons';
 
 export function QuickServices() {
+  const { t } = useTranslation();
   return (
     <section
       aria-labelledby="services-grid-heading"
@@ -16,17 +19,17 @@ export function QuickServices() {
             id="services-grid-heading"
             className="text-2xl sm:text-3xl font-bold text-stone-900 font-display"
           >
-            Services &amp; Citizen&apos;s Charters
+            {t.servicesAndChartersHeading}
           </h2>
           <p className="text-sm sm:text-base text-stone-600 mt-2">
-            Direct access to official government requirements, fees, processing times, and Citizen&apos;s Charters.
+            {t.servicesAndChartersSubheading}
           </p>
         </div>
         <Link
           href="/services"
           className="text-sm font-semibold text-emerald-800 hover:text-emerald-950 inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 group"
         >
-          <span>View All 11 Services</span>
+          <span>{t.viewAll11Services}</span>
           <ArrowUpRight className="w-4 h-4" />
         </Link>
       </div>
@@ -56,7 +59,7 @@ export function QuickServices() {
             </div>
 
             <div className="mt-5 pt-4 border-t border-stone-100 flex items-center justify-between text-xs font-semibold text-emerald-800 group-hover:text-emerald-950">
-              <span>View Citizen&apos;s Charter &amp; Requirements</span>
+              <span>{t.viewCharterAndRequirements}</span>
               <ArrowUpRight className="w-4 h-4" />
             </div>
           </Link>

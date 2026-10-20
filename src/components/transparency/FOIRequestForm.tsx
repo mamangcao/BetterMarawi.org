@@ -2,8 +2,10 @@
 
 import React, { useState } from 'react';
 import { Send, CheckCircle2 } from 'lucide-react';
+import { useTranslation } from '@/i18n';
 
 export function FOIRequestForm() {
+  const { t } = useTranslation();
   const [foiName, setFoiName] = useState('');
   const [foiEmail, setFoiEmail] = useState('');
   const [foiDocument, setFoiDocument] = useState('');
@@ -21,14 +23,14 @@ export function FOIRequestForm() {
     <div className="space-y-8">
       <section className="bg-white rounded-xl border border-stone-200/90 p-6 sm:p-8">
         <h2 className="text-xl font-bold text-stone-900 font-display pb-3 mb-5 border-b border-stone-100">
-          File an Electronic Freedom of Information (eFOI) Request
+          {t.foiHeading}
         </h2>
 
         {foiTrackingNumber ? (
           <div className="p-6 rounded-xl bg-emerald-50 border border-emerald-800/30 space-y-3">
             <div className="flex items-center gap-2 text-emerald-900 font-bold">
               <CheckCircle2 className="w-5 h-5" />
-              <span>FOI Request Logged Successfully</span>
+              <span>{t.foiSuccessTitle}</span>
             </div>
             <p className="text-sm text-stone-700">
               Your public record request has been routed to the Marawi City Public Information Office (PIO) &amp; City Records Unit. Under City Ordinance No. 2024-027, you will receive an official response within 15 working days.
@@ -45,7 +47,7 @@ export function FOIRequestForm() {
               }}
               className="px-4 py-2 rounded-lg bg-emerald-900 text-white text-xs font-semibold hover:bg-emerald-950 transition-colors"
             >
-              Submit Another Request
+              {t.foiSubmitAnother}
             </button>
           </div>
         ) : (
@@ -53,7 +55,7 @@ export function FOIRequestForm() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-xs font-semibold text-stone-700 mb-1">
-                  Full Name of Requesting Citizen *
+                  {t.foiFullNameLabel}
                 </label>
                 <input
                   type="text"
@@ -66,7 +68,7 @@ export function FOIRequestForm() {
               </div>
               <div>
                 <label className="block text-xs font-semibold text-stone-700 mb-1">
-                  Email Address for Digital Release *
+                  {t.foiEmailLabel}
                 </label>
                 <input
                   type="email"
@@ -81,7 +83,7 @@ export function FOIRequestForm() {
 
             <div>
               <label className="block text-xs font-semibold text-stone-700 mb-1">
-                Specific Public Document / Dataset Requested *
+                {t.foiDocLabel}
               </label>
               <input
                 type="text"
@@ -95,7 +97,7 @@ export function FOIRequestForm() {
 
             <div>
               <label className="block text-xs font-semibold text-stone-700 mb-1">
-                Purpose of Request (Academic Research, Journalism, Community Audit, etc.) *
+                {t.foiPurposeLabel}
               </label>
               <textarea
                 rows={3}
@@ -112,7 +114,7 @@ export function FOIRequestForm() {
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-900 text-white text-sm font-semibold hover:bg-emerald-950 transition-colors"
             >
               <Send className="w-4 h-4" />
-              Generate Official FOI Tracking Ticket
+              {t.foiSubmitButton}
             </button>
           </form>
         )}

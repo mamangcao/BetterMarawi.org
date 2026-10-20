@@ -4,12 +4,14 @@ import React, { useState } from 'react';
 import { Search } from 'lucide-react';
 import { ElectedOfficial } from '@/types';
 import { DataStatus } from '@/components/ui';
+import { useTranslation } from '@/i18n';
 
 interface OfficialsGridProps {
   officials: ElectedOfficial[];
 }
 
 export function OfficialsGrid({ officials }: OfficialsGridProps) {
+  const { t } = useTranslation();
   const [searchQuery, setSearchQuery] = useState('');
 
   const filtered = officials.filter(
@@ -27,7 +29,7 @@ export function OfficialsGrid({ officials }: OfficialsGridProps) {
           type="search"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Search officials by name or committee..."
+          placeholder={t.searchOfficialsPlaceholder}
           className="w-full pl-10 pr-4 py-2.5 bg-white rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-800"
         />
       </div>
@@ -61,8 +63,8 @@ export function OfficialsGrid({ officials }: OfficialsGridProps) {
             </div>
 
             <div className="mt-4 pt-3 border-t border-stone-100 text-xs text-stone-600 space-y-1 font-mono-tabular">
-              <div>Phone: {off.phone}</div>
-              <div>Email: {off.email}</div>
+              <div>{t.phone}: {off.phone}</div>
+              <div>{t.email}: {off.email}</div>
             </div>
           </div>
         ))}

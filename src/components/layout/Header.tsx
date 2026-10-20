@@ -13,10 +13,12 @@ import { MobileNav } from "./MobileNav";
 import { QuickContacts } from "./QuickContacts";
 import { FxTicker } from "./FxTicker";
 import { ITEM_ICONS } from "./navIcons";
+import { useTranslation } from "@/i18n";
 
 type DropdownKey = "services" | "government" | "transparency" | "statistics";
 
 export function Header() {
+  const { t } = useTranslation();
   const pathname = usePathname();
   const [openDropdown, setOpenDropdown] = useState<DropdownKey | null>(null);
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
@@ -106,10 +108,10 @@ export function Header() {
 
   const dropdownMeta: { key: DropdownKey; label: string; rootHref: string }[] =
     [
-      { key: "services", label: "Services", rootHref: "/services" },
-      { key: "government", label: "Government", rootHref: "/government" },
-      { key: "transparency", label: "Transparency", rootHref: "/transparency" },
-      { key: "statistics", label: "Statistics", rootHref: "/statistics" },
+      { key: "services", label: t.navServices, rootHref: "/services" },
+      { key: "government", label: t.navGovernment, rootHref: "/government" },
+      { key: "transparency", label: t.navTransparency, rootHref: "/transparency" },
+      { key: "statistics", label: t.navStatistics, rootHref: "/statistics" },
     ];
 
   return (
@@ -167,7 +169,7 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav
-            aria-label="Main Navigation"
+            aria-label={t.mainNavigation}
             className="hidden lg:flex items-center gap-6 text-sm font-medium text-stone-700"
           >
             <Link
@@ -178,7 +180,7 @@ export function Header() {
                   : "border-transparent hover:text-stone-950"
               }`}
             >
-              Home
+              {t.navHome}
             </Link>
 
             {dropdownMeta.map(({ key, label, rootHref }) => {
@@ -236,14 +238,14 @@ export function Header() {
                         }
                       >
                         <span className="text-[11px] font-bold uppercase tracking-wider text-stone-700">
-                          {label} Directory
+                          {label} {t.directorySuffix}
                         </span>
                         <Link
                           href={rootHref}
                           onClick={() => setOpenDropdown(null)}
                           className="text-xs text-emerald-800 hover:text-emerald-950 font-semibold flex items-center gap-1"
                         >
-                          View All
+                          {t.viewAll}
                           <ArrowUpRight className="w-3 h-3" />
                         </Link>
                       </div>
@@ -289,7 +291,7 @@ export function Header() {
                   : "border-transparent hover:text-stone-950"
               }`}
             >
-              Contact
+              {t.navContact}
             </Link>
           </nav>
 
@@ -306,7 +308,7 @@ export function Header() {
               id="mobile-menu-toggle"
               aria-expanded={mobileDrawerOpen}
               aria-controls="mobile-nav-drawer"
-              aria-label={mobileDrawerOpen ? "Close menu" : "Open menu"}
+              aria-label={mobileDrawerOpen ? t.closeMenu : t.openMenu}
               onClick={handleToggleMobileDrawer}
               className="lg:hidden p-2 rounded-lg text-stone-700 hover:bg-stone-200/60 focus-visible:outline-2 focus-visible:outline-emerald-800"
             >

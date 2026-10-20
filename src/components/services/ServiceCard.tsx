@@ -1,14 +1,17 @@
+'use client';
 import React from 'react';
 import Link from 'next/link';
 import { FileText } from 'lucide-react';
 import { ArrowUpRight } from '@/components/ui';
 import { ServicePageData } from '@/types';
+import { useTranslation } from '@/i18n';
 
 interface ServiceCardProps {
   service: ServicePageData;
 }
 
 export function ServiceCard({ service }: ServiceCardProps) {
+  const { t } = useTranslation();
   return (
     <Link
       href={`/services/${service.slug}`}
@@ -29,7 +32,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
       <div className="mt-5 pt-4 border-t border-stone-100 flex items-center justify-between text-xs font-semibold text-emerald-800">
         <span className="inline-flex items-center gap-1.5">
           <FileText className="w-3.5 h-3.5" />
-          {service.requirements.length} Requirements · {service.charterSteps.length} Steps
+          {service.requirements.length} {t.requirementsCount} · {service.charterSteps.length} {t.stepsCount}
         </span>
         <ArrowUpRight className="w-4 h-4" />
       </div>

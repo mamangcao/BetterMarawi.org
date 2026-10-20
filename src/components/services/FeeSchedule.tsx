@@ -1,6 +1,8 @@
+'use client';
 import React from 'react';
 import { FeeItem, Verification } from '@/types';
 import { formatWithPeso, DataStatus } from '@/components/ui';
+import { useTranslation } from '@/i18n';
 
 interface FeeScheduleProps {
   fees: FeeItem[];
@@ -8,6 +10,7 @@ interface FeeScheduleProps {
 }
 
 export function FeeSchedule({ fees, verification }: FeeScheduleProps) {
+  const { t } = useTranslation();
   return (
     <section
       aria-labelledby="fees-heading"
@@ -18,7 +21,7 @@ export function FeeSchedule({ fees, verification }: FeeScheduleProps) {
           id="fees-heading"
           className="text-xl font-bold text-stone-900 font-display"
         >
-          3. Official Schedule of Fees &amp; Legal Basis
+          {t.feeScheduleHeading}
         </h2>
         <DataStatus item={verification} />
       </div>
@@ -26,9 +29,9 @@ export function FeeSchedule({ fees, verification }: FeeScheduleProps) {
         <table className="w-full text-left border-collapse text-sm">
           <thead>
             <tr className="border-b border-stone-200 text-xs uppercase tracking-wider text-stone-500">
-              <th className="py-3 pr-4 font-semibold">Particulars / Service Fee</th>
-              <th className="py-3 px-4 font-semibold">Amount</th>
-              <th className="py-3 pl-4 font-semibold">Legal Basis</th>
+              <th className="py-3 pr-4 font-semibold">{t.particularsHeader}</th>
+              <th className="py-3 px-4 font-semibold">{t.amountHeader}</th>
+              <th className="py-3 pl-4 font-semibold">{t.legalBasisHeader}</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-stone-100">

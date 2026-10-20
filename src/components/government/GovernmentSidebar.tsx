@@ -5,8 +5,10 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Building2, Scale, Users } from 'lucide-react';
 import { NAV_DROPDOWNS } from '@/config/site';
+import { useTranslation } from '@/i18n';
 
 export function GovernmentSidebar() {
+  const { t } = useTranslation();
   const pathname = usePathname();
 
   return (
@@ -14,7 +16,7 @@ export function GovernmentSidebar() {
       <div className="sticky top-24 space-y-6">
         <div className="bg-white rounded-xl border border-stone-200/90 p-5">
           <div className="text-xs font-semibold uppercase tracking-wider text-stone-500 pb-3 mb-3 border-b border-stone-100">
-            Government Directory Sections
+            {t.governmentSections}
           </div>
           <nav aria-label="Government Sibling Links" className="space-y-1.5">
             {NAV_DROPDOWNS.government.map((item) => {
