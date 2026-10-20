@@ -2,13 +2,20 @@
 
 import React, { useState } from 'react';
 import { CheckSquare, Square } from 'lucide-react';
+import { Verification } from '@/types';
+import { DataStatus } from '@/components/ui';
 
 interface RequirementsChecklistProps {
   requirements: string[];
   whoMayAvail: string;
+  verification?: Verification;
 }
 
-export function RequirementsChecklist({ requirements, whoMayAvail }: RequirementsChecklistProps) {
+export function RequirementsChecklist({
+  requirements,
+  whoMayAvail,
+  verification,
+}: RequirementsChecklistProps) {
   const [checkedReqs, setCheckedReqs] = useState<Record<number, boolean>>({});
 
   const toggleReq = (index: number) => {
@@ -24,12 +31,15 @@ export function RequirementsChecklist({ requirements, whoMayAvail }: Requirement
     >
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 mb-5 border-b border-stone-100">
         <div>
-          <h2
-            id="requirements-heading"
-            className="text-xl font-bold text-stone-900 font-display"
-          >
-            1. Documentary Requirements Checklist
-          </h2>
+          <div className="flex flex-wrap items-center gap-2">
+            <h2
+              id="requirements-heading"
+              className="text-xl font-bold text-stone-900 font-display"
+            >
+              1. Documentary Requirements Checklist
+            </h2>
+            <DataStatus item={verification} />
+          </div>
           <p className="text-xs text-stone-500 mt-0.5">
             Who may avail: {whoMayAvail}
           </p>
@@ -72,4 +82,3 @@ export function RequirementsChecklist({ requirements, whoMayAvail }: Requirement
     </section>
   );
 }
-

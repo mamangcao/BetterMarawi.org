@@ -1,6 +1,8 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { DemographicsBlock, StatisticsSidebar } from '@/components/statistics';
+import { UnverifiedNotice } from '@/components/ui';
+import { cityProfileVerification } from '@/lib/verification';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { buildBreadcrumbSchema } from '@/lib/jsonld';
@@ -31,6 +33,7 @@ export default function StatisticsOverviewPage() {
           <p className="mt-3 text-base text-stone-700 max-w-3xl leading-relaxed">
             Official demographic, geographic, DTI CMCI competitiveness, and 96-barangay census statistics for the Islamic City of Marawi, Lanao del Sur.
           </p>
+          <UnverifiedNotice items={[cityProfileVerification]} className="mt-6" />
         </div>
       </section>
 
@@ -47,4 +50,3 @@ export default function StatisticsOverviewPage() {
     </main>
   );
 }
-

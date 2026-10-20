@@ -5,6 +5,7 @@ import { FDPTable, TransparencySidebar } from '@/components/transparency';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { buildBreadcrumbSchema } from '@/lib/jsonld';
+import { UnverifiedNotice } from '@/components/ui';
 import { buildMetadata, getRouteBreadcrumbs } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
@@ -32,6 +33,7 @@ export default function TransparencyOverviewPage() {
           <p className="mt-3 text-base text-stone-700 max-w-3xl leading-relaxed">
             Access Marawi City Full Disclosure Policy (FDP) statements, FY 2026 Annual Budget breakdown, procurement awards, and Freedom of Information (FOI) guides.
           </p>
+          <UnverifiedNotice items={FDP_DOCUMENTS} className="mt-6" />
         </div>
       </section>
 

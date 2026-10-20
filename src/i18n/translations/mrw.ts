@@ -18,4 +18,12 @@ export const mrw: typeof en = {
   govActivitySubheading: 'Maka-okit ko bago a manga kokoman ago piyaki-tokaw o Sangguniang Panlungsod ago LGU.',
   historyHeading: 'Thotholan ko Inged a Marawi',
   leadershipHeading: 'Manga Datu ago Olowan o Inged',
+  dataStatus: {
+    unverified: 'Unverified',
+    verified: 'Verified',
+    tooltip: 'This information has not yet been checked against an official source.',
+    notice:
+      'Some information on this page has not yet been verified against official sources. Check with City Hall before relying on it.',
+    learnMore: 'Learn how we verify data',
+  },
 };

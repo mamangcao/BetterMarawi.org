@@ -2,6 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import { SERVICES_DATA } from '@/data/services';
 import { ServiceGrid } from '@/components/services';
+import { UnverifiedNotice } from '@/components/ui';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { buildBreadcrumbSchema } from '@/lib/jsonld';
@@ -32,6 +33,7 @@ export default function ServicesPage() {
           <p className="mt-3 text-base text-stone-700 max-w-2xl">
             Select any service below to open its dedicated Citizen&apos;s Charter page with documentary requirements, step-by-step procedures, fee tables, and responsible offices.
           </p>
+          <UnverifiedNotice items={SERVICES_DATA} className="mt-6" />
         </div>
       </section>
 
@@ -43,4 +45,3 @@ export default function ServicesPage() {
     </main>
   );
 }
-

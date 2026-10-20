@@ -1,6 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { MARAWI_BARANGAYS } from '@/data/barangays';
+import { UnverifiedNotice } from '@/components/ui';
 import { BarangayTable, StatisticsSidebar } from '@/components/statistics';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { JsonLd } from '@/components/seo/JsonLd';
@@ -32,6 +33,7 @@ export default function BarangayDataPage() {
           <p className="mt-3 text-base text-stone-700 max-w-3xl leading-relaxed">
             Search and filter all 96 official Barangays of the Islamic City of Marawi by district sector, PSGC code, 2020 PSA Census, and latest 259,993 population distribution.
           </p>
+          <UnverifiedNotice items={MARAWI_BARANGAYS} className="mt-6" />
         </div>
       </section>
 

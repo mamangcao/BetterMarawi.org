@@ -4,6 +4,7 @@ import React from 'react';
 import { Download, FileCheck2 } from 'lucide-react';
 import { FDPDocument } from '@/types';
 import { downloadCSV } from '@/lib/csv';
+import { DataStatus } from '@/components/ui';
 
 interface FDPTableProps {
   documents: FDPDocument[];
@@ -43,6 +44,7 @@ export function FDPTable({ documents }: FDPTableProps) {
             <div className="space-y-1">
               <div className="flex flex-wrap items-center gap-2 text-xs text-stone-500 font-mono-tabular">
                 <span className="font-bold text-emerald-900">{doc.code}</span>
+                <DataStatus item={doc} />
                 <span aria-hidden="true">·</span>
                 <span>{doc.frequency}</span>
                 <span aria-hidden="true">·</span>
@@ -74,4 +76,3 @@ export function FDPTable({ documents }: FDPTableProps) {
     </section>
   );
 }
-

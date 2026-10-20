@@ -1,5 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
+import { cmciVerification } from '@/data/cmci';
+import { UnverifiedNotice } from '@/components/ui';
 import { CMCICard, StatisticsSidebar } from '@/components/statistics';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { JsonLd } from '@/components/seo/JsonLd';
@@ -31,6 +33,7 @@ export default function CMCIPage() {
           <p className="mt-3 text-base text-stone-700 max-w-3xl leading-relaxed">
             Annual competitiveness performance of the Islamic City of Marawi evaluated across the five DTI CMCI pillars: Economic Dynamism, Government Efficiency, Infrastructure, Resiliency, and Innovation.
           </p>
+          <UnverifiedNotice items={[cmciVerification]} className="mt-6" />
         </div>
       </section>
 

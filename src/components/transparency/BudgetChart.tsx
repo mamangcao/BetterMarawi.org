@@ -1,6 +1,6 @@
 import React from 'react';
-import { BUDGET_BREAKDOWN_2026 } from '@/data/budget';
-import { formatWithPeso } from '@/components/ui';
+import { BUDGET_BREAKDOWN_2026, budgetVerification } from '@/data/budget';
+import { formatWithPeso, DataStatus } from '@/components/ui';
 
 export function BudgetChart() {
   return (
@@ -8,7 +8,10 @@ export function BudgetChart() {
       {/* Summary KPI Strip */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="bg-white rounded-xl border border-stone-200/90 p-5">
-          <div className="text-xs text-stone-500">FY 2026 Total Annual Budget</div>
+          <div className="flex items-center justify-between gap-2">
+            <div className="text-xs text-stone-500">FY 2026 Total Annual Budget</div>
+            <DataStatus item={budgetVerification} />
+          </div>
           <div className="text-2xl font-bold text-stone-950 font-mono-tabular mt-1">
             {formatWithPeso(BUDGET_BREAKDOWN_2026.totalBudget)}
           </div>
@@ -65,4 +68,3 @@ export function BudgetChart() {
     </div>
   );
 }
-

@@ -6,6 +6,7 @@ import {
   EmergencyBanners,
   MapCard,
 } from '@/components/contact';
+import { UnverifiedNotice } from '@/components/ui';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { buildBreadcrumbSchema } from '@/lib/jsonld';
@@ -36,6 +37,7 @@ export default function ContactPage() {
           <p className="mt-3 text-base text-stone-700 max-w-2xl leading-relaxed">
             Reach out to Marawi City Hall departments, emergency dispatch centers, or the BetterMarawi.org civic volunteer team.
           </p>
+          <UnverifiedNotice show={true} className="mt-6" />
         </div>
       </section>
 
@@ -56,4 +58,3 @@ export default function ContactPage() {
     </main>
   );
 }
-

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
+import { cityProfileVerification } from '@/lib/verification';
+import { UnverifiedNotice } from '@/components/ui';
 import { DemographicsBlock, StatisticsSidebar } from '@/components/statistics';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { JsonLd } from '@/components/seo/JsonLd';
@@ -31,6 +33,7 @@ export default function CityProfilePage() {
           <p className="mt-3 text-base text-stone-700 max-w-3xl leading-relaxed">
             Comprehensive demographic, territorial, climatic, and economic baseline of the Islamic City of Marawi — located at ~700 meters above sea level along the northern shores of ancient Lake Lanao.
           </p>
+          <UnverifiedNotice items={[cityProfileVerification]} className="mt-6" />
         </div>
       </section>
 

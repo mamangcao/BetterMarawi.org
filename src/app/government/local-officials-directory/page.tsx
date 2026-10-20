@@ -5,6 +5,7 @@ import { OfficialsGrid, GovernmentSidebar } from '@/components/government';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { buildBreadcrumbSchema } from '@/lib/jsonld';
+import { UnverifiedNotice } from '@/components/ui';
 import { buildMetadata, getRouteBreadcrumbs } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
@@ -32,6 +33,7 @@ export default function LocalOfficialsPage() {
           <p className="mt-3 text-base text-stone-700 max-w-3xl leading-relaxed">
             Official directory of the Elected City Mayor, City Vice Mayor, Sangguniang Panlungsod Members, and Ex-Officio Sectoral Representatives serving the 96 barangays of Marawi City.
           </p>
+          <UnverifiedNotice items={ELECTED_OFFICIALS} className="mt-6" />
         </div>
       </section>
 

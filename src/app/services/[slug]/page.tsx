@@ -10,7 +10,7 @@ import { FeeSchedule } from '@/components/services/FeeSchedule';
 import { ServiceFAQ } from '@/components/services/ServiceFAQ';
 import { ServiceSidebar } from '@/components/services/ServiceSidebar';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
-import { formatWithPeso } from '@/components/ui';
+import { formatWithPeso, UnverifiedNotice } from '@/components/ui';
 import { JsonLd } from '@/components/seo/JsonLd';
 import {
   buildBreadcrumbSchema,
@@ -79,8 +79,8 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               <p className="mt-4 text-base text-stone-700 leading-relaxed">
                 {service.heroSummary}
               </p>
-
-              {/* Key Highlights */}
+              <UnverifiedNotice items={[service]} className='mt-6' />
+{/* Key Highlights */}
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {service.highlights.map((h) => (
                   <div
@@ -238,6 +238,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             <RequirementsChecklist
               requirements={service.requirements}
               whoMayAvail={service.whoMayAvail}
+              verification={service}
             />
 
             <CharterSteps
@@ -245,7 +246,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               totalProcessingTime={service.totalProcessingTime}
             />
 
-            <FeeSchedule fees={service.fees} />
+            <FeeSchedule fees={service.fees} verification={service} />
 
             <ServiceFAQ faqs={service.faqs} />
           </article>

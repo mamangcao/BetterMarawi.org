@@ -1,6 +1,7 @@
 import React from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { DepartmentRecord } from '@/types';
+import { DataStatus } from '@/components/ui';
 
 interface DepartmentCardProps {
   dept: DepartmentRecord;
@@ -11,9 +12,12 @@ export function DepartmentCard({ dept }: DepartmentCardProps) {
     <div className="bg-white rounded-xl border border-stone-200/90 p-6 space-y-4">
       <div className="flex flex-wrap items-start justify-between gap-2 pb-3 border-b border-stone-100">
         <div>
-          <span className="text-xs font-mono-tabular font-semibold text-emerald-800">
-            {dept.acronym}
-          </span>
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-mono-tabular font-semibold text-emerald-800">
+              {dept.acronym}
+            </span>
+            <DataStatus item={dept} />
+          </div>
           <h2 className="text-xl font-bold text-stone-900 font-display mt-0.5">
             {dept.name}
           </h2>
@@ -61,4 +65,3 @@ export function DepartmentCard({ dept }: DepartmentCardProps) {
     </div>
   );
 }
-

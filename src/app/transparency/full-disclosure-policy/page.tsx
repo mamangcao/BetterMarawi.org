@@ -6,6 +6,7 @@ import { ServiceFAQ } from '@/components/services';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { buildBreadcrumbSchema, buildFAQSchema } from '@/lib/jsonld';
+import { UnverifiedNotice } from '@/components/ui';
 import { buildMetadata, getRouteBreadcrumbs } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
@@ -46,6 +47,7 @@ export default function FullDisclosurePolicyPage() {
           <p className="mt-3 text-base text-stone-700 max-w-3xl leading-relaxed">
             View DILG-mandated quarterly financial disclosures, Statement of Receipts and Expenditures (SRE), 20% NTA utilization, and LDRRMF reports of Marawi City.
           </p>
+          <UnverifiedNotice items={FDP_DOCUMENTS} className="mt-6" />
         </div>
       </section>
 

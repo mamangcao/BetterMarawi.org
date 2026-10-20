@@ -1,6 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { DocumentsList, TransparencySidebar } from '@/components/transparency';
+import { UnverifiedNotice } from '@/components/ui';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { buildBreadcrumbSchema } from '@/lib/jsonld';
@@ -31,6 +32,7 @@ export default function ReportsAndStatisticsPage() {
           <p className="mt-3 text-base text-stone-700 max-w-3xl leading-relaxed">
             Review quarterly accomplishment reports, fiscal collection efficiency, and Seal of Good Local Governance (SGLG) indicators for the Islamic City of Marawi.
           </p>
+          <UnverifiedNotice show={true} className="mt-6" />
         </div>
       </section>
 
@@ -47,4 +49,3 @@ export default function ReportsAndStatisticsPage() {
     </main>
   );
 }
-

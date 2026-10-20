@@ -2,6 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import { CITY_DEPARTMENTS } from '@/data/departments';
 import { DepartmentsList, GovernmentSidebar } from '@/components/government';
+import { UnverifiedNotice } from '@/components/ui';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { buildBreadcrumbSchema } from '@/lib/jsonld';
@@ -32,6 +33,7 @@ export default function GovernmentOverviewPage() {
           <p className="mt-3 text-base text-stone-700 max-w-3xl leading-relaxed">
             Explore the executive departments, Sangguniang Panlungsod legislative council, and elected officials serving the people of the Islamic City of Marawi.
           </p>
+          <UnverifiedNotice items={CITY_DEPARTMENTS} className="mt-6" />
         </div>
       </section>
 

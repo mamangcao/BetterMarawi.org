@@ -1,4 +1,6 @@
 import React from 'react';
+import { cityProfileVerification } from '@/lib/verification';
+import { DataStatus } from '@/components/ui';
 
 export function DemographicsBlock() {
   const factSheet = [
@@ -19,7 +21,10 @@ export function DemographicsBlock() {
       {/* 4 Key Stat Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="bg-white rounded-xl border border-stone-200/90 p-5">
-          <div className="text-xs text-stone-500">Latest Census Population</div>
+          <div className="flex items-center justify-between gap-2">
+            <div className="text-xs text-stone-500">Latest Census Population</div>
+            <DataStatus item={cityProfileVerification} />
+          </div>
           <div className="text-3xl font-bold text-stone-950 font-mono-tabular mt-1">
             259,993
           </div>
@@ -28,7 +33,10 @@ export function DemographicsBlock() {
           </div>
         </div>
         <div className="bg-white rounded-xl border border-stone-200/90 p-5">
-          <div className="text-xs text-stone-500">Land Area &amp; Elevation</div>
+          <div className="flex items-center justify-between gap-2">
+            <div className="text-xs text-stone-500">Land Area &amp; Elevation</div>
+            <DataStatus item={cityProfileVerification} />
+          </div>
           <div className="text-3xl font-bold text-stone-950 font-mono-tabular mt-1">
             87.55 km²
           </div>
@@ -40,9 +48,12 @@ export function DemographicsBlock() {
 
       {/* Detailed Fact Sheet Table */}
       <section className="bg-white rounded-xl border border-stone-200/90 p-6 sm:p-8">
-        <h2 className="text-xl font-bold text-stone-900 font-display pb-4 mb-5 border-b border-stone-100">
-          Official City Fact Sheet &amp; Statutory Profile
-        </h2>
+        <div className="flex flex-wrap items-center justify-between gap-2 pb-4 mb-5 border-b border-stone-100">
+          <h2 className="text-xl font-bold text-stone-900 font-display">
+            Official City Fact Sheet &amp; Statutory Profile
+          </h2>
+          <DataStatus item={cityProfileVerification} />
+        </div>
         <dl className="divide-y divide-stone-100 text-sm">
           {factSheet.map(([label, val]) => (
             <div
@@ -60,4 +71,3 @@ export function DemographicsBlock() {
     </div>
   );
 }
-

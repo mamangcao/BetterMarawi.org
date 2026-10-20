@@ -18,4 +18,12 @@ export const fil: typeof en = {
   govActivitySubheading: 'Manatiling updated sa mga pinakabagong gawain at anunsyo ng lokal na pamahalaan.',
   historyHeading: 'Kasaysayan ng Marawi',
   leadershipHeading: 'Pamunuan ng Lungsod',
+  dataStatus: {
+    unverified: 'Hindi Pa Nabeberipika',
+    verified: 'Beripikado',
+    tooltip: 'Ang impormasyong ito ay hindi pa nasusuri sa opisyal na pinagmulan.',
+    notice:
+      'Ang ilang impormasyon sa pahinang ito ay hindi pa nabeberipika sa mga opisyal na pinagmulan. Sumangguni sa City Hall bago ito gamitin o pagkatiwalaan.',
+    learnMore: 'Alamin kung paano namin bineripika ang datos',
+  },
 };

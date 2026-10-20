@@ -5,6 +5,7 @@ import { OrdinancesTable, CommitteesList, GovernmentSidebar } from '@/components
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { buildBreadcrumbSchema } from '@/lib/jsonld';
+import { UnverifiedNotice } from '@/components/ui';
 import { buildMetadata, getRouteBreadcrumbs } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
@@ -32,6 +33,7 @@ export default function LegislativePage() {
           <p className="mt-3 text-base text-stone-700 max-w-3xl leading-relaxed">
             The legislative body of the Islamic City of Marawi presided over by the City Vice Mayor — responsible for enacting ordinances, approving resolutions, and appropriating city funds.
           </p>
+          <UnverifiedNotice items={ORDINANCES_LIST} className="mt-6" />
         </div>
       </section>
 

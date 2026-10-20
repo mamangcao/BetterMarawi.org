@@ -5,6 +5,7 @@ import { DepartmentsList, GovernmentSidebar } from '@/components/government';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { buildBreadcrumbSchema } from '@/lib/jsonld';
+import { UnverifiedNotice } from '@/components/ui';
 import { buildMetadata, getRouteBreadcrumbs } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
@@ -32,6 +33,7 @@ export default function DepartmentsPage() {
           <p className="mt-3 text-base text-stone-700 max-w-3xl leading-relaxed">
             Explore local government departments, offices, department heads, mandates, frontline services, and direct contact numbers at Marawi City Hall.
           </p>
+          <UnverifiedNotice items={CITY_DEPARTMENTS} className="mt-6" />
         </div>
       </section>
 

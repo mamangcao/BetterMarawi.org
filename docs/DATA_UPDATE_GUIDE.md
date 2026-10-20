@@ -118,6 +118,15 @@ Set `popular: true` and `popularRank` in `src/data/services.ts`. Up to 6 show in
 - Never show unverified values as if they were official.
 - List pending items under "Open questions" in `docs/data-sources.md`.
 
+## Verification status
+
+All datasets extend the `Verification` type (`verified`, `source`, `sourceUrl`, `verifiedOn`). Missing or `verified: false` marks an item as Unverified, displaying an "Unverified" badge on individual items and an alert banner on pages with unverified entries.
+
+To mark an item verified:
+1. Confirm the record against an official government document or certified portal.
+2. In the data file, set `verified: true`, `source` (exact title or document name), `sourceUrl` (link if publicly accessible), and `verifiedOn` (`YYYY-MM-DD`).
+3. Update `docs/data-sources.md` in the same commit with the verification log and source citation.
+
 ## Check before committing
 
 - [ ] The value matches the official source exactly

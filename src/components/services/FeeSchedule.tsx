@@ -1,23 +1,27 @@
 import React from 'react';
-import { FeeItem } from '@/types';
-import { formatWithPeso } from '@/components/ui';
+import { FeeItem, Verification } from '@/types';
+import { formatWithPeso, DataStatus } from '@/components/ui';
 
 interface FeeScheduleProps {
   fees: FeeItem[];
+  verification?: Verification;
 }
 
-export function FeeSchedule({ fees }: FeeScheduleProps) {
+export function FeeSchedule({ fees, verification }: FeeScheduleProps) {
   return (
     <section
       aria-labelledby="fees-heading"
       className="bg-white rounded-xl border border-stone-200/90 p-6 sm:p-8"
     >
-      <h2
-        id="fees-heading"
-        className="text-xl font-bold text-stone-900 font-display pb-4 mb-5 border-b border-stone-100"
-      >
-        3. Official Schedule of Fees &amp; Legal Basis
-      </h2>
+      <div className="flex flex-wrap items-center justify-between gap-2 pb-4 mb-5 border-b border-stone-100">
+        <h2
+          id="fees-heading"
+          className="text-xl font-bold text-stone-900 font-display"
+        >
+          3. Official Schedule of Fees &amp; Legal Basis
+        </h2>
+        <DataStatus item={verification} />
+      </div>
       <div className="overflow-x-auto">
         <table className="w-full text-left border-collapse text-sm">
           <thead>
@@ -47,4 +51,3 @@ export function FeeSchedule({ fees }: FeeScheduleProps) {
     </section>
   );
 }
-

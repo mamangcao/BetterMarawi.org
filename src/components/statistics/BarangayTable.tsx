@@ -4,6 +4,7 @@ import React, { useState, useMemo } from 'react';
 import { Search, Download } from 'lucide-react';
 import { BarangayRecord } from '@/types';
 import { downloadCSV, generateBarangaysCSV } from '@/lib/csv';
+import { UnverifiedNotice } from '@/components/ui';
 
 interface BarangayTableProps {
   barangays: BarangayRecord[];
@@ -58,6 +59,8 @@ export function BarangayTable({ barangays }: BarangayTableProps) {
           Export All 96 Barangays (CSV)
         </button>
       </div>
+
+      <UnverifiedNotice items={barangays} />
 
       {/* Search & Sector Filter Controls */}
       <div className="space-y-3">

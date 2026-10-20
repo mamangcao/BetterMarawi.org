@@ -1,5 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
+import { budgetVerification } from '@/data/budget';
+import { UnverifiedNotice } from '@/components/ui';
 import { BudgetChart, TransparencySidebar } from '@/components/transparency';
 import { ServiceFAQ } from '@/components/services';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
@@ -40,6 +42,7 @@ export default function AnnualBudgetPage() {
           <p className="mt-3 text-base text-stone-700 max-w-3xl leading-relaxed">
             Comprehensive breakdown of how public funds of the Islamic City of Marawi are allocated across Social Services, Economic Development, Infrastructure, and Disaster Risk Reduction.
           </p>
+          <UnverifiedNotice items={[budgetVerification]} className="mt-6" />
         </div>
       </section>
 

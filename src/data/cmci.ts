@@ -1,3 +1,9 @@
+import { Verification } from '@/types';
+
+export const cmciVerification: Verification = {
+  verified: false,
+};
+
 export const CMCI_PILLARS = [
   {
     pillar: 'Economic Dynamism',

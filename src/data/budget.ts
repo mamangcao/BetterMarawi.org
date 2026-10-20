@@ -1,3 +1,9 @@
+import { Verification } from '@/types';
+
+export const budgetVerification: Verification = {
+  verified: false,
+};
+
 export const BUDGET_BREAKDOWN_2026 = {
   fiscalYear: 2026,
   totalBudget: '₱1,845,200,000',

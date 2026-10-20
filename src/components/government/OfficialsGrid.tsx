@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Search } from 'lucide-react';
 import { ElectedOfficial } from '@/types';
+import { DataStatus } from '@/components/ui';
 
 interface OfficialsGridProps {
   officials: ElectedOfficial[];
@@ -42,9 +43,12 @@ export function OfficialsGrid({ officials }: OfficialsGridProps) {
                 <div className="w-11 h-11 rounded-xl bg-emerald-900 text-white font-bold font-display text-sm flex items-center justify-center shrink-0">
                   {off.initials}
                 </div>
-                <div>
-                  <div className="text-xs font-semibold text-emerald-800">
-                    {off.role} ({off.term})
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-wrap items-center justify-between gap-1.5">
+                    <div className="text-xs font-semibold text-emerald-800">
+                      {off.role} ({off.term})
+                    </div>
+                    <DataStatus item={off} />
                   </div>
                   <h2 className="text-base font-bold text-stone-900 mt-0.5">
                     {off.name}
@@ -66,4 +70,3 @@ export function OfficialsGrid({ officials }: OfficialsGridProps) {
     </div>
   );
 }
-

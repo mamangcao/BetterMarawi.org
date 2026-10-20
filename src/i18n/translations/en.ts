@@ -16,6 +16,14 @@ export const en = {
   govActivitySubheading: 'Stay updated with the latest government activities and announcements.',
   historyHeading: 'History of Marawi',
   leadershipHeading: 'City Leadership',
+  dataStatus: {
+    unverified: 'Unverified',
+    verified: 'Verified',
+    tooltip: 'This information has not yet been checked against an official source.',
+    notice:
+      'Some information on this page has not yet been verified against official sources. Check with City Hall before relying on it.',
+    learnMore: 'Learn how we verify data',
+  },
 };
 
 export type TranslationKey = keyof typeof en;
