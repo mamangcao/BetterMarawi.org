@@ -36,8 +36,8 @@ export function Hero() {
             </h1>
             {/* Description balanced over two lines on desktop */}
             <p className="mt-6 sm:mt-7 text-lg sm:text-xl text-[#F9FEFF]/90 leading-relaxed max-w-[36rem] text-balance">
-              A community-run portal to find information and services of the
-              Islamic City of Marawi, Lanao del Sur.
+              A community-driven portal for discovering information and services
+              in the Islamic City of Marawi, Lanao del Sur.
             </p>
             {/* Action Buttons */}
             <div className="mt-8 sm:mt-11 grid grid-cols-2 items-stretch gap-2 sm:gap-4">
