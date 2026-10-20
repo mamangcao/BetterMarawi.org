@@ -29,13 +29,15 @@ src/i18n/
 │  ├─ en.ts
 │  ├─ fil.ts
 │  └─ mrw.ts
-├─ LanguageProvider.tsx   # language state, saved choice
-└─ useTranslation.ts      # hook used by components
+├─ index.ts               # exports LanguageProvider, useTranslation, and translations
+├─ LanguageProvider.tsx   # language context, persistence (localStorage + cookie), useTranslation hook
+└─ useTranslation.ts      # re-exports hook and provider
 ```
 
-- Keys are grouped by area (for example `nav`, `hero`, `dataStatus`). Use the same keys in all three files.
+- Text is stored as a structured TypeScript object (`en`). `fil.ts` and `mrw.ts` are strictly typed as `typeof en` so every key in `en.ts` must exist in all three files. Keys are camelCase properties or nested objects (for example `dataStatus.unverified`).
+- In components, import `useTranslation` from `@/i18n`. The hook returns `{ language, setLanguage, t }`, where `t` is the translation object accessed via property dot-notation (for example `{t.welcomeEyebrow}` or `{t.dataStatus.unverified}`).
 - `en.ts` defines the key list. TypeScript flags a missing key in `fil.ts` or `mrw.ts`, so run `npm run typecheck` after every change.
-- The language choice is saved in the browser and defaults to EN.
+- The language choice is persisted in `localStorage` (`bm_lang`) and a cookie (`bm_lang`), defaulting to `EN`.
 
 ## What is translated, and what is not
 
@@ -54,7 +56,7 @@ Translating long service content (requirements, steps, FAQs) is a larger future 
 
 1. Add or edit the key in `en.ts` first.
 2. Add the same key to `fil.ts` and `mrw.ts`.
-3. In a component, use the hook (`useTranslation`) instead of hardcoded text.
+3. In a component, import `{ useTranslation } from '@/i18n';` and access `{t.yourKey}` instead of hardcoded text.
 4. Run `npm run typecheck`, `npm run lint`, and `npm run dev`. Switch EN, FIL, and MRW and check the text on screen.
 5. Mark any unreviewed Meranaw text (see below).
 6. Commit with the format in `AGENTS.md`.
@@ -91,7 +93,7 @@ Agree on one translation per term and reuse it everywhere. Add terms as you go.
 | Requirements | Mga kailangan | (reviewer to fill) | |
 | Fees | Bayarin | (reviewer to fill) | |
 | Office hours | Oras ng opisina | (reviewer to fill) | |
-| Unverified | Hindi pa na-verify | (reviewer to fill) | Used in the data status badge |
+| Unverified | Hindi Pa Nabeberipika | (reviewer to fill) | Used in the data status badge (`dataStatus.unverified`) |
 
 Check the Filipino terms with a native speaker too. These are suggestions.
 
