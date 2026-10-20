@@ -127,7 +127,7 @@ export function HeroSearchCard({
       {/* Instant Search Bar (h-[52px], rounded-xl, 18px icon) */}
       <div className="relative">
         <label htmlFor="hero-card-search" className="sr-only">
-          Search for a service
+          Find a service
         </label>
         <div className="relative flex items-center">
           <Search
@@ -204,7 +204,7 @@ export function HeroSearchCard({
               </div>
             )}
           </div>
-        )}
+        )}33
       </div>
       {/* Popular Services Header */}
       <div className="mt-7 mb-3">
