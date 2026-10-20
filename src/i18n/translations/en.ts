@@ -42,6 +42,10 @@ export const en = {
   emergencyHotline: 'Emergency / Hotline',
   sitemapAndInspector: 'Sitemap & SEO Schema Inspector',
   navMenu: 'Navigation menu',
+  fxRatesLabel: 'Exchange rates',
+  fxPauseHint: 'Hover or focus to pause rotation',
+  fxRatesAsOf: 'Rates as of',
+  fxAttribution: 'Exchange rates by ExchangeRate-API',
 
   // Footer
   quickLinks: 'Quick Links',

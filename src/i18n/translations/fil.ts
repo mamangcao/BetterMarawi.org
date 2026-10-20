@@ -44,6 +44,10 @@ export const fil: typeof en = {
   emergencyHotline: 'Emergency / Hotline',
   sitemapAndInspector: 'Sitemap at SEO Schema Inspector',
   navMenu: 'Menu ng navigasyon',
+  fxRatesLabel: 'Mga halaga ng palitan',
+  fxPauseHint: 'Itapat ang cursor o pindutin upang ihinto ang pag-ikot',
+  fxRatesAsOf: 'Mga halaga noong',
+  fxAttribution: 'Palitan ng pera mula sa ExchangeRate-API',
 
   // Footer
   quickLinks: 'Mabilis na mga Link',

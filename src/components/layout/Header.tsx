@@ -14,11 +14,13 @@ import { QuickContacts } from "./QuickContacts";
 import { FxTicker } from "./FxTicker";
 import { ITEM_ICONS } from "./navIcons";
 import { useTranslation } from "@/i18n";
+import { useFxRates } from "@/lib/fx";
 
 type DropdownKey = "services" | "government" | "transparency" | "statistics";
 
 export function Header() {
   const { t } = useTranslation();
+  const { rates: fxRates, lastUpdated: fxLastUpdated } = useFxRates();
   const pathname = usePathname();
   const [openDropdown, setOpenDropdown] = useState<DropdownKey | null>(null);
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
@@ -125,8 +127,10 @@ export function Header() {
         <div className="bg-stone-950/80 border-t border-stone-800/80 text-stone-400">
           <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-7 sm:h-8 flex flex-nowrap items-center justify-between overflow-hidden whitespace-nowrap font-mono-tabular ticker-bar-text">
             <div className="flex flex-nowrap items-center gap-1.5 sm:gap-3 shrink-0">
-              <FxTicker />
-              <span aria-hidden="true" className="text-stone-600 select-none">|</span>
+              <FxTicker rates={fxRates} lastUpdated={fxLastUpdated} />
+              {fxRates.length > 0 && (
+                <span aria-hidden="true" className="text-stone-600 select-none">|</span>
+              )}
               <span className="text-stone-300 shrink-0 whitespace-nowrap">Marawi City 22°C</span>
               <span aria-hidden="true" className="text-stone-600 select-none">|</span>
               <LiveClock />

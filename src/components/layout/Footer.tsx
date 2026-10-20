@@ -6,9 +6,12 @@ import Image from 'next/image';
 import { Code2, Leaf, Users } from 'lucide-react';
 import { ArrowUpRight, Peso } from '@/components/ui';
 import { useTranslation } from '@/i18n';
+import { useFxRates, formatFxDate } from '@/lib/fx';
 
 export function Footer() {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
+  const { lastUpdated: fxLastUpdated } = useFxRates();
+  const formattedFxDate = formatFxDate(fxLastUpdated, language);
   return (
     <footer className="bg-stone-900 text-stone-300 border-t border-stone-800 mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
@@ -135,6 +138,22 @@ export function Footer() {
                 <Link href="/transparency/annual-budget" className="hover:text-white transition-colors">
                   BLGF
                 </Link>
+              </li>
+              <li>
+                <a
+                  href="https://www.exchangerate-api.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors inline-flex items-center gap-1"
+                >
+                  {t.fxAttribution}
+                  <ArrowUpRight className="w-3.5 h-3.5 text-stone-500" />
+                </a>
+                {formattedFxDate && (
+                  <span className="block text-xs text-stone-400 mt-0.5">
+                    {t.fxRatesAsOf} {formattedFxDate}
+                  </span>
+                )}
               </li>
             </ul>
           </div>

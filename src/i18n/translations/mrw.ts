@@ -59,6 +59,14 @@ export const mrw: typeof en = {
   sitemapAndInspector: 'Sitemap & SEO Schema Inspector',
   // TODO(mrw-review): needs fluent reviewer
   navMenu: 'Navigation menu',
+  // TODO(mrw-review): needs fluent reviewer
+  fxRatesLabel: 'Exchange rates',
+  // TODO(mrw-review): needs fluent reviewer
+  fxPauseHint: 'Hover or focus to pause rotation',
+  // TODO(mrw-review): needs fluent reviewer
+  fxRatesAsOf: 'Rates as of',
+  // TODO(mrw-review): needs fluent reviewer
+  fxAttribution: 'Exchange rates by ExchangeRate-API',
 
   // TODO(mrw-review): needs fluent reviewer
   quickLinks: 'Quick Links',

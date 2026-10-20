@@ -25,7 +25,7 @@ All public information on BetterMarawi.org comes from official government source
 | PhilHealth | philhealth.gov.ph | YAKAP and health benefits | Health services page |
 | DICT eFOI Portal | foi.gov.ph | Freedom of Information requests | FOI page |
 | PAGASA | pagasa.dost.gov.ph | Weather and climate | City profile, weather ticker |
-| Bangko Sentral ng Pilipinas (BSP) | bsp.gov.ph | Official exchange rates | FX ticker |
+| ExchangeRate-API | exchangerate-api.com | Daily currency exchange rates (USD, SAR, AED, JPY, etc.) | FX ticker, Footer |
 
 ## Local and regional sources (Marawi City, Lanao del Sur, BARMM)
 
