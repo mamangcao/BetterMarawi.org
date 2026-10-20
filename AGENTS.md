@@ -59,9 +59,7 @@ The owner edits files by hand between tasks. Those edits are intentional and mus
 
 ### Commit message format
 
-```
 Type: Brief description
-```
 
 Types:
 - `Add`: new feature or content
