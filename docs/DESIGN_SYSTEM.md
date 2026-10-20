@@ -28,7 +28,80 @@ The rest of the palette is derived in `globals.css`:
 - Foreground text (dark green-black, not pure black) and muted text
 - Status colors: success, warning, error, info. These stay distinct from the brand green.
 
-Add the exact token names here once confirmed:
+### Color tokens
+
+Defined in `src/app/globals.css`. Use these names in components, never raw hex.
+
+**Brand scale**
+
+| Token | Hex | Use |
+| --- | --- | --- |
+| `--color-brand-50` | `#EBF5F1` | Soft tint (icon boxes, hover backgrounds) |
+| `--color-brand-100` | `#D4EAE2` | Tint |
+| `--color-brand-200` | `#ACD5C5` | Tint |
+| `--color-brand-300` | `#7FBFA7` | Tint |
+| `--color-brand-400` | `#52A98A` | Mid tone |
+| `--color-brand-500` | `#358F70` | Mid tone |
+| `--color-brand-600` | `#29745B` | Shade |
+| `--color-brand-700` | `#225E4A` | Shade |
+| `--color-brand-800` | `#1D5341` | Shade |
+| `--color-brand-900` | `#1B4D3E` | Primary brand color (exact) |
+| `--color-brand-950` | `#0E2921` | Deepest shade |
+
+**Primary actions**
+
+| Token | Hex | Use |
+| --- | --- | --- |
+| `--color-primary` | `#1B4D3E` | Primary buttons, links, active states |
+| `--color-primary-hover` | `#163F33` | Hover |
+| `--color-primary-active` | `#0E2921` | Pressed |
+
+**Accent (use sparingly)**
+
+| Token | Hex | Use |
+| --- | --- | --- |
+| `--color-accent` | `#FFE135` | Accent base |
+| `--color-accent-hover` | `#F5D61E` | Hover |
+| `--color-accent-active` | `#D4B60B` | Pressed |
+| `--color-accent-light` | `#FFF9D6` | Light tint |
+| `--color-accent-muted` | `#E0C41B` | Muted |
+
+**Surfaces and borders**
+
+| Token | Hex | Use |
+| --- | --- | --- |
+| `--color-surface` | `#F9FEFF` | Page background |
+| `--color-surface-card` | `#F0F7F4` | Cards |
+| `--color-surface-elevated` | `#E4EFEA` | Raised areas |
+| `--color-surface-highlight` | `#D8E7E0` | Highlighted rows or areas |
+| `--color-surface-border` | `#D3E2DC` | Standard border |
+| `--color-surface-border-subtle` | `#E8F1ED` | Subtle divider |
+| `--color-surface-border-strong` | `#A8C2B7` | Strong border |
+
+**Text**
+
+| Token | Hex | Use |
+| --- | --- | --- |
+| `--color-foreground` | `#0E1A16` | Main text and headings |
+| `--color-foreground-secondary` | `#243831` | Secondary text |
+| `--color-foreground-muted` | `#3D544C` | Muted text |
+| `--color-foreground-subtle` | `#567067` | Placeholders, least important text |
+| `--color-foreground-inverse` | `#F9FEFF` | Text on dark green |
+
+**Status**
+
+| Token | Hex | Use |
+| --- | --- | --- |
+| `--color-status-success` / `-bg` / `-text` | `#227D52` / `#EAF5EE` / `#145334` | Success |
+| `--color-status-warning` / `-bg` / `-text` | `#C07706` / `#FEF6E9` / `#7C4600` | Warning |
+| `--color-status-error` / `-bg` / `-text` | `#C53030` / `#FDF2F2` / `#821818` | Error |
+| `--color-status-info` / `-bg` / `-text` | `#1E6B8C` / `#EFF8FA` / `#13445A` | Info |
+
+Use the `-text` token for status text and the base token for icons and borders. The base warning color is too light for small text.
+
+**Compatibility aliases**
+
+`--color-emerald-*` maps to the brand scale, and `--color-stone-*` is a green-tinted neutral scale. They exist so classes carried over from the AI Studio version keep working. In new code, use the `brand`, `surface`, and `foreground` tokens above, and do not add new uses of `emerald` or `stone`.
 
 | Token | Hex | Use |
 | --- | --- | --- |
