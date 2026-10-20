@@ -55,8 +55,28 @@ The owner edits files by hand between tasks. Those edits are intentional and mus
 
 - Work on `dev`. Never commit to `main`. Never force-push.
 - Commit only the files the task changed: `git add <specific files>`. Never `git add .` or `git commit -a`.
-- Conventional Commits: `feat:`, `fix:`, `style:`, `refactor:`, `docs:`, `chore:`.
 - If push authentication fails, stop and tell the owner what to do. Never ask for a token in chat.
+
+### Commit message format
+
+```
+Type: Brief description
+```
+
+Types:
+- `Add`: new feature or content
+- `Fix`: bug fix
+- `Update`: changes to existing feature
+- `Remove`: removed feature or content
+- `Docs`: documentation changes
+- `Style`: CSS or formatting changes (no logic change)
+- `Refactor`: code restructuring
+
+Rules:
+- Capitalize the type, then a colon and a space: `Fix: dropdown closes before click`
+- Start the description with a capital letter, in the imperative mood ("Add", not "Added"), no period at the end
+- Keep the whole line under about 70 characters
+- One logical change per commit
 
 ## Data and content
 
