@@ -155,6 +155,20 @@ export function Footer() {
                   </span>
                 )}
               </li>
+              <li>
+                <a
+                  href="https://open-meteo.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors inline-flex items-center gap-1"
+                >
+                  {t.weatherAttribution}
+                  <ArrowUpRight className="w-3.5 h-3.5 text-stone-500" />
+                </a>
+                <span className="block text-xs text-stone-400 mt-0.5">
+                  {t.weatherForecastNote}
+                </span>
+              </li>
             </ul>
           </div>
         </div>

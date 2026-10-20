@@ -12,15 +12,18 @@ import { LiveClock } from "./LiveClock";
 import { MobileNav } from "./MobileNav";
 import { QuickContacts } from "./QuickContacts";
 import { FxTicker } from "./FxTicker";
+import { WeatherTicker } from "./WeatherTicker";
 import { ITEM_ICONS } from "./navIcons";
 import { useTranslation } from "@/i18n";
 import { useFxRates } from "@/lib/fx";
+import { useWeather } from "@/lib/weather";
 
 type DropdownKey = "services" | "government" | "transparency" | "statistics";
 
 export function Header() {
   const { t } = useTranslation();
   const { rates: fxRates, lastUpdated: fxLastUpdated } = useFxRates();
+  const { weather, isLoading: weatherLoading } = useWeather();
   const pathname = usePathname();
   const [openDropdown, setOpenDropdown] = useState<DropdownKey | null>(null);
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
@@ -131,8 +134,10 @@ export function Header() {
               {fxRates.length > 0 && (
                 <span aria-hidden="true" className="text-stone-600 select-none">|</span>
               )}
-              <span className="text-stone-300 shrink-0 whitespace-nowrap">Marawi City 22°C</span>
-              <span aria-hidden="true" className="text-stone-600 select-none">|</span>
+              <WeatherTicker weather={weather} isLoading={weatherLoading} />
+              {(weatherLoading || weather) && (
+                <span aria-hidden="true" className="text-stone-600 select-none">|</span>
+              )}
               <LiveClock />
             </div>
             <div className="hidden sm:flex items-center gap-2 text-stone-400 shrink-0">

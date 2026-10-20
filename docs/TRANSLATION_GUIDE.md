@@ -107,6 +107,11 @@ Agree on one translation per term and reuse it everywhere. Add terms as you go.
 | Resources | Mga Sanggunian | (reviewer to fill) | Footer section title |
 | Frontline Services | Mga Pangunahing Serbisyo | (reviewer to fill) | Department card section |
 | Frequently Asked Questions (FAQs) | Mga Madalas Itanong (FAQ) | (reviewer to fill) | Service page section |
+| Weather | Panahon | (reviewer to fill) | Weather widget & metrics |
+| Current conditions | Kasalukuyang panahon | (reviewer to fill) | Plan Your Visit weather card |
+| Feels like | Pakiramdam na parang | (reviewer to fill) | Weather metric |
+| Humidity | Alinsangan | (reviewer to fill) | Weather metric |
+| Wind | Hangin | (reviewer to fill) | Weather metric |
 
 Check the Filipino terms with a native speaker too. These are suggestions.
 

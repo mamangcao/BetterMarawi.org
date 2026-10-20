@@ -6,4 +6,5 @@ export * from './LiveClock';
 export * from './Breadcrumbs';
 export * from './QuickContacts';
 export * from './FxTicker';
+export * from './WeatherTicker';
 

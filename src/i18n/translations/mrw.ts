@@ -67,6 +67,40 @@ export const mrw: typeof en = {
   fxRatesAsOf: 'Rates as of',
   // TODO(mrw-review): needs fluent reviewer
   fxAttribution: 'Exchange rates by ExchangeRate-API',
+  // TODO(mrw-review): needs fluent reviewer
+  weatherAriaLabel: 'Current weather',
+  // TODO(mrw-review): needs fluent reviewer
+  weatherFeelsLike: 'Feels like',
+  // TODO(mrw-review): needs fluent reviewer
+  weatherHumidity: 'Humidity',
+  // TODO(mrw-review): needs fluent reviewer
+  weatherWind: 'Wind',
+  // TODO(mrw-review): needs fluent reviewer
+  weatherUpdated: 'Updated',
+  // TODO(mrw-review): needs fluent reviewer
+  weatherUnavailable: 'Weather is unavailable right now',
+  // TODO(mrw-review): needs fluent reviewer
+  weatherAttribution: 'Weather data by Open-Meteo.com',
+  // TODO(mrw-review): needs fluent reviewer
+  weatherForecastNote: 'Forecast model data, not official PAGASA readings',
+  // TODO(mrw-review): needs fluent reviewer
+  weatherClearSky: 'Clear sky',
+  // TODO(mrw-review): needs fluent reviewer
+  weatherMainlyClear: 'Mainly clear',
+  // TODO(mrw-review): needs fluent reviewer
+  weatherPartlyCloudy: 'Partly cloudy',
+  // TODO(mrw-review): needs fluent reviewer
+  weatherOvercast: 'Overcast',
+  // TODO(mrw-review): needs fluent reviewer
+  weatherFoggy: 'Foggy',
+  // TODO(mrw-review): needs fluent reviewer
+  weatherDrizzle: 'Drizzle',
+  // TODO(mrw-review): needs fluent reviewer
+  weatherRain: 'Rain',
+  // TODO(mrw-review): needs fluent reviewer
+  weatherRainShowers: 'Rain showers',
+  // TODO(mrw-review): needs fluent reviewer
+  weatherThunderstorm: 'Thunderstorm',
 
   // TODO(mrw-review): needs fluent reviewer
   quickLinks: 'Quick Links',

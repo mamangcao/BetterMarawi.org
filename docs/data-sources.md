@@ -24,7 +24,8 @@ All public information on BetterMarawi.org comes from official government source
 | Philippine Statistics Authority: PSGC | psa.gov.ph | Official barangay codes and names | `src/data/barangays.ts` |
 | PhilHealth | philhealth.gov.ph | YAKAP and health benefits | Health services page |
 | DICT eFOI Portal | foi.gov.ph | Freedom of Information requests | FOI page |
-| PAGASA | pagasa.dost.gov.ph | Weather and climate | City profile, weather ticker |
+| PAGASA | pagasa.dost.gov.ph | Climate profile and severe weather warnings | City profile |
+| Open-Meteo | open-meteo.com | Real-time weather and forecast data (CC BY 4.0). Forecast-model data, not official PAGASA readings | Header ticker, Plan Your Visit (CultureSpotlight), Footer |
 | ExchangeRate-API | exchangerate-api.com | Daily currency exchange rates (USD, SAR, AED, JPY, etc.) | FX ticker, Footer |
 
 ## Local and regional sources (Marawi City, Lanao del Sur, BARMM)

@@ -1,13 +1,29 @@
 'use client';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { CloudSun, Car } from 'lucide-react';
+import { Sun, CloudSun, Cloud, CloudRain, CloudFog, CloudLightning, Car, LucideIcon } from 'lucide-react';
 import { ArrowUpRight } from '@/components/ui';
 import { TOURISM_CATEGORIES } from '@/data/tourism';
 import { useTranslation } from '@/i18n';
+import { useWeather, formatWeatherTime, WeatherIconName } from '@/lib/weather';
+
+const WEATHER_ICONS: Record<WeatherIconName, LucideIcon> = {
+  Sun,
+  CloudSun,
+  Cloud,
+  CloudRain,
+  CloudFog,
+  CloudLightning,
+};
 
 export function CultureSpotlight() {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
+  const { weather, isLoading: weatherLoading } = useWeather();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   return (
     <section
       aria-labelledby="discover-marawi-heading"
@@ -71,26 +87,71 @@ export function CultureSpotlight() {
                 {t.planYourVisit}
               </div>
 
-              {/* Live Weather Card */}
+              {/* Weather Card (Open-Meteo) */}
               <div className="mt-3 p-4 rounded-xl bg-stone-50 border border-stone-200/80">
                 <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <div className="text-xs text-stone-500">
+                  <div className="flex-1 min-w-0">
+                    <div className="text-xs text-stone-500 font-medium">
                       {t.currentConditions}
                     </div>
-                    <div className="text-3xl font-bold text-stone-950 font-mono-tabular mt-1 flex items-center gap-2">
-                      <CloudSun className="w-7 h-7 text-amber-600" />
-                      22°C
-                    </div>
-                    <div className="text-xs font-medium text-stone-600 mt-1">
-                      {t.coolHighlandClimate}
-                    </div>
+                    {!mounted || (weatherLoading && !weather) ? (
+                      <div className="mt-2 space-y-2 animate-pulse" aria-hidden="true">
+                        <div className="h-8 w-32 bg-stone-200 rounded" />
+                        <div className="h-4 w-48 bg-stone-200/70 rounded" />
+                      </div>
+                    ) : !weather ? (
+                      <div className="text-xs text-stone-500 mt-2">
+                        {t.weatherUnavailable}
+                      </div>
+                    ) : (() => {
+                      const IconComp = WEATHER_ICONS[weather.current.iconName] || CloudSun;
+                      return (
+                        <>
+                          <div className="text-3xl font-bold text-stone-950 font-mono-tabular mt-1 flex items-center gap-2 flex-wrap">
+                            <IconComp className="w-7 h-7 text-emerald-800 shrink-0" />
+                            <span>{Math.round(weather.current.temperature)}°C</span>
+                            <span className="text-sm font-semibold text-stone-700 font-sans">
+                              {t[weather.current.conditionKey] || t.weatherPartlyCloudy}
+                            </span>
+                          </div>
+                          <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-stone-600">
+                            <span>
+                              {t.weatherFeelsLike}:{' '}
+                              <strong className="text-stone-800 font-mono-tabular">
+                                {Math.round(weather.current.apparentTemperature)}°C
+                              </strong>
+                            </span>
+                            <span aria-hidden="true" className="text-stone-300">·</span>
+                            <span>
+                              {t.weatherHumidity}:{' '}
+                              <strong className="text-stone-800 font-mono-tabular">
+                                {weather.current.humidity}%
+                              </strong>
+                            </span>
+                            <span aria-hidden="true" className="text-stone-300">·</span>
+                            <span>
+                              {t.weatherWind}:{' '}
+                              <strong className="text-stone-800 font-mono-tabular">
+                                {Math.round(weather.current.windSpeed)} km/h
+                              </strong>
+                            </span>
+                          </div>
+                          <div className="mt-2.5 pt-2 border-t border-stone-200/60 flex flex-wrap items-center justify-between gap-2 text-[11px] text-stone-500">
+                            <span>{t.coolHighlandClimate}</span>
+                            <span>
+                              {t.weatherUpdated}{' '}
+                              {formatWeatherTime(weather.current.time, language)}
+                            </span>
+                          </div>
+                        </>
+                      );
+                    })()}
                   </div>
                   <a
                     href="https://www.google.com/maps/place/Marawi+City,+Lanao+del+Sur/@8.0034,124.2851,13z"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs font-semibold text-emerald-800 hover:text-emerald-950 inline-flex items-center gap-1 whitespace-nowrap"
+                    className="text-xs font-semibold text-emerald-800 hover:text-emerald-950 inline-flex items-center gap-1 whitespace-nowrap shrink-0"
                   >
                     {t.openInGoogleMaps}
                     <ArrowUpRight className="w-3.5 h-3.5" />
