@@ -204,7 +204,7 @@ export function HeroSearchCard({
               </div>
             )}
           </div>
-        )}33
+        )}
       </div>
       {/* Popular Services Header */}
       <div className="mt-7 mb-3">
