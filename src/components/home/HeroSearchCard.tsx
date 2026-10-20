@@ -122,12 +122,12 @@ export function HeroSearchCard({
     <div className="w-full bg-[#F9FEFF] rounded-3xl shadow-xl p-5 sm:p-8 text-foreground border border-stone-200/80">
       {/* Heading: body sans font, text-xl, semibold */}
       <h2 className="text-xl font-semibold tracking-tight text-foreground font-sans mb-5">
-        Search Services
+        Find a Service
       </h2>
       {/* Instant Search Bar (h-[52px], rounded-xl, 18px icon) */}
       <div className="relative">
         <label htmlFor="hero-card-search" className="sr-only">
-          Find a service
+          Search for a service
         </label>
         <div className="relative flex items-center">
           <Search
