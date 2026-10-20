@@ -45,14 +45,14 @@ Types live in `src/types/`. If you add a field, update the type first so TypeScr
 
 | Type | Format | Example |
 | --- | --- | --- |
-| Money | Number in the data, formatted on display. Peso sign added by the UI. | `1845200000` shown as ₱1,845,200,000 |
-| Phone | Full number with area code, plus a separate `tel:` value without spaces | `(063) 352-0117` and `+63633520117` |
-| Dates | ISO format in data: `YYYY-MM-DD`. Shown as "October 19, 2026". | `2026-10-19` |
-| Time and hours | Plain text with AM/PM | `8:00 AM to 5:00 PM` |
-| Population | Integer, with the source and year stated nearby | `207010` (2020 Census, PSA) |
-| Percentages | Number only when stored, `%` added on display | `20` |
+| Money | Formatted string with peso sign (`₱`) and commas | `'₱1,845,200,000'`, `'₱150.00'` |
+| Phone | String with area code and optional extension; separate `telHref` (`tel:+...`) only in `src/config/site.ts` | `'(063) 352-0117'`, `'(063) 352-0117 loc. 101'` |
+| Dates | Full text string in `Month DD, YYYY` format | `'September 14, 2026'`, `'October 08, 2026'` |
+| Time and hours | Plain text with AM/PM and en dash | `Monday – Friday, 8:00 AM – 5:00 PM` |
+| Population | Integer number | `2145`, `2680` |
+| Percentages | Number for sector breakdown; inline text with `%` for descriptive totals | `31` (in sector breakdown), `'(91.7%)'` |
 | Slugs | Lowercase, hyphens, no spaces, never changed once published | `health-services` |
-| Free services | Store as free, show "Free". Do not store `0.00` text. | |
+| Free services | Text string in fee items | `'FREE (₱0.00)'` or `'FREE'` |
 
 Match the format already used in that file. If the file differs from this table, follow the file and note the difference.
 
