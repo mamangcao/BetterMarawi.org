@@ -37,3 +37,4 @@ next-env.d.ts
 
 # backup / migration scratch
 /src_original/
+.claude/settings.local.json
