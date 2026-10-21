@@ -64,7 +64,7 @@ Use one row per data file or dataset. Status must be **Unverified**, **Sourced**
 | `services.ts` | Requirements, fees, steps | Citizen's Charter | | | | Unverified |
 | `fdp.ts` | FDP disclosures | DILG FDP portal | | | | Unverified |
 | `ordinances.ts` | Enacted ordinances | Sangguniang Panlungsod records | | | | Unverified |
-| `cmci.ts` | CMCI pillars, 2025 vs 2026 | cmci.dti.gov.ph | | | | Unverified |
+| `cmci.ts` | CMCI 5 Pillars & Composite (2024 Cycle) | DTI CMCI Portal (cmci.dti.gov.ph) | 2024 | Antigravity | 2026-10-21 | Sourced |
 | `site.ts` | Hotline numbers | CDRRMO, BFP, PNP, CHO | | | | Unverified |
 | `verification.ts` | City Profile (Demographics & Baseline) | PSA 2020 CPH (Proclamation No. 1179) & PSA PSGC | 2024-03-31 | Antigravity | 2026-10-21 | Sourced |
 

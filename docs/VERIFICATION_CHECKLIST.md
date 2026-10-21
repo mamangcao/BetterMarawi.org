@@ -129,7 +129,7 @@ This document tracks verification for public civic data displayed on BetterMaraw
 
 ## 6. DTI CMCI Pillars and Scores
 
-> **Official Source:** Department of Trade and Industry (DTI) Cities and Municipalities Competitiveness Index (CMCI) Portal (`https://cmci.dti.gov.ph`). Evaluated on official 2024 CMCI rankings (the latest published cycle). Note: 2025 and 2026 CMCI cycles have not occurred.
+> **Official Source:** Department of Trade and Industry (DTI) Cities and Municipalities Competitiveness Index (CMCI) Portal (`https://cmci.dti.gov.ph`). Checked on 2026-10-21: The latest published rankings cycle on the CMCI portal is the **2024 cycle** (2025 cycle data collection is underway; no official 2025 or 2026 scores/rankings have been published).
 
 | Item | Current value in code | File | Official source URL | Source date | Official quote (<15 words) | Status |
 | --- | --- | --- | --- | --- | --- | --- |

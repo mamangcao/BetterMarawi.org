@@ -163,8 +163,8 @@ export interface BudgetBreakdown extends Verification {
 
 export interface CMCIPillar extends Verification {
   pillar: string;
-  score2025: number;
-  score2026: number;
-  change: string;
-  summary: string;
+  score: number;
+  rank?: number;
+  year: number;
+  summary?: string;
 }
