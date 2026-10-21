@@ -10,6 +10,17 @@ export const mrw: typeof en = {
   popularServices: 'Piyaki-ilay a Serbisyo:',
   // TODO(mrw-review): needs fluent reviewer
   cityMetricsBadge: 'City Metrics',
+  // TODO(mrw-review): needs fluent reviewer (Marawi at a Glance keys below)
+  glanceHeadlineLead: 'One Islamic City.',
+  glanceHeadlineRest: '{barangays} barangays overlooking Lake Lanao.',
+  glanceIntro:
+    'Marawi is the capital of Lanao del Sur and a 3rd class component city in BARMM. These are the latest official figures from the Philippine Statistics Authority.',
+  statPeopleLabel: 'People',
+  statPeopleNote: 'Counted in the 2024 Census of Population (POPCEN). The 2020 census counted 207,010.',
+  statBarangaysNote: '{urban} urban and {rural} rural, as listed in the PSA PSGC as of 31 July 2025.',
+  statIncomeNote: 'Component city and provincial capital of Lanao del Sur.',
+  statLandNote: 'Land area of the city, in the Lake Lanao highland basin.',
+  glanceSourceNote: 'Source: Philippine Statistics Authority, PSGC and 2024 POPCEN.',
   // TODO(mrw-review): needs fluent reviewer (carousel and Explore Marawi keys below)
   summerCapitalBadge: 'Summer Capital of the South',
   exploreTitle: 'Explore',

@@ -1,108 +1,129 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
-import { Building2, MapPin, Mountain, Users } from 'lucide-react';
 import { ArrowUpRight } from '@/components/ui';
 import { useTranslation } from '@/i18n';
+import { MARAWI_BARANGAYS } from '@/data/barangays';
 import { FeatureCarousel } from './FeatureCarousel';
+
+// Barangay counts come straight from the PSA-sourced data file
+const BARANGAY_COUNT = MARAWI_BARANGAYS.length;
+const URBAN_COUNT = MARAWI_BARANGAYS.filter((b) => b.classification === 'Urban').length;
+const RURAL_COUNT = BARANGAY_COUNT - URBAN_COUNT;
 
 export function CityAtAGlance() {
   const { t } = useTranslation();
 
-  // Figures are PSA-sourced; see docs/VERIFICATION_CHECKLIST.md section 5
-  const stats = [
+  // Figures are PSA-sourced; see docs/VERIFICATION_CHECKLIST.md sections 5 and 7
+  const stats: { href: string; value: React.ReactNode; label: string; note: string }[] = [
     {
       href: '/statistics/city-profile',
-      icon: Users,
       value: '259,993',
-      label: t.residentsLabel,
-      note: t.latestCensusNote,
+      label: t.statPeopleLabel,
+      note: t.statPeopleNote,
     },
     {
       href: '/statistics/barangay-data',
-      icon: MapPin,
-      value: '101',
+      value: String(BARANGAY_COUNT),
       label: t.barangaysLabel,
-      note: t.adminVillagesNote,
+      note: t.statBarangaysNote
+        .replace('{urban}', String(URBAN_COUNT))
+        .replace('{rural}', String(RURAL_COUNT)),
     },
     {
       href: '/statistics/city-profile',
-      icon: Building2,
-      value: '3rd Class',
+      value: (
+        <>
+          3<span className="text-[0.5em] align-top ml-0.5">rd</span>
+        </>
+      ),
       label: t.incomeClassification,
-      note: `Component City · ${t.capitalLanao}`,
+      note: t.statIncomeNote,
     },
     {
       href: '/statistics/city-profile',
-      icon: Mountain,
-      value: '87.55 km²',
+      value: (
+        <>
+          87.55<span className="text-[0.4em] ml-1.5 font-semibold">km²</span>
+        </>
+      ),
       label: t.totalLandArea,
-      note: t.highlandBasin,
+      note: t.statLandNote,
     },
   ];
+
   return (
     <>
-      {/* 2. "MARAWI AT A GLANCE" SECTION */}
-      <section
-        aria-labelledby="glance-heading"
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 border-b border-stone-200/80"
-      >
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
-          <div>
-            <span className="inline-flex items-center rounded-full bg-brand-50 border border-brand-100 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-widest text-brand-800 mb-3">
-              {t.cityMetricsBadge}
-            </span>
+      {/* 2. "MARAWI AT A GLANCE": editorial stats band */}
+      <section aria-labelledby="glance-heading" className="relative bg-surface text-foreground overflow-hidden">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-marawi-pattern-ink [mask-image:linear-gradient(to_bottom_left,black,transparent_55%)]"
+        />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+          {/* Eyebrow */}
+          <div className="flex items-center gap-4 border-t border-surface-border pt-6 text-xs font-semibold uppercase tracking-[0.2em]">
+            <span className="text-brand-700">{t.atAGlance}</span>
+          </div>
+
+          {/* Headline + intro */}
+          <div className="mt-10 sm:mt-14 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
             <h2
               id="glance-heading"
-              className="text-2xl sm:text-3xl font-bold text-stone-900 font-display"
+              className="lg:col-span-7 font-display font-bold tracking-tight leading-[1.02] text-[clamp(2.25rem,6vw,4.75rem)]"
             >
-              {t.atAGlance}
-            </h2>
-            <p className="text-sm text-stone-600 mt-1">
-              {t.glanceSubheading}
-            </p>
-          </div>
-          <Link
-            href="/statistics/city-profile"
-            className="text-sm font-semibold text-emerald-800 hover:text-emerald-950 inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 group"
-          >
-            <span>{t.viewCityProfile}</span>
-            <ArrowUpRight className="w-4 h-4" />
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-          {stats.map(({ href, icon: Icon, value, label, note }) => (
-            <Link
-              key={label}
-              href={href}
-              className="group relative overflow-hidden flex flex-col h-full bg-white rounded-2xl border border-surface-border p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-brand-500/50 motion-reduce:transition-none motion-reduce:hover:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2"
-            >
-              {/* Top accent line: faint by default, full on hover */}
-              <span
-                aria-hidden="true"
-                className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-400 via-brand-600 to-brand-900 opacity-30 transition-opacity duration-300 group-hover:opacity-100"
-              />
-              <span className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-brand-50 border border-brand-100 text-brand-800 transition-colors duration-300 group-hover:bg-brand-900 group-hover:text-white group-hover:border-brand-900">
-                <Icon className="w-5 h-5" aria-hidden="true" />
+              <span className="block text-brand-950">{t.glanceHeadlineLead}</span>
+              <span className="block text-brand-500">
+                {t.glanceHeadlineRest.replace('{barangays}', String(BARANGAY_COUNT))}
               </span>
-              <div className="mt-5 text-3xl lg:text-4xl font-extrabold text-stone-950 font-display tabular-nums leading-none">
-                {value}
-              </div>
-              <div className="text-sm font-semibold text-stone-700 mt-2">{label}</div>
-              <div className="mt-auto pt-3">
-                <span className="inline-block rounded-md bg-surface-card px-2 py-1 text-[11px] leading-snug text-stone-600">
-                  {note}
-                </span>
-              </div>
-            </Link>
-          ))}
+            </h2>
+            <div className="lg:col-span-5 lg:text-right space-y-4">
+              <p className="text-base sm:text-lg text-foreground-muted leading-relaxed">{t.glanceIntro}</p>
+              <Link
+                href="/statistics/city-profile"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-800 hover:text-brand-950 transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-700 rounded"
+              >
+                {t.viewCityProfile}
+                <ArrowUpRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Stats */}
+          <div className="mt-14 sm:mt-20 grid grid-cols-2 lg:grid-cols-4 gap-x-6 lg:gap-x-10 gap-y-12">
+            {stats.map(({ href, value, label, note }) => (
+              <Link
+                key={label}
+                href={href}
+                className="group @container block border-t border-surface-border-strong pt-7 transition-colors duration-300 hover:border-brand-600 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-700"
+              >
+                <div className="font-display font-bold leading-none tabular-nums text-brand-950 whitespace-nowrap text-[clamp(2.5rem,24cqi,4.75rem)]">
+                  {value}
+                </div>
+                <div className="mt-5 inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.18em] text-brand-700">
+                  {label}
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 motion-reduce:transition-none" />
+                </div>
+                <p className="mt-3 text-sm sm:text-[15px] text-foreground-muted leading-relaxed">{note}</p>
+              </Link>
+            ))}
+          </div>
+
+          <p className="mt-14 text-xs text-foreground-subtle">
+            <a
+              href="https://psa.gov.ph/classification/psgc/barangays/1903617000"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:text-brand-900 transition-colors"
+            >
+              {t.glanceSourceNote}
+            </a>
+          </p>
         </div>
       </section>
 
-      {/* 3. "FREE HEALTH CARE FOR ALL — PHILHEALTH YAKAP" BANNER */}
+      {/* 3. FEATURE CAROUSEL: PhilHealth YAKAP and Explore Marawi */}
       <FeatureCarousel />
     </>
   );
 }
-

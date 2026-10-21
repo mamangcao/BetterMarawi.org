@@ -7,6 +7,16 @@ export const en = {
   searchPlaceholder: 'Search Services, Permits, Barangays, or Ordinances...',
   popularServices: 'Popular Services:',
   cityMetricsBadge: 'City Metrics',
+  glanceHeadlineLead: 'One Islamic City.',
+  glanceHeadlineRest: '{barangays} barangays overlooking Lake Lanao.',
+  glanceIntro:
+    'Marawi is the capital of Lanao del Sur and a 3rd class component city in BARMM. These are the latest official figures from the Philippine Statistics Authority.',
+  statPeopleLabel: 'People',
+  statPeopleNote: 'Counted in the 2024 Census of Population (POPCEN). The 2020 census counted 207,010.',
+  statBarangaysNote: '{urban} urban and {rural} rural, as listed in the PSA PSGC as of 31 July 2025.',
+  statIncomeNote: 'Component city and provincial capital of Lanao del Sur.',
+  statLandNote: 'Land area of the city, in the Lake Lanao highland basin.',
+  glanceSourceNote: 'Source: Philippine Statistics Authority, PSGC and 2024 POPCEN.',
   summerCapitalBadge: 'Summer Capital of the South',
   exploreTitle: 'Explore',
   exploreMarawiDescription:

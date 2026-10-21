@@ -9,6 +9,16 @@ export const fil: typeof en = {
   searchPlaceholder: 'Maghanap ng Serbisyo, Permit, Barangay, o Ordinansa...',
   popularServices: 'Mga Sikat na Serbisyo:',
   cityMetricsBadge: 'Mga Datos ng Lungsod',
+  glanceHeadlineLead: 'Isang Islamic City.',
+  glanceHeadlineRest: '{barangays} barangay na tanaw ang Lawa ng Lanao.',
+  glanceIntro:
+    'Ang Marawi ang kabisera ng Lanao del Sur at isang 3rd class component city sa BARMM. Ito ang pinakabagong opisyal na datos mula sa Philippine Statistics Authority.',
+  statPeopleLabel: 'Populasyon',
+  statPeopleNote: 'Bilang sa 2024 Census of Population (POPCEN). Ang senso noong 2020 ay nagbilang ng 207,010.',
+  statBarangaysNote: '{urban} urban at {rural} rural, ayon sa PSA PSGC noong 31 Hulyo 2025.',
+  statIncomeNote: 'Component city at kabisera ng lalawigan ng Lanao del Sur.',
+  statLandNote: 'Lawak ng lupain ng lungsod, sa highland basin ng Lawa ng Lanao.',
+  glanceSourceNote: 'Pinagmulan: Philippine Statistics Authority, PSGC at 2024 POPCEN.',
   summerCapitalBadge: 'Summer Capital ng Timog',
   exploreTitle: 'Tuklasin ang',
   exploreMarawiDescription:
