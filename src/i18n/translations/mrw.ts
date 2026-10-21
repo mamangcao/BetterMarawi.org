@@ -360,14 +360,14 @@ export const mrw: typeof en = {
   // TODO(mrw-review): needs fluent reviewer
   transparencySections: 'Transparency Sections (5)',
   // TODO(mrw-review): needs fluent reviewer
-  barangaysCensusHeading: 'Official 96 Barangays Census Directory',
+  barangaysCensusHeading: 'Official 101 Barangays Census Directory',
   // TODO(mrw-review): needs fluent reviewer
   searchBarangayPlaceholder:
-    'Search by Barangay name, PSGC code, or sector...',
+    'Search by Barangay name or PSGC code...',
   // TODO(mrw-review): needs fluent reviewer
-  exportAllBarangays: 'Export All 96 Barangays (CSV)',
+  exportAllBarangays: 'Export All 101 Barangays (CSV)',
   // TODO(mrw-review): needs fluent reviewer
-  showingBarangaysSummary: 'Showing 96 Barangays',
+  showingBarangaysSummary: 'Showing 101 Barangays',
   // TODO(mrw-review): needs fluent reviewer
   openDatasetsHeading:
     'Open Civic Datasets (Creative Commons CC0 / Open Data PH)',

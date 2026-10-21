@@ -214,11 +214,11 @@ export const fil: typeof en = {
   enactedViaBudget:
     'Ipinatupad sa bisa ng General Appropriation Ordinance No. 2025-042',
   transparencySections: 'Mga Bahagi ng Transparansya (5)',
-  barangaysCensusHeading: 'Opisyal na Direktoryo ng Senso ng 96 na Barangay',
+  barangaysCensusHeading: 'Opisyal na Direktoryo ng Senso ng 101 na Barangay',
   searchBarangayPlaceholder:
-    'Maghanap ayon sa pangalan ng Barangay, PSGC code, o sektor...',
-  exportAllBarangays: 'I-export ang Lahat ng 96 Barangay (CSV)',
-  showingBarangaysSummary: 'Ipinapakita ang 96 na Barangay',
+    'Maghanap ayon sa pangalan ng Barangay o PSGC code...',
+  exportAllBarangays: 'I-export ang Lahat ng 101 Barangay (CSV)',
+  showingBarangaysSummary: 'Ipinapakita ang 101 na Barangay',
   openDatasetsHeading:
     'Bukas na Datos ng Mamamayan (Creative Commons CC0 / Open Data PH)',
   clickToDownload:

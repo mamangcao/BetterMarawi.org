@@ -212,11 +212,11 @@ export const en = {
   enactedViaBudget:
     'Enacted via General Appropriation Ordinance No. 2025-042',
   transparencySections: 'Transparency Sections (5)',
-  barangaysCensusHeading: 'Official 96 Barangays Census Directory',
+  barangaysCensusHeading: 'Official 101 Barangays Census Directory',
   searchBarangayPlaceholder:
-    'Search by Barangay name, PSGC code, or sector...',
-  exportAllBarangays: 'Export All 96 Barangays (CSV)',
-  showingBarangaysSummary: 'Showing 96 Barangays',
+    'Search by Barangay name or PSGC code...',
+  exportAllBarangays: 'Export All 101 Barangays (CSV)',
+  showingBarangaysSummary: 'Showing 101 Barangays',
   openDatasetsHeading:
     'Open Civic Datasets (Creative Commons CC0 / Open Data PH)',
   clickToDownload:

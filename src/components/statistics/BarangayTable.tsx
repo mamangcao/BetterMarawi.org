@@ -14,31 +14,25 @@ interface BarangayTableProps {
 export function BarangayTable({ barangays }: BarangayTableProps) {
   const { t } = useTranslation();
   const [brgySearch, setBrgySearch] = useState('');
-  const [districtFilter, setDistrictFilter] = useState<string>('ALL');
+  const [classFilter, setClassFilter] = useState<string>('ALL');
 
-  const districts = [
-    'ALL',
-    'Central Poblacion',
-    'Basak & MSU Corridor',
-    'Lakefront & Saduc',
-    'Angoyao & East Basin',
-    'Northwest Highland',
-  ];
+  const classFilters = ['ALL', 'Urban', 'Rural'];
 
   const filteredBarangays = useMemo(() => {
+    const query = brgySearch.trim().toLowerCase();
     return barangays.filter((b) => {
-      const matchesDistrict = districtFilter === 'ALL' || b.district === districtFilter;
+      const matchesClass = classFilter === 'ALL' || b.classification === classFilter;
       const matchesQuery =
-        b.name.toLowerCase().includes(brgySearch.toLowerCase()) ||
-        b.psgcCode.includes(brgySearch) ||
-        b.district.toLowerCase().includes(brgySearch.toLowerCase());
-      return matchesDistrict && matchesQuery;
+        b.name.toLowerCase().includes(query) ||
+        b.psgcCode.includes(query) ||
+        (b.correspondenceCode !== '' && b.correspondenceCode.includes(query));
+      return matchesClass && matchesQuery;
     });
-  }, [barangays, brgySearch, districtFilter]);
+  }, [barangays, brgySearch, classFilter]);
 
   const handleExportCSV = () => {
     const csv = generateBarangaysCSV(barangays);
-    downloadCSV('marawi_city_96_barangays_census.csv', csv);
+    downloadCSV('marawi_city_101_barangays_census.csv', csv);
   };
 
   return (
@@ -49,7 +43,7 @@ export function BarangayTable({ barangays }: BarangayTableProps) {
             {t.barangaysCensusHeading}
           </h2>
           <p className="text-xs text-stone-500 mt-0.5">
-            Showing {filteredBarangays.length} of 96 Barangays
+            Showing {filteredBarangays.length} of {barangays.length} Barangays
           </p>
         </div>
         <button
@@ -62,7 +56,7 @@ export function BarangayTable({ barangays }: BarangayTableProps) {
         </button>
       </div>
 
-      {/* Search & Sector Filter Controls */}
+      {/* Search & Urban/Rural Filter Controls */}
       <div className="space-y-3">
         <div className="relative">
           <Search className="w-4 h-4 text-stone-400 absolute left-3.5 top-3 pointer-events-none" />
@@ -76,26 +70,21 @@ export function BarangayTable({ barangays }: BarangayTableProps) {
         </div>
 
         <div className="flex flex-wrap items-center gap-1.5">
-          {districts.map((dist) => (
+          {classFilters.map((cls) => (
             <button
-              key={dist}
+              key={cls}
               type="button"
-              onClick={() => setDistrictFilter(dist)}
+              onClick={() => setClassFilter(cls)}
               className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors whitespace-nowrap shrink-0 ${
-                districtFilter === dist
+                classFilter === cls
                   ? 'bg-stone-900 text-white'
                   : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
               }`}
             >
-              {dist === 'ALL' ? 'All 96 Barangays' : dist}
+              {cls === 'ALL' ? `All ${barangays.length} Barangays` : cls}
             </button>
           ))}
         </div>
-      </div>
-
-      {/* Tabular-Nums Table */}
-      <div className="text-xs text-stone-600 bg-stone-50 rounded-lg p-3 border border-stone-200/80">
-        Barangay population figures will be added from the PSA 2020 Census once verified.
       </div>
 
       {/* Tabular-Nums Table */}
@@ -105,9 +94,8 @@ export function BarangayTable({ barangays }: BarangayTableProps) {
             <tr>
               <th className="py-3 px-3 font-semibold">#</th>
               <th className="py-3 px-3 font-semibold">Barangay</th>
-              <th className="py-3 px-3 font-semibold">District Sector</th>
-              <th className="py-3 px-3 font-semibold">Classification</th>
-              <th className="py-3 px-3 font-semibold">Sector Status</th>
+              <th className="py-3 px-3 font-semibold">Urban/Rural</th>
+              <th className="py-3 px-3 font-semibold text-right">Population (2024 POPCEN)</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-stone-100">
@@ -118,16 +106,14 @@ export function BarangayTable({ barangays }: BarangayTableProps) {
                   <div className="font-bold text-stone-900">{b.name}</div>
                   <div className="text-[11px] text-stone-400 font-mono-tabular">
                     PSGC: {b.psgcCode}
+                    {b.correspondenceCode && ` · Corr.: ${b.correspondenceCode}`}
                   </div>
-                </td>
-                <td className="py-2.5 px-3 text-xs text-stone-600">
-                  {b.district}
                 </td>
                 <td className="py-2.5 px-3 text-xs font-medium text-stone-700">
                   {b.classification}
                 </td>
-                <td className="py-2.5 px-3 text-xs text-stone-600">
-                  {b.zoneStatus}
+                <td className="py-2.5 px-3 text-right font-mono-tabular text-stone-900">
+                  {b.populationLatest.toLocaleString('en-US')}
                 </td>
               </tr>
             ))}

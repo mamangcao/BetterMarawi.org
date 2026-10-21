@@ -4,7 +4,7 @@ export const SITE_CONFIG = {
   name: 'BetterMarawi.org',
   tagline: 'Islamic City of Marawi Citizen Services & Transparency Portal',
   description:
-    'A community-run portal to find information and services of the Islamic City of Marawi, Lanao del Sur. Access Citizen\'s Charter guides, PhilHealth YAKAP, transparency disclosures, and 96 barangay statistics.',
+    'A community-run portal to find information and services of the Islamic City of Marawi, Lanao del Sur. Access Citizen\'s Charter guides, PhilHealth YAKAP, transparency disclosures, and 101 barangay statistics.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://bettermarawi.org',
   geo: {
     latitude: 8.0034,
@@ -177,7 +177,7 @@ export const NAV_DROPDOWNS: Record<'services' | 'government' | 'transparency' | 
     {
       label: 'Barangay Data',
       href: '/statistics/barangay-data',
-      description: 'Complete searchable directory and census data of all 96 Barangays.',
+      description: 'Complete searchable directory and census data of all 101 Barangays.',
     },
     {
       label: 'Open Data PH',

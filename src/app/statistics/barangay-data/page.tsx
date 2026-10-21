@@ -9,9 +9,9 @@ import { buildBreadcrumbSchema } from '@/lib/jsonld';
 import { buildMetadata, getRouteBreadcrumbs } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'All 96 Barangays Directory & Census Data — Marawi City | BetterMarawi.org',
+  title: 'All 101 Barangays Directory & Census Data — Marawi City | BetterMarawi.org',
   description:
-    'Complete PSGC-indexed census directory of all 96 Barangays of the Islamic City of Marawi, including population counts, household data, and district clusters.',
+    'PSGC-indexed directory of all 101 Barangays of the Islamic City of Marawi, with PSA codes, Urban/Rural classification, and 2024 POPCEN population.',
   path: '/statistics/barangay-data',
 });
 
@@ -25,13 +25,13 @@ export default function BarangayDataPage() {
       <section className="bg-gradient-to-b from-surface-card to-surface border-b border-stone-200/90 py-10 sm:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-xs font-semibold uppercase tracking-widest text-emerald-800 mb-2">
-            PSGC 153617000 · Complete Administrative Directory
+            PSGC 1903617000 · Complete Administrative Directory
           </p>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-950 font-display">
-            All 96 Barangays Directory &amp; Census Data
+            All 101 Barangays Directory &amp; Census Data
           </h1>
           <p className="mt-3 text-base text-stone-700 max-w-3xl leading-relaxed">
-            Search and filter all 96 official Barangays of the Islamic City of Marawi by district sector, PSGC code, classification, and rehabilitation zone status.
+            Search and filter all 101 official Barangays of the Islamic City of Marawi by name, PSGC code, and Urban/Rural classification, with 2024 POPCEN population.
           </p>
           <UnverifiedNotice items={MARAWI_BARANGAYS} className="mt-6" />
         </div>

@@ -13,7 +13,7 @@ export function OpenDataDownloads() {
   const { t } = useTranslation();
   const handleExportBarangaysCSV = () => {
     const csv = generateBarangaysCSV(MARAWI_BARANGAYS);
-    downloadCSV('marawi_city_96_barangays_census.csv', csv);
+    downloadCSV('marawi_city_101_barangays_census.csv', csv);
   };
 
   return (
@@ -35,10 +35,10 @@ export function OpenDataDownloads() {
               DATASET-MRW-01 · DEMOGRAPHICS &amp; PSGC
             </div>
             <h3 className="text-base font-bold text-stone-900 mt-0.5">
-              Complete 96 Barangays Master Directory (PSGC)
+              Complete 101 Barangays Master Directory (PSGC)
             </h3>
             <p className="text-xs text-stone-600 mt-1">
-              Includes official 9-digit PSGC codes, district cluster, classification, and sector status from PSA PSGC.
+              Includes 10-digit PSGC codes, correspondence codes, Urban/Rural classification, and 2024 POPCEN population from PSA.
             </p>
           </div>
           <div className="flex items-center gap-2 shrink-0">
@@ -52,7 +52,21 @@ export function OpenDataDownloads() {
             <button
               type="button"
               onClick={() =>
-                downloadJSON('marawi_96_barangays.json', MARAWI_BARANGAYS.map(({ id, name, psgcCode, district, classification, zoneStatus, level, source, sourceUrl, retrievedOn }) => ({ id, name, psgcCode, district, classification, zoneStatus, level, source, sourceUrl, retrievedOn })))
+                downloadJSON(
+                  'marawi_101_barangays.json',
+                  MARAWI_BARANGAYS.map((b) => ({
+                    id: b.id,
+                    name: b.name,
+                    psgcCode: b.psgcCode,
+                    correspondenceCode: b.correspondenceCode,
+                    classification: b.classification,
+                    population2024Popcen: b.populationLatest,
+                    level: b.level,
+                    source: b.source,
+                    sourceUrl: b.sourceUrl,
+                    retrievedOn: b.retrievedOn,
+                  }))
+                )
               }
               className="px-3 py-2 rounded-lg bg-white border border-stone-300 text-stone-800 text-xs font-semibold hover:bg-stone-100 font-mono-tabular"
             >

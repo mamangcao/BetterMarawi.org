@@ -108,18 +108,13 @@ export interface FDPDocument extends Verification {
 export interface BarangayRecord extends Verification {
   id: number;
   name: string;
+  /** PSA 10-digit PSGC code */
   psgcCode: string;
-  district:
-    | 'Central Poblacion'
-    | 'Angoyao & East Basin'
-    | 'Basak & MSU Corridor'
-    | 'Northwest Highland'
-    | 'Lakefront & Saduc';
-  population2020: number;
+  /** PSA correspondence (9-digit) code; empty when PSA lists none */
+  correspondenceCode: string;
+  /** 2024 Census of Population (POPCEN), PSA */
   populationLatest: number;
-  households: number;
   classification: 'Urban' | 'Rural';
-  zoneStatus: 'Regular Barangay' | 'MAA Rehabilitated Sector';
 }
 
 export interface HotlineItem extends Verification {
