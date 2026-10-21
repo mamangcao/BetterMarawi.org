@@ -27,7 +27,7 @@ export function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_minmax(0,48%)] items-center gap-10 lg:gap-16">
           {/* Left Column */}
-          <div className="min-w-0 flex flex-col justify-center">
+          <div className="@container min-w-0 flex flex-col justify-center">
             {/* Small uppercase label */}
             <p className="animate-hero-rise text-sm font-semibold uppercase tracking-widest text-[#F9FEFF]/80 mb-3">
               {t.welcomeEyebrow}
@@ -35,7 +35,7 @@ export function Hero() {
             {/* Fluid responsive title */}
             <h1
               id="hero-heading"
-              className="animate-hero-rise [animation-delay:80ms] font-bold text-accent tracking-tight text-[#F9FEFF] font-display text-[clamp(1.8rem,6vw,4.5rem)] sm:text-[clamp(2.5rem,4.2vw,4.5rem)] leading-[1.05]"
+              className="animate-hero-rise [animation-delay:80ms] font-bold text-accent tracking-tight text-[#F9FEFF] font-display text-[clamp(2rem,10.5cqi,4.5rem)] leading-[1.05]"
             >
               BetterMarawi<span className="text-accent-light">.org</span>
             </h1>
