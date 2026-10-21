@@ -14,6 +14,7 @@ import { ArrowUpRight } from '@/components/ui';
 import { useTranslation } from '@/i18n';
 import { useWeather, formatWeatherTime, WeatherIconName } from '@/lib/weather';
 import { cellClass, eyebrowClass, iconClass, titleClass } from './linkGridStyles';
+import { WeatherEffects } from './WeatherEffects';
 
 const WEATHER_ICONS: Record<WeatherIconName, LucideIcon> = {
   Sun,
@@ -22,6 +23,17 @@ const WEATHER_ICONS: Record<WeatherIconName, LucideIcon> = {
   CloudRain,
   CloudFog,
   CloudLightning,
+};
+
+type TranslationKey = 'fromIligan' | 'fromCdo' | 'fromCotabato' | 'fromManila' | 'manilaRoute';
+
+const PREVIEW_KINDS: Record<string, WeatherIconName> = {
+  sun: 'Sun',
+  partly: 'CloudSun',
+  cloud: 'Cloud',
+  rain: 'CloudRain',
+  fog: 'CloudFog',
+  storm: 'CloudLightning',
 };
 
 const MAPS_URL = 'https://www.google.com/maps/place/Marawi+City,+Lanao+del+Sur/@8.0034,124.2851,13z';
@@ -33,13 +45,22 @@ export function WeatherCell() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
+  // Preview any effect with ?weather=sun|partly|cloud|rain|fog|storm (visual only)
+  const [preview, setPreview] = useState<WeatherIconName | null>(null);
+  useEffect(() => {
+    const p = new URLSearchParams(window.location.search).get('weather');
+    if (p && p in PREVIEW_KINDS) setPreview(PREVIEW_KINDS[p]);
+  }, []);
+
   const loading = !mounted || (isLoading && !weather);
-  const Icon = weather ? WEATHER_ICONS[weather.current.iconName] || CloudSun : CloudSun;
+  const kind: WeatherIconName | null = preview ?? (weather ? weather.current.iconName : null);
+  const Icon = kind ? WEATHER_ICONS[kind] || CloudSun : CloudSun;
 
   return (
-    <div className={`${cellClass} bg-white`}>
-      <Icon className={iconClass} aria-hidden="true" />
-      <div className="min-w-0 flex-1 pr-24 sm:pr-32">
+    <div className={`${cellClass} bg-white overflow-hidden isolate`}>
+      {!loading && kind && <WeatherEffects kind={kind} />}
+      <Icon className={`${iconClass} relative z-10`} aria-hidden="true" />
+      <div className="relative z-10 min-w-0 flex-1 pr-24 sm:pr-32">
         {loading ? (
           <div className="space-y-2 animate-pulse" aria-hidden="true">
             <div className="h-6 w-40 bg-surface-elevated rounded" />
@@ -88,7 +109,7 @@ export function WeatherCell() {
         href={MAPS_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="absolute top-6 right-6 inline-flex items-center gap-1 text-xs font-semibold text-brand-800 hover:text-brand-950 transition-colors focus-visible:outline-2 focus-visible:outline-brand-700 rounded"
+        className="absolute z-10 top-6 right-6 inline-flex items-center gap-1 text-xs font-semibold text-brand-800 hover:text-brand-950 transition-colors focus-visible:outline-2 focus-visible:outline-brand-700 rounded"
       >
         {t.openInGoogleMaps}
         <ArrowUpRight className="w-3.5 h-3.5" />
@@ -97,11 +118,14 @@ export function WeatherCell() {
   );
 }
 
-const ROUTES = [
+// Times are approximate and not yet verified (see docs/VERIFICATION_CHECKLIST.md).
+// Manila has no road link to Mindanao, so it is a flight to Laguindingan plus the CDO drive.
+const ROUTES: { labelKey: TranslationKey; road?: string; roadKey?: TranslationKey; time: string; flight?: boolean }[] = [
   { labelKey: 'fromIligan', road: 'Marawi–Iligan Hwy (38 km)', time: '45 min' },
   { labelKey: 'fromCdo', road: 'CDO–Iligan–Marawi Rd (102 km)', time: '1 hr 50 min' },
   { labelKey: 'fromCotabato', road: 'Narciso Ramos Hwy (158 km)', time: '3 hr 30 min' },
-] as const;
+  { labelKey: 'fromManila', roadKey: 'manilaRoute', time: '1 hr 50 min', flight: true },
+];
 
 /** Driving times to Marawi styled as a grid cell. */
 export function DrivingCell() {
@@ -117,10 +141,10 @@ export function DrivingCell() {
             <li key={r.labelKey} className="py-2 first:pt-0 last:pb-0 flex items-center justify-between gap-3">
               <div className="min-w-0">
                 <div className="text-sm font-semibold text-brand-950">{t[r.labelKey]}</div>
-                <div className="text-xs text-foreground-subtle">{r.road}</div>
+                <div className="text-xs text-foreground-subtle">{r.roadKey ? t[r.roadKey] : r.road}</div>
               </div>
               <span className="font-mono-tabular text-sm font-bold text-brand-800 whitespace-nowrap">
-                {r.time}
+                {r.flight ? `${t.flightPlus} ${r.time}` : r.time}
               </span>
             </li>
           ))}

@@ -202,6 +202,9 @@ export const fil: typeof en = {
   fromIligan: 'Mula Lungsod ng Iligan',
   fromCdo: 'Mula Cagayan de Oro / Laguindingan',
   fromCotabato: 'Mula Lungsod ng Cotabato',
+  fromManila: 'Mula Maynila',
+  manilaRoute: 'Lumipad papuntang Laguindingan (~1 oras 35 min), saka magmaneho ng 102 km',
+  flightPlus: 'Lipad +',
   viewVisitorGuide: 'Tingnan ang Kumpletong Gabay sa Pagbisita at Kagandahang-Asal',
 
   // Government Activity & History

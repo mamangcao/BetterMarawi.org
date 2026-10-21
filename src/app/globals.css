@@ -351,3 +351,116 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%231B4D3E' stroke-opacity='0.07' stroke-width='1'%3E%3Crect x='23' y='23' width='34' height='34'/%3E%3Cpolygon points='40,16 64,40 40,64 16,40'/%3E%3Ccircle cx='40' cy='40' r='5'/%3E%3Cpath d='M40 0V16M40 64V80M0 40H16M64 40H80'/%3E%3Cpath d='M0 8L8 0M72 0L80 8M80 72L72 80M8 80L0 72'/%3E%3C/g%3E%3C/svg%3E");
   background-size: 80px 80px;
 }
+
+/* ------------------------------------------------------------------
+   Weather card effects (Discover Marawi). Decorative only.
+   ------------------------------------------------------------------ */
+@keyframes wx-rain {
+  from {
+    transform: translateY(-24px);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  to {
+    transform: translateY(240px);
+    opacity: 0;
+  }
+}
+
+@keyframes wx-cloud {
+  from {
+    transform: translateX(-14px);
+  }
+  to {
+    transform: translateX(14px);
+  }
+}
+
+@keyframes wx-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes wx-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes wx-fog {
+  from {
+    transform: translateX(-30px);
+  }
+  to {
+    transform: translateX(30px);
+  }
+}
+
+@keyframes wx-flash {
+  0%,
+  88%,
+  100% {
+    opacity: 0;
+  }
+  89% {
+    opacity: 1;
+  }
+  91% {
+    opacity: 0.2;
+  }
+  93% {
+    opacity: 0.9;
+  }
+}
+
+.wx-rain {
+  animation: wx-rain linear infinite;
+}
+.wx-cloud {
+  animation: wx-cloud 9s ease-in-out infinite alternate;
+}
+.wx-spin {
+  animation: wx-spin 40s linear infinite;
+}
+.wx-pulse {
+  animation: wx-pulse 6s ease-in-out infinite;
+}
+.wx-fog {
+  animation: wx-fog 12s ease-in-out infinite alternate;
+}
+.wx-flash {
+  animation: wx-flash 7s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wx-rain,
+  .wx-cloud,
+  .wx-spin,
+  .wx-pulse,
+  .wx-fog,
+  .wx-flash {
+    animation: none !important;
+  }
+  .wx-rain {
+    opacity: 0.6;
+  }
+}
+
+/* Sun rays for the weather card, using the accent token */
+.wx-rays {
+  background: repeating-conic-gradient(
+    from 0deg,
+    color-mix(in srgb, var(--color-accent) 30%, transparent) 0deg 8deg,
+    transparent 8deg 24deg
+  );
+  mask-image: radial-gradient(circle, black 30%, transparent 70%);
+}

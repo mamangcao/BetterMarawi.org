@@ -200,6 +200,9 @@ export const en = {
   fromIligan: 'From Iligan City',
   fromCdo: 'From Cagayan de Oro / Laguindingan',
   fromCotabato: 'From Cotabato City',
+  fromManila: 'From Manila',
+  manilaRoute: 'Fly to Laguindingan (~1 hr 35 min), then drive 102 km',
+  flightPlus: 'Flight +',
   viewVisitorGuide: 'View Complete Visitor & Cultural Etiquette Guide',
 
   // Government Activity & History

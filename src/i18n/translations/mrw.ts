@@ -291,6 +291,10 @@ export const mrw: typeof en = {
   // TODO(mrw-review): needs fluent reviewer
   fromCotabato: 'From Cotabato City',
   // TODO(mrw-review): needs fluent reviewer
+  fromManila: 'From Manila',
+  manilaRoute: 'Fly to Laguindingan (~1 hr 35 min), then drive 102 km',
+  flightPlus: 'Flight +',
+  // TODO(mrw-review): needs fluent reviewer
   viewVisitorGuide: 'View Complete Visitor & Cultural Etiquette Guide',
 
   // TODO(mrw-review): needs fluent reviewer
