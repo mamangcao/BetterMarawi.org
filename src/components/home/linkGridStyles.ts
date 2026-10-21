@@ -1,8 +1,11 @@
 // Shared styles for the home link grids: Popular Services, Government Activity,
 // and Discover Marawi. Cells share hairline borders (gap-px over a border-colored grid).
 
-export const gridClass =
-  'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-surface-border border border-surface-border rounded-2xl overflow-hidden';
+/** Border, hairlines, and rounded corners; combine with any column count */
+export const gridFrame =
+  'gap-px bg-surface-border border border-surface-border rounded-2xl overflow-hidden';
+
+export const gridClass = `grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 ${gridFrame}`;
 
 export const cellClass =
   'group relative flex gap-4 p-6 sm:p-7 transition-colors duration-200 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand-700';

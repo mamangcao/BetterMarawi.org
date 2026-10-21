@@ -26,7 +26,7 @@ const WEATHER_ICONS: Record<WeatherIconName, LucideIcon> = {
 
 const MAPS_URL = 'https://www.google.com/maps/place/Marawi+City,+Lanao+del+Sur/@8.0034,124.2851,13z';
 
-/** Live weather (Open-Meteo) styled as a grid cell. Spans two columns on tablet and desktop. */
+/** Live weather (Open-Meteo) styled as a grid cell. */
 export function WeatherCell() {
   const { t, language } = useTranslation();
   const { weather, isLoading } = useWeather();
@@ -37,7 +37,7 @@ export function WeatherCell() {
   const Icon = weather ? WEATHER_ICONS[weather.current.iconName] || CloudSun : CloudSun;
 
   return (
-    <div className={`${cellClass} bg-white sm:col-span-2`}>
+    <div className={`${cellClass} bg-white`}>
       <Icon className={iconClass} aria-hidden="true" />
       <div className="min-w-0 flex-1 pr-24 sm:pr-32">
         {loading ? (
@@ -107,7 +107,7 @@ const ROUTES = [
 export function DrivingCell() {
   const { t } = useTranslation();
   return (
-    <div className={`${cellClass} bg-white sm:col-span-2 lg:col-span-1`}>
+    <div className={`${cellClass} bg-white`}>
       <Car className={iconClass} aria-hidden="true" />
       <div className="min-w-0 flex-1">
         <h3 className={titleClass}>{t.drivingTimeToMarawi}</h3>

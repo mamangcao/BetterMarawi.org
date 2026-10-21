@@ -20,7 +20,7 @@ import {
   cellClass,
   descriptionClass,
   eyebrowClass,
-  gridClass,
+  gridFrame,
   headerClass,
   headingClass,
   iconClass,
@@ -57,43 +57,52 @@ export function CultureSpotlight() {
           <p className={subheadingClass}>{t.summerCapitalSubtitle}</p>
         </div>
 
-        <div className={gridClass}>
-          {FEATURED.map((cat) => {
-            const Icon = CATEGORY_ICONS[cat.id] ?? Landmark;
-            const text = t.tourismCards[cat.id];
-            return (
-              <Link
-                key={cat.id}
-                href="/services/tourism"
-                className={`${cellClass} ${cellBg}`}
-              >
-                <Icon className={iconClass} aria-hidden="true" />
-                <div className="min-w-0 pr-6">
-                  <h3 className={titleClass}>{text?.title ?? cat.title}</h3>
-                  <p className={eyebrowClass}>
-                    {t.sitesListed.replace('{n}', String(cat.places.length))}
-                  </p>
-                  <p className={descriptionClass}>{text?.description ?? cat.summary}</p>
-                </div>
-                <ArrowUpRight className={arrowClass} />
-              </Link>
-            );
-          })}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+          {/* Left: 2-column tourism grid */}
+          <div className={`lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 auto-rows-fr ${gridFrame}`}>
+            {FEATURED.map((cat) => {
+              const Icon = CATEGORY_ICONS[cat.id] ?? Landmark;
+              const text = t.tourismCards[cat.id];
+              return (
+                <Link
+                  key={cat.id}
+                  href="/services/tourism"
+                  className={`${cellClass} ${cellBg}`}
+                >
+                  <Icon className={iconClass} aria-hidden="true" />
+                  <div className="min-w-0 pr-6">
+                    <h3 className={titleClass}>{text?.title ?? cat.title}</h3>
+                    <p className={eyebrowClass}>
+                      {t.sitesListed.replace('{n}', String(cat.places.length))}
+                    </p>
+                    <p className={descriptionClass}>{text?.description ?? cat.summary}</p>
+                  </div>
+                  <ArrowUpRight className={arrowClass} />
+                </Link>
+              );
+            })}
 
-          {/* 6th cell: all tourist spots */}
-          <Link href="/services/tourism" className={`${cellClass} ${cellBgAll}`}>
-            <LayoutGrid className={iconClass} aria-hidden="true" />
-            <div className="min-w-0 pr-6">
-              <h3 className={titleClass}>{t.allTourismTitle}</h3>
-              <p className={eyebrowClass}>{t.allTourismEyebrow}</p>
-              <p className={descriptionClass}>{t.allTourismDescription}</p>
-            </div>
-            <ArrowUpRight className={arrowClass} />
-          </Link>
+            {/* 6th cell: all tourist spots */}
+            <Link href="/services/tourism" className={`${cellClass} ${cellBgAll}`}>
+              <LayoutGrid className={iconClass} aria-hidden="true" />
+              <div className="min-w-0 pr-6">
+                <h3 className={titleClass}>{t.allTourismTitle}</h3>
+                <p className={eyebrowClass}>{t.allTourismEyebrow}</p>
+                <p className={descriptionClass}>{t.allTourismDescription}</p>
+              </div>
+              <ArrowUpRight className={arrowClass} />
+            </Link>
 
-          {/* Plan your visit: live weather and driving times */}
-          <WeatherCell />
-          <DrivingCell />
+          </div>
+
+          {/* Right: plan your visit (live weather and driving times) */}
+          <aside
+            aria-label={t.planYourVisit}
+            className={`lg:col-span-5 grid grid-cols-1 lg:grid-rows-[auto_1fr] ${gridFrame}`}
+          >
+            <WeatherCell />
+            <DrivingCell />
+          </aside>
         </div>
       </div>
     </section>
