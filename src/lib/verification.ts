@@ -1,7 +1,10 @@
 import { Verification } from '@/types';
 
 export const cityProfileVerification: Verification = {
-  verified: false,
+  level: 'sourced',
+  source: 'PSA 2020 Census of Population & Housing and PSA PSGC',
+  sourceUrl: 'https://psa.gov.ph/content/2020-census-population-and-housing-2020-cph-population-counts-declared-official-president',
+  retrievedOn: '2024-03-31',
 };
 
 /**

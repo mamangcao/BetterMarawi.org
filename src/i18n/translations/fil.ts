@@ -99,7 +99,7 @@ export const fil: typeof en = {
   glanceSubheading:
     'Opisyal na senso, teritoryo, at administratibong batayan ng Islamic City of Marawi.',
   residentsLabel: 'Mga Residente',
-  latestCensusNote: 'Pinakahuling populasyon sa senso · 207,010 noong 2020',
+  latestCensusNote: '2020 PSA Senso ng Populasyon · 34,444 kabahayan',
   barangaysLabel: 'Mga Barangay',
   adminVillagesNote: 'Mga administratibong barangay',
   incomeClassification: 'Klasipikasyon ng kita',

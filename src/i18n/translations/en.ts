@@ -97,7 +97,7 @@ export const en = {
   glanceSubheading:
     'Official census, territorial, and administrative baseline of the Islamic City of Marawi.',
   residentsLabel: 'Residents',
-  latestCensusNote: 'Latest census population · 207,010 in 2020',
+  latestCensusNote: '2020 PSA Census of Population · 34,444 households',
   barangaysLabel: 'Barangays',
   adminVillagesNote: 'Administrative villages',
   incomeClassification: 'Income classification',

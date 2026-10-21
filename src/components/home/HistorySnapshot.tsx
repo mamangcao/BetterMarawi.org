@@ -29,7 +29,7 @@ export function HistorySnapshot() {
       era: 'Present Day',
       title: 'Modern Islamic City of Marawi',
       description:
-        'Declared the Islamic City of Marawi in 1980; home to 259,993 residents across 96 barangays, advancing sustainable rehabilitation, peace, and open governance.',
+        'Declared the Islamic City of Marawi in 1980; home to 207,010 residents (2020 PSA Census) across 96 barangays, advancing sustainable rehabilitation, peace, and open governance.',
     },
   ];
 
