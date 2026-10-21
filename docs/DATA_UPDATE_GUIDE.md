@@ -166,3 +166,5 @@ Docs: record budget source verification
 - Tell it not to change values that are not in the source.
 - Review the diff (`git diff`) yourself. Check every changed number against the source.
 - Agents can misread tables and swap digits, so verify figures by hand.
+
+- Agents can misread tables and swap digits, so verify figures by hand.
