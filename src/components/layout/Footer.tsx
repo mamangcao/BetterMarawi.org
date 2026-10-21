@@ -13,6 +13,8 @@ export function Footer() {
   const { t, language } = useTranslation();
   const { lastUpdated: fxLastUpdated } = useFxRates();
   const formattedFxDate = formatFxDate(fxLastUpdated, language);
+  // communityDisclaimer is "<not official>. <built by>"; show each part on its own line
+  const [notOfficial, builtBy] = t.communityDisclaimer.split(/\.\s+/);
   return (
     <footer className="bg-stone-900 text-stone-300 border-t border-stone-800 mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
@@ -21,14 +23,14 @@ export function Footer() {
           <div className="md:col-span-4 space-y-4">
             <Link
               href="/"
-              className="flex items-center gap-2.5 text-2xl font-bold text-white font-display tracking-tight inline-block"
+              className="inline-flex items-center gap-2.5 text-2xl font-bold text-white font-display tracking-tight"
             >
               <Image
-                src="/branding/logo.svg"
-                alt="BetterMarawi.org"
-                width={32}
-                height={32}
-                className="shrink-0"
+                src="/branding/BetterMarawi-org-islamic-highland-green-bg.png"
+                alt=""
+                width={36}
+                height={36}
+                className="shrink-0 rounded-md w-9 h-9 object-contain"
               />
               <span>BetterMarawi.org</span>
             </Link>
@@ -85,7 +87,7 @@ export function Footer() {
               {t.resources}
             </h2>
             {/* 2-column sub-grid: A (portal + external), B (transparency) */}
-            <div className="grid grid-cols-2 gap-x-6 text-sm">
+            <div className="grid grid-cols-[auto_auto] justify-start gap-x-8 text-sm">
             <ul className="space-y-2.5">
               <li>
                 <Link href="/statistics/open-data-ph" className="hover:text-white transition-colors">
@@ -121,6 +123,17 @@ export function Footer() {
                   className="hover:text-white transition-colors inline-flex items-center gap-1"
                 >
                   BARMM Official Portal
+                  <ArrowUpRight className="w-3.5 h-3.5 text-stone-500 shrink-0" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://betterbarmm.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors inline-flex items-center gap-1"
+                >
+                  BetterBARMM.com
                   <ArrowUpRight className="w-3.5 h-3.5 text-stone-500 shrink-0" />
                 </a>
               </li>
@@ -189,11 +202,10 @@ export function Footer() {
         {/* Bottom Badges & Attribution */}
         <div className="border-t border-stone-800 pt-6 mt-12 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 text-xs text-stone-400">
           <div className="space-y-2">
+            <div className="text-accent font-bold">
+              {t.costToPeople}<Peso />0
+            </div>
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-              <span className="text-accent font-bold">
-                {t.costToPeople}<Peso />0
-              </span>
-              <span aria-hidden="true" className="text-stone-600">·</span>
               <Link
                 href="/contact"
                 className="hover:text-white transition-colors inline-flex items-center gap-1.5"
@@ -201,18 +213,32 @@ export function Footer() {
                 <Users className="w-3.5 h-3.5 text-stone-500" />
                 {t.volunteerWithUs}
               </Link>
+              <span aria-hidden="true" className="text-stone-600">|</span>
+              <Link
+                href="/sitemap"
+                className="hover:text-white transition-colors inline-flex items-center gap-1.5"
+              >
+                <Code2 className="w-3.5 h-3.5 text-stone-500" />
+                {t.contributeGithub}
+              </Link>
             </div>
-            <Link
-              href="/sitemap"
-              className="font-mono-tabular text-stone-500 hover:text-white transition-colors inline-flex items-center gap-1.5"
-            >
-              <Code2 className="w-3.5 h-3.5" />
-              {t.contributeGithub}
-            </Link>
           </div>
 
-          <div className="text-stone-400 font-mono-tabular">
-            BetterGov.ph © 2026 BetterMarawi.org · {t.communityDisclaimer} · v{SITE_CONFIG.version}
+          <div className="space-y-2 text-stone-400 font-mono-tabular lg:text-right">
+            <div>
+              <a
+                href="https://bettergov.ph/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-stone-300 underline underline-offset-2 hover:text-white transition-colors"
+              >
+                BetterGov.ph
+              </a>{' '}
+              © 2026 BetterMarawi.org · {notOfficial}.
+            </div>
+            <div>
+              {builtBy} · v{SITE_CONFIG.version}
+            </div>
           </div>
         </div>
       </div>
