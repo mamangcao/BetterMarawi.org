@@ -60,17 +60,17 @@ export function CityAtAGlance() {
           aria-hidden="true"
           className="absolute inset-0 bg-marawi-pattern-ink [mask-image:linear-gradient(to_bottom_left,black,transparent_55%)]"
         />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-24">
           {/* Eyebrow */}
           <div className="flex items-center gap-4 border-t border-surface-border pt-6 text-xs font-semibold uppercase tracking-[0.2em]">
             <span className="text-brand-700">{t.atAGlance}</span>
           </div>
 
           {/* Headline + intro */}
-          <div className="mt-10 sm:mt-14 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+          <div className="mt-8 sm:mt-14 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-end">
             <h2
               id="glance-heading"
-              className="lg:col-span-7 font-display font-bold tracking-tight leading-[1.02] text-[clamp(2.25rem,6vw,4.75rem)]"
+              className="lg:col-span-7 font-display font-bold tracking-tight leading-[1.02] text-[clamp(1.875rem,5vw,3.75rem)]"
             >
               <span className="block text-brand-950">{t.glanceHeadlineLead}</span>
               <span className="block text-brand-500">
@@ -90,26 +90,26 @@ export function CityAtAGlance() {
           </div>
 
           {/* Stats */}
-          <div className="mt-14 sm:mt-20 grid grid-cols-2 lg:grid-cols-4 gap-x-6 lg:gap-x-10 gap-y-12">
+          <div className="mt-10 sm:mt-20 grid grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-6 lg:gap-x-10 gap-y-10 sm:gap-y-12">
             {stats.map(({ href, value, label, note }) => (
               <Link
                 key={label}
                 href={href}
-                className="group @container block border-t border-surface-border-strong pt-7 transition-colors duration-300 hover:border-brand-600 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-700"
+                className="group @container block border-t border-surface-border-strong pt-5 sm:pt-7 transition-colors duration-300 hover:border-brand-600 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-700"
               >
-                <div className="font-display font-bold leading-none tabular-nums text-brand-950 whitespace-nowrap text-[clamp(2.5rem,24cqi,4.75rem)]">
+                <div className="font-display font-bold leading-none tabular-nums text-brand-950 whitespace-nowrap text-[clamp(1.75rem,20cqi,3.5rem)]">
                   {value}
                 </div>
-                <div className="mt-5 inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.18em] text-brand-700">
+                <div className="mt-3 sm:mt-5 inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.12em] sm:tracking-[0.18em] text-brand-700">
                   {label}
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 motion-reduce:transition-none" />
                 </div>
-                <p className="mt-3 text-sm sm:text-[15px] text-foreground-muted leading-relaxed">{note}</p>
+                <p className="mt-2 sm:mt-3 text-[13px] sm:text-sm lg:text-[15px] text-foreground-muted leading-snug sm:leading-relaxed">{note}</p>
               </Link>
             ))}
           </div>
 
-          <p className="mt-14 text-xs text-foreground-subtle">
+          <p className="mt-10 sm:mt-14 text-xs text-foreground-subtle">
             <a
               href="https://psa.gov.ph/classification/psgc/barangays/1903617000"
               target="_blank"
