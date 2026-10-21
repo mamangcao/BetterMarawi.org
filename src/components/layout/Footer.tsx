@@ -16,7 +16,7 @@ export function Footer() {
   return (
     <footer className="bg-stone-900 text-stone-300 border-t border-stone-800 mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-stone-800">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           {/* Column 1: Brand & Mission */}
           <div className="md:col-span-4 space-y-4">
             <Link
@@ -35,7 +35,7 @@ export function Footer() {
             <p className="text-sm text-stone-400 leading-relaxed max-w-sm">
               {t.heroSubtitle}
             </p>
-            <div className="pt-2 text-xs text-stone-400 space-y-1 font-mono-tabular">
+            <div className="pt-2 text-xs text-stone-300 opacity-75 space-y-1 font-mono-tabular">
               <div>Coordinates: 8°00&apos;N, 124°17&apos;E (8.0034, 124.2851)</div>
               <div>Elevation: ~700m ASL · Lake Lanao Highland Basin</div>
               <div>{SITE_CONFIG.contact.cityHallAddress}</div>
@@ -56,7 +56,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/sitemap"
-                  className="hover:text-white transition-colors font-medium text-accent/90"
+                  className="hover:text-white transition-colors font-medium text-accent"
                 >
                   Sitemap
                 </Link>
@@ -84,19 +84,12 @@ export function Footer() {
             <h2 className="text-xs font-semibold uppercase tracking-wider text-stone-400 font-sans">
               {t.resources}
             </h2>
-            {/* Portal pages: 2 balanced columns */}
-            <ul className="grid grid-cols-2 gap-x-6 gap-y-2.5 text-sm">
+            {/* 2-column sub-grid: A (portal + external), B (transparency) */}
+            <div className="grid grid-cols-2 gap-x-6 text-sm">
+            <ul className="space-y-2.5">
               <li>
                 <Link href="/statistics/open-data-ph" className="hover:text-white transition-colors">
                   Open Data
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/transparency/freedom-of-information"
-                  className="hover:text-white transition-colors"
-                >
-                  Freedom of Information
                 </Link>
               </li>
               <li>
@@ -105,27 +98,10 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/transparency/full-disclosure-policy"
-                  className="hover:text-white transition-colors"
-                >
-                  DILG Full Disclosure
-                </Link>
-              </li>
-              <li>
                 <Link href="/statistics/dti-cmci-profile" className="hover:text-white transition-colors">
                   DTI CMCI
                 </Link>
               </li>
-              <li>
-                <Link href="/transparency/annual-budget" className="hover:text-white transition-colors">
-                  BLGF
-                </Link>
-              </li>
-            </ul>
-
-            {/* External official resources */}
-            <ul className="space-y-2.5 text-sm pt-1">
               <li>
                 <a
                   href={SITE_CONFIG.contact.facebookUrl}
@@ -149,6 +125,30 @@ export function Footer() {
                 </a>
               </li>
             </ul>
+            <ul className="space-y-2.5">
+              <li>
+                <Link
+                  href="/transparency/freedom-of-information"
+                  className="hover:text-white transition-colors"
+                >
+                  Freedom of Information
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/transparency/full-disclosure-policy"
+                  className="hover:text-white transition-colors"
+                >
+                  DILG Full Disclosure
+                </Link>
+              </li>
+              <li>
+                <Link href="/transparency/annual-budget" className="hover:text-white transition-colors">
+                  BLGF
+                </Link>
+              </li>
+            </ul>
+            </div>
 
             {/* Data attributions */}
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 pt-4 border-t border-stone-800 text-xs">
@@ -187,25 +187,26 @@ export function Footer() {
         </div>
 
         {/* Bottom Badges & Attribution */}
-        <div className="pt-8 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 text-xs text-stone-400">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <span className="text-accent font-semibold font-mono-tabular">
-              {t.costToPeople}<Peso />0
-            </span>
-            <span aria-hidden="true" className="text-stone-700">·</span>
-            <Link
-              href="/contact"
-              className="hover:text-white transition-colors inline-flex items-center gap-1.5"
-            >
-              <Users className="w-3.5 h-3.5 text-stone-500" />
-              {t.volunteerWithUs}
-            </Link>
-            <span aria-hidden="true" className="text-stone-700">|</span>
+        <div className="border-t border-stone-800 pt-6 mt-12 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 text-xs text-stone-400">
+          <div className="space-y-2">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+              <span className="text-accent font-bold">
+                {t.costToPeople}<Peso />0
+              </span>
+              <span aria-hidden="true" className="text-stone-600">·</span>
+              <Link
+                href="/contact"
+                className="hover:text-white transition-colors inline-flex items-center gap-1.5"
+              >
+                <Users className="w-3.5 h-3.5 text-stone-500" />
+                {t.volunteerWithUs}
+              </Link>
+            </div>
             <Link
               href="/sitemap"
-              className="hover:text-white transition-colors inline-flex items-center gap-1.5"
+              className="font-mono-tabular text-stone-500 hover:text-white transition-colors inline-flex items-center gap-1.5"
             >
-              <Code2 className="w-3.5 h-3.5 text-stone-500" />
+              <Code2 className="w-3.5 h-3.5" />
               {t.contributeGithub}
             </Link>
           </div>
