@@ -11,7 +11,7 @@ export function LeadershipSection() {
   return (
     <section
       aria-labelledby="leadership-heading"
-      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 border-t border-stone-200/80"
+      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14"
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* City Leadership (7 Cols) */}

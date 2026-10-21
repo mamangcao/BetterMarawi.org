@@ -36,8 +36,9 @@ export function HistorySnapshot() {
   return (
     <section
       aria-labelledby="history-heading"
-      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 border-t border-stone-200/80"
+      className="bg-surface-card border-y border-surface-border"
     >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div className="mb-10">
         <h2
           id="history-heading"
@@ -92,6 +93,7 @@ export function HistorySnapshot() {
         >
           {t.exploreGeographyProfile}
         </Link>
+      </div>
       </div>
     </section>
   );
