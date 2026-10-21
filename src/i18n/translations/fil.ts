@@ -113,6 +113,32 @@ export const fil: typeof en = {
   clear: 'Burahin',
   noServicesFound: 'Walang nahanap na serbisyong tugma sa',
   popularServicesTitle: 'Mga Sikat na Serbisyo',
+  popularServicesCount: '{shown} sa {total}',
+  allServicesEyebrow: 'Lahat ng serbisyo',
+  viewAllServicesDescription:
+    "Agrikultura, pampublikong imprastraktura, koleksyon ng basura, kapaligiran, kahandaan sa sakuna, turismo, at iba pa, bawat isa may Citizen's Charter.",
+  serviceCards: {
+    'business-and-livelihood': {
+      title: 'Negosyo at Kabuhayan',
+      description: "Mayor's permit, pag-renew ng business tax sa BPLO, at mga oportunidad sa Halal na kalakalan at kabuhayan.",
+    },
+    'health-services': {
+      title: 'Serbisyong Pangkalusugan',
+      description: 'Libreng check-up, bakuna, at gamot sa CHO at Amai Pakpak Medical Center (APMC).',
+    },
+    'social-welfare': {
+      title: 'Kapakanang Panlipunan',
+      description: 'Tulong mula sa AICS at CSWDO para sa mga senior, PWD, solo parent, IDP, at mga pamilyang nangangailangan.',
+    },
+    'housing-and-land-use': {
+      title: 'Pabahay at Paggamit ng Lupa',
+      description: 'Mga proyekto sa pabahay at rehabilitasyon, zoning at building permit (CPDO/OBO), at mga relocation site.',
+    },
+    education: {
+      title: 'Edukasyon',
+      description: 'Pag-enroll sa daycare, pampublikong paaralan, at Madrasah, pati mga scholarship ng MSU at ng lungsod.',
+    },
+  },
   servicesAndChartersHeading: "Mga Serbisyo at Citizen's Charter",
   servicesAndChartersSubheading:
     "Direktang access sa opisyal na mga kailangan ng gobyerno, bayarin, tagal ng pagproseso, at Citizen's Charter.",

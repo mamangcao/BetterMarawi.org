@@ -170,6 +170,33 @@ export const mrw: typeof en = {
   noServicesFound: 'No services found matching',
   // TODO(mrw-review): needs fluent reviewer
   popularServicesTitle: 'Popular Services',
+  // TODO(mrw-review): needs fluent reviewer. Popular Services cards fall back to English per CONTENT_GUIDE.
+  popularServicesCount: '{shown} of {total}',
+  allServicesEyebrow: 'All services',
+  viewAllServicesDescription:
+    "Agriculture, public works, waste collection, environment, disaster preparedness, tourism, and more, each with its Citizen's Charter.",
+  serviceCards: {
+    'business-and-livelihood': {
+      title: 'Business and Livelihood',
+      description: "Mayor's permits, business tax renewal at BPLO, and Halal trade and livelihood opportunities.",
+    },
+    'health-services': {
+      title: 'Health Services',
+      description: 'Free check-ups, vaccines, and medicines at the CHO and Amai Pakpak Medical Center (APMC).',
+    },
+    'social-welfare': {
+      title: 'Social Welfare',
+      description: 'AICS and CSWDO support for seniors, PWDs, solo parents, IDPs, and families in need.',
+    },
+    'housing-and-land-use': {
+      title: 'Housing & Land Use',
+      description: 'Shelter and rehabilitation projects, zoning and building permits (CPDO/OBO), and relocation sites.',
+    },
+    education: {
+      title: 'Education',
+      description: 'Daycare, public school, and Madrasah enrollment, plus MSU and city scholarships.',
+    },
+  },
   // TODO(mrw-review): needs fluent reviewer
   servicesAndChartersHeading: "Services & Citizen's Charters",
   // TODO(mrw-review): needs fluent reviewer
