@@ -18,7 +18,7 @@ export function DemographicsBlock() {
     [
       'Topography & Elevation',
       (
-        <span className="inline-flex items-center gap-2">
+        <span key="topography" className="inline-flex items-center gap-2">
           <span>Cool Tropical Highland (~700 meters ASL) overlooking Lake Lanao and Agus River outlet</span>
           <UnverifiedBadge />
         </span>
