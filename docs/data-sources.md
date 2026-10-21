@@ -19,7 +19,7 @@ All public information on BetterMarawi.org comes from official government source
 | Source | Website | Covers | Used in |
 | --- | --- | --- | --- |
 | Bureau of Local Government Finance (BLGF) | blgf.gov.ph | Budget, financial reports, revenue data | `src/data/budget.ts`, reports pages |
-| Philippine Statistics Authority (PSA) | psa.gov.ph | Population, census, demographics | `src/data/barangays.ts`, city profile |
+| Philippine Statistics Authority (PSA) | psa.gov.ph | Population, census, demographics. Content is CC BY 4.0: attribute "Philippine Statistics Authority" wherever it is shown | `src/data/barangays.ts`, city profile |
 | DTI CMCI Portal | cmci.dti.gov.ph | Cities and Municipalities Competitiveness Index | `src/data/cmci.ts`, DTI CMCI page |
 | Department of the Interior and Local Government (DILG) | dilg.gov.ph | Full Disclosure Policy, SGLG, local government rules | `src/data/fdp.ts`, transparency pages |
 | Commission on Audit (COA) | coa.gov.ph | Annual audit reports | Transparency documents |
@@ -60,11 +60,12 @@ Use one row per data file or dataset. Status must be **Unverified**, **Sourced**
 | `budget.ts` | FY 2026 General Appropriation Ordinance | | | | | Unverified |
 | `officials.ts` | Mayor, Vice Mayor, SP members | | | | | Unverified |
 | `departments.ts` | Department heads and mandates | | | | | Unverified |
-| `barangays.ts` | 96 Barangays (Names & PSGC Codes) | PSA Philippine Standard Geographic Code (PSGC) | 2024-03-31 | Antigravity | 2026-10-21 | Sourced |
+| `barangays.ts` | 101 Barangays (names, 10-digit and correspondence codes, Urban/Rural, 2024 POPCEN) | PSA PSGC page for the City of Marawi, https://psa.gov.ph/classification/psgc/barangays/1903617000 (table pasted by site owner; PSA blocks automated fetch). CC BY 4.0, attribute PSA | 2025-07-31 (PSGC), 2024 POPCEN | Claude Code | October 21, 2026 | Sourced |
 | `services.ts` | Requirements, fees, steps | Citizen's Charter | | | | Unverified |
 | `fdp.ts` | FDP disclosures | DILG FDP portal | | | | Unverified |
 | `ordinances.ts` | Enacted ordinances | Sangguniang Panlungsod records | | | | Unverified |
-| `cmci.ts` | CMCI 5 Pillars & Composite (2024 Cycle) | DTI CMCI Portal (cmci.dti.gov.ph) | 2024 | Antigravity | 2026-10-21 | Sourced |
+| `cmci.ts` | CMCI 5 Pillars & Composite (2024 Cycle) | DTI CMCI LGU profile, https://cmci.dti.gov.ph/lgu-profile.php?lgu=Marawi (re-checked, all values match) | 2024 | Claude Code | October 21, 2026 | Sourced |
+| `site.ts`, `jsonld.ts` | City Hall address and official Facebook page | DTI CMCI LGU profile, https://cmci.dti.gov.ph/lgu-profile.php?lgu=Marawi. Address also confirmed by the site owner from local knowledge | 2026-10-21 | Claude Code | October 21, 2026 | Sourced |
 | `site.ts` | Hotline numbers | CDRRMO, BFP, PNP, CHO | | | | Unverified |
 | `verification.ts` | City Profile (Demographics & Baseline) | PSA PSGC & 2024 POPCEN (psa.gov.ph) | 2025-07-31 | Antigravity | October 21, 2026 | Sourced |
 
