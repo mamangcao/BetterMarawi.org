@@ -6,6 +6,7 @@ export const en = {
   contactUs: 'Contact Us',
   searchPlaceholder: 'Search Services, Permits, Barangays, or Ordinances...',
   popularServices: 'Popular Services:',
+  cityMetricsBadge: 'City Metrics',
   atAGlance: 'Marawi at a Glance',
   viewCityProfile: 'View City Profile',
   servicesHeading: 'Services & Information',

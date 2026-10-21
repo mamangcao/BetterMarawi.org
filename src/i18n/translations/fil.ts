@@ -8,6 +8,7 @@ export const fil: typeof en = {
   contactUs: 'Makipag-ugnayan',
   searchPlaceholder: 'Maghanap ng Serbisyo, Permit, Barangay, o Ordinansa...',
   popularServices: 'Mga Sikat na Serbisyo:',
+  cityMetricsBadge: 'Mga Datos ng Lungsod',
   atAGlance: 'Ang Marawi sa Isang Sulyap',
   viewCityProfile: 'Tingnan ang City Profile',
   servicesHeading: 'Mga Serbisyo at Impormasyon',

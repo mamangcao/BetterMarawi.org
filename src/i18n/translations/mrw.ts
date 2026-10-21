@@ -8,6 +8,8 @@ export const mrw: typeof en = {
   contactUs: 'ibegay sa Totol',
   searchPlaceholder: 'Mbabanog sa Serbisyo, Permit, Barangay, odi na Kokoman...',
   popularServices: 'Piyaki-ilay a Serbisyo:',
+  // TODO(mrw-review): needs fluent reviewer
+  cityMetricsBadge: 'City Metrics',
   atAGlance: 'So Inged a Marawi',
   viewCityProfile: 'Ilaya so City Profile',
   servicesHeading: 'Manga Serbisyo ago Totol',
