@@ -11,7 +11,7 @@ import { buildMetadata, getRouteBreadcrumbs } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'Marawi City Statistics, Census & Competitiveness Data | BetterMarawi.org',
   description:
-    'Official demographic, geographic, DTI CMCI competitiveness, and 96-barangay census statistics for the Islamic City of Marawi, Lanao del Sur.',
+    'Official demographic, geographic, DTI CMCI competitiveness, and 101-barangay census statistics for the Islamic City of Marawi, Lanao del Sur.',
   path: '/statistics',
 });
 
@@ -31,7 +31,7 @@ export default function StatisticsOverviewPage() {
             Marawi City Demographics &amp; Data Portal
           </h1>
           <p className="mt-3 text-base text-stone-700 max-w-3xl leading-relaxed">
-            Official demographic, geographic, DTI CMCI competitiveness, and 96-barangay census statistics for the Islamic City of Marawi, Lanao del Sur.
+            Official demographic, geographic, DTI CMCI competitiveness, and 101-barangay census statistics for the Islamic City of Marawi, Lanao del Sur.
           </p>
           <UnverifiedNotice items={[cityProfileVerification]} className="mt-6" />
         </div>

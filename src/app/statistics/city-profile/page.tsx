@@ -11,7 +11,7 @@ import { buildMetadata, getRouteBreadcrumbs } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'Marawi City Profile — Geography, Demographics & Highland Climate | BetterMarawi.org',
   description:
-    'Detailed socio-economic and geographic profile of the Islamic City of Marawi: 207,010 residents (2020 PSA Census), 96 barangays, 87.55 km² land area at 700m elevation overlooking Lake Lanao.',
+    'Detailed socio-economic and geographic profile of the Islamic City of Marawi: 259,993 residents (2024 POPCEN), 101 barangays, 3rd class component city, 87.55 km² land area at 700m elevation overlooking Lake Lanao.',
   path: '/statistics/city-profile',
 });
 

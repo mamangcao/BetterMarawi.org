@@ -97,9 +97,9 @@ export const en = {
   glanceSubheading:
     'Official census, territorial, and administrative baseline of the Islamic City of Marawi.',
   residentsLabel: 'Residents',
-  latestCensusNote: '2020 PSA Census of Population · 34,444 households',
+  latestCensusNote: '2024 Census of Population (POPCEN), PSA',
   barangaysLabel: 'Barangays',
-  adminVillagesNote: 'Administrative villages',
+  adminVillagesNote: 'Administrative villages (PSA PSGC)',
   incomeClassification: 'Income classification',
   capitalLanao: 'Capital of Lanao del Sur',
   totalLandArea: 'Total land area',

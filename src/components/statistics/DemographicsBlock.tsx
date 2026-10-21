@@ -1,20 +1,29 @@
 import React from 'react';
 import { cityProfileVerification } from '@/lib/verification';
-import { SourceNote } from '@/components/ui';
+import { SourceNote, UnverifiedBadge } from '@/components/ui';
 
 export function DemographicsBlock() {
-  const factSheet = [
+  const factSheet: [string, React.ReactNode][] = [
     ['Official Name', 'Islamic City of Marawi (Declared via Parliamentary Bill No. 57, 1980)'],
     ['Original Charter', 'Commonwealth Act No. 592 (1940 as Dansalan); Renamed via RA 1552 (June 16, 1956)'],
     ['Province & Region', 'Capital of Lanao del Sur · Bangsamoro Autonomous Region in Muslim Mindanao (BARMM)'],
-    ['Barangay Composition', '96 Barangays across 5 Geographic Sectors (PSA PSGC)'],
-    ['Income Classification', '4th Class Component City (PSA PSGC / DOF-BLGF)'],
-    ['Official 2020 Population', '207,010 residents (PSA 2020 Census of Population and Housing)'],
-    ['Official 2020 Households', '34,444 households (PSA 2020 Census of Population and Housing)'],
-    ['Self-Reported LGU Population', '259,993 (self-reported in the DTI CMCI city profile, not a PSA census figure)'],
-    ['Land Area', '87.55 km² (PSA PSGC)'],
+    ['PSGC 10-Digit Code', '1903617000 (Correspondence Code: 153617000)'],
+    ['Barangay Composition', '101 Barangays across 5 Geographic Sectors (PSA PSGC, as of 31 July 2025)'],
+    ['Income Classification', '3rd Class Component City (PSA PSGC)'],
+    ['Latest Population', '259,993 (2024 Census of Population [POPCEN], PSA)'],
+    ['2020 Census Population', '207,010 (PSA 2020 Census of Population and Housing, Proclamation No. 1179)'],
+    ['2020 Census Households', '34,444 households (PSA 2020 Census of Population and Housing)'],
+    ['Total Land Area', '87.55 km² (PSA PSGC)'],
     ['Geographic Coordinates', '8°00\'12" N, 124°17\'06" E (8.0034, 124.2851)'],
-    ['Topography & Climate', 'Cool Tropical Highland (~700m ASL, 18°C – 25°C) overlooking Lake Lanao and Agus River outlet'],
+    [
+      'Topography & Elevation',
+      (
+        <span className="inline-flex items-center gap-2">
+          <span>Cool Tropical Highland (~700 meters ASL) overlooking Lake Lanao and Agus River outlet</span>
+          <UnverifiedBadge />
+        </span>
+      ),
+    ],
     ['Primary Languages', 'Meranaw (Maranao), Filipino, English, Arabic'],
     ['Major Academic Hub', 'Mindanao State University (MSU) Main Campus (Founded 1961)'],
     ['Tertiary Medical Center', 'Amai Pakpak Medical Center (APMC) — DOH Retained Level III Hospital'],
@@ -22,30 +31,44 @@ export function DemographicsBlock() {
 
   return (
     <div className="space-y-8">
-      {/* 2 Key Stat Cards */}
+      {/* 4 Key Stat Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="bg-white rounded-xl border border-stone-200/90 p-5">
-          <div className="text-xs text-stone-500">Official Census Population</div>
+          <div className="text-xs text-stone-500">Latest Population</div>
           <div className="text-3xl font-bold text-stone-950 font-mono-tabular mt-1">
-            207,010
+            259,993
           </div>
           <div className="text-xs text-stone-500 mt-1">
-            2020 PSA Census of Population · 34,444 Households
+            2024 Census of Population (POPCEN), PSA
           </div>
         </div>
         <div className="bg-white rounded-xl border border-stone-200/90 p-5">
-          <div className="text-xs text-stone-500">Land Area &amp; Elevation</div>
+          <div className="text-xs text-stone-500">Barangays</div>
+          <div className="text-3xl font-bold text-stone-950 font-mono-tabular mt-1">
+            101
+          </div>
+          <div className="text-xs text-stone-500 mt-1">
+            PSA PSGC (as of 31 July 2025)
+          </div>
+        </div>
+        <div className="bg-white rounded-xl border border-stone-200/90 p-5">
+          <div className="text-xs text-stone-500">Income Classification</div>
+          <div className="text-3xl font-bold text-stone-950 font-display mt-1">
+            3rd Class
+          </div>
+          <div className="text-xs text-stone-500 mt-1">
+            Component City (PSA PSGC)
+          </div>
+        </div>
+        <div className="bg-white rounded-xl border border-stone-200/90 p-5">
+          <div className="text-xs text-stone-500">Total Land Area</div>
           <div className="text-3xl font-bold text-stone-950 font-mono-tabular mt-1">
             87.55 km²
           </div>
           <div className="text-xs text-stone-500 mt-1">
-            ~700 meters ASL · Lake Lanao Highland Basin
+            Lake Lanao Highland Basin (PSA PSGC)
           </div>
         </div>
-      </div>
-
-      <div className="text-xs text-stone-600 bg-stone-50 rounded-xl p-4 border border-stone-200/80">
-        <span className="font-semibold text-stone-800">Population note:</span> Official certified census data is 207,010 residents and 34,444 households (PSA 2020 Census of Population and Housing). The 259,993 figure is self-reported in the DTI CMCI city profile, not a PSA census figure.
       </div>
 
       {/* Detailed Fact Sheet Table */}

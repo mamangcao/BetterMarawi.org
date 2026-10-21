@@ -63,7 +63,7 @@ export function GovernmentSidebar() {
             </div>
             <div className="flex items-center gap-2">
               <Users className="w-3.5 h-3.5 text-accent" />
-              <span>96 Constituent Barangays</span>
+              <span>101 Constituent Barangays</span>
             </div>
           </div>
         </div>

@@ -17,7 +17,7 @@ import { SITE_CONFIG } from '@/config/site';
 export const metadata: Metadata = buildMetadata({
   title: 'BetterMarawi.org — Islamic City of Marawi Citizen Services & Transparency Portal',
   description:
-    'A community-run portal to find information and services of the Islamic City of Marawi, Lanao del Sur. Access Citizen’s Charter guides, PhilHealth YAKAP, and 96 barangay statistics.',
+    'A community-run portal to find information and services of the Islamic City of Marawi, Lanao del Sur. Access Citizen’s Charter guides, PhilHealth YAKAP, and 101 barangay statistics.',
   path: '/',
 });
 

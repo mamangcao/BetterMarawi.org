@@ -41,7 +41,7 @@ export function CityAtAGlance() {
             className="bg-white rounded-xl border border-stone-200/90 p-6 hover:border-emerald-800/40 transition-colors block"
           >
             <div className="text-3xl font-bold text-stone-950 font-mono-tabular">
-              207,010
+              259,993
             </div>
             <div className="text-sm font-semibold text-stone-800 mt-2">
               {t.residentsLabel}
@@ -56,7 +56,7 @@ export function CityAtAGlance() {
             className="bg-white rounded-xl border border-stone-200/90 p-6 hover:border-emerald-800/40 transition-colors block"
           >
             <div className="text-3xl font-bold text-stone-950 font-mono-tabular">
-              96
+              101
             </div>
             <div className="text-sm font-semibold text-stone-800 mt-2">
               {t.barangaysLabel}
@@ -71,7 +71,7 @@ export function CityAtAGlance() {
             className="bg-white rounded-xl border border-stone-200/90 p-6 hover:border-emerald-800/40 transition-colors block"
           >
             <div className="text-xl sm:text-2xl font-bold text-stone-950 leading-tight">
-              4th Class Component City
+              3rd Class Component City
             </div>
             <div className="text-sm font-semibold text-stone-800 mt-2">
               {t.incomeClassification}

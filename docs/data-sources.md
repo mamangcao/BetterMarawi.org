@@ -66,7 +66,7 @@ Use one row per data file or dataset. Status must be **Unverified**, **Sourced**
 | `ordinances.ts` | Enacted ordinances | Sangguniang Panlungsod records | | | | Unverified |
 | `cmci.ts` | CMCI 5 Pillars & Composite (2024 Cycle) | DTI CMCI Portal (cmci.dti.gov.ph) | 2024 | Antigravity | 2026-10-21 | Sourced |
 | `site.ts` | Hotline numbers | CDRRMO, BFP, PNP, CHO | | | | Unverified |
-| `verification.ts` | City Profile (Demographics & Baseline) | PSA 2020 CPH (Proclamation No. 1179) & PSA PSGC | 2024-03-31 | Antigravity | 2026-10-21 | Sourced |
+| `verification.ts` | City Profile (Demographics & Baseline) | PSA PSGC & 2024 POPCEN (psa.gov.ph) | 2025-07-31 | Antigravity | October 21, 2026 | Sourced |
 
 ## Open questions
 

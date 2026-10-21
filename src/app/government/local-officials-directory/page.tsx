@@ -31,7 +31,7 @@ export default function LocalOfficialsPage() {
             Local Officials Directory (2025–2028)
           </h1>
           <p className="mt-3 text-base text-stone-700 max-w-3xl leading-relaxed">
-            Official directory of the Elected City Mayor, City Vice Mayor, Sangguniang Panlungsod Members, and Ex-Officio Sectoral Representatives serving the 96 barangays of Marawi City.
+            Official directory of the Elected City Mayor, City Vice Mayor, Sangguniang Panlungsod Members, and Ex-Officio Sectoral Representatives serving the 101 barangays of Marawi City.
           </p>
           <UnverifiedNotice items={ELECTED_OFFICIALS} className="mt-6" />
         </div>

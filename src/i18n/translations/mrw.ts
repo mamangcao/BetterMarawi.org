@@ -159,7 +159,7 @@ export const mrw: typeof en = {
   // TODO(mrw-review): needs fluent reviewer
   residentsLabel: 'Residents',
   // TODO(mrw-review): needs fluent reviewer
-  latestCensusNote: '2020 PSA Census of Population · 34,444 households',
+  latestCensusNote: '2024 Census of Population (POPCEN), PSA',
   // TODO(mrw-review): needs fluent reviewer
   barangaysLabel: 'Barangays',
   // TODO(mrw-review): needs fluent reviewer

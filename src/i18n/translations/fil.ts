@@ -99,9 +99,9 @@ export const fil: typeof en = {
   glanceSubheading:
     'Opisyal na senso, teritoryo, at administratibong batayan ng Islamic City of Marawi.',
   residentsLabel: 'Mga Residente',
-  latestCensusNote: '2020 PSA Senso ng Populasyon · 34,444 kabahayan',
+  latestCensusNote: '2024 Senso ng Populasyon (POPCEN), PSA',
   barangaysLabel: 'Mga Barangay',
-  adminVillagesNote: 'Mga administratibong barangay',
+  adminVillagesNote: 'Mga administratibong barangay (PSA PSGC)',
   incomeClassification: 'Klasipikasyon ng kita',
   capitalLanao: 'Kabisera ng Lanao del Sur',
   totalLandArea: 'Kabuuang sukat ng lupa',

@@ -312,7 +312,7 @@ export const APP_ROUTES: RouteItem[] = [
     path: '/statistics',
     label: 'Statistics & Data',
     category: 'statistics',
-    description: 'City profile, DTI CMCI index, 96 barangay census, and open data datasets.',
+    description: 'City profile, DTI CMCI index, 101 barangay census, and open data datasets.',
     priority: 0.9,
     changefreq: 'weekly',
     breadcrumbs: [
@@ -350,7 +350,7 @@ export const APP_ROUTES: RouteItem[] = [
     path: '/statistics/barangay-data',
     label: 'Barangay Data',
     category: 'statistics',
-    description: 'Complete searchable directory and census data of all 96 Barangays.',
+    description: 'Complete searchable directory and census data of all 101 Barangays.',
     priority: 0.9,
     changefreq: 'weekly',
     breadcrumbs: [

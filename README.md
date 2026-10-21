@@ -11,7 +11,7 @@ Part of the [BetterGov.ph](https://bettergov.ph) community model, inspired by Be
 - 11 citizen services with requirements, steps, fees, offices, and FAQs
 - Government directory: departments, officials, and the Sangguniang Panlungsod
 - Transparency pages: Full Disclosure Policy, annual budget, FOI guide
-- Statistics: city profile, DTI CMCI, all 96 barangays, open data downloads (CSV and JSON)
+- Statistics: city profile, DTI CMCI, all 101 barangays, open data downloads (CSV and JSON)
 - Service search and popular services on the home page
 - Languages: English, Filipino, and Meranaw (interface text)
 - Quick contacts bar for emergency hotlines

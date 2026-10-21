@@ -2,9 +2,9 @@ import { Verification } from '@/types';
 
 export const cityProfileVerification: Verification = {
   level: 'sourced',
-  source: 'PSA 2020 Census of Population & Housing and PSA PSGC',
-  sourceUrl: 'https://psa.gov.ph/content/2020-census-population-and-housing-2020-cph-population-counts-declared-official-president',
-  retrievedOn: '2024-03-31',
+  source: 'Philippine Statistics Authority (PSA) PSGC & 2024 POPCEN',
+  sourceUrl: 'https://psa.gov.ph/classification/psgc/barangays/1903617000',
+  retrievedOn: 'October 21, 2026',
 };
 
 /**

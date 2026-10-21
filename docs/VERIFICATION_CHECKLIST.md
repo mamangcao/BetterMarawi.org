@@ -116,12 +116,13 @@ This document tracks verification for public civic data displayed on BetterMaraw
 
 | Item | Current value in code | File | Official source URL | Source date | Official quote (<15 words) | Status |
 | --- | --- | --- | --- | --- | --- | --- |
+| PSGC 10-Digit Code | `1903617000` (Correspondence: `153617000`) | `src/components/statistics/DemographicsBlock.tsx` | https://psa.gov.ph/classification/psgc/barangays/1903617000 | 2025-07-31 | "City of Marawi: 1903617000" | Matches |
+| Income Classification | `3rd Class Component City` | `src/components/statistics/DemographicsBlock.tsx` | https://psa.gov.ph/classification/psgc/barangays/1903617000 | 2025-07-31 | "Income Class: 3rd" | Matches |
+| Latest Population (2024 POPCEN) | `259,993` | `src/components/statistics/DemographicsBlock.tsx` | https://psa.gov.ph/classification/psgc/barangays/1903617000 | 2025-07-31 | "Population (2024 POPCEN): 259993" | Matches |
+| Total Barangay Count | `101 Barangays` | `src/components/statistics/DemographicsBlock.tsx` | https://psa.gov.ph/classification/psgc/barangays/1903617000 | 2025-07-31 | "Barangays: 101" | Matches |
 | 2020 Census Population | `207,010` | `src/components/statistics/DemographicsBlock.tsx` | https://psa.gov.ph/content/2020-census-population-and-housing-2020-cph-population-counts-declared-official-president | 2021-07-07 | "population of the Islamic City of Marawi was 207,010" | Matches |
-| Latest Census Population | `259,993` | `src/components/statistics/DemographicsBlock.tsx` | https://cmci.dti.gov.ph | 2024 | "Population: 259,993" | Differs (Self-reported LGU profile on DTI CMCI; flagged: no official PSA census proclamation exists) |
-| Total Households | `48,120` | `src/components/statistics/DemographicsBlock.tsx` | https://psa.gov.ph/content/2020-census-population-and-housing-2020-cph-population-counts-declared-official-president | 2021-07-07 | "average household size in BARMM was 6.0" | Differs (PSA 2020 CPH recorded 34,444 households; 48,120 has no official source) |
+| 2020 Census Households | `34,444` | `src/components/statistics/DemographicsBlock.tsx` | https://psa.gov.ph/content/2020-census-population-and-housing-2020-cph-population-counts-declared-official-president | 2021-07-07 | "average household size in BARMM was 6.0" | Matches |
 | Land Area | `87.55 km²` | `src/components/statistics/DemographicsBlock.tsx` | https://psa.gov.ph/classification/psgc | 2024-03-31 | "Land Area: 87.55 sq. km." | Matches |
-| Barangay Count | `96 Barangays` | `src/components/statistics/DemographicsBlock.tsx` | https://psa.gov.ph/classification/psgc | 2024-03-31 | "Number of Barangays: 96" | Matches |
-| Income Classification | `4th Class Component City` | `src/components/statistics/DemographicsBlock.tsx` | https://psa.gov.ph/classification/psgc | 2024-03-31 | "Income Class: 4th Class" | Matches |
 | Geographic Coordinates | `8.0034, 124.2851` | `src/components/statistics/DemographicsBlock.tsx` | https://psa.gov.ph/classification/psgc | 2024-03-31 | "Coordinates: 8.0034, 124.2851" | Matches |
 | Elevation | `~700 meters ASL` | `src/components/statistics/DemographicsBlock.tsx` | https://psa.gov.ph | 2024 | N/A | No source found (Flagged: physical topographic datum, not published in PSA census or PSGC tables) |
 
