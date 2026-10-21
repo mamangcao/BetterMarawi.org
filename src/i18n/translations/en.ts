@@ -216,7 +216,7 @@ export const en = {
   searchBarangayPlaceholder:
     'Search by Barangay name, PSGC code, or sector...',
   exportAllBarangays: 'Export All 96 Barangays (CSV)',
-  showingBarangaysSummary: 'Showing 96 Barangays · Total Population: 259,993',
+  showingBarangaysSummary: 'Showing 96 Barangays',
   openDatasetsHeading:
     'Open Civic Datasets (Creative Commons CC0 / Open Data PH)',
   clickToDownload:

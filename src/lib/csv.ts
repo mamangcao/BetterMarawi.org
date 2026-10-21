@@ -22,11 +22,10 @@ export function downloadJSON(filename: string, data: unknown) {
 }
 
 export function generateBarangaysCSV(barangays: BarangayRecord[]): string {
-  const header =
-    'No,Barangay Name,PSGC Code,District Cluster,2020 Census Population,Latest Census Population,Households,Classification,Sector Status';
+  // hidden: unverified, replace with the PSA 2020 CPH barangay table
+  const header = 'No,Barangay Name,PSGC Code,District Cluster,Classification,Sector Status';
   const rows = barangays.map(
-    (b) =>
-      `${b.id},"${b.name}",${b.psgcCode},"${b.district}",${b.population2020},${b.populationLatest},${b.households},${b.classification},"${b.zoneStatus}"`
+    (b) => `${b.id},"${b.name}",${b.psgcCode},"${b.district}",${b.classification},"${b.zoneStatus}"`
   );
   return [header, ...rows].join('\n');
 }

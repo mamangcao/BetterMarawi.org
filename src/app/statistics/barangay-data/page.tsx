@@ -31,7 +31,7 @@ export default function BarangayDataPage() {
             All 96 Barangays Directory &amp; Census Data
           </h1>
           <p className="mt-3 text-base text-stone-700 max-w-3xl leading-relaxed">
-            Search and filter all 96 official Barangays of the Islamic City of Marawi by district sector, PSGC code, 2020 PSA Census, and latest 259,993 population distribution.
+            Search and filter all 96 official Barangays of the Islamic City of Marawi by district sector, PSGC code, classification, and rehabilitation zone status.
           </p>
           <UnverifiedNotice items={MARAWI_BARANGAYS} className="mt-6" />
         </div>

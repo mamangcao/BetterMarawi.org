@@ -60,7 +60,7 @@ Use one row per data file or dataset. Status must be **Unverified**, **Sourced**
 | `budget.ts` | FY 2026 General Appropriation Ordinance | | | | | Unverified |
 | `officials.ts` | Mayor, Vice Mayor, SP members | | | | | Unverified |
 | `departments.ts` | Department heads and mandates | | | | | Unverified |
-| `barangays.ts` | 96 barangays, population | PSA 2020 Census, PSGC | | | | Unverified |
+| `barangays.ts` | 96 Barangays (Names & PSGC Codes) | PSA Philippine Standard Geographic Code (PSGC) | 2024-03-31 | Antigravity | 2026-10-21 | Sourced |
 | `services.ts` | Requirements, fees, steps | Citizen's Charter | | | | Unverified |
 | `fdp.ts` | FDP disclosures | DILG FDP portal | | | | Unverified |
 | `ordinances.ts` | Enacted ordinances | Sangguniang Panlungsod records | | | | Unverified |

@@ -218,7 +218,7 @@ export const fil: typeof en = {
   searchBarangayPlaceholder:
     'Maghanap ayon sa pangalan ng Barangay, PSGC code, o sektor...',
   exportAllBarangays: 'I-export ang Lahat ng 96 Barangay (CSV)',
-  showingBarangaysSummary: 'Ipinapakita ang 96 na Barangay · Kabuuang Populasyon: 259,993',
+  showingBarangaysSummary: 'Ipinapakita ang 96 na Barangay',
   openDatasetsHeading:
     'Bukas na Datos ng Mamamayan (Creative Commons CC0 / Open Data PH)',
   clickToDownload:

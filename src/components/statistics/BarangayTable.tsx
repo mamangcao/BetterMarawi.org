@@ -49,7 +49,7 @@ export function BarangayTable({ barangays }: BarangayTableProps) {
             {t.barangaysCensusHeading}
           </h2>
           <p className="text-xs text-stone-500 mt-0.5">
-            Showing {filteredBarangays.length} of 96 Barangays · Total Population: 259,993
+            Showing {filteredBarangays.length} of 96 Barangays
           </p>
         </div>
         <button
@@ -94,6 +94,11 @@ export function BarangayTable({ barangays }: BarangayTableProps) {
       </div>
 
       {/* Tabular-Nums Table */}
+      <div className="text-xs text-stone-600 bg-stone-50 rounded-lg p-3 border border-stone-200/80">
+        Barangay population figures will be added from the PSA 2020 Census once verified.
+      </div>
+
+      {/* Tabular-Nums Table */}
       <div className="overflow-x-auto max-h-[640px] overflow-y-auto border border-stone-200 rounded-xl">
         <table className="w-full text-left border-collapse text-xs sm:text-sm">
           <thead className="bg-stone-100 sticky top-0 z-10 border-b border-stone-200 text-xs uppercase tracking-wider text-stone-600">
@@ -101,32 +106,28 @@ export function BarangayTable({ barangays }: BarangayTableProps) {
               <th className="py-3 px-3 font-semibold">#</th>
               <th className="py-3 px-3 font-semibold">Barangay</th>
               <th className="py-3 px-3 font-semibold">District Sector</th>
-              <th className="py-3 px-3 font-semibold text-right">2020 Pop.</th>
-              <th className="py-3 px-3 font-semibold text-right">Latest Pop.</th>
-              <th className="py-3 px-3 font-semibold text-right">Households</th>
+              <th className="py-3 px-3 font-semibold">Classification</th>
+              <th className="py-3 px-3 font-semibold">Sector Status</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-stone-100 font-mono-tabular">
+          <tbody className="divide-y divide-stone-100">
             {filteredBarangays.map((b) => (
               <tr key={b.id} className="hover:bg-stone-50">
-                <td className="py-2.5 px-3 text-stone-400">{b.id}</td>
-                <td className="py-2.5 px-3 font-sans">
+                <td className="py-2.5 px-3 text-stone-400 font-mono-tabular">{b.id}</td>
+                <td className="py-2.5 px-3">
                   <div className="font-bold text-stone-900">{b.name}</div>
                   <div className="text-[11px] text-stone-400 font-mono-tabular">
-                    PSGC: {b.psgcCode} · {b.zoneStatus}
+                    PSGC: {b.psgcCode}
                   </div>
                 </td>
-                <td className="py-2.5 px-3 font-sans text-xs text-stone-600">
+                <td className="py-2.5 px-3 text-xs text-stone-600">
                   {b.district}
                 </td>
-                <td className="py-2.5 px-3 text-right text-stone-600">
-                  {b.population2020.toLocaleString()}
+                <td className="py-2.5 px-3 text-xs font-medium text-stone-700">
+                  {b.classification}
                 </td>
-                <td className="py-2.5 px-3 text-right font-bold text-emerald-900">
-                  {b.populationLatest.toLocaleString()}
-                </td>
-                <td className="py-2.5 px-3 text-right text-stone-700">
-                  {b.households.toLocaleString()}
+                <td className="py-2.5 px-3 text-xs text-stone-600">
+                  {b.zoneStatus}
                 </td>
               </tr>
             ))}

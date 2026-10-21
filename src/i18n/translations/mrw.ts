@@ -367,7 +367,7 @@ export const mrw: typeof en = {
   // TODO(mrw-review): needs fluent reviewer
   exportAllBarangays: 'Export All 96 Barangays (CSV)',
   // TODO(mrw-review): needs fluent reviewer
-  showingBarangaysSummary: 'Showing 96 Barangays · Total Population: 259,993',
+  showingBarangaysSummary: 'Showing 96 Barangays',
   // TODO(mrw-review): needs fluent reviewer
   openDatasetsHeading:
     'Open Civic Datasets (Creative Commons CC0 / Open Data PH)',
