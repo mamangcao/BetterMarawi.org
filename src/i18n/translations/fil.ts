@@ -113,7 +113,6 @@ export const fil: typeof en = {
   clear: 'Burahin',
   noServicesFound: 'Walang nahanap na serbisyong tugma sa',
   popularServicesTitle: 'Mga Sikat na Serbisyo',
-  popularServicesCount: '{shown} sa {total}',
   allServicesEyebrow: 'Lahat ng serbisyo',
   viewAllServicesDescription:
     "Agrikultura, pampublikong imprastraktura, koleksyon ng basura, kapaligiran, kahandaan sa sakuna, turismo, at iba pa, bawat isa may Citizen's Charter.",
@@ -140,8 +139,7 @@ export const fil: typeof en = {
     },
   },
   servicesAndChartersHeading: "Mga Serbisyo at Citizen's Charter",
-  servicesAndChartersSubheading:
-    "Direktang access sa opisyal na mga kailangan ng gobyerno, bayarin, tagal ng pagproseso, at Citizen's Charter.",
+  servicesAndChartersSubheading: "Mga kailangan, bayarin, at hakbang mula sa bawat Citizen's Charter.",
   viewAll11Services: 'Tingnan Lahat ng 11 Serbisyo',
   viewCharterAndRequirements: "Tingnan ang Citizen's Charter at mga Kailangan",
 
@@ -182,8 +180,7 @@ export const fil: typeof en = {
 
   // Government Activity & History
   govActivitySectionHeading: 'Aktibidad ng Pamahalaan at Transparansya',
-  govActivitySectionSubheading:
-    'Subaybayan ang mga opisyal na batas, ulat pinansyal, at bukas na talaan mula sa Pamahalaang Lungsod.',
+  govActivitySectionSubheading: 'Mga ordinansa, badyet, disclosure, at pampublikong talaan ng lungsod.',
   openDirectory: 'Buksan ang Direktoryo',
   allGovEyebrow: "Pamahalaan at transparansya",
   allGovTitle: "Tingnan Lahat ng Talaan",

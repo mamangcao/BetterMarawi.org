@@ -171,7 +171,6 @@ export const mrw: typeof en = {
   // TODO(mrw-review): needs fluent reviewer
   popularServicesTitle: 'Popular Services',
   // TODO(mrw-review): needs fluent reviewer. Popular Services cards fall back to English per CONTENT_GUIDE.
-  popularServicesCount: '{shown} of {total}',
   allServicesEyebrow: 'All services',
   viewAllServicesDescription:
     "Agriculture, public works, waste collection, environment, disaster preparedness, tourism, and more, each with its Citizen's Charter.",
@@ -200,8 +199,7 @@ export const mrw: typeof en = {
   // TODO(mrw-review): needs fluent reviewer
   servicesAndChartersHeading: "Services & Citizen's Charters",
   // TODO(mrw-review): needs fluent reviewer
-  servicesAndChartersSubheading:
-    "Direct access to official government requirements, fees, processing times, and Citizen's Charters.",
+  servicesAndChartersSubheading: "Requirements, fees, and steps from each Citizen's Charter.",
   // TODO(mrw-review): needs fluent reviewer
   viewAll11Services: 'View All 11 Services',
   // TODO(mrw-review): needs fluent reviewer
@@ -271,8 +269,7 @@ export const mrw: typeof en = {
   // TODO(mrw-review): needs fluent reviewer
   govActivitySectionHeading: 'Government Activity & Transparency',
   // TODO(mrw-review): needs fluent reviewer
-  govActivitySectionSubheading:
-    'Track official legislative enactments, financial disclosures, and open records from the City Government.',
+  govActivitySectionSubheading: 'Ordinances, budgets, disclosures, and public records of the city.',
   // TODO(mrw-review): needs fluent reviewer
   openDirectory: 'Open Directory',
   // TODO(mrw-review): needs fluent reviewer. Gov cards fall back to English per CONTENT_GUIDE.

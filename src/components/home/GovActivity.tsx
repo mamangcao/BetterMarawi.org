@@ -11,7 +11,6 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 import { ArrowUpRight } from '@/components/ui';
-import { NAV_DROPDOWNS } from '@/config/site';
 import { useTranslation } from '@/i18n';
 
 // Five featured pages; the 6th cell links to the rest. Text lives in t.govCards.
@@ -22,9 +21,6 @@ const FEATURED: { key: string; href: string; icon: LucideIcon }[] = [
   { key: 'foi', href: '/transparency/freedom-of-information', icon: MessageSquareShare },
   { key: 'departments', href: '/government/departments-and-officials', icon: Building2 },
 ];
-
-// All pages under the Government and Transparency menus
-const TOTAL_PAGES = NAV_DROPDOWNS.government.length + NAV_DROPDOWNS.transparency.length;
 
 // Same cell styling as QuickServices (Popular Services)
 const cellClass =
@@ -42,20 +38,14 @@ export function GovActivity() {
       aria-labelledby="gov-activity-heading"
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
     >
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 mb-8">
+      <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-x-8 gap-y-2 mb-8">
         <h2
           id="gov-activity-heading"
           className="text-2xl sm:text-3xl font-bold text-brand-950 font-display tracking-tight"
         >
           {t.govActivitySectionHeading}
-          <span className="text-foreground-subtle font-semibold">
-            {' · '}
-            {t.popularServicesCount
-              .replace('{shown}', String(FEATURED.length))
-              .replace('{total}', String(TOTAL_PAGES))}
-          </span>
         </h2>
-        <p className="text-sm sm:text-base text-foreground-muted md:text-right max-w-xl">
+        <p className="text-sm sm:text-base text-foreground-muted md:text-right">
           {t.govActivitySectionSubheading}
         </p>
       </div>

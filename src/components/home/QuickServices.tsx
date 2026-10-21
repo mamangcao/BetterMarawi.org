@@ -3,7 +3,6 @@ import React from 'react';
 import Link from 'next/link';
 import { LayoutGrid } from 'lucide-react';
 import { ArrowUpRight } from '@/components/ui';
-import { SERVICES_DATA } from '@/data/services';
 import { getPopularServices } from '@/lib/services';
 import { useTranslation } from '@/i18n';
 import { ITEM_ICONS } from '@/components/layout/navIcons';
@@ -22,27 +21,20 @@ const arrowClass =
 
 export function QuickServices() {
   const { t } = useTranslation();
-  const total = SERVICES_DATA.length;
 
   return (
     <section
       aria-labelledby="services-grid-heading"
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14"
     >
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 mb-8">
+      <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-x-8 gap-y-2 mb-8">
         <h2
           id="services-grid-heading"
           className="text-2xl sm:text-3xl font-bold text-brand-950 font-display tracking-tight"
         >
           {t.popularServicesTitle}
-          <span className="text-foreground-subtle font-semibold">
-            {' · '}
-            {t.popularServicesCount
-              .replace('{shown}', String(POPULAR.length))
-              .replace('{total}', String(total))}
-          </span>
         </h2>
-        <p className="text-sm sm:text-base text-foreground-muted md:text-right max-w-xl">
+        <p className="text-sm sm:text-base text-foreground-muted md:text-right">
           {t.servicesAndChartersSubheading}
         </p>
       </div>

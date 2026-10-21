@@ -111,7 +111,6 @@ export const en = {
   clear: 'Clear',
   noServicesFound: 'No services found matching',
   popularServicesTitle: 'Popular Services',
-  popularServicesCount: '{shown} of {total}',
   allServicesEyebrow: 'All services',
   viewAllServicesDescription:
     "Agriculture, public works, waste collection, environment, disaster preparedness, tourism, and more, each with its Citizen's Charter.",
@@ -138,8 +137,7 @@ export const en = {
     },
   } as Record<string, { title: string; description: string }>,
   servicesAndChartersHeading: "Services & Citizen's Charters",
-  servicesAndChartersSubheading:
-    "Direct access to official government requirements, fees, processing times, and Citizen's Charters.",
+  servicesAndChartersSubheading: "Requirements, fees, and steps from each Citizen's Charter.",
   viewAll11Services: 'View All 11 Services',
   viewCharterAndRequirements: "View Citizen's Charter & Requirements",
 
@@ -180,8 +178,7 @@ export const en = {
 
   // Government Activity & History
   govActivitySectionHeading: 'Government Activity & Transparency',
-  govActivitySectionSubheading:
-    'Track official legislative enactments, financial disclosures, and open records from the City Government.',
+  govActivitySectionSubheading: 'Ordinances, budgets, disclosures, and public records of the city.',
   openDirectory: 'Open Directory',
   allGovEyebrow: "Government & transparency",
   allGovTitle: "View All Records",
