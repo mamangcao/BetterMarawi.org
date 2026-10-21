@@ -65,7 +65,7 @@ export function QuickServices() {
                   {text?.title ?? service.title}
                 </h3>
                 <p className={eyebrowClass}>{service.officeAcronym}</p>
-                <p className="mt-3 text-[15px] text-foreground-muted leading-relaxed line-clamp-2">
+                <p className="mt-3 text-[15px] text-foreground-muted leading-relaxed">
                   {text?.description ?? service.shortDescription}
                 </p>
               </div>
