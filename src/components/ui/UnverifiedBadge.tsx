@@ -4,7 +4,7 @@ import React from 'react';
 import { AlertTriangle, Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Verification } from '@/types';
-import { isVerified, formatVerifiedOn } from '@/lib/verification';
+import { isConfirmed, isSourced, formatVerifiedOn } from '@/lib/verification';
 import { useTranslation } from '@/i18n';
 
 export interface BadgeVariantProps {
@@ -96,7 +96,13 @@ export interface DataStatusProps extends BadgeVariantProps {
 }
 
 export function DataStatus({ item, variant = 'inline', className }: DataStatusProps) {
-  if (isVerified(item)) {
+  // Renders nothing for "sourced" (the SourceNote carries the information)
+  if (isSourced(item)) {
+    return null;
+  }
+
+  // Green Verified badge for "confirmed"
+  if (isConfirmed(item)) {
     return (
       <VerifiedBadge
         variant={variant}
@@ -107,6 +113,6 @@ export function DataStatus({ item, variant = 'inline', className }: DataStatusPr
     );
   }
 
+  // Unverified badge otherwise
   return <UnverifiedBadge variant={variant} className={className} />;
 }
-

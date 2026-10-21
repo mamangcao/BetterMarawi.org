@@ -6,6 +6,7 @@ import { MARAWI_BARANGAYS } from '@/data/barangays';
 import { BUDGET_BREAKDOWN_2026 } from '@/data/budget';
 import { ORDINANCES_LIST } from '@/data/ordinances';
 import { downloadCSV, downloadJSON, generateBarangaysCSV } from '@/lib/csv';
+import { SourceNote } from '@/components/ui';
 import { useTranslation } from '@/i18n';
 
 export function OpenDataDownloads() {
@@ -106,7 +107,8 @@ export function OpenDataDownloads() {
           </button>
         </div>
       </div>
+
+      <SourceNote item={MARAWI_BARANGAYS[0]} className="pt-2 border-t border-stone-100" />
     </section>
   );
 }
-

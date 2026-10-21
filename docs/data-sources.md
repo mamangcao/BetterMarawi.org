@@ -9,7 +9,10 @@ All public information on BetterMarawi.org comes from official government source
 - Add a row whenever you add or change data.
 - Record the exact page or document, not just the website.
 - Update "Last verified" every time you check the value against the source.
-- Unverified data stays marked **Unverified** until confirmed.
+- Follow the three verification levels:
+  - **Unverified:** Default state. Not yet checked against an official document or source.
+  - **Sourced:** Checked against an authoritative national portal or published dataset. **Rule:** "sourced" requires a recorded source URL and retrieval date, and a comparison against the official file.
+  - **Confirmed:** Rigorously confirmed directly with City Hall, official local gazette, enacted ordinance, or tested live line.
 
 ## National sources
 
@@ -50,7 +53,7 @@ All public information on BetterMarawi.org comes from official government source
 
 ## Verification log
 
-Use one row per data file or dataset.
+Use one row per data file or dataset. Status must be **Unverified**, **Sourced**, or **Confirmed**.
 
 | Data file | Dataset | Source and exact page or document | Date of source | Verified by | Last verified | Status |
 | --- | --- | --- | --- | --- | --- | --- |

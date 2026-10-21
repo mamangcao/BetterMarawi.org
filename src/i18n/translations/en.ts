@@ -23,7 +23,12 @@ export const en = {
     notice:
       'Some information on this page has not yet been verified against official sources. Check with City Hall before relying on it.',
     learnMore: 'Learn how we verify data',
+    sourced: 'Sourced',
+    sourceLabel: 'Source:',
+    retrievedOn: 'Retrieved on',
   },
+  sourcePrefix: 'Source:',
+  retrievedPrefix: 'Retrieved on',
 
   // Navigation & Header
   navHome: 'Home',

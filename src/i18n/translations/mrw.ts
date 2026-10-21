@@ -25,7 +25,17 @@ export const mrw: typeof en = {
     notice:
       'Some information on this page has not yet been verified against official sources. Check with City Hall before relying on it.',
     learnMore: 'Learn how we verify data',
+    // TODO(mrw-review): needs fluent reviewer
+    sourced: 'Sourced',
+    // TODO(mrw-review): needs fluent reviewer
+    sourceLabel: 'Source:',
+    // TODO(mrw-review): needs fluent reviewer
+    retrievedOn: 'Retrieved on',
   },
+  // TODO(mrw-review): needs fluent reviewer
+  sourcePrefix: 'Source:',
+  // TODO(mrw-review): needs fluent reviewer
+  retrievedPrefix: 'Retrieved on',
 
   // TODO(mrw-review): needs fluent reviewer
   navHome: 'Home',

@@ -1,5 +1,8 @@
 import React from 'react';
 import { Metadata } from 'next';
+import { MARAWI_BARANGAYS } from '@/data/barangays';
+import { budgetVerification } from '@/data/budget';
+import { ORDINANCES_LIST } from '@/data/ordinances';
 import { UnverifiedNotice } from '@/components/ui';
 import { OpenDataDownloads, StatisticsSidebar } from '@/components/statistics';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
@@ -16,6 +19,7 @@ export const metadata: Metadata = buildMetadata({
 
 export default function OpenDataPage() {
   const breadcrumbs = getRouteBreadcrumbs('/statistics/open-data-ph');
+  const datasetsVerification = [...MARAWI_BARANGAYS, budgetVerification, ...ORDINANCES_LIST];
 
   return (
     <main className="pb-16">
@@ -32,7 +36,7 @@ export default function OpenDataPage() {
           <p className="mt-3 text-base text-stone-700 max-w-3xl leading-relaxed">
             Download clean, unencumbered, machine-readable CSV and JSON datasets for academic research, civic applications, and public policy analysis.
           </p>
-          <UnverifiedNotice show={true} className="mt-6" />
+          <UnverifiedNotice items={datasetsVerification} className="mt-6" />
         </div>
       </section>
 
@@ -49,4 +53,3 @@ export default function OpenDataPage() {
     </main>
   );
 }
-

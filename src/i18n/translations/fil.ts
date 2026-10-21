@@ -25,7 +25,12 @@ export const fil: typeof en = {
     notice:
       'Ang ilang impormasyon sa pahinang ito ay hindi pa nabeberipika sa mga opisyal na pinagmulan. Sumangguni sa City Hall bago ito gamitin o pagkatiwalaan.',
     learnMore: 'Alamin kung paano namin bineripika ang datos',
+    sourced: 'May Pinagmulan',
+    sourceLabel: 'Pinagmulan:',
+    retrievedOn: 'Nakuha noong',
   },
+  sourcePrefix: 'Pinagmulan:',
+  retrievedPrefix: 'Nakuha noong',
 
   // Navigation & Header
   navHome: 'Tahanan',

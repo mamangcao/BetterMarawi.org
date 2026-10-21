@@ -118,14 +118,24 @@ Set `popular: true` and `popularRank` in `src/data/services.ts`. Up to 6 show in
 - Never show unverified values as if they were official.
 - List pending items under "Open questions" in `docs/data-sources.md`.
 
-## Verification status
+## Verification levels and status
 
-All datasets extend the `Verification` type (`verified`, `source`, `sourceUrl`, `verifiedOn`). Missing or `verified: false` marks an item as Unverified, displaying an "Unverified" badge on individual items and an alert banner on pages with unverified entries.
+All datasets extend the `Verification` type (`level`, `verified`, `source`, `sourceUrl`, `verifiedOn`, `retrievedOn`). Public information is categorized under three verification levels:
 
-To mark an item verified:
-1. Confirm the record against an official government document or certified portal.
-2. In the data file, set `verified: true`, `source` (exact title or document name), `sourceUrl` (link if publicly accessible), and `verifiedOn` (`YYYY-MM-DD`).
-3. Update `docs/data-sources.md` in the same commit with the verification log and source citation.
+1. **Unverified** (default: missing `level` or `verified: false`):
+   - The data has not yet been checked against an official document, live line, or certified source.
+   - Triggers the yellow `UnverifiedNotice` warning banner on the page and renders an "Unverified" badge on individual local items (services, fees, requirements, hotlines, officials, and department heads).
+
+2. **Sourced** (`level: "sourced"`):
+   - Used for national, standardized, or published datasets (such as PSA census, PSGC barangay codes, or DTI CMCI scores) that have been checked against an official publication or national portal.
+   - **Rule:** "sourced" requires a recorded source URL and retrieval date, and a comparison against the official file.
+   - In code: set `level: 'sourced'`, `source: '<Official Name>'`, `sourceUrl: '<URL>'`, and `retrievedOn: '<Date>'`.
+   - UI behavior: replaces the warning banner and per-item badges with a clean section-level `SourceNote` citation ("Source: {label}. Retrieved on {date}.").
+
+3. **Confirmed** (`level: "confirmed"` or legacy `verified: true`):
+   - Used when a value has been rigorously confirmed directly with City Hall, official local gazettes, enacted ordinances, or live-tested contact lines.
+   - In code: set `level: 'confirmed'` (or `verified: true`), `source`, `sourceUrl`, and `verifiedOn`.
+   - UI behavior: renders the green "Verified" badge.
 
 ## Check before committing
 

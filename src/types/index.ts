@@ -1,10 +1,14 @@
 export type LanguageCode = 'EN' | 'FIL' | 'MRW';
 
+export type VerificationLevel = 'sourced' | 'confirmed';
+
 export type Verification = {
-  verified?: boolean; // missing or false = unverified
+  verified?: boolean; // missing or false = unverified; true counts as "confirmed"
+  level?: VerificationLevel;
   source?: string; // exact document or page
   sourceUrl?: string;
   verifiedOn?: string; // YYYY-MM-DD
+  retrievedOn?: string; // YYYY-MM-DD or Month DD, YYYY
 };
 
 export interface NavSubItem {

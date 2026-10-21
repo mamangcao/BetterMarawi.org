@@ -4,7 +4,7 @@ import React, { useState, useMemo } from 'react';
 import { Search, Download } from 'lucide-react';
 import { BarangayRecord } from '@/types';
 import { downloadCSV, generateBarangaysCSV } from '@/lib/csv';
-import { UnverifiedNotice } from '@/components/ui';
+import { SourceNote } from '@/components/ui';
 import { useTranslation } from '@/i18n';
 
 interface BarangayTableProps {
@@ -61,8 +61,6 @@ export function BarangayTable({ barangays }: BarangayTableProps) {
           {t.exportAllBarangays}
         </button>
       </div>
-
-      <UnverifiedNotice items={barangays} />
 
       {/* Search & Sector Filter Controls */}
       <div className="space-y-3">
@@ -135,7 +133,8 @@ export function BarangayTable({ barangays }: BarangayTableProps) {
           </tbody>
         </table>
       </div>
+
+      <SourceNote item={barangays[0]} className="pt-2 border-t border-stone-100" />
     </section>
   );
 }
-

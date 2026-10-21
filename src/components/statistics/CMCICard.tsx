@@ -1,20 +1,17 @@
 import React from 'react';
 import { TrendingUp } from 'lucide-react';
 import { CMCI_PILLARS, cmciVerification } from '@/data/cmci';
-import { DataStatus } from '@/components/ui';
+import { SourceNote } from '@/components/ui';
 
 export function CMCICard() {
   return (
     <section className="bg-white rounded-xl border border-stone-200/90 p-6 sm:p-8 space-y-6">
       <div className="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-stone-100">
         <div>
-          <div className="flex items-center gap-2">
-            <h2 className="text-xl font-bold text-stone-900 font-display flex items-center gap-2">
-              <TrendingUp className="w-5 h-5 text-emerald-800" />
-              5 Pillars of Competitiveness (DTI CMCI)
-            </h2>
-            <DataStatus item={cmciVerification} />
-          </div>
+          <h2 className="text-xl font-bold text-stone-900 font-display flex items-center gap-2">
+            <TrendingUp className="w-5 h-5 text-emerald-800" />
+            5 Pillars of Competitiveness (DTI CMCI)
+          </h2>
           <p className="text-xs text-stone-500 mt-0.5">
             Year-over-Year Pillar Score Comparison (2025 vs 2026)
           </p>
@@ -48,6 +45,8 @@ export function CMCICard() {
           </div>
         ))}
       </div>
+
+      <SourceNote item={cmciVerification} className="pt-2 border-t border-stone-100" />
     </section>
   );
 }
