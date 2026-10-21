@@ -275,6 +275,37 @@ export const mrw: typeof en = {
     'Track official legislative enactments, financial disclosures, and open records from the City Government.',
   // TODO(mrw-review): needs fluent reviewer
   openDirectory: 'Open Directory',
+  // TODO(mrw-review): needs fluent reviewer. Gov cards fall back to English per CONTENT_GUIDE.
+  allGovEyebrow: "Government & transparency",
+  allGovTitle: "View All Records",
+  allGovDescription: "Also the Local Officials Directory, transparency documents, and reports and statistics.",
+  govCards: {
+    legislative: {
+      title: "City Ordinances & Resolutions",
+      kicker: "Sangguniang Panlungsod",
+      description: "Review measures passed by the Sangguniang Panlungsod.",
+    },
+    fdp: {
+      title: "Full Disclosure Policy (FDP)",
+      kicker: "DILG FDP Portal",
+      description: "Quarterly financial reports, budget use, and procurement bids under the DILG FDP.",
+    },
+    budget: {
+      title: "FY 2026 Annual Budget",
+      kicker: "Local Budget Circular",
+      description: "₱1.845 Billion General Fund allocations by sector, and revenue sources.",
+    },
+    foi: {
+      title: "Freedom of Information (FOI)",
+      kicker: "Public Records Request",
+      description: "How to request official documents and public records from the City Government.",
+    },
+    departments: {
+      title: "Departments & Officials",
+      kicker: "City Hall Structure",
+      description: "Department heads, mandates, office locations, and contact details.",
+    },
+  },
   // TODO(mrw-review): needs fluent reviewer
   historySectionHeading: 'History of the Islamic City of Marawi',
   // TODO(mrw-review): needs fluent reviewer

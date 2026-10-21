@@ -185,6 +185,36 @@ export const fil: typeof en = {
   govActivitySectionSubheading:
     'Subaybayan ang mga opisyal na batas, ulat pinansyal, at bukas na talaan mula sa Pamahalaang Lungsod.',
   openDirectory: 'Buksan ang Direktoryo',
+  allGovEyebrow: "Pamahalaan at transparansya",
+  allGovTitle: "Tingnan Lahat ng Talaan",
+  allGovDescription: "Kasama rin ang Direktoryo ng mga Lokal na Opisyal, mga dokumento ng transparansya, at mga ulat at estatistika.",
+  govCards: {
+    legislative: {
+      title: "Mga Ordinansa at Resolusyon ng Lungsod",
+      kicker: "Sangguniang Panlungsod",
+      description: "Suriin ang mga panukalang ipinasa ng Sangguniang Panlungsod.",
+    },
+    fdp: {
+      title: "Full Disclosure Policy (FDP)",
+      kicker: "DILG FDP Portal",
+      description: "Quarterly na ulat pinansyal, paggamit ng badyet, at mga bid sa procurement sa ilalim ng DILG FDP.",
+    },
+    budget: {
+      title: "Taunang Badyet ng FY 2026",
+      kicker: "Local Budget Circular",
+      description: "₱1.845 bilyong alokasyon ng General Fund ayon sa sektor, at mga pinagkukunan ng kita.",
+    },
+    foi: {
+      title: "Freedom of Information (FOI)",
+      kicker: "Paghiling ng Pampublikong Talaan",
+      description: "Paano humiling ng opisyal na dokumento at pampublikong talaan mula sa Pamahalaang Lungsod.",
+    },
+    departments: {
+      title: "Mga Departamento at Opisyal",
+      kicker: "Istruktura ng City Hall",
+      description: "Mga pinuno ng departamento, mandato, lokasyon ng opisina, at detalye ng kontak.",
+    },
+  },
   historySectionHeading: 'Kasaysayan ng Islamic City of Marawi',
   historySectionSubheading:
     'Mula sa sinaunang luklukan ng Pat a Pangampong ko Ranao hanggang sa modernong Islamic City of Marawi.',
