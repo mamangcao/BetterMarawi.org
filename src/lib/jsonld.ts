@@ -13,12 +13,13 @@ export function buildGovernmentOrganizationSchema() {
     email: SITE_CONFIG.contact.email,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Marawi City Hall Complex, Kilometer 0',
+      streetAddress: 'City Hall Complex, Brgy. Fort',
       addressLocality: 'Marawi City',
       addressRegion: 'Lanao del Sur, BARMM',
       postalCode: '9700',
       addressCountry: 'PH',
     },
+    sameAs: [SITE_CONFIG.contact.facebookUrl],
     geo: {
       '@type': 'GeoCoordinates',
       latitude: SITE_CONFIG.geo.latitude,

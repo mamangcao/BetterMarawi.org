@@ -7,6 +7,7 @@ import { Code2, Leaf, Users } from 'lucide-react';
 import { ArrowUpRight, Peso } from '@/components/ui';
 import { useTranslation } from '@/i18n';
 import { useFxRates, formatFxDate } from '@/lib/fx';
+import { SITE_CONFIG } from '@/config/site';
 
 export function Footer() {
   const { t, language } = useTranslation();
@@ -113,6 +114,17 @@ export function Footer() {
                   className="hover:text-white transition-colors inline-flex items-center gap-1"
                 >
                   BARMM Official Portal
+                  <ArrowUpRight className="w-3.5 h-3.5 text-stone-500" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href={SITE_CONFIG.contact.facebookUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors inline-flex items-center gap-1"
+                >
+                  {SITE_CONFIG.contact.facebookLabel}
                   <ArrowUpRight className="w-3.5 h-3.5 text-stone-500" />
                 </a>
               </li>

@@ -13,7 +13,11 @@ export const SITE_CONFIG = {
     placename: 'Islamic City of Marawi',
   },
   contact: {
-    cityHallAddress: 'Marawi City Hall Complex, Kilometer 0, Marawi City, Lanao del Sur, BARMM 9700',
+    // Source: DTI CMCI LGU profile (cmci.dti.gov.ph), retrieved October 21, 2026
+    cityHallAddress: 'City Hall Complex, Brgy. Fort, Marawi City, Lanao del Sur',
+    // The city has no official website; this Facebook page is the LGU link listed on DTI CMCI
+    facebookUrl: 'https://www.facebook.com/marawicitygovernment',
+    facebookLabel: 'Marawi City Government on Facebook',
     hotline: '+63 (063) 520-2100',
     emergencyHotline: '911 / (063) 520-2911',
     cdrrmoHotline: '+63 (063) 520-3000',

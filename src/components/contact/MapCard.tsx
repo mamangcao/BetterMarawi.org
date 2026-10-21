@@ -1,6 +1,7 @@
 import React from 'react';
 import { MapPin } from 'lucide-react';
-import { ArrowUpRight } from '@/components/ui';
+import { ArrowUpRight, SourceNote } from '@/components/ui';
+import { SITE_CONFIG } from '@/config/site';
 
 export function MapCard() {
   return (
@@ -19,6 +20,25 @@ export function MapCard() {
           Google Maps
           <ArrowUpRight className="w-3.5 h-3.5" />
         </a>
+      </div>
+      <div className="text-sm text-stone-700 space-y-2">
+        <div>
+          <strong className="text-stone-900">City Hall:</strong> {SITE_CONFIG.contact.cityHallAddress}
+        </div>
+        <a
+          href={SITE_CONFIG.contact.facebookUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-semibold text-emerald-800 hover:text-emerald-950 inline-flex items-center gap-1"
+        >
+          {SITE_CONFIG.contact.facebookLabel}
+          <ArrowUpRight className="w-3.5 h-3.5" />
+        </a>
+        <SourceNote
+          label="DTI Cities and Municipalities Competitiveness Index, LGU profile"
+          sourceUrl="https://cmci.dti.gov.ph/lgu-profile.php?lgu=Marawi"
+          date="October 21, 2026"
+        />
       </div>
       <div className="text-xs text-stone-600 space-y-2 font-mono-tabular">
         <div><strong>Latitude:</strong> 8.0034° N</div>
