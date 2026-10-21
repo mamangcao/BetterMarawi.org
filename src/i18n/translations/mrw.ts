@@ -10,6 +10,20 @@ export const mrw: typeof en = {
   popularServices: 'Piyaki-ilay a Serbisyo:',
   // TODO(mrw-review): needs fluent reviewer
   cityMetricsBadge: 'City Metrics',
+  // TODO(mrw-review): needs fluent reviewer (carousel and Explore Marawi keys below)
+  summerCapitalBadge: 'Summer Capital of the South',
+  exploreTitle: 'Explore',
+  exploreMarawiDescription:
+    'The Grand Mosque, royal Torogan houses, Okir brassware, the Aga Khan Museum, and the shores of Lake Lanao, all in the cool highlands of the Islamic City of Marawi.',
+  tourismCategoriesLabel: 'tourism categories',
+  highlandClimateShort: 'Cool highland climate',
+  exploreTourism: 'Explore Tourism',
+  featuredHighlights: 'Featured highlights',
+  previousSlide: 'Previous slide',
+  nextSlide: 'Next slide',
+  goToSlide: 'Go to slide',
+  pauseSlideshow: 'Pause slideshow',
+  playSlideshow: 'Play slideshow',
   atAGlance: 'So Inged a Marawi',
   viewCityProfile: 'Ilaya so City Profile',
   servicesHeading: 'Manga Serbisyo ago Totol',

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Building2, MapPin, Mountain, Users } from 'lucide-react';
 import { ArrowUpRight } from '@/components/ui';
 import { useTranslation } from '@/i18n';
-import { YakapBanner } from './YakapBanner';
+import { FeatureCarousel } from './FeatureCarousel';
 
 export function CityAtAGlance() {
   const { t } = useTranslation();
@@ -101,7 +101,7 @@ export function CityAtAGlance() {
       </section>
 
       {/* 3. "FREE HEALTH CARE FOR ALL — PHILHEALTH YAKAP" BANNER */}
-      <YakapBanner />
+      <FeatureCarousel />
     </>
   );
 }
