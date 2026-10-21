@@ -81,7 +81,7 @@ export function Footer() {
               <div>{SITE_CONFIG.contact.cityHallAddress}</div>
             </div>
             <a
-              href={SITE_CONFIG.contact.facebookUrl}
+              href="https://www.facebook.com/BetterMarawi.org"
               target="_blank"
               rel="noopener noreferrer"
               aria-label={SITE_CONFIG.contact.facebookLabel}
