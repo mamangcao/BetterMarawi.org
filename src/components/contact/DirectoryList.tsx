@@ -2,6 +2,7 @@
 import React from 'react';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { useTranslation } from '@/i18n';
+import { SITE_CONFIG } from '@/config/site';
 
 export function DirectoryList() {
   const { t } = useTranslation();
@@ -33,10 +34,10 @@ export function DirectoryList() {
           <MapPin className="w-4 h-4 text-emerald-800 mt-1 shrink-0" />
           <div>
             <div className="font-bold text-stone-900">
-              Marawi City Hall, Banggolo / Kormatan Matampay
+              {SITE_CONFIG.contact.cityHallAddress}
             </div>
             <div className="text-xs text-stone-500">
-              Marawi City, Lanao del Sur 9700 · Coordinates: 8.0034, 124.2851
+              Coordinates: 8.0034, 124.2851
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Building2, Scale, Users } from 'lucide-react';
-import { NAV_DROPDOWNS } from '@/config/site';
+import { NAV_DROPDOWNS, SITE_CONFIG } from '@/config/site';
 import { useTranslation } from '@/i18n';
 
 export function GovernmentSidebar() {
@@ -54,7 +54,7 @@ export function GovernmentSidebar() {
             Marawi City Hall Seat
           </div>
           <p className="text-xs text-stone-300 leading-relaxed">
-            Banggolo / Kormatan Matampay, Islamic City of Marawi, Lanao del Sur 9700, Bangsamoro Autonomous Region in Muslim Mindanao (BARMM).
+            {SITE_CONFIG.contact.cityHallAddress}, Bangsamoro Autonomous Region in Muslim Mindanao (BARMM).
           </p>
           <div className="pt-2 border-t border-stone-800 text-xs font-mono-tabular space-y-1">
             <div className="flex items-center gap-2">

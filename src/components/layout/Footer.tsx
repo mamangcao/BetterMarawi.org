@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Code2, Leaf, Users } from 'lucide-react';
+import { Code2, Users } from 'lucide-react';
 import { ArrowUpRight, Peso } from '@/components/ui';
 import { useTranslation } from '@/i18n';
 import { useFxRates, formatFxDate } from '@/lib/fx';
@@ -18,7 +18,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-stone-800">
           {/* Column 1: Brand & Mission */}
-          <div className="md:col-span-5 space-y-4">
+          <div className="md:col-span-4 space-y-4">
             <Link
               href="/"
               className="flex items-center gap-2.5 text-2xl font-bold text-white font-display tracking-tight inline-block"
@@ -38,7 +38,7 @@ export function Footer() {
             <div className="pt-2 text-xs text-stone-400 space-y-1 font-mono-tabular">
               <div>Coordinates: 8°00&apos;N, 124°17&apos;E (8.0034, 124.2851)</div>
               <div>Elevation: ~700m ASL · Lake Lanao Highland Basin</div>
-              <div>Postal Code: 9700 · Lanao del Sur, BARMM</div>
+              <div>{SITE_CONFIG.contact.cityHallAddress}</div>
             </div>
           </div>
 
@@ -80,19 +80,12 @@ export function Footer() {
           </div>
 
           {/* Column 3: Resources */}
-          <div className="md:col-span-4 space-y-3">
+          <div className="md:col-span-5 space-y-3">
             <h2 className="text-xs font-semibold uppercase tracking-wider text-stone-400 font-sans">
               {t.resources}
             </h2>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5 text-sm">
-              <li>
-                <Link
-                  href="/government/departments-and-officials"
-                  className="hover:text-white transition-colors inline-flex items-center gap-1"
-                >
-                  Official Marawi LGU Page
-                </Link>
-              </li>
+            {/* Portal pages: 2 balanced columns */}
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-2.5 text-sm">
               <li>
                 <Link href="/statistics/open-data-ph" className="hover:text-white transition-colors">
                   Open Data
@@ -105,28 +98,6 @@ export function Footer() {
                 >
                   Freedom of Information
                 </Link>
-              </li>
-              <li>
-                <a
-                  href="https://bangsamoro.gov.ph"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-colors inline-flex items-center gap-1"
-                >
-                  BARMM Official Portal
-                  <ArrowUpRight className="w-3.5 h-3.5 text-stone-500" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href={SITE_CONFIG.contact.facebookUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-colors inline-flex items-center gap-1"
-                >
-                  {SITE_CONFIG.contact.facebookLabel}
-                  <ArrowUpRight className="w-3.5 h-3.5 text-stone-500" />
-                </a>
               </li>
               <li>
                 <Link href="/government/legislative" className="hover:text-white transition-colors">
@@ -151,6 +122,36 @@ export function Footer() {
                   BLGF
                 </Link>
               </li>
+            </ul>
+
+            {/* External official resources */}
+            <ul className="space-y-2.5 text-sm pt-1">
+              <li>
+                <a
+                  href={SITE_CONFIG.contact.facebookUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors inline-flex items-center gap-1"
+                >
+                  {SITE_CONFIG.contact.facebookLabel}
+                  <ArrowUpRight className="w-3.5 h-3.5 text-stone-500 shrink-0" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://bangsamoro.gov.ph"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors inline-flex items-center gap-1"
+                >
+                  BARMM Official Portal
+                  <ArrowUpRight className="w-3.5 h-3.5 text-stone-500 shrink-0" />
+                </a>
+              </li>
+            </ul>
+
+            {/* Data attributions */}
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 pt-4 border-t border-stone-800 text-xs">
               <li>
                 <a
                   href="https://www.exchangerate-api.com"
@@ -159,10 +160,10 @@ export function Footer() {
                   className="hover:text-white transition-colors inline-flex items-center gap-1"
                 >
                   {t.fxAttribution}
-                  <ArrowUpRight className="w-3.5 h-3.5 text-stone-500" />
+                  <ArrowUpRight className="w-3 h-3 text-stone-500 shrink-0" />
                 </a>
                 {formattedFxDate && (
-                  <span className="block text-xs text-stone-400 mt-0.5">
+                  <span className="block text-stone-400 mt-0.5">
                     {t.fxRatesAsOf} {formattedFxDate}
                   </span>
                 )}
@@ -175,9 +176,9 @@ export function Footer() {
                   className="hover:text-white transition-colors inline-flex items-center gap-1"
                 >
                   {t.weatherAttribution}
-                  <ArrowUpRight className="w-3.5 h-3.5 text-stone-500" />
+                  <ArrowUpRight className="w-3 h-3 text-stone-500 shrink-0" />
                 </a>
-                <span className="block text-xs text-stone-400 mt-0.5">
+                <span className="block text-stone-400 mt-0.5">
                   {t.weatherForecastNote}
                 </span>
               </li>
@@ -207,15 +208,10 @@ export function Footer() {
               <Code2 className="w-3.5 h-3.5 text-stone-500" />
               {t.contributeGithub}
             </Link>
-            <span aria-hidden="true" className="text-stone-700">·</span>
-            <span className="inline-flex items-center gap-1 text-stone-400">
-              <Leaf className="w-3.5 h-3.5 text-emerald-500" />
-              Website Carbon: 0.08g CO₂/view (A+)
-            </span>
           </div>
 
           <div className="text-stone-400 font-mono-tabular">
-            BetterGov.ph © 2026 BetterMarawi.org · {t.communityDisclaimer} · v0.7.4
+            BetterGov.ph © 2026 BetterMarawi.org · {t.communityDisclaimer} · v{SITE_CONFIG.version}
           </div>
         </div>
       </div>

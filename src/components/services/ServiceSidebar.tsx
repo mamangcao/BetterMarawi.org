@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Mail, Building2 } from 'lucide-react';
 import { SERVICES_DATA } from '@/data/services';
 import { useTranslation } from '@/i18n';
+import { SITE_CONFIG } from '@/config/site';
 
 interface ServiceSidebarProps {
   currentSlug: string;
@@ -55,8 +56,8 @@ export function ServiceSidebar({ currentSlug, email }: ServiceSidebarProps) {
               <span>{email}</span>
             </div>
             <div className="flex items-center gap-2">
-              <Building2 className="w-3.5 h-3.5 text-accent" />
-              <span>Marawi City Hall, 9700</span>
+              <Building2 className="w-3.5 h-3.5 text-accent shrink-0" />
+              <span>{SITE_CONFIG.contact.cityHallAddress}</span>
             </div>
           </div>
         </div>

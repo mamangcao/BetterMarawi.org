@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { ArrowUpRight } from '@/components/ui';
 import { useTranslation } from '@/i18n';
+import { SITE_CONFIG } from '@/config/site';
 
 export function LeadershipSection() {
   const { t } = useTranslation();
@@ -149,7 +150,7 @@ export function LeadershipSection() {
               <div>
                 <div className="text-xs text-stone-500">{t.address}</div>
                 <div className="text-sm font-semibold text-stone-900">
-                  Marawi City Hall, Banggolo / Kormatan Matampay, Marawi City, Lanao del Sur 9700
+                  {SITE_CONFIG.contact.cityHallAddress}
                 </div>
               </div>
             </div>

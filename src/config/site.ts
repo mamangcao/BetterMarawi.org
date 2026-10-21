@@ -6,6 +6,10 @@ export const SITE_CONFIG = {
   description:
     'A community-run portal to find information and services of the Islamic City of Marawi, Lanao del Sur. Access Citizen\'s Charter guides, PhilHealth YAKAP, transparency disclosures, and 101 barangay statistics.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://bettermarawi.org',
+  // Site version shown in the footer. v1.0.0 is the official launch version.
+  // Bump on releases (major: big feature or redesign, minor: new pages or
+  // datasets, patch: fixes) and keep "version" in package.json in sync.
+  version: '1.0.0',
   geo: {
     latitude: 8.0034,
     longitude: 124.2851,
