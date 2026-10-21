@@ -12,6 +12,19 @@ import {
 } from 'lucide-react';
 import { ArrowUpRight } from '@/components/ui';
 import { useTranslation } from '@/i18n';
+import {
+  arrowClass,
+  cellBg,
+  cellBgAll,
+  cellClass,
+  eyebrowClass,
+  gridClass,
+  headerClass,
+  headingClass,
+  iconClass,
+  subheadingClass,
+  titleClass,
+} from './linkGridStyles';
 
 // Five featured pages; the 6th cell links to the rest. Text lives in t.govCards.
 const FEATURED: { key: string; href: string; icon: LucideIcon }[] = [
@@ -22,13 +35,6 @@ const FEATURED: { key: string; href: string; icon: LucideIcon }[] = [
   { key: 'departments', href: '/government/departments-and-officials', icon: Building2 },
 ];
 
-// Same cell styling as QuickServices (Popular Services)
-const cellClass =
-  'group relative flex gap-4 p-6 sm:p-7 transition-colors duration-200 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-brand-700';
-const eyebrowClass =
-  'mt-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground-subtle';
-const arrowClass =
-  'absolute top-6 right-6 w-4 h-4 text-foreground-subtle transition-all duration-200 group-hover:text-brand-800 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transition-none';
 
 export function GovActivity() {
   const { t } = useTranslation();
@@ -38,27 +44,27 @@ export function GovActivity() {
       aria-labelledby="gov-activity-heading"
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
     >
-      <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-x-8 gap-y-2 mb-8">
+      <div className={headerClass}>
         <h2
           id="gov-activity-heading"
-          className="text-2xl sm:text-3xl font-bold text-brand-950 font-display tracking-tight"
+          className={headingClass}
         >
           {t.govActivitySectionHeading}
         </h2>
-        <p className="text-sm sm:text-base text-foreground-muted md:text-right">
+        <p className={subheadingClass}>
           {t.govActivitySectionSubheading}
         </p>
       </div>
 
       {/* gap-px over a border-colored background draws shared hairlines between cells */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-surface-border border border-surface-border rounded-2xl overflow-hidden">
+      <div className={gridClass}>
         {FEATURED.map(({ key, href, icon: Icon }) => {
           const card = t.govCards[key];
           return (
-            <Link key={key} href={href} className={`${cellClass} bg-white hover:bg-surface`}>
-              <Icon className="shrink-0 mt-0.5 w-6 h-6 text-brand-700" aria-hidden="true" />
+            <Link key={key} href={href} className={`${cellClass} ${cellBg}`}>
+              <Icon className={iconClass} aria-hidden="true" />
               <div className="min-w-0 pr-6">
-                <h3 className="text-lg font-bold text-brand-950 group-hover:text-brand-800 transition-colors">
+                <h3 className={titleClass}>
                   {card.title}
                 </h3>
                 <p className={eyebrowClass}>{card.kicker}</p>
@@ -72,10 +78,10 @@ export function GovActivity() {
         })}
 
         {/* 6th cell: everything else under Government and Transparency */}
-        <Link href="/transparency" className={`${cellClass} bg-surface-card hover:bg-surface-elevated`}>
-          <LayoutGrid className="shrink-0 mt-0.5 w-6 h-6 text-brand-700" aria-hidden="true" />
+        <Link href="/transparency" className={`${cellClass} ${cellBgAll}`}>
+          <LayoutGrid className={iconClass} aria-hidden="true" />
           <div className="min-w-0 pr-6">
-            <h3 className="text-lg font-bold text-brand-950 group-hover:text-brand-800 transition-colors">
+            <h3 className={titleClass}>
               {t.allGovTitle}
             </h3>
             <p className={eyebrowClass}>{t.allGovEyebrow}</p>

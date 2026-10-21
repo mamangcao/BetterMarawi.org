@@ -164,9 +164,35 @@ export const fil: typeof en = {
   callTheCho: 'Tawagan ang CHO: ',
 
   // Culture & Tourism Spotlight
-  summerCapitalSubtitle:
-    '"Ang Summer Capital ng Timog" · Rehistradong pangkultura at eco-tourism na mga lugar sa 6 na kategorya',
+  summerCapitalSubtitle: 'Pamana, lawa, at kultura sa Summer Capital ng Timog.',
   viewAllTourism: 'Tingnan lahat ng turismo',
+  sitesListed: "{n} lugar na nakalista",
+  gettingThere: "Papunta sa Marawi",
+  allTourismTitle: "Tingnan Lahat ng Pasyalan",
+  allTourismEyebrow: "Gabay sa bisita",
+  allTourismDescription: "Kasama ang mga pasyalan sa kabundukan, at may madadagdag pa kapag na-verify.",
+  tourismCards: {
+    heritage: {
+      title: "Pamana at Kasaysayan",
+      description: "Grand Mosque, mga Torogan, at ang Ground Zero Peace Memorial.",
+    },
+    lakefront: {
+      title: "Lawa at mga Parke",
+      description: "Lake Lanao Promenade, Rizal Park, at Sarimanok Stadium.",
+    },
+    museums: {
+      title: "Akademya at mga Museo",
+      description: "MSU Main Campus at ang Aga Khan Museum of Islamic Arts.",
+    },
+    artisan: {
+      title: "Artisan at Brassware",
+      description: "Okir na brassware mula Tugaya at Marawi, at mga sentro ng paghahabi ng Langkit.",
+    },
+    dining: {
+      title: "Kapihan at Halal na Kainan",
+      description: "Tradisyonal na pater at palapa ng Meranaw, at mga kapihan sa kabundukan.",
+    },
+  },
   exploreSites: 'Tuklasin ang mga lugar',
   planYourVisit: 'Plano ng Pagbisita — Pagpunta sa Marawi',
   currentConditions: 'Kasalukuyang panahon · Marawi City, Lanao del Sur',

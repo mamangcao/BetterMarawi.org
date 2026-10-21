@@ -162,9 +162,35 @@ export const en = {
   callTheCho: 'Call the CHO: ',
 
   // Culture & Tourism Spotlight
-  summerCapitalSubtitle:
-    '"The Summer Capital of the South" · Registered cultural & eco-tourism sites across 6 categories',
+  summerCapitalSubtitle: 'Heritage, lakefront, and culture in the Summer Capital of the South.',
   viewAllTourism: 'View all tourism',
+  sitesListed: "{n} sites listed",
+  gettingThere: "Getting to Marawi",
+  allTourismTitle: "View All Tourist Spots",
+  allTourismEyebrow: "Visitor guide",
+  allTourismDescription: "Highland and eco sites too, with more spots added as they are verified.",
+  tourismCards: {
+    heritage: {
+      title: "Heritage & History",
+      description: "Grand Mosque, Torogan sites, and the Ground Zero Peace Memorial.",
+    },
+    lakefront: {
+      title: "Lakefront & Parks",
+      description: "Lake Lanao Promenade, Rizal Park, and Sarimanok Stadium.",
+    },
+    museums: {
+      title: "Academic & Museums",
+      description: "MSU Main Campus and the Aga Khan Museum of Islamic Arts.",
+    },
+    artisan: {
+      title: "Artisan & Brassware",
+      description: "Okir brassware from Tugaya and Marawi, and Langkit weaving hubs.",
+    },
+    dining: {
+      title: "Cafés & Halal Dining",
+      description: "Traditional Meranaw pater and palapa, and highland cafés.",
+    },
+  } as Record<string, { title: string; description: string }>,
   exploreSites: 'Explore sites',
   planYourVisit: 'Plan Your Visit — Getting to Marawi',
   currentConditions: 'Current conditions · Marawi City, Lanao del Sur',
