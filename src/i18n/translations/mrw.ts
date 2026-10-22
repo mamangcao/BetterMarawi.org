@@ -363,6 +363,16 @@ export const mrw: typeof en = {
   cityHallAssistance: 'Official Marawi City Hall Assistance & Information',
   // TODO(mrw-review): needs fluent reviewer
   viewAllDepartments: 'View All Departments',
+  // TODO(mrw-review): needs fluent reviewer. Leadership & Contact keys below fall back to English.
+  leadershipContactHeading: 'City Leadership & Contact',
+  leadershipContactSubheading: 'Elected officials and how to reach City Hall.',
+  allOfficialsEyebrow: 'Sangguniang Panlungsod',
+  allOfficialsDescription: 'City Councilors and sectoral representatives of the Sangguniang Panlungsod.',
+  officialChannel: 'Official channel',
+  facebookChannelDescription: 'Announcements and updates from the City Government.',
+  cityHallLabel: 'City Hall',
+  allDepartmentsEyebrow: 'Directory',
+  allDepartmentsDescription: 'Department heads, offices, and what each one handles.',
   // TODO(mrw-review): needs fluent reviewer
   monFriHours: 'Mon–Fri, 8AM–5PM',
   // TODO(mrw-review): needs fluent reviewer
