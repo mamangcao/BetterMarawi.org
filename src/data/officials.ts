@@ -1,112 +1,108 @@
-import { ElectedOfficial } from '@/types';
+// Elected officials of the Islamic City of Marawi, 2025–2028 term.
+// Every name has a source. A name is null when no source confirms who holds the seat;
+// the page then shows "To be confirmed" instead of a guess.
+// Phone numbers and emails are left out until an official source publishes them.
 
-export const ELECTED_OFFICIALS: ElectedOfficial[] = [
+export interface OfficialsSource {
+  id: string;
+  label: string;
+  url: string;
+}
+
+export const OFFICIALS_SOURCES = {
+  owner: {
+    id: 'owner',
+    label: 'Verified by the BetterMarawi.org team (current officeholders), Oct 22, 2026',
+    url: '/government/local-officials-directory',
+  },
+  rappler: {
+    id: 'rappler',
+    label: 'Rappler, Marawi City 2025 election results (COMELEC transmission data)',
+    url: 'https://ph.rappler.com/elections/2025/local-race/lanao-del-sur/marawi-city',
+  },
+  wikipedia: {
+    id: 'wikipedia',
+    label: 'Wikipedia, Marawi: city government 2025–2028',
+    url: 'https://en.wikipedia.org/wiki/Marawi',
+  },
+} satisfies Record<string, OfficialsSource>;
+
+export interface LocalOfficial {
+  id: string;
+  /** null when no source confirms who holds the seat */
+  name: string | null;
+  position: string;
+  detail?: string;
+  party?: string;
+  term: string;
+  photo?: string;
+  sources: (keyof typeof OFFICIALS_SOURCES)[];
+}
+
+const TERM = '2025–2028';
+
+export const EXECUTIVES: LocalOfficial[] = [
   {
-    initials: 'SG',
+    id: 'mayor',
     name: 'Hon. Shariff Zain Lanto Gandamra',
-    role: 'City Mayor',
-    term: '2025–2028',
-    committeeOrOffice: 'Local Chief Executive · Office of the City Mayor',
-    phone: '(063) 352-0117',
-    email: 'mayor@marawicity.gov.ph',
+    position: 'City Mayor',
+    detail: 'Local Chief Executive · Office of the City Mayor',
+    term: TERM,
+    photo: '/images/officials/mayor-shariff-zain-gandamra.webp',
+    sources: ['owner', 'rappler'],
   },
   {
-    initials: 'MG',
+    id: 'vice-mayor',
     name: 'Hon. Majul Usman Gandamra',
-    role: 'City Vice Mayor',
-    term: '2025–2028',
-    committeeOrOffice: 'Presiding Officer · Sangguniang Panlungsod',
-    phone: '(063) 352-0117',
-    email: 'vicemayor@marawicity.gov.ph',
+    position: 'City Vice Mayor',
+    detail: 'Presiding Officer · Sangguniang Panlungsod',
+    term: TERM,
+    photo: '/images/officials/vice-mayor-majul-gandamra.webp',
+    sources: ['owner', 'rappler'],
+  },
+];
+
+/** The 10 elected city councilors (lone district), in order of votes received. */
+export const COUNCILORS: LocalOfficial[] = [
+  ['Mohammad Shaquille L. Gandamra', 'Lakas–CMD'],
+  ['Sajid D. Munder', 'Lakas–CMD'],
+  ['Lailyn M. Dimal', 'Lakas–CMD'],
+  ['Borgie B. Dalidig', 'Lakas–CMD'],
+  ['Sultan Jawar R. Domato', 'Lakas–CMD'],
+  ['Nasrollah M. Basman', 'Lakas–CMD'],
+  ['Sihawi A. Lala, Sr.', 'Lakas–CMD'],
+  ['Mohammad Khalid M. Salic', 'Lakas–CMD'],
+  ['Ozamah D. Macabangon', 'Lakas–CMD'],
+  ['Jackie S. Mangondato', 'Nacionalista Party'],
+].map(([name, party], i) => ({
+  id: `councilor-${i + 1}`,
+  name: `Hon. ${name}`,
+  position: 'City Councilor',
+  party,
+  term: TERM,
+  sources: ['rappler', 'wikipedia'],
+}));
+
+/**
+ * Ex-officio members. These seats come from the Liga ng mga Barangay and the SK Federation,
+ * not from the city election, and no public source confirms the current holders.
+ * Barangay and SK elections are scheduled for November 2, 2026, which will change these seats.
+ */
+export const EX_OFFICIO: LocalOfficial[] = [
+  {
+    id: 'liga-president',
+    name: null,
+    position: 'Liga ng mga Barangay President',
+    detail: 'Ex-officio member, representing the 101 barangays',
+    term: 'Until the next barangay elections',
+    sources: [],
   },
   {
-    initials: 'AA',
-    name: 'Hon. Abdani T. Alonto',
-    role: 'Sangguniang Panlungsod Member',
-    term: '2025–2028',
-    committeeOrOffice: 'Chair, Committee on Finance, Budget & Appropriations',
-    phone: '(063) 352-0117 loc. 201',
-    email: 'sp.alonto@marawicity.gov.ph',
-  },
-  {
-    initials: 'NB',
-    name: 'Hon. Nasser P. Balindong',
-    role: 'Sangguniang Panlungsod Member',
-    term: '2025–2028',
-    committeeOrOffice: 'Chair, Committee on Trade, Commerce & Halal Industry',
-    phone: '(063) 352-0117 loc. 202',
-    email: 'sp.balindong@marawicity.gov.ph',
-  },
-  {
-    initials: 'SL',
-    name: 'Hon. Soraya M. Lucman',
-    role: 'Sangguniang Panlungsod Member',
-    term: '2025–2028',
-    committeeOrOffice: 'Chair, Committee on Health, Sanitation & Social Services',
-    phone: '(063) 352-0117 loc. 203',
-    email: 'sp.lucman@marawicity.gov.ph',
-  },
-  {
-    initials: 'KP',
-    name: 'Hon. Kamarudin D. Pacasum',
-    role: 'Sangguniang Panlungsod Member',
-    term: '2025–2028',
-    committeeOrOffice: 'Chair, Committee on Public Works, Housing & MAA Rehabilitation',
-    phone: '(063) 352-0117 loc. 204',
-    email: 'sp.pacasum@marawicity.gov.ph',
-  },
-  {
-    initials: 'JM',
-    name: 'Hon. Jamilah R. Maruhom',
-    role: 'Sangguniang Panlungsod Member',
-    term: '2025–2028',
-    committeeOrOffice: 'Chair, Committee on Education, Madrasah & Cultural Heritage',
-    phone: '(063) 352-0117 loc. 205',
-    email: 'sp.maruhom@marawicity.gov.ph',
-  },
-  {
-    initials: 'AM',
-    name: 'Hon. Arafat G. Mindalano',
-    role: 'Sangguniang Panlungsod Member',
-    term: '2025–2028',
-    committeeOrOffice: 'Chair, Committee on Environment & Lake Lanao Protection',
-    phone: '(063) 352-0117 loc. 206',
-    email: 'sp.mindalano@marawicity.gov.ph',
-  },
-  {
-    initials: 'HD',
-    name: 'Hon. Haroun R. Disomimba',
-    role: 'Sangguniang Panlungsod Member',
-    term: '2025–2028',
-    committeeOrOffice: 'Chair, Committee on Peace, Public Order & Safety',
-    phone: '(063) 352-0117 loc. 207',
-    email: 'sp.disomimba@marawicity.gov.ph',
-  },
-  {
-    initials: 'FG',
-    name: 'Hon. Farhana S. Guro',
-    role: 'Sangguniang Panlungsod Member',
-    term: '2025–2028',
-    committeeOrOffice: 'Chair, Committee on Women, Children, IDPs & Family Welfare',
-    phone: '(063) 352-0117 loc. 208',
-    email: 'sp.guro@marawicity.gov.ph',
-  },
-  {
-    initials: 'MS',
-    name: 'Hon. Motalib A. Sarip',
-    role: 'Liga ng mga Barangay President (Ex-Officio)',
-    term: '2025–2028',
-    committeeOrOffice: 'Chair, Committee on Barangay Affairs (All 96 Barangays)',
-    phone: '(063) 352-0117 loc. 209',
-    email: 'liga@marawicity.gov.ph',
-  },
-  {
-    initials: 'RA',
-    name: 'Hon. Rayyan K. Abinal',
-    role: 'SK Federation President (Ex-Officio)',
-    term: '2025–2028',
-    committeeOrOffice: 'Chair, Committee on Youth & Sports Development',
-    phone: '(063) 352-0117 loc. 210',
-    email: 'skfed@marawicity.gov.ph',
+    id: 'sk-president',
+    name: null,
+    position: 'SK Federation President',
+    detail: 'Ex-officio member, representing the Sangguniang Kabataan',
+    term: 'Until the next SK elections',
+    sources: [],
   },
 ];

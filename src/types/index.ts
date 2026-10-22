@@ -75,16 +75,6 @@ export interface DepartmentRecord extends Verification {
   keyServices: string[];
 }
 
-export interface ElectedOfficial extends Verification {
-  initials: string;
-  name: string;
-  role: string;
-  term: string;
-  committeeOrOffice: string;
-  phone: string;
-  email: string;
-}
-
 export interface OrdinanceRecord extends Verification {
   number: string;
   title: string;

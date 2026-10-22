@@ -19,7 +19,7 @@ export const CITY_DEPARTMENTS: DepartmentRecord[] = [
     acronym: 'OVM / SP',
     head: 'Hon. Majul Usman Gandamra',
     designation: 'City Vice Mayor & Presiding Officer (2025–2028)',
-    mandate: 'Enact ordinances, approve resolutions, and appropriate funds for the general welfare of the Islamic City of Marawi and its 96 barangays.',
+    mandate: 'Enact ordinances, approve resolutions, and appropriate funds for the general welfare of the Islamic City of Marawi and its 101 barangays.',
     location: 'Legislative Session Hall, Marawi City Hall Complex',
     phone: '(063) 352-0117 loc. 101',
     email: 'vicemayor@marawicity.gov.ph',
