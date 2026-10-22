@@ -21,7 +21,7 @@ export interface Contributor {
   role: string;
   category: ContributorCategory;
   contact: ContributorContact;
-  /** Optional square photo in /public (shown as a small circle). Initials are shown without one. */
+  /** Optional square photo in /public, cropped to head and shoulders, about 256px, served as-is (shown as a 48px circle). Initials are shown without one. */
   photo?: string;
 }
 

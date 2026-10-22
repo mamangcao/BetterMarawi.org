@@ -98,13 +98,14 @@ export function ContributorsDialog({ buttonClassName }: { buttonClassName: strin
                     return (
                       <li key={p.name} className="flex items-center gap-3 px-4 py-3">
                         {p.photo ? (
-                          <span className="relative shrink-0 w-10 h-10 rounded-full overflow-hidden bg-brand-50 ring-1 ring-surface-border">
-                            <Image src={p.photo} alt="" fill sizes="40px" className="object-cover" />
+                          <span className="relative shrink-0 w-12 h-12 rounded-full overflow-hidden bg-brand-50 ring-1 ring-surface-border">
+                            {/* Small, pre-sized photo: serve it as-is so it isn't re-compressed into a blurry AVIF */}
+                            <Image src={p.photo} alt="" fill sizes="48px" unoptimized className="object-cover" />
                           </span>
                         ) : (
                           <span
                             aria-hidden="true"
-                            className="grid place-items-center shrink-0 w-10 h-10 rounded-full bg-brand-900 text-white text-sm font-bold font-display"
+                            className="grid place-items-center shrink-0 w-12 h-12 rounded-full bg-brand-900 text-white text-sm font-bold font-display"
                           >
                             {initials(p.name)}
                           </span>
