@@ -2,6 +2,7 @@
 
 import React, { useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Code2, Globe, HandHeart, Mail, Phone, Users, X, type LucideIcon } from 'lucide-react';
 import { useTranslation } from '@/i18n';
 import {
@@ -96,12 +97,18 @@ export function ContributorsDialog({ buttonClassName }: { buttonClassName: strin
                     const Icon = CONTACT_ICONS[p.contact.type];
                     return (
                       <li key={p.name} className="flex items-center gap-3 px-4 py-3">
-                        <span
-                          aria-hidden="true"
-                          className="grid place-items-center shrink-0 w-10 h-10 rounded-full bg-brand-900 text-white text-sm font-bold font-display"
-                        >
-                          {initials(p.name)}
-                        </span>
+                        {p.photo ? (
+                          <span className="relative shrink-0 w-10 h-10 rounded-full overflow-hidden bg-brand-50 ring-1 ring-surface-border">
+                            <Image src={p.photo} alt="" fill sizes="40px" className="object-cover" />
+                          </span>
+                        ) : (
+                          <span
+                            aria-hidden="true"
+                            className="grid place-items-center shrink-0 w-10 h-10 rounded-full bg-brand-900 text-white text-sm font-bold font-display"
+                          >
+                            {initials(p.name)}
+                          </span>
+                        )}
                         <div className="min-w-0 flex-1">
                           <p className="font-semibold text-brand-950 leading-snug">{p.name}</p>
                           <p className="text-xs text-foreground-subtle">{p.role}</p>

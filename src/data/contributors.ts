@@ -21,6 +21,8 @@ export interface Contributor {
   role: string;
   category: ContributorCategory;
   contact: ContributorContact;
+  /** Optional square photo in /public (shown as a small circle). Initials are shown without one. */
+  photo?: string;
 }
 
 /** Display order of categories in the window */
@@ -39,5 +41,6 @@ export const CONTRIBUTORS: Contributor[] = [
     role: 'Project Lead & Maintainer',
     category: 'maintainers',
     contact: { type: 'website', url: 'https://mamangcao.com/' },
+    photo: '/images/contributors/abdul-haleem-mamangcao.webp',
   },
 ];
