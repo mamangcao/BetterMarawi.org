@@ -109,7 +109,7 @@ Rules of thumb:
 ## Design rules
 
 - Use color tokens from `src/app/globals.css`. No hardcoded hex values in components.
-- Palette: background `#F9FEFF`, primary `#1B4D3E`, accent `#FFE135` (accent only, never forced).
+- Palette (Ranao): background `#F9FEFF`, primary `#1B4D3E`, accent Mosque Gold `#F2C230` (accent only, never forced). Secondary `lake-*`, `okir-*`, and `langkit-*` scales are for information, heritage, and charts. See `docs/DESIGN_SYSTEM.md`.
 - Use the shared `ArrowUpRight` component for link arrows.
 - Check layouts at 360, 390, 768, 1280, and 1920 px widths.
 - Keep text readable: meet WCAG AA contrast.

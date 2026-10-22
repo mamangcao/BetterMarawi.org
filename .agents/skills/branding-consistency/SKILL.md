@@ -24,9 +24,13 @@ Keep every screen recognizably BetterMarawi.org. Never copy names, colors, or nu
 ## Colors (tokens only)
 
 - Use tokens from `src/app/globals.css`. No hardcoded hex in components.
-- Background `#F9FEFF`, primary `#1B4D3E`, accent `#FFE135`.
+- Ranao palette (adopted 2026-10-22): background `#F9FEFF`, primary Highland Pine `#1B4D3E`, accent Mosque Gold `#F2C230`.
+- Secondary colours, used on purpose and sparingly:
+  - Lanao Blue (`lake-*`, base `lake-700` `#1E5F74`): information, statistics, lake and weather content. Also the `status-info` colour.
+  - Okir Maroon (`okir-*`, base `okir-700` `#8C2F39`): heritage tags and markers only. Never on the brand green (1.2:1).
+  - Langkit Violet (`langkit-*`, base `langkit-600` `#5B3A7A`): charts and category colour-coding only.
 - Dark green bands use light text. Light surfaces use dark green or dark foreground text.
-- Yellow is an accent: a filled shape with dark text, or on dark green. Never yellow text or thin lines on light backgrounds. At most 1 to 2 uses per screen. Do not force it.
+- Gold is an accent: a filled shape with dark text, or on dark green. Never gold text or thin lines on light backgrounds; use `accent-deep` (`#8A6510`, 5.3:1) when gold text or an icon must sit on white. At most 1 to 2 uses per screen. Do not force it.
 - Status colors (success, warning, error, info) stay distinct from the brand green.
 - All text and UI must meet WCAG AA contrast.
 

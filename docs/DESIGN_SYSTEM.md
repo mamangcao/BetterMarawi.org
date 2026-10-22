@@ -18,7 +18,12 @@ The visual rules for BetterMarawi.org. The short version for AI agents is in `.a
 | --- | --- | --- |
 | Background | `#F9FEFF` | Page background, light surfaces |
 | Primary | `#1B4D3E` | Brand, headings accents, links, primary buttons, dark bands |
-| Accent | `#FFE135` | Highlights only (see rules below) |
+| Accent (Mosque Gold) | `#F2C230` | Highlights only (see rules below) |
+| Secondary (Lanao Blue) | `#1E5F74` | Information, statistics, lake and weather content |
+| Heritage (Okir Maroon) | `#8C2F39` | Heritage tags and markers only, sparingly |
+| Chart (Langkit Violet) | `#5B3A7A` | Charts and category colour-coding only |
+
+This is the **Ranao palette**, adopted on 2026-10-22: Highland Pine (MSU's pine highlands), Mosque Gold (the Grand Mosque dome and Maranao *kuning*), Lanao Blue (Lake Lanao), Okir Maroon (the red of *langkit* weaving and *okir*), and Langkit Violet (the *malong landap*). The previous palette is tagged in git as `palette-before-ranao`.
 
 The rest of the palette is derived in `globals.css`:
 
@@ -60,11 +65,20 @@ Defined in `src/app/globals.css`. Use these names in components, never raw hex.
 
 | Token | Hex | Use |
 | --- | --- | --- |
-| `--color-accent` | `#FFE135` | Accent base |
-| `--color-accent-hover` | `#F5D61E` | Hover |
-| `--color-accent-active` | `#D4B60B` | Pressed |
-| `--color-accent-light` | `#FFF9D6` | Light tint |
-| `--color-accent-muted` | `#E0C41B` | Muted |
+| `--color-accent` | `#F2C230` | Accent base (Mosque Gold) |
+| `--color-accent-hover` | `#E5B21F` | Hover |
+| `--color-accent-active` | `#CF9C12` | Pressed |
+| `--color-accent-light` | `#FDF3D2` | Light tint |
+| `--color-accent-muted` | `#E0A91B` | Muted |
+| `--color-accent-deep` | `#8A6510` | Gold text or icons on white (5.3:1) |
+
+**Secondary scales (50 to 950)**
+
+| Scale | Base | Use |
+| --- | --- | --- |
+| `lake-*` | `lake-700` `#1E5F74` | Lanao Blue: info, statistics, lake and weather. `status-info` uses it |
+| `okir-*` | `okir-700` `#8C2F39` | Okir Maroon: heritage tags and markers, sparingly |
+| `langkit-*` | `langkit-600` `#5B3A7A` | Langkit Violet: charts and categories only |
 
 **Surfaces and borders**
 
@@ -112,10 +126,16 @@ Use the `-text` token for status text and the base token for icons and borders. 
 | Pair | Ratio | Result |
 | --- | --- | --- |
 | `#1B4D3E` text on `#F9FEFF` | about 9:1 | Passes AA and AAA |
-| `#FFE135` on `#1B4D3E` | about 7:1 | Passes AA |
-| `#FFE135` text on `#F9FEFF` | about 1.1:1 | Fails. Never do this |
+| `#F2C230` (gold) on `#1B4D3E` | 5.8:1 | Passes AA |
+| Dark text `#0E2921` on `#F2C230` | 9.2:1 | Passes AA and AAA |
+| `#F2C230` text on `#F9FEFF` | 1.7:1 | Fails. Never do this |
+| `#8A6510` (accent-deep) on white | 5.3:1 | Passes AA |
+| `#1E5F74` (lake-700) on `#F9FEFF` | 7.0:1 | Passes AA |
+| `#8C2F39` (okir-700) on `#F9FEFF` | 8.0:1 | Passes AA |
+| `#8C2F39` on `#1B4D3E` | 1.2:1 | Fails. Never do this |
+| `#5B3A7A` (langkit-600) on `#F9FEFF` | 8.9:1 | Passes AA |
 
-### Accent (yellow) rules
+### Accent (gold) rules
 
 - Use it as a filled shape with dark green text, or on dark green surfaces
 - Never as text or thin lines on light backgrounds
