@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useMemo, useState } from 'react';
+import Link from 'next/link';
 import { Phone, Search } from 'lucide-react';
 import { MARAWI_BARANGAYS } from '@/data/barangays';
 import {
@@ -13,11 +14,29 @@ import { CLASSIFICATION_CHIP } from '@/lib/palette';
 
 /** 0917 123 4567 style for 11-digit mobile numbers */
 function formatPhone(n: string) {
-  const d = n.replace(/D/g, '');
+  const d = n.replace(/\D/g, '');
   return d.length === 11 ? `${d.slice(0, 4)} ${d.slice(4, 7)} ${d.slice(7)}` : n;
 }
 
-/** All 101 barangays (PSA) with their Punong Barangay and contact, when confirmed. */
+/** An official's name with their contact number, when one is listed */
+function Official({ name, contact }: { name: string; contact?: string }) {
+  return (
+    <>
+      <span className="block text-mist-900">{name}</span>
+      {contact && (
+        <a
+          href={`tel:${contact.replace(/[^\d+]/g, '')}`}
+          className="mt-0.5 inline-flex items-center gap-1 text-xs font-mono-tabular text-brand-800 hover:text-brand-950 whitespace-nowrap"
+        >
+          <Phone className="w-3 h-3" aria-hidden="true" />
+          {formatPhone(contact)}
+        </a>
+      )}
+    </>
+  );
+}
+
+/** All 101 barangays (PSA) with their Punong Barangay and SK Chairperson, and contacts when listed. */
 export function BarangayUnits() {
   const [query, setQuery] = useState('');
   const q = query.trim().toLowerCase();
@@ -59,15 +78,14 @@ export function BarangayUnits() {
             <tr>
               <th scope="col" className="py-3 px-3 font-semibold">Barangay</th>
               <th scope="col" className="py-3 px-3 font-semibold">Punong Barangay</th>
-              <th scope="col" className="py-3 px-3 font-semibold">Contact</th>
-              <th scope="col" className="py-3 px-3 font-semibold text-right">Population (2024)</th>
+              <th scope="col" className="py-3 px-3 font-semibold">SK Chairperson</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-mist-100">
             {rows.map((b) => {
               const leader = BARANGAY_LEADERS[b.psgcCode];
               return (
-                <tr key={b.psgcCode} className="hover:bg-mist-50">
+                <tr key={b.psgcCode} className="hover:bg-mist-50 align-top">
                   <td className="py-2.5 px-3">
                     <div className="font-semibold text-brand-950">{b.name}</div>
                     <span className={`mt-0.5 inline-flex items-center rounded-full border px-1.5 py-px text-[10px] font-semibold ${CLASSIFICATION_CHIP[b.classification]}`}>
@@ -76,28 +94,17 @@ export function BarangayUnits() {
                   </td>
                   <td className="py-2.5 px-3">
                     {leader ? (
-                      <>
-                        <span className="block text-mist-900">{leader.punongBarangay}</span>
-                        {leader.skChairperson && (
-                          <span className="block text-xs text-mist-500">SK Chairperson: {leader.skChairperson}</span>
-                        )}
-                      </>
+                      <Official name={leader.punongBarangay} contact={leader.contact} />
                     ) : (
                       <span className="text-mist-400 italic">To be added</span>
                     )}
                   </td>
-                  <td className="py-2.5 px-3 font-mono-tabular whitespace-nowrap">
-                    {leader?.contact ? (
-                      <a href={`tel:${leader.contact.replace(/[^\d+]/g, '')}`} className="inline-flex items-center gap-1 text-brand-800 hover:text-brand-950">
-                        <Phone className="w-3.5 h-3.5" aria-hidden="true" />
-                        {formatPhone(leader.contact)}
-                      </a>
+                  <td className="py-2.5 px-3">
+                    {leader?.skChairperson ? (
+                      <Official name={leader.skChairperson} contact={leader.skContact} />
                     ) : (
                       <span className="text-mist-400">—</span>
                     )}
-                  </td>
-                  <td className="py-2.5 px-3 text-right font-mono-tabular text-mist-800">
-                    {b.populationLatest.toLocaleString('en-US')}
                   </td>
                 </tr>
               );
@@ -107,7 +114,11 @@ export function BarangayUnits() {
       </div>
 
       <p className="text-xs text-mist-500">
-        Barangay names, classification, and population: Philippine Statistics Authority (PSGC and 2024 POPCEN).
+        Barangay names and classification: Philippine Statistics Authority (PSGC). Population and other figures are on{' '}
+        <Link href="/statistics/barangay-data" className="underline underline-offset-2 hover:text-brand-800">
+          Barangay Data
+        </Link>
+        .
         {BARANGAY_LEADERS_AS_OF
           ? ` Leaders as of ${BARANGAY_LEADERS_AS_OF}, from `
           : ' Barangay leaders will be added once confirmed.'}
