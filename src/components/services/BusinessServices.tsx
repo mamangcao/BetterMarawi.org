@@ -1,5 +1,5 @@
 import React from 'react';
-import { AlertTriangle, Building2, Clock, Globe, Landmark, Receipt } from 'lucide-react';
+import { AlertTriangle, Building2, CalendarClock, Clock, Globe, Landmark, Receipt } from 'lucide-react';
 import { ArrowUpRight } from '@/components/ui';
 import {
   BUSINESS_SERVICES,
@@ -12,6 +12,7 @@ const BASIS_LABEL: Record<FigureBasis, { text: string; className: string }> = {
   law: { text: 'National law', className: 'bg-brand-50 text-brand-800 border-brand-200' },
   city: { text: 'Set by the city · ask the BPLO', className: 'bg-accent-light text-accent-deep border-accent-muted/40' },
   portal: { text: 'City portal', className: 'bg-lake-50 text-lake-800 border-lake-200' },
+  charter: { text: 'Marawi Citizen’s Charter', className: 'bg-brand-50 text-brand-800 border-brand-200' },
 };
 
 function Basis({ basis }: { basis: FigureBasis }) {
@@ -43,9 +44,9 @@ export function BusinessServices() {
           Business Services in Marawi
         </h2>
         <p className="text-sm text-mist-600 mt-1">
-          What each service costs, how long it takes, and which office handles it. Amounts set by
-          national law apply in Marawi as written; amounts set by the city are assessed by the BPLO
-          and City Treasurer.
+          Which office handles each service, what it costs, how long it takes, and when to file or
+          pay. Amounts set by national law apply in Marawi as written; amounts set by the city are
+          assessed by the BPLO and City Treasurer.
         </p>
       </div>
 
@@ -87,14 +88,33 @@ export function BusinessServices() {
             </div>
 
             <dl className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <Detail icon={Building2} label="Responsible office">
-                {s.office}
-              </Detail>
+              <div className="sm:col-span-2">
+                <Detail icon={Building2} label="Responsible office">
+                  {s.office}
+                </Detail>
+              </div>
               <Detail icon={Clock} label="Processing time">
-                <span className="block">{s.time}</span>
-                <span className="mt-1 inline-block">
-                  <Basis basis={s.timeBasis} />
-                </span>
+                {s.processing.duration ? (
+                  <>
+                    <span className="block font-semibold text-brand-950">{s.processing.duration}</span>
+                    <span className="mt-1 inline-block">
+                      <Basis basis="charter" />
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <span className="block">Not yet published by the city.</span>
+                    {s.processing.legalLimit && (
+                      <span className="mt-1 block text-mist-600">
+                        By law: {s.processing.legalLimit.charAt(0).toLowerCase() + s.processing.legalLimit.slice(1)}.{' '}
+                        <Basis basis="law" />
+                      </span>
+                    )}
+                  </>
+                )}
+              </Detail>
+              <Detail icon={CalendarClock} label="When to file or pay">
+                {s.schedule}
               </Detail>
               <div className="sm:col-span-2">
                 <Detail icon={Receipt} label="Fee">
