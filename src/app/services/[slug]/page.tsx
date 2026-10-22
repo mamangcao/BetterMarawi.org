@@ -12,6 +12,7 @@ import { ServiceFAQ } from '@/components/services/ServiceFAQ';
 import { ServiceSidebar } from '@/components/services/ServiceSidebar';
 import { HealthFacilities } from '@/components/services/HealthFacilities';
 import { HealthPrograms } from '@/components/services/HealthPrograms';
+import { BusinessServices } from '@/components/services/BusinessServices';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { formatWithPeso, UnverifiedNotice } from '@/components/ui';
 import { JsonLd } from '@/components/seo/JsonLd';
@@ -22,6 +23,9 @@ import {
 } from '@/lib/jsonld';
 import { buildMetadata } from '@/lib/seo';
 import { SITE_CONFIG } from '@/config/site';
+
+// Service pages where a sourced section replaces the template's header highlights
+const SOURCED_SLUGS = ['health-services', 'business-and-livelihood'];
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
@@ -84,7 +88,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               </p>
               <UnverifiedNotice items={[service]} className='mt-6' />
 {/* Key Highlights (hidden on Health Services: its facility summary below carries the counts) */}
-              {service.slug !== 'health-services' && (
+              {!SOURCED_SLUGS.includes(service.slug) && (
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {service.highlights.map((h) => (
                   <div
@@ -137,6 +141,9 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           <article className="lg:col-span-8 space-y-10">
+            {/* Business and Livelihood: sourced services, fees, and times */}
+            {service.slug === 'business-and-livelihood' && <BusinessServices />}
+
             {/* Health Services: facilities, then programs (YAKAP detail follows) */}
             {service.slug === 'health-services' && <HealthFacilities />}
             {service.slug === 'health-services' && <HealthPrograms />}
@@ -250,12 +257,16 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               verification={service}
             />
 
-            <CharterSteps
-              steps={service.charterSteps}
-              totalProcessingTime={service.totalProcessingTime}
-            />
-
-            <FeeSchedule fees={service.fees} verification={service} />
+            {/* Unsourced template steps and fees are hidden where a sourced section covers them */}
+            {service.slug !== 'business-and-livelihood' && (
+              <>
+                <CharterSteps
+                  steps={service.charterSteps}
+                  totalProcessingTime={service.totalProcessingTime}
+                />
+                <FeeSchedule fees={service.fees} verification={service} />
+              </>
+            )}
 
             <ServiceFAQ faqs={service.faqs} />
           </article>
