@@ -85,6 +85,28 @@
 }
 
 @layer base {
+  /* Tailwind v4 resets buttons to the default cursor; restore the pointer for
+     everything clickable, and a not-allowed cursor when disabled. */
+  button,
+  [role='button'],
+  summary,
+  select,
+  label[for],
+  input[type='checkbox'],
+  input[type='radio'],
+  input[type='button'],
+  input[type='submit'],
+  input[type='reset'] {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [role='button'][aria-disabled='true'],
+  select:disabled,
+  input:disabled {
+    cursor: not-allowed;
+  }
+
   body {
     font-family: var(--font-sans), system-ui, sans-serif;
     background-color: var(--color-surface);
