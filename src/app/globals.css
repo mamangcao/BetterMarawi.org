@@ -28,6 +28,48 @@
   --color-accent-muted: #E0A91B;
   --color-accent-deep: #8A6510;
 
+  /* Lanao Blue (Ranao palette): Lake Lanao. Information, statistics, lake and
+     weather content. lake-700 is the base (7.1:1 on white). */
+  --color-lake-50: #F0F6F8;
+  --color-lake-100: #DCEBF0;
+  --color-lake-200: #B7D6E0;
+  --color-lake-300: #8ABBCB;
+  --color-lake-400: #5A9CB2;
+  --color-lake-500: #357F98;
+  --color-lake-600: #2A6E86;
+  --color-lake-700: #1E5F74;
+  --color-lake-800: #184D5E;
+  --color-lake-900: #133D4A;
+  --color-lake-950: #0B2630;
+
+  /* Okir Maroon (Ranao palette): red of langkit weaving and okir panels.
+     Heritage tags and markers only, sparingly. Never on the brand green (1.2:1). */
+  --color-okir-50: #FBF2F3;
+  --color-okir-100: #F7E9EA;
+  --color-okir-200: #EDCDD0;
+  --color-okir-300: #DDA4AA;
+  --color-okir-400: #C7727B;
+  --color-okir-500: #AE4A55;
+  --color-okir-600: #9B3A45;
+  --color-okir-700: #8C2F39;
+  --color-okir-800: #73262F;
+  --color-okir-900: #5C1F26;
+  --color-okir-950: #3A1217;
+
+  /* Langkit Violet (Ranao palette): violet of the malong landap.
+     Charts and category colour-coding only. langkit-600 is the base. */
+  --color-langkit-50: #F6F2FA;
+  --color-langkit-100: #ECE4F4;
+  --color-langkit-200: #D8C8E8;
+  --color-langkit-300: #BAA0D4;
+  --color-langkit-400: #9475B8;
+  --color-langkit-500: #74559A;
+  --color-langkit-600: #5B3A7A;
+  --color-langkit-700: #4C3066;
+  --color-langkit-800: #3D2752;
+  --color-langkit-900: #2F1E40;
+  --color-langkit-950: #1D1228;
+
   /* Surface Tokens */
   --color-surface: #F9FEFF;
   --color-surface-card: #F0F7F4;
@@ -57,9 +99,10 @@
   --color-status-error-bg: #FDF2F2;
   --color-status-error-text: #821818;
 
-  --color-status-info: #1E6B8C;
-  --color-status-info-bg: #EFF8FA;
-  --color-status-info-text: #13445A;
+  /* Info follows Lanao Blue */
+  --color-status-info: #1E5F74;
+  --color-status-info-bg: #F0F6F8;
+  --color-status-info-text: #12404F;
 
   /* Harmony Aliases for standard scales */
   --color-emerald-50: #EBF5F1;
