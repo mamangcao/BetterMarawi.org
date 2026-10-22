@@ -53,10 +53,15 @@ export function TransactionsDirectory({ data, labels }: Props) {
     );
   }, []);
 
-  // Deep links like #office-psa open that office on load
+  // Deep links like #office-psa open that office, on load and whenever the hash changes
   useEffect(() => {
-    const m = window.location.hash.match(/^#office-([\w-]+)$/);
-    if (m && officeById[m[1]]) openOffice(m[1]);
+    const fromHash = () => {
+      const m = window.location.hash.match(/^#office-([\w-]+)$/);
+      if (m && officeById[m[1]]) openOffice(m[1]);
+    };
+    fromHash();
+    window.addEventListener('hashchange', fromHash);
+    return () => window.removeEventListener('hashchange', fromHash);
   }, [openOffice, officeById]);
 
   const q = query.trim().toLowerCase();

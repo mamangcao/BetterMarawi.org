@@ -11,6 +11,7 @@ import {
   type TxOffice,
   type TxSource,
 } from '@/types/transactions';
+import type { FAQItem } from '@/types';
 
 export const CERT_SOURCES = {
   psaOutlet: {
@@ -222,3 +223,42 @@ export const CERTIFICATES_DIRECTORY: TxDirectoryData = {
   items: CERTIFICATES,
   sources: CERT_SOURCES,
 };
+
+/** Frequently asked questions for the Certificates page (facts from CERT_SOURCES). */
+export const CERTIFICATES_FAQS: FAQItem[] = [
+  {
+    question: 'Where can I get a PSA birth certificate in Marawi?',
+    answer:
+      'At the PSA Civil Registry System (CRS) Marawi City Outlet, Ground Floor of the PSA Lanao del Sur Provincial Office, Rima Building, Brgy. Datu Saber. A copy costs ₱155. You can also order online through PSA Serbilis for ₱330 per copy, including delivery.',
+  },
+  {
+    question: 'What is the difference between a PSA copy and a copy from the City Civil Registrar?',
+    answer:
+      'A PSA copy comes from the national archive of the Philippine Statistics Authority and is what most national transactions ask for, such as passport applications. A copy from the City Civil Registrar comes from Marawi’s own registry and covers records registered in the city. If you are unsure which one you need, ask the office that requested it.',
+  },
+  {
+    question: 'I am applying for my first job. Which documents are free?',
+    answer:
+      'Under RA 11261, first-time jobseekers pay no fees for their PSA birth and marriage certificates, barangay clearance, police clearance, and NBI clearance, among other government documents for employment. Get a First Time Jobseeker Certification from your barangay first and show it when you apply. The benefit can be used only once.',
+  },
+  {
+    question: 'How do I correct an error in my birth certificate?',
+    answer:
+      'Clerical errors, a change of first name, and corrections of the day or month of birth or sex can be fixed without going to court, under RA 9048 and RA 10172. File a petition at the City Civil Registrar’s Office where the record was registered. The filing fee is ₱1,000 for a clerical error and ₱3,000 for a first-name change or a birth date or sex correction, and some petitions must also be published in a newspaper.',
+  },
+  {
+    question: 'Where do I register a Muslim marriage or divorce?',
+    answer:
+      'Muslim marriages, divorces, revocations of divorce, and conversions to Islam are registered with the Shari’a Circuit Registrar under the Code of Muslim Personal Laws (PD 1083).',
+  },
+  {
+    question: 'Can someone else get my certificate for me?',
+    answer:
+      'For PSA documents, the person going for you should bring your signed authorization letter, your ID, and their own valid ID. Other offices may have their own rules, so check with the office before sending someone.',
+  },
+  {
+    question: 'Why are some fees and processing times not shown?',
+    answer:
+      'Fees set by national law or by agencies such as the PSA, NBI, and PNP are shown. Fees set by city or barangay ordinance, and the exact processing times, have not yet been published online by the offices. We show the legal maximum processing time instead, and will add the exact figures once the offices publish their Citizen’s Charters.',
+  },
+];

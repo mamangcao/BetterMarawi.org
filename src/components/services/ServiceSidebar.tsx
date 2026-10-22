@@ -8,7 +8,8 @@ import { SITE_CONFIG } from '@/config/site';
 
 interface ServiceSidebarProps {
   currentSlug: string;
-  email: string;
+  /** Office email, shown only when a verified one exists */
+  email?: string;
 }
 
 export function ServiceSidebar({ currentSlug, email }: ServiceSidebarProps) {
@@ -23,7 +24,12 @@ export function ServiceSidebar({ currentSlug, email }: ServiceSidebarProps) {
           <nav aria-label="Services Sibling Navigation" className="space-y-1">
             <Link
               href="/services/certificates"
-              className="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-colors text-mist-700 hover:bg-mist-100"
+              aria-current={currentSlug === 'certificates' ? 'page' : undefined}
+              className={`flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-colors ${
+                currentSlug === 'certificates'
+                  ? 'bg-brand-900 text-white font-semibold'
+                  : 'text-mist-700 hover:bg-mist-100'
+              }`}
             >
               <span className="truncate">Certificates &amp; Clearances</span>
               <span className="font-mono-tabular opacity-75 ml-2 shrink-0">PSA / LCR</span>
@@ -58,10 +64,12 @@ export function ServiceSidebar({ currentSlug, email }: ServiceSidebarProps) {
             {t.antiRedTapeNotice}
           </p>
           <div className="pt-2 border-t border-mist-800 text-xs font-mono-tabular space-y-1">
-            <div className="flex items-center gap-2">
-              <Mail className="w-3.5 h-3.5 text-accent" />
-              <span>{email}</span>
-            </div>
+            {email && (
+              <div className="flex items-center gap-2">
+                <Mail className="w-3.5 h-3.5 text-accent" />
+                <span>{email}</span>
+              </div>
+            )}
             <div className="flex items-center gap-2">
               <Building2 className="w-3.5 h-3.5 text-accent shrink-0" />
               <span>{SITE_CONFIG.contact.cityHallAddress}</span>
