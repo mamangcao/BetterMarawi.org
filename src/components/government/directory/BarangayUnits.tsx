@@ -3,8 +3,19 @@
 import React, { useMemo, useState } from 'react';
 import { Phone, Search } from 'lucide-react';
 import { MARAWI_BARANGAYS } from '@/data/barangays';
-import { BARANGAY_LEADERS, BARANGAY_LEADERS_AS_OF, BARANGAY_LEADERS_SOURCE } from '@/data/barangayLeaders';
+import {
+  BARANGAY_LEADERS,
+  BARANGAY_LEADERS_AS_OF,
+  BARANGAY_LEADERS_SOURCE,
+  BARANGAY_LEADERS_SOURCE_URL,
+} from '@/data/barangayLeaders';
 import { CLASSIFICATION_CHIP } from '@/lib/palette';
+
+/** 0917 123 4567 style for 11-digit mobile numbers */
+function formatPhone(n: string) {
+  const d = n.replace(/D/g, '');
+  return d.length === 11 ? `${d.slice(0, 4)} ${d.slice(4, 7)} ${d.slice(7)}` : n;
+}
 
 /** All 101 barangays (PSA) with their Punong Barangay and contact, when confirmed. */
 export function BarangayUnits() {
@@ -14,8 +25,9 @@ export function BarangayUnits() {
     () =>
       MARAWI_BARANGAYS.filter((b) => {
         if (!q) return true;
-        const leader = BARANGAY_LEADERS[b.psgcCode]?.punongBarangay ?? '';
-        return b.name.toLowerCase().includes(q) || leader.toLowerCase().includes(q);
+        const l = BARANGAY_LEADERS[b.psgcCode];
+        const people = `${l?.punongBarangay ?? ''} ${l?.skChairperson ?? ''}`.toLowerCase();
+        return b.name.toLowerCase().includes(q) || people.includes(q);
       }),
     [q]
   );
@@ -32,7 +44,7 @@ export function BarangayUnits() {
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search a barangay or leader"
+            placeholder="Search a barangay or official"
             className="w-full pl-10 pr-4 py-2 rounded-lg border border-mist-300 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-700"
           />
         </label>
@@ -64,7 +76,12 @@ export function BarangayUnits() {
                   </td>
                   <td className="py-2.5 px-3">
                     {leader ? (
-                      <span className="text-mist-900">{leader.punongBarangay}</span>
+                      <>
+                        <span className="block text-mist-900">{leader.punongBarangay}</span>
+                        {leader.skChairperson && (
+                          <span className="block text-xs text-mist-500">SK Chairperson: {leader.skChairperson}</span>
+                        )}
+                      </>
                     ) : (
                       <span className="text-mist-400 italic">To be added</span>
                     )}
@@ -73,7 +90,7 @@ export function BarangayUnits() {
                     {leader?.contact ? (
                       <a href={`tel:${leader.contact.replace(/[^\d+]/g, '')}`} className="inline-flex items-center gap-1 text-brand-800 hover:text-brand-950">
                         <Phone className="w-3.5 h-3.5" aria-hidden="true" />
-                        {leader.contact}
+                        {formatPhone(leader.contact)}
                       </a>
                     ) : (
                       <span className="text-mist-400">—</span>
@@ -92,8 +109,16 @@ export function BarangayUnits() {
       <p className="text-xs text-mist-500">
         Barangay names, classification, and population: Philippine Statistics Authority (PSGC and 2024 POPCEN).
         {BARANGAY_LEADERS_AS_OF
-          ? ` Leaders as of ${BARANGAY_LEADERS_AS_OF}${BARANGAY_LEADERS_SOURCE ? `, from ${BARANGAY_LEADERS_SOURCE}` : ''}.`
-          : ' Barangay leaders will be added once confirmed.'}{' '}
+          ? ` Leaders as of ${BARANGAY_LEADERS_AS_OF}, from `
+          : ' Barangay leaders will be added once confirmed.'}
+        {BARANGAY_LEADERS_AS_OF && BARANGAY_LEADERS_SOURCE && (
+          <>
+            <a href={BARANGAY_LEADERS_SOURCE_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-brand-800">
+              {BARANGAY_LEADERS_SOURCE}
+            </a>
+            . Barangays marked “To be added” are not listed there.
+          </>
+        )}{' '}
         Barangay and SK elections are scheduled for November 2, 2026.
       </p>
     </div>
