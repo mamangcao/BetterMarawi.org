@@ -1,53 +1,75 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { FDP_DOCUMENTS } from '@/data/fdp';
-import { FDPTable, TransparencySidebar } from '@/components/transparency';
+import { BarChart3, FileCheck2, FileSearch, FileText, Wallet } from 'lucide-react';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
+import { SectionHub, type HubCard } from '@/components/layout/SectionHub';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { buildBreadcrumbSchema } from '@/lib/jsonld';
-import { UnverifiedNotice } from '@/components/ui';
 import { buildMetadata, getRouteBreadcrumbs } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Transparency, Accountability & Full Disclosure Portal | BetterMarawi.org',
+  title: 'Transparency Portal: Budget, Reports & Public Records | BetterMarawi.org',
   description:
-    'Access Marawi City Full Disclosure Policy (FDP) statements, FY 2026 Annual Budget breakdown, procurement awards, and Freedom of Information (FOI) guides.',
+    'How the Islamic City of Marawi spends public money and how to see its records: Full Disclosure Policy reports, transparency documents, the annual budget, governance reports, and Freedom of Information requests.',
   path: '/transparency',
 });
 
-export default function TransparencyOverviewPage() {
+const CARDS: HubCard[] = [
+  {
+    href: '/transparency/full-disclosure-policy',
+    eyebrow: 'DILG FDP',
+    title: 'Full Disclosure Policy',
+    description: 'The financial reports the city must post publicly every quarter and every year.',
+    meta: 'Quarterly and annual reports',
+    icon: FileCheck2,
+  },
+  {
+    href: '/transparency/annual-budget',
+    eyebrow: 'Budget',
+    title: 'Annual Budget',
+    description: 'How the city budget is divided across sectors and where the money comes from.',
+    meta: 'Spending by sector · fund sources',
+    icon: Wallet,
+  },
+  {
+    href: '/transparency/transparency-documents',
+    eyebrow: 'Records',
+    title: 'Transparency Documents',
+    description: 'Public documents on procurement, audits, and other city transactions.',
+    meta: 'Procurement · audits · orders',
+    icon: FileText,
+  },
+  {
+    href: '/transparency/reports-and-statistics',
+    eyebrow: 'Performance',
+    title: 'Reports & Statistics',
+    description: 'Reports on how the city government performs and meets national standards.',
+    meta: 'Governance reports',
+    icon: BarChart3,
+  },
+  {
+    href: '/transparency/freedom-of-information',
+    eyebrow: 'FOI',
+    title: 'Freedom of Information',
+    description: 'How to ask the city for a public record, and what to expect after you file.',
+    meta: 'Request a public record',
+    icon: FileSearch,
+  },
+];
+
+export default function TransparencyPage() {
   const breadcrumbs = getRouteBreadcrumbs('/transparency');
 
   return (
     <main className="pb-16">
       <Breadcrumbs items={breadcrumbs} />
-
-      <section className="bg-gradient-to-b from-surface-card to-surface border-b border-mist-200/90 py-10 sm:py-14">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-xs font-semibold uppercase tracking-widest text-brand-800 mb-2">
-            Open Civic Governance &amp; Public Accountability
-          </p>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-mist-950 font-display">
-            Transparency &amp; Full Disclosure Portal
-          </h1>
-          <p className="mt-3 text-base text-mist-700 max-w-3xl leading-relaxed">
-            Access Marawi City Full Disclosure Policy (FDP) statements, FY 2026 Annual Budget breakdown, procurement awards, and Freedom of Information (FOI) guides.
-          </p>
-          <UnverifiedNotice items={FDP_DOCUMENTS} className="mt-6" />
-        </div>
-      </section>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-          <div className="lg:col-span-8">
-            <FDPTable documents={FDP_DOCUMENTS} />
-          </div>
-          <TransparencySidebar />
-        </div>
-      </div>
-
+      <SectionHub
+        eyebrow="Transparency Portal"
+        title="Public Money & Public Records"
+        intro="See how the Islamic City of Marawi plans and spends its budget, find its public reports, and request records. Choose a section below."
+        cards={CARDS}
+      />
       <JsonLd data={buildBreadcrumbSchema(breadcrumbs)} />
     </main>
   );
 }
-

@@ -1,51 +1,68 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { DemographicsBlock, StatisticsSidebar } from '@/components/statistics';
-import { UnverifiedNotice } from '@/components/ui';
-import { cityProfileVerification } from '@/lib/verification';
+import { Database, MapPin, MapPinned, TrendingUp } from 'lucide-react';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
+import { SectionHub, type HubCard } from '@/components/layout/SectionHub';
 import { JsonLd } from '@/components/seo/JsonLd';
+import { MARAWI_BARANGAYS } from '@/data/barangays';
+import { CMCI_PILLARS, CMCI_SUMMARY } from '@/data/cmci';
 import { buildBreadcrumbSchema } from '@/lib/jsonld';
 import { buildMetadata, getRouteBreadcrumbs } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Marawi City Statistics, Census & Competitiveness Data | BetterMarawi.org',
+  title: 'Marawi Statistics & Open Data | BetterMarawi.org',
   description:
-    'Official demographic, geographic, DTI CMCI competitiveness, and 101-barangay census statistics for the Islamic City of Marawi, Lanao del Sur.',
+    'Facts and figures on the Islamic City of Marawi: city profile, population of all 101 barangays, DTI competitiveness scores, and downloadable open data.',
   path: '/statistics',
 });
 
-export default function StatisticsOverviewPage() {
+const CARDS: HubCard[] = [
+  {
+    href: '/statistics/city-profile',
+    eyebrow: 'Overview',
+    title: 'City Profile',
+    description: 'Marawi’s land, elevation, and people at a glance.',
+    meta: 'Geography · population',
+    icon: MapPin,
+  },
+  {
+    href: '/statistics/barangay-data',
+    eyebrow: 'PSA 2024 Census',
+    title: 'Barangay Data',
+    description: 'Population and urban or rural classification for every barangay, searchable and downloadable.',
+    meta: `${MARAWI_BARANGAYS.length} barangays`,
+    icon: MapPinned,
+  },
+  {
+    href: '/statistics/dti-cmci-profile',
+    eyebrow: `DTI CMCI ${CMCI_SUMMARY.cycleYear}`,
+    title: 'Competitiveness Profile',
+    description: 'How Marawi scores on the DTI Cities and Municipalities Competitiveness Index.',
+    meta: `${CMCI_PILLARS.length} pillars · rank ${CMCI_SUMMARY.overallRank} among ${CMCI_SUMMARY.category.toLowerCase()}`,
+    icon: TrendingUp,
+  },
+  {
+    href: '/statistics/open-data-ph',
+    eyebrow: 'Open Data',
+    title: 'Open Data Downloads',
+    description: 'Datasets about Marawi you can download and reuse.',
+    meta: 'CSV and JSON files',
+    icon: Database,
+  },
+];
+
+export default function StatisticsPage() {
   const breadcrumbs = getRouteBreadcrumbs('/statistics');
 
   return (
     <main className="pb-16">
       <Breadcrumbs items={breadcrumbs} />
-
-      <section className="bg-gradient-to-b from-surface-card to-surface border-b border-mist-200/90 py-10 sm:py-14">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-xs font-semibold uppercase tracking-widest text-brand-800 mb-2">
-            Statistics &amp; Open Civic Data
-          </p>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-mist-950 font-display">
-            Marawi City Demographics &amp; Data Portal
-          </h1>
-          <p className="mt-3 text-base text-mist-700 max-w-3xl leading-relaxed">
-            Official demographic, geographic, DTI CMCI competitiveness, and 101-barangay census statistics for the Islamic City of Marawi, Lanao del Sur.
-          </p>
-          <UnverifiedNotice items={[cityProfileVerification]} className="mt-6" />
-        </div>
-      </section>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-          <div className="lg:col-span-8">
-            <DemographicsBlock />
-          </div>
-          <StatisticsSidebar />
-        </div>
-      </div>
-
+      <SectionHub
+        eyebrow="Statistics & Data"
+        title="Marawi in Numbers"
+        intro="Facts and figures about the Islamic City of Marawi and its barangays, with their sources. Choose a section below."
+        cards={CARDS}
+      />
       <JsonLd data={buildBreadcrumbSchema(breadcrumbs)} />
     </main>
   );
