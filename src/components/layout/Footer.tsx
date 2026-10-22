@@ -8,6 +8,7 @@ import { ArrowUpRight, Peso } from '@/components/ui';
 import { useTranslation } from '@/i18n';
 import { useFxRates, formatFxDate } from '@/lib/fx';
 import { SITE_CONFIG } from '@/config/site';
+import { ContributorsDialog } from './ContributorsDialog';
 
 const linkClass = 'hover:text-white transition-colors';
 
@@ -158,6 +159,9 @@ export function Footer() {
                 <Code2 className="w-4 h-4" />
                 {t.contributeGithub}
               </Link>
+            </div>
+            <div>
+              <ContributorsDialog buttonClassName="inline-flex items-center gap-2 rounded-full bg-stone-800 px-4 py-2.5 text-sm text-stone-200 hover:bg-stone-700 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent" />
             </div>
             <ul className="pt-3 space-y-3 text-xs text-stone-400">
               <li>

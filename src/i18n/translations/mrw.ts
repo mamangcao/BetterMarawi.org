@@ -155,6 +155,20 @@ export const mrw: typeof en = {
   volunteerWithUs: 'Volunteer with Us',
   // TODO(mrw-review): needs fluent reviewer
   contributeGithub: 'Contribute at GitHub',
+  // TODO(mrw-review): needs fluent reviewer. Contributors keys fall back to English.
+  contributorsButton: "Contributors",
+  contributorsTitle: "Contributors",
+  contributorsIntro: "Volunteers who build and look after BetterMarawi.org.",
+  contributorsOpenRoles: "Open for volunteers",
+  contributorsClose: "Close",
+  contributorCategories: {
+    maintainers: "Maintainers",
+    software: "Software Development",
+    design: "Graphic Design",
+    content: "Content Creation",
+    marketing: "Digital Marketing",
+    translation: "Translation",
+  },
   // TODO(mrw-review): needs fluent reviewer
   costToPeople: 'Cost to the People of Marawi: ',
   // TODO(mrw-review): needs fluent reviewer
