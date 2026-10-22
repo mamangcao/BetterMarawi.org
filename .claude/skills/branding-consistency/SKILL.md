@@ -29,6 +29,8 @@ Keep every screen recognizably BetterMarawi.org. Never copy names, colors, or nu
   - Lanao Blue (`lake-*`, base `lake-700` `#1E5F74`): information, statistics, lake and weather content. Also the `status-info` colour.
   - Okir Maroon (`okir-*`, base `okir-700` `#8C2F39`): heritage tags and markers only. Never on the brand green (1.2:1).
   - Langkit Violet (`langkit-*`, base `langkit-600` `#5B3A7A`): charts and category colour-coding only.
+- Neutrals: Mist (`mist-*`, green-tinted greys) plus the `surface-*` and `foreground-*` tokens. Never Tailwind's default `stone`, `gray`, `slate`, or `emerald`.
+- Repeated colour choices (chart series order, tourism category colours, Urban/Rural chips) live in `src/lib/palette.ts`. Use `chartColor(i)` for charts; never colour alone, keep a text label.
 - Dark green bands use light text. Light surfaces use dark green or dark foreground text.
 - Gold is an accent: a filled shape with dark text, or on dark green. Never gold text or thin lines on light backgrounds; use `accent-deep` (`#8A6510`, 5.3:1) when gold text or an icon must sit on white. At most 1 to 2 uses per screen. Do not force it.
 - Status colors (success, warning, error, info) stay distinct from the brand green.

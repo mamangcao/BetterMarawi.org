@@ -86,7 +86,7 @@ Rules:
 ## Design and branding
 
 For any UI, color, font, logo, hero, icon, or copy change, follow `.agents/skills/branding-consistency/SKILL.md`.
-Short version: tokens only (no hardcoded hex), yellow is accent only, shared `ArrowUpRight` for link arrows, never copy Indang names or colors.
+Short version: tokens only (no hardcoded hex), Ranao palette (Pine `brand-*`, Mosque Gold `accent`, Lanao Blue `lake-*`, Okir `okir-*`, Langkit `langkit-*`, Mist neutrals `mist-*`), gold is accent only, shared colour choices in `src/lib/palette.ts`, shared `ArrowUpRight` for link arrows, never copy Indang names or colors.
 
 ## Security
 

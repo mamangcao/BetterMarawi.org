@@ -28,6 +28,8 @@ This is the **Ranao palette**, adopted on 2026-10-22: Highland Pine (MSU's pine 
 The rest of the palette is derived in `globals.css`:
 
 - Brand scale (50 to 950) built from `#1B4D3E`
+- Secondary scales (50 to 950): `lake-*`, `okir-*`, `langkit-*`
+- Mist neutrals (`mist-*`, 50 to 950): green-tinted greys for text, borders, and quiet backgrounds
 - Surface tint for cards and alternate sections
 - Border and divider tone
 - Foreground text (dark green-black, not pure black) and muted text
@@ -109,17 +111,52 @@ Defined in `src/app/globals.css`. Use these names in components, never raw hex.
 | `--color-status-success` / `-bg` / `-text` | `#227D52` / `#EAF5EE` / `#145334` | Success |
 | `--color-status-warning` / `-bg` / `-text` | `#C07706` / `#FEF6E9` / `#7C4600` | Warning |
 | `--color-status-error` / `-bg` / `-text` | `#C53030` / `#FDF2F2` / `#821818` | Error |
-| `--color-status-info` / `-bg` / `-text` | `#1E6B8C` / `#EFF8FA` / `#13445A` | Info |
+| `--color-status-info` / `-bg` / `-text` | `#1E5F74` / `#F0F6F8` / `#12404F` | Info (Lanao Blue) |
 
 Use the `-text` token for status text and the base token for icons and borders. The base warning color is too light for small text.
 
-**Compatibility aliases**
+**Mist neutrals**
 
-`--color-emerald-*` maps to the brand scale, and `--color-stone-*` is a green-tinted neutral scale. They exist so classes carried over from the AI Studio version keep working. In new code, use the `brand`, `surface`, and `foreground` tokens above, and do not add new uses of `emerald` or `stone`.
+Green-tinted greys, named after highland mist. They replaced the old `stone-*` and `emerald-*` aliases on 2026-10-22 (`emerald-*` was identical to `brand-*`). Prefer the semantic `surface-*` and `foreground-*` tokens where one fits; use `mist-*` for the steps they don't cover. Do not use Tailwind's default `stone`, `gray`, `slate`, or `emerald` scales: they are not part of the palette.
 
-| Token | Hex | Use |
+| Token | Hex | Typical use |
 | --- | --- | --- |
-| (fill from `globals.css`) | | |
+| `mist-50` | `#F0F7F4` | Quiet backgrounds (same as `surface-card`) |
+| `mist-100` | `#E4EFEA` | Dividers, hover fills, chart tracks |
+| `mist-200` | `#D3E2DC` | Borders (same as `surface-border`) |
+| `mist-300` | `#B7CDC4` | Text on dark mist backgrounds |
+| `mist-400` | `#88A599` | Footer text, icons on dark |
+| `mist-500` | `#567067` | Captions, labels (same as `foreground-subtle`) |
+| `mist-600` | `#3D544C` | Body secondary text (same as `foreground-muted`) |
+| `mist-700` | `#243831` | Strong secondary text |
+| `mist-800` | `#162420` | Lines on dark panels |
+| `mist-900` | `#101B17` | Dark panels, footer background, headings |
+| `mist-950` | `#080E0C` | Darkest text |
+
+### Where the Ranao colours appear
+
+| Colour | Where |
+| --- | --- |
+| Highland Pine | Hero, headings, primary links, icons by default, buttons on light surfaces |
+| Mosque Gold | Hero title, gold buttons, "Today" badge, install banner button, carousel buttons, sun weather effect |
+| Mosque Gold (deep) | Artisan category icon; budget and CMCI chart series 3 |
+| Lanao Blue | Info notices and badges, weather card icon and rain/cloud effects, Lakefront category, Urban barangay chips, chart series 2 |
+| Okir Maroon | Heritage category, the 2017 marker in the history timeline, chart series 5 |
+| Langkit Violet | Museums category, chart series 4 |
+
+### Charts and categories (`src/lib/palette.ts`)
+
+Colour choices that repeat across pages live in `src/lib/palette.ts`, so pages stay consistent:
+
+- `chartColor(i)` / `CHART_SERIES`: categorical colours in a fixed order (Pine, Lanao Blue, deep Gold, Violet, Maroon, light Lake). Every entry passes 4.5:1 on white. Used by the budget chart and the DTI CMCI pillars.
+- `tourismTone(id)` / `TOURISM_TONES`: icon colour per tourism category, on the home page and the tourism page.
+- `CLASSIFICATION_CHIP`: Urban (Lanao Blue) and Rural (Pine) chips in the barangay table.
+
+Add new shared colour decisions there rather than repeating class names across components. Colour must never be the only way information is shown: keep the text label next to every coloured bar, dot, or chip.
+
+### Reverting the palette
+
+The palette before Ranao is tagged in git as `palette-before-ranao`. Ranao was applied in separate commits (gold accent, new scales, home page, alias rename, site-wide charts, docs), so each step can be undone with `git revert` on its own.
 
 ### Contrast (approximate, recheck after any change)
 
@@ -140,8 +177,9 @@ Use the `-text` token for status text and the base token for icons and borders. 
 - Use it as a filled shape with dark green text, or on dark green surfaces
 - Never as text or thin lines on light backgrounds
 - At most 1 to 2 uses per screen
-- If an element has no natural place for yellow, do not force it
-- Current uses: hero button hover, popular service tile hover, hotline icons, active indicators
+- If an element has no natural place for gold, do not force it
+- Current uses: hero title, gold buttons and their hover, "Today" badge, install banner button, hotline icons, active indicators
+- For gold text or icons on white, use `accent-deep` (`#8A6510`) instead
 
 ## Typography
 
@@ -183,7 +221,7 @@ Rules:
 
 - Primary: solid brand color, light text, visible focus ring
 - Secondary: outlined, same height and radius as primary
-- On dark green: light fill with dark green text, yellow on hover
+- On dark green: light fill with dark green text, Mosque Gold on hover
 - Link and CTA arrows: `ArrowUpRight` (SVG, inherits text color)
 
 ## Icons and arrows
