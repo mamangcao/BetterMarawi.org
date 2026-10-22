@@ -68,6 +68,11 @@ export const EMERGENCY_HOTLINES: HotlineItem[] = [
 export const NAV_DROPDOWNS: Record<'services' | 'government' | 'transparency' | 'statistics', NavSubItem[]> = {
   services: [
     {
+      label: 'Certificates & Clearances',
+      href: '/services/certificates',
+      description: 'Birth, marriage, CENOMAR, barangay, police & NBI clearances, cedula: fees, offices, and steps.',
+    },
+    {
       label: 'Health Services',
       href: '/services/health-services',
       description: 'Free check-ups, PhilHealth YAKAP, vaccines, CHO & APMC medical programs.',

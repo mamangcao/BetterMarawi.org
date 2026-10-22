@@ -22,6 +22,7 @@ import {
   MapPin,
   TrendingUp,
   Database,
+  ScrollText,
 } from 'lucide-react';
 
 export const ITEM_ICONS: Record<string, React.ReactNode> = {
@@ -36,6 +37,7 @@ export const ITEM_ICONS: Record<string, React.ReactNode> = {
   '/services/disaster-preparedness': <ShieldAlert className="w-4 h-4 text-brand-800 shrink-0" />,
   '/services/housing-and-land-use': <HomeIcon className="w-4 h-4 text-brand-800 shrink-0" />,
   '/services/tourism': <Compass className="w-4 h-4 text-brand-800 shrink-0" />,
+  '/services/certificates': <ScrollText className="w-4 h-4 text-brand-800 shrink-0" />,
   '/government/departments-and-officials': <Building2 className="w-4 h-4 text-brand-800 shrink-0" />,
   '/government/legislative': <Scale className="w-4 h-4 text-brand-800 shrink-0" />,
   '/government/local-officials-directory': <Users className="w-4 h-4 text-brand-800 shrink-0" />,

@@ -153,7 +153,7 @@ export const fil: typeof en = {
   },
   servicesAndChartersHeading: "Mga Serbisyo at Citizen's Charter",
   servicesAndChartersSubheading: "Mga kailangan, bayarin, at hakbang mula sa bawat Citizen's Charter.",
-  viewAll11Services: 'Tingnan Lahat ng 11 Serbisyo',
+  viewAll11Services: 'Tingnan Lahat ng 12 Serbisyo',
   viewCharterAndRequirements: "Tingnan ang Citizen's Charter at mga Kailangan",
 
   // City at a Glance & PhilHealth YAKAP
@@ -293,7 +293,7 @@ export const fil: typeof en = {
   responseWindow: 'Sasagutin sa loob ng 2 araw ng negosyo',
 
   // Services Directory & Details
-  filterServicesPlaceholder: 'Salain ang 11 serbisyo ayon sa keyword o opisina...',
+  filterServicesPlaceholder: 'Salain ang mga serbisyo ayon sa keyword o opisina...',
   requirementsCount: 'Mga Kailangan',
   stepsCount: 'Hakbang',
   docRequirementsHeading: '1. Talaan ng mga Dokumentong Kailangan',
@@ -313,7 +313,7 @@ export const fil: typeof en = {
   faqHeading: '4. Mga Madalas Itanong (FAQ)',
   faqSubheading:
     'Naka-istruktura gamit ang Schema.org FAQPage JSON-LD para sa mabilisang sagot sa mamamayan',
-  allServicesTitle: 'Lahat ng 11 Serbisyo sa Marawi',
+  allServicesTitle: 'Lahat ng 12 Serbisyo sa Marawi',
   antiRedTapeNotice:
     'Bawal ang fixer. Ang opisyal na resibo ay eksklusibong ibinibigay ng Tanggapan ng Ingat-Yaman ng Lungsod. Isumbong ang anumang iregularidad sa Public Assistance & Complaints Desk (PACD).',
   charterServiceGuide: "Gabay sa Serbisyo ng Citizen's Charter",
@@ -397,7 +397,7 @@ export const fil: typeof en = {
   pageNotFoundDesc:
     'Ang pahina o dokumento ng serbisyo na inyong hinahanap ay maaaring inilipat, pinalitan ng pangalan, o hindi available sa direktoryo.',
   backToHome: 'Bumalik sa Tahanan',
-  browse11Services: 'Tingnan ang 11 Serbisyo',
+  browse11Services: 'Tingnan ang 12 Serbisyo',
   somethingWentWrong: 'May naganap na problema',
   errorDesc:
     'May hindi inaasahang problema habang kinakarga ang pahinang ito. Pakisubukang muli o bumalik sa homepage.',

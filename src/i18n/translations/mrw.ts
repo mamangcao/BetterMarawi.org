@@ -215,7 +215,7 @@ export const mrw: typeof en = {
   // TODO(mrw-review): needs fluent reviewer
   servicesAndChartersSubheading: "Requirements, fees, and steps from each Citizen's Charter.",
   // TODO(mrw-review): needs fluent reviewer
-  viewAll11Services: 'View All 11 Services',
+  viewAll11Services: 'View All 12 Services',
   // TODO(mrw-review): needs fluent reviewer
   viewCharterAndRequirements: "View Citizen's Charter & Requirements",
 
@@ -404,7 +404,7 @@ export const mrw: typeof en = {
   responseWindow: 'Response within 2 business days',
 
   // TODO(mrw-review): needs fluent reviewer
-  filterServicesPlaceholder: 'Filter 11 services by keyword or office...',
+  filterServicesPlaceholder: 'Filter services by keyword or office...',
   // TODO(mrw-review): needs fluent reviewer
   requirementsCount: 'Requirements',
   // TODO(mrw-review): needs fluent reviewer
@@ -442,7 +442,7 @@ export const mrw: typeof en = {
   faqSubheading:
     'Structured with Schema.org FAQPage JSON-LD for instant citizen answers',
   // TODO(mrw-review): needs fluent reviewer
-  allServicesTitle: 'All 11 Marawi Citizen Services',
+  allServicesTitle: 'All 12 Marawi Citizen Services',
   // TODO(mrw-review): needs fluent reviewer
   antiRedTapeNotice:
     'No fixer allowed. Official receipts are issued strictly by the Office of the City Treasurer. Report any irregularity to the Public Assistance & Complaints Desk (PACD).',
@@ -584,7 +584,7 @@ export const mrw: typeof en = {
   // TODO(mrw-review): needs fluent reviewer
   backToHome: 'Back to Home',
   // TODO(mrw-review): needs fluent reviewer
-  browse11Services: 'Browse 11 Services',
+  browse11Services: 'Browse 12 Services',
   // TODO(mrw-review): needs fluent reviewer
   somethingWentWrong: 'Something went wrong',
   // TODO(mrw-review): needs fluent reviewer

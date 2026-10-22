@@ -151,7 +151,7 @@ export const en = {
   } as Record<string, { title: string; description: string }>,
   servicesAndChartersHeading: "Services & Citizen's Charters",
   servicesAndChartersSubheading: "Requirements, fees, and steps from each Citizen's Charter.",
-  viewAll11Services: 'View All 11 Services',
+  viewAll11Services: 'View All 12 Services',
   viewCharterAndRequirements: "View Citizen's Charter & Requirements",
 
   // City at a Glance & PhilHealth YAKAP
@@ -291,7 +291,7 @@ export const en = {
   responseWindow: 'Response within 2 business days',
 
   // Services Directory & Details
-  filterServicesPlaceholder: 'Filter 11 services by keyword or office...',
+  filterServicesPlaceholder: 'Filter services by keyword or office...',
   requirementsCount: 'Requirements',
   stepsCount: 'Steps',
   docRequirementsHeading: '1. Documentary Requirements Checklist',
@@ -311,7 +311,7 @@ export const en = {
   faqHeading: '4. Frequently Asked Questions (FAQs)',
   faqSubheading:
     'Structured with Schema.org FAQPage JSON-LD for instant citizen answers',
-  allServicesTitle: 'All 11 Marawi Citizen Services',
+  allServicesTitle: 'All 12 Marawi Citizen Services',
   antiRedTapeNotice:
     'No fixer allowed. Official receipts are issued strictly by the Office of the City Treasurer. Report any irregularity to the Public Assistance & Complaints Desk (PACD).',
   charterServiceGuide: "Citizen's Charter Service Guide",
@@ -395,7 +395,7 @@ export const en = {
   pageNotFoundDesc:
     'The page or service document you are looking for may have been moved, renamed, or is unavailable in the directory.',
   backToHome: 'Back to Home',
-  browse11Services: 'Browse 11 Services',
+  browse11Services: 'Browse 12 Services',
   somethingWentWrong: 'Something went wrong',
   errorDesc:
     'An unexpected error occurred while loading this page. Please try again or return to the homepage.',

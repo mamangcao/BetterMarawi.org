@@ -25,7 +25,7 @@ export const APP_ROUTES: RouteItem[] = [
     path: '/services',
     label: 'Services Directory',
     category: 'services',
-    description: 'Comprehensive directory of 11 local government citizen services and charters.',
+    description: 'Comprehensive directory of 12 local government citizen services and charters.',
     priority: 0.9,
     changefreq: 'weekly',
     breadcrumbs: [
@@ -33,7 +33,7 @@ export const APP_ROUTES: RouteItem[] = [
       { name: 'Services', url: `${BASE_URL}/services` },
     ],
   },
-  // 11 Services
+  // 12 Services (11 charter services + Certificates & Clearances)
   {
     path: '/services/health-services',
     label: 'Health Services',
@@ -162,6 +162,19 @@ export const APP_ROUTES: RouteItem[] = [
       { name: 'Home', url: BASE_URL },
       { name: 'Services', url: `${BASE_URL}/services` },
       { name: 'Housing & Land Use', url: `${BASE_URL}/services/housing-and-land-use` },
+    ],
+  },
+  {
+    path: '/services/certificates',
+    label: 'Certificates & Clearances',
+    category: 'services',
+    description: 'Birth, marriage, and death certificates, CENOMAR, barangay, police, and NBI clearances, cedula, and more.',
+    priority: 0.9,
+    changefreq: 'weekly',
+    breadcrumbs: [
+      { name: 'Home', url: BASE_URL },
+      { name: 'Services', url: `${BASE_URL}/services` },
+      { name: 'Certificates & Clearances', url: `${BASE_URL}/services/certificates` },
     ],
   },
   {

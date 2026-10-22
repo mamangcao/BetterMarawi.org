@@ -21,6 +21,13 @@ export function ServiceSidebar({ currentSlug, email }: ServiceSidebarProps) {
             {t.allServicesTitle}
           </div>
           <nav aria-label="Services Sibling Navigation" className="space-y-1">
+            <Link
+              href="/services/certificates"
+              className="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-colors text-mist-700 hover:bg-mist-100"
+            >
+              <span className="truncate">Certificates &amp; Clearances</span>
+              <span className="font-mono-tabular opacity-75 ml-2 shrink-0">PSA / LCR</span>
+            </Link>
             {SERVICES_DATA.map((item) => {
               const active = item.slug === currentSlug;
               return (
