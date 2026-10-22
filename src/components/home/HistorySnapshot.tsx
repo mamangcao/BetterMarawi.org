@@ -1,7 +1,5 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
-import { Mountain } from 'lucide-react';
 import { useTranslation } from '@/i18n';
 import { cn } from '@/lib/utils';
 
@@ -181,25 +179,6 @@ export function HistorySnapshot() {
             );
           })}
         </ol>
-
-        {/* Elevation Highlight Card */}
-        <div className="mt-10 bg-stone-900 text-stone-100 rounded-xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div className="flex items-start gap-4">
-            <div className="p-3 rounded-xl bg-emerald-900/80 text-accent shrink-0">
-              <Mountain className="w-6 h-6" />
-            </div>
-            <div>
-              <div className="text-xl font-bold text-white font-mono-tabular">{t.elevationHighlightTitle}</div>
-              <p className="text-sm text-stone-300 mt-1 leading-relaxed max-w-3xl">{t.elevationHighlightDesc}</p>
-            </div>
-          </div>
-          <Link
-            href="/statistics/city-profile"
-            className="px-4 py-2.5 rounded-lg bg-white text-stone-900 text-xs font-semibold hover:bg-stone-100 transition-colors whitespace-nowrap shrink-0"
-          >
-            {t.exploreGeographyProfile}
-          </Link>
-        </div>
       </div>
     </section>
   );

@@ -342,11 +342,6 @@ export const mrw: typeof en = {
   historySectionSubheading:
     'From the ancestral seat of Pat a Pangampong ko Ranao to the modern Islamic City of Marawi.',
   // TODO(mrw-review): needs fluent reviewer
-  elevationHighlightTitle: '700m Elevation',
-  // TODO(mrw-review): needs fluent reviewer
-  elevationHighlightDesc:
-    'Marawi sits at ~700 meters above sea level at coordinates 8°00\'N, 124°17\'E overlooking Lake Lanao, giving it a cool highland climate ("Summer Capital of the South").',
-  // TODO(mrw-review): needs fluent reviewer
   exploreGeographyProfile: 'Explore Geography Profile',
 
   // TODO(mrw-review): needs fluent reviewer

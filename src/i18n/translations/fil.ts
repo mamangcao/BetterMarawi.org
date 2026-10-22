@@ -245,9 +245,6 @@ export const fil: typeof en = {
   historyNow: 'Ngayon',
   historySectionSubheading:
     'Mula sa sinaunang luklukan ng Pat a Pangampong ko Ranao hanggang sa modernong Islamic City of Marawi.',
-  elevationHighlightTitle: 'Taas na 700m Mula Antas ng Dagat',
-  elevationHighlightDesc:
-    'Nasa humigit-kumulang 700 metro mula antas ng dagat ang Marawi sa koordinatong 8°00\'N, 124°17\'E kung saan tanaw ang Lawa ng Lanao, na nagbibigay rito ng malamig na klima ("Summer Capital ng Timog").',
   exploreGeographyProfile: 'Tuklasin ang Heograpiya ng Lungsod',
 
   // Leadership & City Hall Info
