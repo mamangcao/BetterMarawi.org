@@ -363,6 +363,12 @@ export const mrw: typeof en = {
   cityHallAssistance: 'Official Marawi City Hall Assistance & Information',
   // TODO(mrw-review): needs fluent reviewer
   viewAllDepartments: 'View All Departments',
+  // TODO(mrw-review): needs fluent reviewer
+  installPromptText: 'Install BetterMarawi.org for quick access to services.',
+  installButton: 'Install',
+  installDismiss: 'Dismiss',
+  installIosHint: 'On iPhone or iPad: tap Share, then “Add to Home Screen”.',
+  installGotIt: 'Got it',
   // TODO(mrw-review): needs fluent reviewer. Leadership & Contact keys below fall back to English.
   leadershipContactHeading: 'City Leadership & Contact',
   // TODO(mrw-review): needs fluent reviewer

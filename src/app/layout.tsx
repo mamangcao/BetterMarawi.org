@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Plus_Jakarta_Sans, Fraunces, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
-import { Header, Footer } from '@/components/layout';
+import { Header, Footer, InstallPrompt } from '@/components/layout';
 import { LanguageProvider } from '@/i18n';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { buildGovernmentOrganizationSchema } from '@/lib/jsonld';
@@ -38,6 +38,12 @@ export const metadata: Metadata = {
   description: SITE_CONFIG.description,
   alternates: {
     canonical: SITE_CONFIG.url,
+  },
+  // Installed app on iPhone/iPad (Add to Home Screen)
+  appleWebApp: {
+    capable: true,
+    title: 'BetterMarawi',
+    statusBarStyle: 'default',
   },
   openGraph: {
     title: 'BetterMarawi.org — Islamic City of Marawi Citizen Services & Transparency Portal',
@@ -82,6 +88,7 @@ export default function RootLayout({
           <Header />
           <div className="flex-1">{children}</div>
           <Footer />
+          <InstallPrompt />
           <JsonLd data={buildGovernmentOrganizationSchema()} />
         </LanguageProvider>
       </body>

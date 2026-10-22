@@ -8,3 +8,4 @@ export * from './QuickContacts';
 export * from './FxTicker';
 export * from './WeatherTicker';
 
+export * from './InstallPrompt';
