@@ -40,36 +40,21 @@ This document tracks verification for public civic data displayed on BetterMaraw
 | Hon. Majul Usman Gandamra (Name) | `Hon. Majul Usman Gandamra` | `src/data/officials.ts` | Site owner (local knowledge, current officeholders); photos from the official Facebook group photo | Hon. Majul Usman Gandamra | Site owner | 2026-10-22 | Verified by site owner (not yet checked against COMELEC or DILG records) |
 | Hon. Majul Usman Gandamra (Position) | `City Vice Mayor` | `src/data/officials.ts` | Site owner (local knowledge, current officeholders); photos from the official Facebook group photo | City Vice Mayor · Presiding Officer, Sangguniang Panlungsod | Site owner | 2026-10-22 | Verified by site owner (not yet checked against COMELEC or DILG records) |
 | Hon. Majul Usman Gandamra (Term) | `2025–2028` | `src/data/officials.ts` | Site owner (local knowledge, current officeholders); photos from the official Facebook group photo | 2025–2028 | Site owner | 2026-10-22 | Verified by site owner (not yet checked against COMELEC or DILG records) |
-| Hon. Abdani T. Alonto (Name) | `Hon. Abdani T. Alonto` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Abdani T. Alonto (Position) | `Sangguniang Panlungsod Member` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Abdani T. Alonto (Term) | `2025–2028` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Nasser P. Balindong (Name) | `Hon. Nasser P. Balindong` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Nasser P. Balindong (Position) | `Sangguniang Panlungsod Member` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Nasser P. Balindong (Term) | `2025–2028` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Soraya M. Lucman (Name) | `Hon. Soraya M. Lucman` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Soraya M. Lucman (Position) | `Sangguniang Panlungsod Member` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Soraya M. Lucman (Term) | `2025–2028` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Kamarudin D. Pacasum (Name) | `Hon. Kamarudin D. Pacasum` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Kamarudin D. Pacasum (Position) | `Sangguniang Panlungsod Member` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Kamarudin D. Pacasum (Term) | `2025–2028` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Jamilah R. Maruhom (Name) | `Hon. Jamilah R. Maruhom` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Jamilah R. Maruhom (Position) | `Sangguniang Panlungsod Member` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Jamilah R. Maruhom (Term) | `2025–2028` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Arafat G. Mindalano (Name) | `Hon. Arafat G. Mindalano` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Arafat G. Mindalano (Position) | `Sangguniang Panlungsod Member` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Arafat G. Mindalano (Term) | `2025–2028` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Haroun R. Disomimba (Name) | `Hon. Haroun R. Disomimba` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Haroun R. Disomimba (Position) | `Sangguniang Panlungsod Member` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Haroun R. Disomimba (Term) | `2025–2028` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Farhana S. Guro (Name) | `Hon. Farhana S. Guro` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Farhana S. Guro (Position) | `Sangguniang Panlungsod Member` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Farhana S. Guro (Term) | `2025–2028` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Motalib A. Sarip (Name) | `Hon. Motalib A. Sarip` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Motalib A. Sarip (Position) | `Liga ng mga Barangay President (Ex-Officio)` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Motalib A. Sarip (Term) | `2025–2028` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Rayyan K. Abinal (Name) | `Hon. Rayyan K. Abinal` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Rayyan K. Abinal (Position) | `SK Federation President (Ex-Officio)` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Rayyan K. Abinal (Term) | `2025–2028` | `src/data/officials.ts` | | | | | Unverified |
+| Hon. Mohammad Shaquille L. Gandamra (City Councilor) | `Hon. Mohammad Shaquille L. Gandamra` | `src/data/officials.ts` | Rappler 2025 results (COMELEC transmission data) and Wikipedia, Marawi | Elected City Councilor, 2025–2028 | Claude Code | 2026-10-22 | Sourced (confirm against COMELEC canvass) |
+| Hon. Sajid D. Munder (City Councilor) | `Hon. Sajid D. Munder` | `src/data/officials.ts` | Rappler 2025 results (COMELEC transmission data) and Wikipedia, Marawi | Elected City Councilor, 2025–2028 | Claude Code | 2026-10-22 | Sourced (confirm against COMELEC canvass) |
+| Hon. Lailyn M. Dimal (City Councilor) | `Hon. Lailyn M. Dimal` | `src/data/officials.ts` | Rappler 2025 results (COMELEC transmission data) and Wikipedia, Marawi | Elected City Councilor, 2025–2028 | Claude Code | 2026-10-22 | Sourced (confirm against COMELEC canvass) |
+| Hon. Borgie B. Dalidig (City Councilor) | `Hon. Borgie B. Dalidig` | `src/data/officials.ts` | Rappler 2025 results (COMELEC transmission data) and Wikipedia, Marawi | Elected City Councilor, 2025–2028 | Claude Code | 2026-10-22 | Sourced (confirm against COMELEC canvass) |
+| Hon. Sultan Jawar R. Domato (City Councilor) | `Hon. Sultan Jawar R. Domato` | `src/data/officials.ts` | Rappler 2025 results (COMELEC transmission data) and Wikipedia, Marawi | Elected City Councilor, 2025–2028 | Claude Code | 2026-10-22 | Sourced (confirm against COMELEC canvass) |
+| Hon. Nasrollah M. Basman (City Councilor) | `Hon. Nasrollah M. Basman` | `src/data/officials.ts` | Rappler 2025 results (COMELEC transmission data) and Wikipedia, Marawi | Elected City Councilor, 2025–2028 | Claude Code | 2026-10-22 | Sourced (confirm against COMELEC canvass) |
+| Hon. Sihawi A. Lala, Sr. (City Councilor) | `Hon. Sihawi A. Lala, Sr.` | `src/data/officials.ts` | Rappler 2025 results (COMELEC transmission data) and Wikipedia, Marawi | Elected City Councilor, 2025–2028 | Claude Code | 2026-10-22 | Sourced (confirm against COMELEC canvass) |
+| Hon. Mohammad Khalid M. Salic (City Councilor) | `Hon. Mohammad Khalid M. Salic` | `src/data/officials.ts` | Rappler 2025 results (COMELEC transmission data) and Wikipedia, Marawi | Elected City Councilor, 2025–2028 | Claude Code | 2026-10-22 | Sourced (confirm against COMELEC canvass) |
+| Hon. Ozamah D. Macabangon (City Councilor) | `Hon. Ozamah D. Macabangon` | `src/data/officials.ts` | Rappler 2025 results (COMELEC transmission data) and Wikipedia, Marawi | Elected City Councilor, 2025–2028 | Claude Code | 2026-10-22 | Sourced (confirm against COMELEC canvass) |
+| Hon. Jackie S. Mangondato (City Councilor) | `Hon. Jackie S. Mangondato` | `src/data/officials.ts` | Rappler 2025 results (COMELEC transmission data) and Wikipedia, Marawi | Elected City Councilor, 2025–2028 | Claude Code | 2026-10-22 | Sourced (confirm against COMELEC canvass) |
+| Liga ng mga Barangay President (Ex-Officio) | `To be confirmed` (name hidden) | `src/data/officials.ts` | | | | | Unverified, no source found. Seat changes after the November 2, 2026 barangay elections |
+| SK Federation President (Ex-Officio) | `To be confirmed` (name hidden) | `src/data/officials.ts` | | | | | Unverified, no source found. Seat changes after the November 2, 2026 SK elections |
+
+
+> **Note (2026-10-22):** The councilor and ex-officio names in the original data did not match the 2025 election results and had no source (one, "Abdani T. Alonto", ran but placed 13th). They were replaced with the 10 winners listed by Rappler and Wikipedia. Rank 10 (Jackie S. Mangondato) led rank 11 by about 98 votes in Rappler's partial count, so confirm it against the COMELEC canvass.
 
 ---
 
