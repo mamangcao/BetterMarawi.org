@@ -3,11 +3,14 @@
 // ordinance and are not yet published online, so they are marked as such instead of guessed.
 // Processing times stay null until an office publishes them (e.g. in its Citizen's Charter).
 
-export interface CertSource {
-  id: string;
-  label: string;
-  url: string;
-}
+import {
+  LEGAL_LIMIT_SIMPLE,
+  type Transaction,
+  type TxCategory,
+  type TxDirectoryData,
+  type TxOffice,
+  type TxSource,
+} from '@/types/transactions';
 
 export const CERT_SOURCES = {
   psaOutlet: {
@@ -42,53 +45,9 @@ export const CERT_SOURCES = {
     label: 'PD 1083, Code of Muslim Personal Laws (Art. 81)',
     url: 'https://lawphil.net/statutes/presdecs/pd1977/pd_1083_1977.html',
   },
-} satisfies Record<string, CertSource>;
+} satisfies Record<string, TxSource>;
 
-export type CertSourceId = keyof typeof CERT_SOURCES;
-
-/** Where a fee comes from */
-export type FeeBasis = 'law' | 'agency' | 'city' | 'barangay';
-
-export interface Office {
-  id: string;
-  name: string;
-  /** Short name for buttons */
-  short: string;
-  description: string;
-  /** Location only when a source confirms it */
-  location?: string;
-  online?: { label: string; url: string };
-  /** General steps for getting a document from this office */
-  steps: string[];
-  /** What to bring for most requests at this office */
-  bring: string[];
-  notes?: string[];
-  sources: CertSourceId[];
-}
-
-export interface Certificate {
-  id: string;
-  name: string;
-  description: string;
-  officeId: string;
-  category: CertCategory;
-  fee: string;
-  feeBasis: FeeBasis;
-  /** Actual duration once the office publishes it; null until then */
-  processing: string | null;
-  /** A simple request (e.g. a copy or a certificate). The RA 11032 limit of 3 working days applies. */
-  simple?: boolean;
-  /** Free once for first-time jobseekers under RA 11261 */
-  freeForFirstJob?: boolean;
-  /** Extra things to bring for this certificate */
-  bring?: string[];
-  /** Link elsewhere on the site for more detail */
-  more?: { label: string; href: string };
-}
-
-export type CertCategory = 'civil' | 'psa' | 'barangay' | 'clearance' | 'city';
-
-export const CERT_CATEGORIES: { id: CertCategory; title: string; description: string }[] = [
+export const CERT_CATEGORIES: TxCategory[] = [
   { id: 'psa', title: 'PSA civil registry documents', description: 'Official PSA copies, often required for passports, school, jobs, and benefits.' },
   { id: 'civil', title: 'Local civil registry', description: 'Registration, local certified copies, and corrections of birth, marriage, and death records.' },
   { id: 'barangay', title: 'Barangay certificates', description: 'Issued at your own barangay hall.' },
@@ -96,11 +55,10 @@ export const CERT_CATEGORIES: { id: CertCategory; title: string; description: st
   { id: 'city', title: 'City Hall certificates', description: 'Tax, property, and health certificates from city offices.' },
 ];
 
-export const OFFICES: Office[] = [
+export const OFFICES: TxOffice[] = [
   {
     id: 'psa',
     name: 'PSA Civil Registry System (CRS) Marawi City Outlet',
-    short: 'PSA CRS Marawi',
     description: 'Philippine Statistics Authority outlet in Marawi, opened on February 26, 2025, for PSA copies of civil registry documents.',
     location: 'Ground Floor, PSA Lanao del Sur Provincial Office, Rima Building, Brgy. Datu Saber, Marawi City',
     online: { label: 'Order online (PSA Serbilis, with delivery)', url: 'https://psaserbilis.com.ph/' },
@@ -117,7 +75,6 @@ export const OFFICES: Office[] = [
   {
     id: 'lcr',
     name: 'City Civil Registrar’s Office',
-    short: 'City Civil Registrar',
     description: 'Registers births, marriages, and deaths in Marawi, issues local certified copies, and handles corrections of records.',
     steps: [
       'Go to the City Civil Registrar’s Office with your ID and the details of the record.',
@@ -131,7 +88,6 @@ export const OFFICES: Office[] = [
   {
     id: 'shariah',
     name: 'Shari’a Circuit Registrar',
-    short: 'Shari’a Registrar',
     description: 'Registers Muslim marriages, divorces, revocations of divorce, and conversions to Islam under the Code of Muslim Personal Laws.',
     steps: [
       'Bring the marriage, divorce, or conversion documents to the Shari’a Circuit Registrar serving Marawi.',
@@ -144,7 +100,6 @@ export const OFFICES: Office[] = [
   {
     id: 'barangay',
     name: 'Barangay Hall (Office of the Punong Barangay)',
-    short: 'Barangay Hall',
     description: 'Each of Marawi’s 101 barangays issues certificates to its own residents.',
     steps: [
       'Go to the barangay hall of the barangay where you live.',
@@ -158,7 +113,6 @@ export const OFFICES: Office[] = [
   {
     id: 'pnp',
     name: 'PNP National Police Clearance System',
-    short: 'PNP Police Clearance',
     description: 'Police clearances are applied for online, then completed at a police station for photo and fingerprints.',
     online: { label: 'Apply at pnpclearance.ph', url: 'https://pnpclearance.ph/' },
     steps: [
@@ -174,7 +128,6 @@ export const OFFICES: Office[] = [
   {
     id: 'nbi',
     name: 'NBI Clearance',
-    short: 'NBI Clearance',
     description: 'National Bureau of Investigation clearances are applied for online, with a scheduled visit to an NBI clearance site.',
     online: { label: 'Apply at clearance.nbi.gov.ph', url: 'https://clearance.nbi.gov.ph/' },
     steps: [
@@ -190,7 +143,6 @@ export const OFFICES: Office[] = [
   {
     id: 'treasurer',
     name: 'City Treasurer’s Office',
-    short: 'City Treasurer',
     description: 'Collects city taxes and fees and issues tax-related certificates.',
     steps: [
       'Go to the City Treasurer’s Office at City Hall.',
@@ -203,7 +155,6 @@ export const OFFICES: Office[] = [
   {
     id: 'assessor',
     name: 'City Assessor’s Office',
-    short: 'City Assessor',
     description: 'Keeps real property records and issues property-related certificates.',
     steps: [
       'Go to the City Assessor’s Office at City Hall.',
@@ -217,7 +168,6 @@ export const OFFICES: Office[] = [
   {
     id: 'cho',
     name: 'City Health Office',
-    short: 'City Health Office',
     description: 'Issues health certificates, including those required for food handlers and business permits.',
     steps: [
       'Go to the City Health Office.',
@@ -232,25 +182,25 @@ export const OFFICES: Office[] = [
 const CITY_FEE = 'Set by city ordinance';
 const BRGY_FEE = 'Set by barangay ordinance';
 
-export const CERTIFICATES: Certificate[] = [
+export const CERTIFICATES: Transaction[] = [
   // PSA
-  { id: 'psa-birth', name: 'PSA Birth Certificate', description: 'Official PSA copy of a birth record.', officeId: 'psa', category: 'psa', fee: '₱155 per copy at the outlet (₱330 online with delivery)', feeBasis: 'agency', processing: null, simple: true, freeForFirstJob: true },
-  { id: 'psa-marriage', name: 'PSA Marriage Certificate', description: 'Official PSA copy of a marriage record.', officeId: 'psa', category: 'psa', fee: '₱155 per copy at the outlet (₱330 online with delivery)', feeBasis: 'agency', processing: null, simple: true, freeForFirstJob: true },
-  { id: 'psa-death', name: 'PSA Death Certificate', description: 'Official PSA copy of a death record.', officeId: 'psa', category: 'psa', fee: '₱155 per copy at the outlet (₱330 online with delivery)', feeBasis: 'agency', processing: null, simple: true },
-  { id: 'psa-cenomar', name: 'CENOMAR (Certificate of No Marriage)', description: 'Shows whether a person has a marriage on record. Often needed before marrying.', officeId: 'psa', category: 'psa', fee: '₱210 per copy at the outlet (₱430 online with delivery)', feeBasis: 'agency', processing: null, simple: true },
+  { id: 'psa-birth', name: 'PSA Birth Certificate', description: 'Official PSA copy of a birth record.', officeId: 'psa', category: 'psa', fee: '₱155 per copy at the outlet (₱330 online with delivery)', feeBasis: 'agency', processing: null, legalLimit: LEGAL_LIMIT_SIMPLE, freeForFirstJob: true },
+  { id: 'psa-marriage', name: 'PSA Marriage Certificate', description: 'Official PSA copy of a marriage record.', officeId: 'psa', category: 'psa', fee: '₱155 per copy at the outlet (₱330 online with delivery)', feeBasis: 'agency', processing: null, legalLimit: LEGAL_LIMIT_SIMPLE, freeForFirstJob: true },
+  { id: 'psa-death', name: 'PSA Death Certificate', description: 'Official PSA copy of a death record.', officeId: 'psa', category: 'psa', fee: '₱155 per copy at the outlet (₱330 online with delivery)', feeBasis: 'agency', processing: null, legalLimit: LEGAL_LIMIT_SIMPLE },
+  { id: 'psa-cenomar', name: 'CENOMAR (Certificate of No Marriage)', description: 'Shows whether a person has a marriage on record. Often needed before marrying.', officeId: 'psa', category: 'psa', fee: '₱210 per copy at the outlet (₱430 online with delivery)', feeBasis: 'agency', processing: null, legalLimit: LEGAL_LIMIT_SIMPLE },
 
   // Local civil registry
-  { id: 'lcr-copy', name: 'Certified Copy of a Local Birth, Marriage, or Death Record', description: 'A copy from the city’s own registry, for records registered in Marawi.', officeId: 'lcr', category: 'civil', fee: CITY_FEE, feeBasis: 'city', processing: null, simple: true },
+  { id: 'lcr-copy', name: 'Certified Copy of a Local Birth, Marriage, or Death Record', description: 'A copy from the city’s own registry, for records registered in Marawi.', officeId: 'lcr', category: 'civil', fee: CITY_FEE, feeBasis: 'city', processing: null, legalLimit: LEGAL_LIMIT_SIMPLE },
   { id: 'lcr-registration', name: 'Registration of Birth, Marriage, or Death', description: 'Recording a new birth, marriage, or death that happened in Marawi.', officeId: 'lcr', category: 'civil', fee: CITY_FEE, feeBasis: 'city', processing: null },
   { id: 'lcr-late', name: 'Delayed Registration of Birth', description: 'For births that were not registered on time.', officeId: 'lcr', category: 'civil', fee: CITY_FEE, feeBasis: 'city', processing: null, bring: ['Supporting documents showing the birth details (e.g. baptismal, school, or medical records)'] },
   { id: 'lcr-correction', name: 'Correction of a Civil Registry Entry', description: 'Fix a clerical error, change a first name, or correct the day or month of birth or sex, without going to court.', officeId: 'lcr', category: 'civil', fee: '₱1,000 for a clerical error; ₱3,000 for a change of first name or a correction of birth date or sex. Newspaper publication, when required, costs extra.', feeBasis: 'law', processing: null, bring: ['The document with the error', 'At least two public or private documents showing the correct entry'] },
   { id: 'shariah-registration', name: 'Registration of Muslim Marriage, Divorce, or Conversion', description: 'Recording of Muslim marriages, divorces, revocations, and conversions under PD 1083.', officeId: 'shariah', category: 'civil', fee: 'Set by the Shari’a court', feeBasis: 'agency', processing: null },
 
   // Barangay
-  { id: 'brgy-clearance', name: 'Barangay Clearance', description: 'Certifies that you are a resident in good standing. Often required for jobs and permits.', officeId: 'barangay', category: 'barangay', fee: BRGY_FEE, feeBasis: 'barangay', processing: null, simple: true, freeForFirstJob: true },
-  { id: 'brgy-residency', name: 'Certificate of Residency', description: 'Certifies that you live in the barangay.', officeId: 'barangay', category: 'barangay', fee: BRGY_FEE, feeBasis: 'barangay', processing: null, simple: true },
-  { id: 'brgy-indigency', name: 'Certificate of Indigency', description: 'Certifies low-income status, for medical, burial, legal, or financial assistance.', officeId: 'barangay', category: 'barangay', fee: BRGY_FEE, feeBasis: 'barangay', processing: null, simple: true },
-  { id: 'brgy-ftjs', name: 'First Time Jobseeker Certification', description: 'Proof that you are a first-time jobseeker, so you can get the free documents under RA 11261.', officeId: 'barangay', category: 'barangay', fee: 'Free', feeBasis: 'law', processing: null, simple: true },
+  { id: 'brgy-clearance', name: 'Barangay Clearance', description: 'Certifies that you are a resident in good standing. Often required for jobs and permits.', officeId: 'barangay', category: 'barangay', fee: BRGY_FEE, feeBasis: 'barangay', processing: null, legalLimit: LEGAL_LIMIT_SIMPLE, freeForFirstJob: true },
+  { id: 'brgy-residency', name: 'Certificate of Residency', description: 'Certifies that you live in the barangay.', officeId: 'barangay', category: 'barangay', fee: BRGY_FEE, feeBasis: 'barangay', processing: null, legalLimit: LEGAL_LIMIT_SIMPLE },
+  { id: 'brgy-indigency', name: 'Certificate of Indigency', description: 'Certifies low-income status, for medical, burial, legal, or financial assistance.', officeId: 'barangay', category: 'barangay', fee: BRGY_FEE, feeBasis: 'barangay', processing: null, legalLimit: LEGAL_LIMIT_SIMPLE },
+  { id: 'brgy-ftjs', name: 'First Time Jobseeker Certification', description: 'Proof that you are a first-time jobseeker, so you can get the free documents under RA 11261.', officeId: 'barangay', category: 'barangay', fee: 'Free', feeBasis: 'law', processing: null, legalLimit: LEGAL_LIMIT_SIMPLE },
   { id: 'brgy-business', name: 'Barangay Business Clearance', description: 'For businesses. Applied for and issued at the city’s Business One-Stop Shop, not at the barangay hall.', officeId: 'barangay', category: 'barangay', fee: BRGY_FEE, feeBasis: 'barangay', processing: null, more: { label: 'See business services', href: '/services/business-and-livelihood#barangay-clearance' } },
 
   // Clearances
@@ -258,12 +208,17 @@ export const CERTIFICATES: Certificate[] = [
   { id: 'nbi', name: 'NBI Clearance', description: 'National Bureau of Investigation clearance, often required for employment abroad and government jobs.', officeId: 'nbi', category: 'clearance', fee: '₱155 (₱130 clearance fee and ₱25 e-payment fee)', feeBasis: 'agency', processing: null, freeForFirstJob: true },
 
   // City Hall
-  { id: 'cedula', name: 'Community Tax Certificate (Cedula)', description: 'Proof of community tax payment, required for many transactions.', officeId: 'treasurer', category: 'city', fee: 'Individuals: ₱5, plus ₱1 for every ₱1,000 of income (up to ₱5,000 more)', feeBasis: 'law', processing: null, simple: true, more: { label: 'Full cedula rates', href: '/services/business-and-livelihood#cedula' } },
-  { id: 'tax-clearance', name: 'Tax Clearance', description: 'Certifies that you have no unpaid city taxes.', officeId: 'treasurer', category: 'city', fee: CITY_FEE, feeBasis: 'city', processing: null, simple: true },
-  { id: 'tax-declaration', name: 'Certified Copy of Tax Declaration', description: 'Official copy of a property’s tax declaration.', officeId: 'assessor', category: 'city', fee: CITY_FEE, feeBasis: 'city', processing: null, simple: true },
-  { id: 'no-property', name: 'Certificate of No Property (No Landholding)', description: 'Certifies that a person has no real property declared in Marawi.', officeId: 'assessor', category: 'city', fee: CITY_FEE, feeBasis: 'city', processing: null, simple: true },
+  { id: 'cedula', name: 'Community Tax Certificate (Cedula)', description: 'Proof of community tax payment, required for many transactions.', officeId: 'treasurer', category: 'city', fee: 'Individuals: ₱5, plus ₱1 for every ₱1,000 of income (up to ₱5,000 more)', feeBasis: 'law', processing: null, legalLimit: LEGAL_LIMIT_SIMPLE, more: { label: 'Full cedula rates', href: '/services/business-and-livelihood#cedula' } },
+  { id: 'tax-clearance', name: 'Tax Clearance', description: 'Certifies that you have no unpaid city taxes.', officeId: 'treasurer', category: 'city', fee: CITY_FEE, feeBasis: 'city', processing: null, legalLimit: LEGAL_LIMIT_SIMPLE },
+  { id: 'tax-declaration', name: 'Certified Copy of Tax Declaration', description: 'Official copy of a property’s tax declaration.', officeId: 'assessor', category: 'city', fee: CITY_FEE, feeBasis: 'city', processing: null, legalLimit: LEGAL_LIMIT_SIMPLE },
+  { id: 'no-property', name: 'Certificate of No Property (No Landholding)', description: 'Certifies that a person has no real property declared in Marawi.', officeId: 'assessor', category: 'city', fee: CITY_FEE, feeBasis: 'city', processing: null, legalLimit: LEGAL_LIMIT_SIMPLE },
   { id: 'health-cert', name: 'Health Certificate', description: 'For food handlers and other workers whose business permit requires it.', officeId: 'cho', category: 'city', fee: CITY_FEE, feeBasis: 'city', processing: null },
 ];
 
-/** Processing-time ceiling for simple transactions at government offices (RA 11032 Sec. 9) */
-export const LEGAL_LIMIT_SIMPLE = 'at most 3 working days after a complete request';
+/** Everything the transactions directory needs for this page */
+export const CERTIFICATES_DIRECTORY: TxDirectoryData = {
+  categories: CERT_CATEGORIES,
+  offices: OFFICES,
+  items: CERTIFICATES,
+  sources: CERT_SOURCES,
+};
