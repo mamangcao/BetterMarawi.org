@@ -12,7 +12,6 @@ import { ServiceFAQ } from '@/components/services/ServiceFAQ';
 import { ServiceSidebar } from '@/components/services/ServiceSidebar';
 import { HealthFacilities } from '@/components/services/HealthFacilities';
 import { HealthPrograms } from '@/components/services/HealthPrograms';
-import { MARAWI_HOSPITALS, MARAWI_INFIRMARIES, BARANGAY_HEALTH } from '@/data/healthFacilities';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { formatWithPeso, UnverifiedNotice } from '@/components/ui';
 import { JsonLd } from '@/components/seo/JsonLd';
@@ -84,16 +83,10 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 {service.heroSummary}
               </p>
               <UnverifiedNotice items={[service]} className='mt-6' />
-{/* Key Highlights */}
+{/* Key Highlights (hidden on Health Services: its facility summary below carries the counts) */}
+              {service.slug !== 'health-services' && (
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {(service.slug === 'health-services'
-                  ? [
-                      { label: 'Hospitals (PhilHealth-accredited)', value: String(MARAWI_HOSPITALS.length) },
-                      { label: 'Infirmaries', value: String(MARAWI_INFIRMARIES.length) },
-                      { label: 'Barangay health stations & centers', value: String(BARANGAY_HEALTH.stations + BARANGAY_HEALTH.centers) },
-                    ]
-                  : service.highlights
-                ).map((h) => (
+                {service.highlights.map((h) => (
                   <div
                     key={h.label}
                     className="bg-white rounded-xl border border-mist-200/90 p-3.5"
@@ -105,6 +98,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   </div>
                 ))}
               </div>
+              )}
             </div>
 
             {/* Quick Office Contact Card */}
