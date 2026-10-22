@@ -7,7 +7,7 @@ export const SERVICES_DATA: ServicePageData[] = [
     popular: true,
     popularRank: 2,
     shortDescription:
-      'Where to go for free check-ups, vaccines, and medicines, which hospitals (APMC, CHO) are available, and details on health programs in your area.',
+      'Where to go for check-ups, vaccines, and medicines: Marawi’s hospitals, infirmaries, City Health Office, Rural Health Units, and barangay health stations, plus free care under PhilHealth YAKAP.',
     heroSummary:
       'Access primary health care, PhilHealth YAKAP (Konsulta) outpatient benefits, maternal and child immunization, and tertiary medical referrals across the City Health Office (CHO), Rural Health Units, and Amai Pakpak Medical Center (APMC).',
     responsibleOffice: 'City Health Office (CHO) & Amai Pakpak Medical Center Liaison',
@@ -160,7 +160,7 @@ export const SERVICES_DATA: ServicePageData[] = [
     popular: true,
     popularRank: 1,
     shortDescription:
-      "What permits and clearances you need, where to pay taxes or renew Mayor's permits at BPLO, and what Halal trade or livelihood opportunities are offered.",
+      "New and renewed business permits, business tax, cedula, barangay business clearance, and closing a business: fees, deadlines, offices, and how to file online.",
     heroSummary:
       "Streamlined 3-step Electronic Business One-Stop Shop (eBOSS) for new Mayor's Permits, annual business renewals, Padian / public market stall leases, Halal Enterprise Certification facilitation, and Shari'ah-compliant micro-livelihood support.",
     responsibleOffice: 'Business Permits and Licensing Office (BPLO) & City Treasurer Office',

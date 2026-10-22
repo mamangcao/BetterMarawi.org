@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Phone, MapPin, Clock, Stethoscope, Compass } from 'lucide-react';
+import { Stethoscope, Compass } from 'lucide-react';
 import { SERVICES_DATA } from '@/data/services';
 import { TOURISM_CATEGORIES } from '@/data/tourism';
 import { tourismTone } from '@/lib/palette';
@@ -11,6 +11,8 @@ import { FeeSchedule } from '@/components/services/FeeSchedule';
 import { ServiceFAQ } from '@/components/services/ServiceFAQ';
 import { ServiceSidebar } from '@/components/services/ServiceSidebar';
 import { HealthFacilities } from '@/components/services/HealthFacilities';
+import { ServiceOfficesCard } from '@/components/services/ServiceOfficesCard';
+import { getServiceCard } from '@/data/serviceCatalog';
 import { HealthPrograms } from '@/components/services/HealthPrograms';
 import { BusinessServices } from '@/components/services/BusinessServices';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
@@ -105,34 +107,13 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               )}
             </div>
 
-            {/* Quick Office Contact Card */}
-            <div className="bg-white rounded-xl border border-mist-200/90 p-5 lg:w-80 shrink-0 space-y-3">
-              <div className="text-xs font-semibold uppercase tracking-wider text-mist-500">
-                Responsible Office
-              </div>
-              <div className="text-sm font-bold text-mist-900">
-                {service.responsibleOffice}
-              </div>
-              <div className="text-xs text-mist-600 space-y-1.5 pt-2 border-t border-mist-100">
-                <div className="flex items-start gap-2">
-                  <MapPin className="w-3.5 h-3.5 text-brand-800 shrink-0 mt-0.5" />
-                  <span>{service.officeLocation}</span>
-                </div>
-                <div className="flex items-center gap-2 font-mono-tabular">
-                  <Clock className="w-3.5 h-3.5 text-brand-800 shrink-0" />
-                  <span>{service.operatingHours}</span>
-                </div>
-              </div>
-              <div className="pt-2">
-                <a
-                  href={`tel:${service.hotline.replace(/[^0-9]/g, '')}`}
-                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-brand-900 text-white text-xs font-semibold hover:bg-brand-950 transition-colors font-mono-tabular"
-                >
-                  <Phone className="w-3.5 h-3.5" />
-                  Call Hotline: {service.hotline}
-                </a>
-              </div>
-            </div>
+            {/* Responsible offices (every office, from the shared service catalogue) */}
+            <ServiceOfficesCard
+              offices={getServiceCard(service.slug)?.offices ?? [{ name: service.responsibleOffice }]}
+              location={service.officeLocation}
+              hours={service.operatingHours}
+              hotline={service.hotline}
+            />
           </div>
         </div>
       </section>

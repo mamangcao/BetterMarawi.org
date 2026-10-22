@@ -1,10 +1,12 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { Building2, MapPin, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { ServiceFAQ } from '@/components/services/ServiceFAQ';
 import { ServiceSidebar } from '@/components/services/ServiceSidebar';
+import { ServiceOfficesCard } from '@/components/services/ServiceOfficesCard';
+import { getServiceCard } from '@/data/serviceCatalog';
 import { TransactionsDirectory } from '@/components/services/transactions/TransactionsDirectory';
 import { SourcesList } from '@/components/services/transactions/SourcesList';
 import { CERTIFICATES_DIRECTORY, CERTIFICATES_FAQS } from '@/data/certificates';
@@ -60,30 +62,11 @@ export default function CertificatesPage() {
               </div>
             </div>
 
-            {/* Responsible offices card: links open each office's steps below */}
-            <nav
-              aria-label="Responsible offices"
-              className="bg-white rounded-xl border border-mist-200/90 p-5 lg:w-80 shrink-0 space-y-3"
-            >
-              <div className="text-xs font-semibold uppercase tracking-wider text-mist-500">Responsible Offices</div>
-              <ul className="space-y-1.5 text-sm">
-                {offices.map((o) => (
-                  <li key={o.id}>
-                    <a
-                      href={`#office-${o.id}`}
-                      className="flex items-start gap-2 rounded-md px-1 py-0.5 font-semibold text-mist-900 hover:bg-mist-50 hover:text-brand-800"
-                    >
-                      <Building2 className="w-3.5 h-3.5 text-brand-800 shrink-0 mt-1" aria-hidden="true" />
-                      {o.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              <p className="flex items-start gap-2 pt-2 border-t border-mist-100 text-xs text-mist-600">
-                <MapPin className="w-3.5 h-3.5 text-brand-800 shrink-0 mt-0.5" aria-hidden="true" />
-                <span>PSA CRS Marawi City Outlet: Rima Building, Brgy. Datu Saber, Marawi City</span>
-              </p>
-            </nav>
+            {/* Responsible offices (shared card): links open each office's steps below */}
+            <ServiceOfficesCard
+              offices={getServiceCard('certificates')?.offices ?? []}
+              location="PSA CRS Marawi City Outlet: Rima Building, Brgy. Datu Saber, Marawi City"
+            />
           </div>
         </div>
       </section>
