@@ -23,6 +23,7 @@ import {
   gridFrame,
   headerClass,
   headingClass,
+  iconBase,
   iconClass,
   subheadingClass,
   titleClass,
@@ -35,6 +36,15 @@ const CATEGORY_ICONS: Record<string, LucideIcon> = {
   museums: Library,
   artisan: Gem,
   dining: Coffee,
+};
+
+// Ranao palette colour per category (icons only)
+const CATEGORY_TONES: Record<string, string> = {
+  heritage: 'text-okir-700',
+  lakefront: 'text-lake-700',
+  museums: 'text-langkit-600',
+  artisan: 'text-accent-deep',
+  dining: 'text-brand-700',
 };
 
 // First five categories in data order; the 6th cell links to the full tourism page,
@@ -69,7 +79,7 @@ export function CultureSpotlight() {
                   href="/services/tourism"
                   className={`${cellClass} ${cellBg}`}
                 >
-                  <Icon className={iconClass} aria-hidden="true" />
+                  <Icon className={`${iconBase} ${CATEGORY_TONES[cat.id] ?? 'text-brand-700'}`} aria-hidden="true" />
                   <div className="min-w-0 pr-6">
                     <h3 className={titleClass}>{text?.title ?? cat.title}</h3>
                     <p className={eyebrowClass}>

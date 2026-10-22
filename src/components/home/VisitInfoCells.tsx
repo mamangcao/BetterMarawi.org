@@ -13,7 +13,7 @@ import {
 import { ArrowUpRight } from '@/components/ui';
 import { useTranslation } from '@/i18n';
 import { useWeather, formatWeatherTime, WeatherIconName } from '@/lib/weather';
-import { cellClass, eyebrowClass, iconClass, titleClass } from './linkGridStyles';
+import { cellClass, eyebrowClass, iconBase, iconClass, titleClass } from './linkGridStyles';
 import { WeatherEffects } from './WeatherEffects';
 
 const WEATHER_ICONS: Record<WeatherIconName, LucideIcon> = {
@@ -59,7 +59,7 @@ export function WeatherCell() {
   return (
     <div className={`${cellClass} bg-white overflow-hidden isolate`}>
       {!loading && kind && <WeatherEffects kind={kind} />}
-      <Icon className={`${iconClass} relative z-10`} aria-hidden="true" />
+      <Icon className={`${iconBase} text-lake-700 relative z-10`} aria-hidden="true" />
       <div className="relative z-10 min-w-0 flex-1 pr-24 sm:pr-32">
         {loading ? (
           <div className="space-y-2 animate-pulse" aria-hidden="true">

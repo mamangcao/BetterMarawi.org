@@ -31,7 +31,7 @@ function Sun({ small = false }: { small?: boolean }) {
 }
 
 function Clouds({ dark = false, count = 3 }: { dark?: boolean; count?: number }) {
-  const tone = dark ? 'text-foreground-subtle/40' : 'text-brand-100';
+  const tone = dark ? 'text-lake-300/50' : 'text-lake-100';
   const spots = [
     'top-3 right-10 w-24 h-24',
     'top-10 right-36 w-16 h-16 [animation-delay:-3s]',
@@ -52,7 +52,7 @@ function Clouds({ dark = false, count = 3 }: { dark?: boolean; count?: number })
 }
 
 function Rain({ dark = false }: { dark?: boolean }) {
-  const color = dark ? 'bg-brand-700/45' : 'bg-brand-500/40';
+  const color = dark ? 'bg-lake-700/45' : 'bg-lake-500/40';
   return (
     <div className="absolute inset-y-0 right-0 w-2/3">
       {RAIN.map((d, i) => (

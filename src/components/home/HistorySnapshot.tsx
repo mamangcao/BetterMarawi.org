@@ -30,6 +30,7 @@ const historyTimeline = [
   },
   {
     era: '2017',
+    tone: 'okir',
     title: 'Marawi Siege',
     description:
       'From May 23 to October 23, 2017, a five-month armed conflict between government forces and ISIS-affiliated militants devastated the city center and displaced hundreds of thousands of residents.',
@@ -128,7 +129,9 @@ export function HistorySnapshot() {
                     inView ? 'opacity-100 scale-100' : 'opacity-0 scale-50',
                     isNow
                       ? 'bg-accent ring-4 ring-accent/30'
-                      : 'bg-white border-2 border-brand-600'
+                      : item.tone === 'okir'
+                        ? 'bg-white border-2 border-okir-700'
+                        : 'bg-white border-2 border-brand-600'
                   )}
                   style={{ transitionDelay: delay }}
                 >
@@ -138,7 +141,7 @@ export function HistorySnapshot() {
                       <span className="relative w-2 h-2 rounded-full bg-brand-950" />
                     </>
                   ) : (
-                    <span className="w-2 h-2 rounded-full bg-brand-600" />
+                    <span className={cn('w-2 h-2 rounded-full', item.tone === 'okir' ? 'bg-okir-700' : 'bg-brand-600')} />
                   )}
                 </span>
 
@@ -156,7 +159,7 @@ export function HistorySnapshot() {
                     <span
                       className={cn(
                         'text-xs font-mono-tabular font-semibold uppercase tracking-wider',
-                        isNow ? 'text-brand-200' : 'text-brand-700'
+                        isNow ? 'text-brand-200' : item.tone === 'okir' ? 'text-okir-700' : 'text-brand-700'
                       )}
                     >
                       {item.era}

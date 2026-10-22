@@ -14,7 +14,8 @@ export const cellClass =
 export const cellBg = 'bg-white hover:bg-surface';
 export const cellBgAll = 'bg-surface-card hover:bg-surface-elevated';
 
-export const iconClass = 'shrink-0 mt-0.5 w-6 h-6 text-brand-700';
+export const iconBase = 'shrink-0 mt-0.5 w-6 h-6';
+export const iconClass = `${iconBase} text-brand-700`;
 
 export const titleClass =
   'text-lg font-bold text-brand-950 group-hover:text-brand-800 transition-colors';
