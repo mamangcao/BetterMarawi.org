@@ -10,6 +10,9 @@ import { CharterSteps } from '@/components/services/CharterSteps';
 import { FeeSchedule } from '@/components/services/FeeSchedule';
 import { ServiceFAQ } from '@/components/services/ServiceFAQ';
 import { ServiceSidebar } from '@/components/services/ServiceSidebar';
+import { HealthFacilities } from '@/components/services/HealthFacilities';
+import { HealthPrograms } from '@/components/services/HealthPrograms';
+import { MARAWI_HOSPITALS, MARAWI_INFIRMARIES, BARANGAY_HEALTH } from '@/data/healthFacilities';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { formatWithPeso, UnverifiedNotice } from '@/components/ui';
 import { JsonLd } from '@/components/seo/JsonLd';
@@ -83,7 +86,14 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               <UnverifiedNotice items={[service]} className='mt-6' />
 {/* Key Highlights */}
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {service.highlights.map((h) => (
+                {(service.slug === 'health-services'
+                  ? [
+                      { label: 'Hospitals (PhilHealth-accredited)', value: String(MARAWI_HOSPITALS.length) },
+                      { label: 'Infirmaries', value: String(MARAWI_INFIRMARIES.length) },
+                      { label: 'Barangay health stations & centers', value: String(BARANGAY_HEALTH.stations + BARANGAY_HEALTH.centers) },
+                    ]
+                  : service.highlights
+                ).map((h) => (
                   <div
                     key={h.label}
                     className="bg-white rounded-xl border border-mist-200/90 p-3.5"
@@ -133,6 +143,10 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           <article className="lg:col-span-8 space-y-10">
+            {/* Health Services: facilities, then programs (YAKAP detail follows) */}
+            {service.slug === 'health-services' && <HealthFacilities />}
+            {service.slug === 'health-services' && <HealthPrograms />}
+
             {/* Special Section for Health Services: PhilHealth YAKAP 13 Labs */}
             {service.slug === 'health-services' && (
               <section
@@ -143,12 +157,12 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   <Stethoscope className="w-4 h-4" />
                   Universal Health Care (RA 11223) · Marawi City Network
                 </div>
-                <h2
+                <h3
                   id="yakap-detail-heading"
                   className="text-2xl font-bold text-white font-display mt-1"
                 >
                   PhilHealth YAKAP (Konsulta) Accredited Facilities &amp; 13 Free Lab Tests
-                </h2>
+                </h3>
                 <p className="text-sm text-brand-100/90 mt-2 leading-relaxed">
                   All residents registered at the Marawi City Health Office (CHO), Rural Health Units (RHU 1–4), and Amai Pakpak Medical Center (APMC) receive 100% free outpatient consultations, up to ₱20,000 in annual maintenance medicines, and these 13 diagnostic laboratory tests:
                 </p>
