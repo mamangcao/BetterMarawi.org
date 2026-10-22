@@ -238,6 +238,29 @@ Rules:
 - Equal heights inside a grid
 - Hover and focus: border turns brand color, slight lift, respect reduced motion
 
+## Transaction directory pages
+
+Use this pattern for any service people come to *request*: certificates, permits, IDs, registrations. It lists each transaction (what it costs, how long it takes, which office handles it), and each responsible office opens into its steps and what to bring.
+
+Used by: `/services/certificates` and `/services/business-and-livelihood`.
+
+**Pieces**
+
+- Model: `src/types/transactions.ts` (`Transaction`, `TxOffice`, `TxCategory`, `TxSource`, `TxDirectoryData`, and the RA 11032 legal-limit strings).
+- UI: `src/components/services/transactions/` (`TransactionsDirectory`, `TransactionCard`, `OfficePanel`, `SourcesList`).
+- Data: one file per page in `src/data/` exporting a `TxDirectoryData` bundle (for example `CERTIFICATES_DIRECTORY`, `BUSINESS_DIRECTORY`).
+
+**Rules for the data**
+
+- Every fee has a `feeBasis`: `law`, `agency`, `city`, or `barangay`. Never guess a city or barangay amount; write "Set by city ordinance" until it is published.
+- `processing` is the real duration from the office's Citizen's Charter (for example "15 minutes"), or `null` until published. Set `legalLimit` only when RA 11032's maximum applies.
+- `schedule` is a deadline or filing period, never a duration. Keep it out of `processing`.
+- Office `steps` are a general guide; the page says so. Add `location` only when a source confirms it.
+- Transaction `id` is also the page anchor (for example `#cedula`). Other pages link to these, so keep ids stable.
+- Log the sources in `docs/data-sources.md`.
+
+**Adding a new page**: create the data file, render `<TransactionsDirectory data={...} labels={...} />` with page-specific wording (`noun`, `itemsHereLabel`, `searchPlaceholder`), and add `<SourcesList />` below it. Keep page-specific sections (a facility directory, a portal banner) outside the directory.
+
 ## Forms
 
 - Inputs about 52px tall, rounded-xl, token border, visible label or clear placeholder
