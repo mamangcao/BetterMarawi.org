@@ -337,6 +337,8 @@ export const mrw: typeof en = {
   // TODO(mrw-review): needs fluent reviewer
   historySectionHeading: 'History of the Islamic City of Marawi',
   // TODO(mrw-review): needs fluent reviewer
+  historyNow: 'Today',
+  // TODO(mrw-review): needs fluent reviewer
   historySectionSubheading:
     'From the ancestral seat of Pat a Pangampong ko Ranao to the modern Islamic City of Marawi.',
   // TODO(mrw-review): needs fluent reviewer

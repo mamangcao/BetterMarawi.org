@@ -242,6 +242,7 @@ export const fil: typeof en = {
     },
   },
   historySectionHeading: 'Kasaysayan ng Islamic City of Marawi',
+  historyNow: 'Ngayon',
   historySectionSubheading:
     'Mula sa sinaunang luklukan ng Pat a Pangampong ko Ranao hanggang sa modernong Islamic City of Marawi.',
   elevationHighlightTitle: 'Taas na 700m Mula Antas ng Dagat',

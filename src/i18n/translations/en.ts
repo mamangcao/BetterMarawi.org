@@ -240,6 +240,7 @@ export const en = {
     },
   } as Record<string, { title: string; kicker: string; description: string }>,
   historySectionHeading: 'History of the Islamic City of Marawi',
+  historyNow: 'Today',
   historySectionSubheading:
     'From the ancestral seat of Pat a Pangampong ko Ranao to the modern Islamic City of Marawi.',
   elevationHighlightTitle: '700m Elevation',
