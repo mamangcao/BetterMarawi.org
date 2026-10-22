@@ -62,6 +62,7 @@ Use one row per data file or dataset. Status must be **Unverified**, **Sourced**
 | `departments.ts` | Department heads and mandates | | | | | Unverified |
 | `barangays.ts` | 101 Barangays (names, 10-digit and correspondence codes, Urban/Rural, 2024 POPCEN) | PSA PSGC page for the City of Marawi, https://psa.gov.ph/classification/psgc/barangays/1903617000 (table pasted by site owner; PSA blocks automated fetch). CC BY 4.0, attribute PSA | 2025-07-31 (PSGC), 2024 POPCEN | Claude Code | October 21, 2026 | Sourced |
 | `services.ts` | Requirements, fees, steps | Citizen's Charter | | | | Unverified |
+| `healthFacilities.ts` | Hospitals and infirmaries (9), RHUs (4), barangay health stations and centers (30 + 24), City Health Unit, Marawi City General Hospital status | PhilHealth List of Accredited Hospitals and Infirmaries CY 2026 (HOSP_093026.pdf, as of Sept 30, 2026); PIA June 9, 2023 (CHO report); BARMM Sept 28, 2021 (BHS turnover); PIA Oct 2026 (MCGH); RA 12207 | 2021–2026 | Claude Code | October 22, 2026 | Sourced (BHS and RHU counts are from 2023 and should be re-confirmed with the City Health Office) |
 | `fdp.ts` | FDP disclosures | DILG FDP portal | | | | Unverified |
 | `ordinances.ts` | Enacted ordinances | Sangguniang Panlungsod records | | | | Unverified |
 | `cmci.ts` | CMCI 5 Pillars & Composite (2024 Cycle) | DTI CMCI LGU profile, https://cmci.dti.gov.ph/lgu-profile.php?lgu=Marawi (re-checked, all values match) | 2024 | Claude Code | October 21, 2026 | Sourced |
