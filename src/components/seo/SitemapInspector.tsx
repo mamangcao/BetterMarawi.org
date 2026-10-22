@@ -68,8 +68,8 @@ ${urls}
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
       {/* Left 5 Cols: Complete Indexable URL Tree */}
-      <div className="lg:col-span-5 bg-white rounded-xl border border-stone-200/90 p-5">
-        <div className="text-xs font-semibold uppercase tracking-wider text-stone-500 pb-3 mb-3 border-b border-stone-100 flex items-center justify-between">
+      <div className="lg:col-span-5 bg-white rounded-xl border border-mist-200/90 p-5">
+        <div className="text-xs font-semibold uppercase tracking-wider text-mist-500 pb-3 mb-3 border-b border-mist-100 flex items-center justify-between">
           <span>All Indexable Routes ({APP_ROUTES.length})</span>
           <span>Click to Inspect</span>
         </div>
@@ -81,8 +81,8 @@ ${urls}
                 key={route.path}
                 className={`flex items-center justify-between gap-2 p-2.5 rounded-lg border text-xs transition-colors ${
                   isSelected
-                    ? 'bg-emerald-50 border-emerald-800/40 text-stone-950'
-                    : 'border-transparent hover:bg-stone-50 text-stone-700'
+                    ? 'bg-brand-50 border-brand-800/40 text-mist-950'
+                    : 'border-transparent hover:bg-mist-50 text-mist-700'
                 }`}
               >
                 <button
@@ -90,17 +90,17 @@ ${urls}
                   onClick={() => setSelectedPath(route.path)}
                   className="text-left min-w-0 flex-1"
                 >
-                  <div className="font-mono-tabular font-bold text-emerald-900 truncate">
+                  <div className="font-mono-tabular font-bold text-brand-900 truncate">
                     {route.path}
                   </div>
-                  <div className="text-stone-500 truncate mt-0.5">
+                  <div className="text-mist-500 truncate mt-0.5">
                     {route.label} — {route.description}
                   </div>
                 </button>
                 <Link
                   href={route.path}
                   title={`Visit ${route.path}`}
-                  className="p-1.5 rounded bg-stone-100 hover:bg-emerald-900 hover:text-white text-stone-700 shrink-0"
+                  className="p-1.5 rounded bg-mist-100 hover:bg-brand-900 hover:text-white text-mist-700 shrink-0"
                 >
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </Link>
@@ -112,15 +112,15 @@ ${urls}
 
       {/* Right 7 Cols: Live Metadata & JSON-LD Schema Inspector */}
       <div className="lg:col-span-7 space-y-6">
-        <div className="bg-white rounded-xl border border-stone-200/90 p-6 space-y-4">
-          <div className="flex items-center justify-between pb-3 border-b border-stone-100">
-            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-800">
+        <div className="bg-white rounded-xl border border-mist-200/90 p-6 space-y-4">
+          <div className="flex items-center justify-between pb-3 border-b border-mist-100">
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand-800">
               <Code2 className="w-4 h-4" />
               Dynamic Head &amp; OpenGraph Metadata Preview
             </div>
             <Link
               href={selectedRoute.path}
-              className="text-xs font-semibold text-emerald-800 hover:underline inline-flex items-center gap-1 group"
+              className="text-xs font-semibold text-brand-800 hover:underline inline-flex items-center gap-1 group"
             >
               <span>Open {selectedRoute.path}</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -129,42 +129,42 @@ ${urls}
 
           <div className="space-y-3 text-xs">
             <div>
-              <span className="font-semibold text-stone-500 block">
+              <span className="font-semibold text-mist-500 block">
                 &lt;title&gt; &amp; og:title
               </span>
-              <div className="font-bold text-stone-900 text-sm mt-0.5">
+              <div className="font-bold text-mist-900 text-sm mt-0.5">
                 {selectedRoute.label} | BetterMarawi.org
               </div>
             </div>
             <div>
-              <span className="font-semibold text-stone-500 block">
+              <span className="font-semibold text-mist-500 block">
                 &lt;meta name=&quot;description&quot;&gt;
               </span>
-              <div className="text-stone-700 mt-0.5 leading-relaxed">
+              <div className="text-mist-700 mt-0.5 leading-relaxed">
                 {selectedRoute.description}
               </div>
             </div>
             <div>
-              <span className="font-semibold text-stone-500 block">
+              <span className="font-semibold text-mist-500 block">
                 &lt;link rel=&quot;canonical&quot;&gt;
               </span>
-              <div className="font-mono-tabular text-emerald-900 font-semibold mt-0.5">
+              <div className="font-mono-tabular text-brand-900 font-semibold mt-0.5">
                 {canonicalUrl}
               </div>
             </div>
           </div>
         </div>
 
-        <div className="bg-stone-950 text-stone-100 rounded-xl p-6 space-y-3">
+        <div className="bg-mist-950 text-mist-100 rounded-xl p-6 space-y-3">
           <div className="flex items-center justify-between">
             <span className="text-xs font-mono-tabular text-accent font-semibold">
               Injected &lt;script type=&quot;application/ld+json&quot;&gt; ({schemas.length} Schemas)
             </span>
-            <span className="text-[11px] font-mono-tabular text-stone-400">
+            <span className="text-[11px] font-mono-tabular text-mist-400">
               GovernmentOrganization · BreadcrumbList · GovernmentService · FAQPage
             </span>
           </div>
-          <pre className="text-xs font-mono-tabular text-emerald-200 overflow-x-auto max-h-[420px] overflow-y-auto p-4 rounded-lg bg-stone-900 border border-stone-800 leading-relaxed">
+          <pre className="text-xs font-mono-tabular text-brand-200 overflow-x-auto max-h-[420px] overflow-y-auto p-4 rounded-lg bg-mist-900 border border-mist-800 leading-relaxed">
             {JSON.stringify(schemas, null, 2)}
           </pre>
         </div>
@@ -173,7 +173,7 @@ ${urls}
           <button
             type="button"
             onClick={downloadSitemapXml}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-emerald-900 text-white text-xs font-semibold hover:bg-emerald-950 transition-colors whitespace-nowrap shrink-0 font-mono-tabular"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-brand-900 text-white text-xs font-semibold hover:bg-brand-950 transition-colors whitespace-nowrap shrink-0 font-mono-tabular"
           >
             <Download className="w-4 h-4" />
             Download sitemap.xml ({APP_ROUTES.length} URLs)

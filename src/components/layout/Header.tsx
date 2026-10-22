@@ -122,25 +122,25 @@ export function Header() {
   return (
     <>
       {/* Top Utility Bars */}
-      <div className="bg-stone-900 text-stone-200 text-xs border-b border-stone-800">
+      <div className="bg-mist-900 text-mist-200 text-xs border-b border-mist-800">
         {/* Bar 1 — Emergency Hotlines / Quick Contacts */}
         <QuickContacts />
 
         {/* Bar 2 — Live Ticker Bar (Single-line on mobile & desktop) */}
-        <div className="bg-stone-950/80 border-t border-stone-800/80 text-stone-400">
+        <div className="bg-mist-950/80 border-t border-mist-800/80 text-mist-400">
           <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-7 sm:h-8 flex flex-nowrap items-center justify-between overflow-hidden whitespace-nowrap font-mono-tabular ticker-bar-text">
             <div className="flex flex-nowrap items-center gap-1.5 sm:gap-3 shrink-0">
               <FxTicker rates={fxRates} lastUpdated={fxLastUpdated} />
               {fxRates.length > 0 && (
-                <span aria-hidden="true" className="text-stone-600 select-none">|</span>
+                <span aria-hidden="true" className="text-mist-600 select-none">|</span>
               )}
               <WeatherTicker weather={weather} isLoading={weatherLoading} />
               {(weatherLoading || weather) && (
-                <span aria-hidden="true" className="text-stone-600 select-none">|</span>
+                <span aria-hidden="true" className="text-mist-600 select-none">|</span>
               )}
               <LiveClock />
             </div>
-            <div className="hidden sm:flex items-center gap-2 text-stone-400 shrink-0">
+            <div className="hidden sm:flex items-center gap-2 text-mist-400 shrink-0">
               <span>Islamic City of Marawi, Lanao del Sur · 700m ASL</span>
             </div>
           </div>
@@ -150,13 +150,13 @@ export function Header() {
       {/* Main Sticky Header */}
       <header
         ref={navRef}
-        className="sticky top-0 z-50 bg-surface/95 backdrop-blur-md border-b border-stone-200/90"
+        className="sticky top-0 z-50 bg-surface/95 backdrop-blur-md border-b border-mist-200/90"
       >
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2 sm:gap-8">
           {/* Brand Wordmark & Logo */}
           <Link
             href="/"
-            className="flex items-center text-xl font-bold tracking-tight text-stone-900 font-display whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800"
+            className="flex items-center text-xl font-bold tracking-tight text-mist-900 font-display whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-800"
           >
             <Image
               src="/branding/logo.png"
@@ -170,7 +170,7 @@ export function Header() {
             <span className="flex flex-col leading-none text-primary">
               <span>Better</span>
               <span>Marawi</span>
-              <span className="-mt-0.5 self-end text-xs text-stone-700 sm:text-sm font-medium leading-none">
+              <span className="-mt-0.5 self-end text-xs text-mist-700 sm:text-sm font-medium leading-none">
                 .org
               </span>
             </span>
@@ -179,14 +179,14 @@ export function Header() {
           {/* Desktop Navigation */}
           <nav
             aria-label={t.mainNavigation}
-            className="hidden lg:flex items-center gap-6 text-sm font-medium text-stone-700"
+            className="hidden lg:flex items-center gap-6 text-sm font-medium text-mist-700"
           >
             <Link
               href="/"
               className={`py-2 transition-colors whitespace-nowrap shrink-0 border-b-2 ${
                 pathname === "/"
-                  ? "border-emerald-800 text-emerald-950 font-semibold"
-                  : "border-transparent hover:text-stone-950"
+                  ? "border-brand-800 text-brand-950 font-semibold"
+                  : "border-transparent hover:text-mist-950"
               }`}
             >
               {t.navHome}
@@ -211,8 +211,8 @@ export function Header() {
                       href={rootHref}
                       className={`py-2 transition-colors whitespace-nowrap shrink-0 border-b-2 ${
                         isActive
-                          ? "border-emerald-800 text-emerald-950 font-semibold"
-                          : "border-transparent hover:text-stone-950"
+                          ? "border-brand-800 text-brand-950 font-semibold"
+                          : "border-transparent hover:text-mist-950"
                       }`}
                     >
                       {label}
@@ -221,11 +221,11 @@ export function Header() {
                       type="button"
                       aria-expanded={isOpen}
                       onClick={() => setOpenDropdown(isOpen ? null : key)}
-                      className="p-1 text-stone-500 hover:text-stone-900 rounded-md"
+                      className="p-1 text-mist-500 hover:text-mist-900 rounded-md"
                     >
                       <ChevronDown
                         className={`w-3.5 h-3.5 transition-transform duration-150 ${
-                          isOpen ? "rotate-180 text-emerald-800" : ""
+                          isOpen ? "rotate-180 text-brand-800" : ""
                         }`}
                       />
                     </button>
@@ -233,7 +233,7 @@ export function Header() {
 
                   {isOpen && (
                     <div
-                      className={`absolute top-full left-0 mt-1 bg-white rounded-xl shadow-xl border border-stone-200/90 py-3 z-50 animate-in fade-in-0 duration-150 ${
+                      className={`absolute top-full left-0 mt-1 bg-white rounded-xl shadow-xl border border-mist-200/90 py-3 z-50 animate-in fade-in-0 duration-150 ${
                         isWideGrid
                           ? "w-[640px] grid grid-cols-2 gap-1 p-3"
                           : "w-72"
@@ -242,17 +242,17 @@ export function Header() {
                       <div
                         className={
                           isWideGrid
-                            ? "col-span-2 px-3 pb-2 mb-1 border-b border-stone-100 flex items-center justify-between"
-                            : "px-4 pb-2 mb-1 border-b border-stone-100 flex items-center justify-between"
+                            ? "col-span-2 px-3 pb-2 mb-1 border-b border-mist-100 flex items-center justify-between"
+                            : "px-4 pb-2 mb-1 border-b border-mist-100 flex items-center justify-between"
                         }
                       >
-                        <span className="text-[11px] font-bold uppercase tracking-wider text-stone-700">
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-mist-700">
                           {label} {t.directorySuffix}
                         </span>
                         <Link
                           href={rootHref}
                           onClick={() => setOpenDropdown(null)}
-                          className="text-xs text-emerald-800 hover:text-emerald-950 font-semibold flex items-center gap-1"
+                          className="text-xs text-brand-800 hover:text-brand-950 font-semibold flex items-center gap-1"
                         >
                           {t.viewAll}
                           <ArrowUpRight className="w-3 h-3" />
@@ -268,18 +268,18 @@ export function Header() {
                             onClick={() => setOpenDropdown(null)}
                             className={`flex items-start gap-3 p-2.5 rounded-lg transition-colors group ${
                               isSubActive
-                                ? "bg-emerald-50 text-emerald-950 font-semibold"
-                                : "hover:bg-stone-50 text-stone-700"
+                                ? "bg-brand-50 text-brand-950 font-semibold"
+                                : "hover:bg-mist-50 text-mist-700"
                             }`}
                           >
                             <span className="mt-0.5">
                               {ITEM_ICONS[sub.href]}
                             </span>
                             <div>
-                              <div className="text-xs font-semibold text-stone-900 group-hover:text-emerald-900">
+                              <div className="text-xs font-semibold text-mist-900 group-hover:text-brand-900">
                                 {sub.label}
                               </div>
-                              <div className="text-[11px] text-stone-500 line-clamp-1 leading-relaxed">
+                              <div className="text-[11px] text-mist-500 line-clamp-1 leading-relaxed">
                                 {sub.description}
                               </div>
                             </div>
@@ -296,8 +296,8 @@ export function Header() {
               href="/contact"
               className={`py-2 transition-colors whitespace-nowrap shrink-0 border-b-2 ${
                 pathname === "/contact"
-                  ? "border-emerald-800 text-emerald-950 font-semibold"
-                  : "border-transparent hover:text-stone-950"
+                  ? "border-brand-800 text-brand-950 font-semibold"
+                  : "border-transparent hover:text-mist-950"
               }`}
             >
               {t.navContact}
@@ -319,7 +319,7 @@ export function Header() {
               aria-controls="mobile-nav-drawer"
               aria-label={mobileDrawerOpen ? t.closeMenu : t.openMenu}
               onClick={handleToggleMobileDrawer}
-              className="lg:hidden p-2 rounded-lg text-stone-700 hover:bg-stone-200/60 focus-visible:outline-2 focus-visible:outline-emerald-800"
+              className="lg:hidden p-2 rounded-lg text-mist-700 hover:bg-mist-200/60 focus-visible:outline-2 focus-visible:outline-brand-800"
             >
               {mobileDrawerOpen ? (
                 <X className="w-6 h-6" aria-hidden="true" />

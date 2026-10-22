@@ -14,8 +14,8 @@ export function GovernmentSidebar() {
   return (
     <aside className="lg:col-span-4">
       <div className="sticky top-24 space-y-6">
-        <div className="bg-white rounded-xl border border-stone-200/90 p-5">
-          <div className="text-xs font-semibold uppercase tracking-wider text-stone-500 pb-3 mb-3 border-b border-stone-100">
+        <div className="bg-white rounded-xl border border-mist-200/90 p-5">
+          <div className="text-xs font-semibold uppercase tracking-wider text-mist-500 pb-3 mb-3 border-b border-mist-100">
             {t.governmentSections}
           </div>
           <nav aria-label="Government Sibling Links" className="space-y-1.5">
@@ -30,14 +30,14 @@ export function GovernmentSidebar() {
                   href={item.href}
                   className={`block px-3.5 py-2.5 rounded-lg text-xs transition-colors ${
                     isCurrent
-                      ? 'bg-emerald-900 text-white font-semibold'
-                      : 'text-stone-700 hover:bg-stone-100 font-medium'
+                      ? 'bg-brand-900 text-white font-semibold'
+                      : 'text-mist-700 hover:bg-mist-100 font-medium'
                   }`}
                 >
                   <div>{item.label}</div>
                   <div
                     className={`text-[11px] mt-0.5 line-clamp-1 ${
-                      isCurrent ? 'text-emerald-100' : 'text-stone-500'
+                      isCurrent ? 'text-brand-100' : 'text-mist-500'
                     }`}
                   >
                     {item.description}
@@ -48,15 +48,15 @@ export function GovernmentSidebar() {
           </nav>
         </div>
 
-        <div className="bg-stone-900 text-stone-200 rounded-xl p-5 space-y-3">
+        <div className="bg-mist-900 text-mist-200 rounded-xl p-5 space-y-3">
           <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-accent">
             <Building2 className="w-4 h-4" />
             Marawi City Hall Seat
           </div>
-          <p className="text-xs text-stone-300 leading-relaxed">
+          <p className="text-xs text-mist-300 leading-relaxed">
             {SITE_CONFIG.contact.cityHallAddress}, Bangsamoro Autonomous Region in Muslim Mindanao (BARMM).
           </p>
-          <div className="pt-2 border-t border-stone-800 text-xs font-mono-tabular space-y-1">
+          <div className="pt-2 border-t border-mist-800 text-xs font-mono-tabular space-y-1">
             <div className="flex items-center gap-2">
               <Scale className="w-3.5 h-3.5 text-accent" />
               <span>SP Session: Tuesdays, 9:00 AM</span>

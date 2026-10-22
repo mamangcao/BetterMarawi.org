@@ -162,16 +162,16 @@ export function LanguageSwitcher({
         aria-controls={listboxId}
         aria-label={`Select language. Current: ${language}`}
         onClick={toggleDropdown}
-        className={`h-8 px-2.5 rounded-lg border border-stone-200 bg-white hover:bg-stone-50 text-stone-800 transition-colors inline-flex items-center gap-1.5 text-xs font-semibold shadow-2xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-800 ${
+        className={`h-8 px-2.5 rounded-lg border border-mist-200 bg-white hover:bg-mist-50 text-mist-800 transition-colors inline-flex items-center gap-1.5 text-xs font-semibold shadow-2xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-800 ${
           fullWidth ? 'w-full justify-between' : ''
         }`}
       >
         <div className="flex items-center gap-1.5">
-          <Globe className="w-3.5 h-3.5 text-stone-500 shrink-0" aria-hidden="true" />
+          <Globe className="w-3.5 h-3.5 text-mist-500 shrink-0" aria-hidden="true" />
           <span className="tracking-wide uppercase">{language}</span>
         </div>
         <ChevronDown
-          className={`w-3.5 h-3.5 text-stone-500 transition-transform duration-200 shrink-0 ${
+          className={`w-3.5 h-3.5 text-mist-500 transition-transform duration-200 shrink-0 ${
             isOpen ? 'rotate-180 text-brand-900' : ''
           }`}
           aria-hidden="true"
@@ -186,7 +186,7 @@ export function LanguageSwitcher({
           aria-label="Select language"
           aria-activedescendant={focusedIndex >= 0 ? `lang-option-${LANGUAGES[focusedIndex].code}` : undefined}
           tabIndex={-1}
-          className={`absolute z-[60] mt-1.5 py-1 bg-white rounded-xl shadow-lg border border-stone-200/90 text-stone-900 animate-in fade-in-0 zoom-in-95 duration-100 ${
+          className={`absolute z-[60] mt-1.5 py-1 bg-white rounded-xl shadow-lg border border-mist-200/90 text-mist-900 animate-in fade-in-0 zoom-in-95 duration-100 ${
             fullWidth ? 'left-0 right-0 w-full' : 'right-0 w-48 sm:w-52'
           }`}
         >
@@ -208,8 +208,8 @@ export function LanguageSwitcher({
                   isSelected
                     ? 'bg-brand-50 text-brand-950 font-semibold'
                     : isFocused
-                    ? 'bg-stone-100 text-stone-900'
-                    : 'text-stone-700 hover:bg-stone-100'
+                    ? 'bg-mist-100 text-mist-900'
+                    : 'text-mist-700 hover:bg-mist-100'
                 }`}
               >
                 <span>{item.label}</span>

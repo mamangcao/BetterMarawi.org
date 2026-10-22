@@ -33,65 +33,65 @@ export function DemographicsBlock() {
     <div className="space-y-8">
       {/* 4 Key Stat Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div className="bg-white rounded-xl border border-stone-200/90 p-5">
-          <div className="text-xs text-stone-500">Latest Population</div>
-          <div className="text-3xl font-bold text-stone-950 font-mono-tabular mt-1">
+        <div className="bg-white rounded-xl border border-mist-200/90 p-5">
+          <div className="text-xs text-mist-500">Latest Population</div>
+          <div className="text-3xl font-bold text-mist-950 font-mono-tabular mt-1">
             259,993
           </div>
-          <div className="text-xs text-stone-500 mt-1">
+          <div className="text-xs text-mist-500 mt-1">
             2024 Census of Population (POPCEN), PSA
           </div>
         </div>
-        <div className="bg-white rounded-xl border border-stone-200/90 p-5">
-          <div className="text-xs text-stone-500">Barangays</div>
-          <div className="text-3xl font-bold text-stone-950 font-mono-tabular mt-1">
+        <div className="bg-white rounded-xl border border-mist-200/90 p-5">
+          <div className="text-xs text-mist-500">Barangays</div>
+          <div className="text-3xl font-bold text-mist-950 font-mono-tabular mt-1">
             101
           </div>
-          <div className="text-xs text-stone-500 mt-1">
+          <div className="text-xs text-mist-500 mt-1">
             PSA PSGC (as of 31 July 2025)
           </div>
         </div>
-        <div className="bg-white rounded-xl border border-stone-200/90 p-5">
-          <div className="text-xs text-stone-500">Income Classification</div>
-          <div className="text-3xl font-bold text-stone-950 font-display mt-1">
+        <div className="bg-white rounded-xl border border-mist-200/90 p-5">
+          <div className="text-xs text-mist-500">Income Classification</div>
+          <div className="text-3xl font-bold text-mist-950 font-display mt-1">
             3rd Class
           </div>
-          <div className="text-xs text-stone-500 mt-1">
+          <div className="text-xs text-mist-500 mt-1">
             Component City (PSA PSGC)
           </div>
         </div>
-        <div className="bg-white rounded-xl border border-stone-200/90 p-5">
-          <div className="text-xs text-stone-500">Total Land Area</div>
-          <div className="text-3xl font-bold text-stone-950 font-mono-tabular mt-1">
+        <div className="bg-white rounded-xl border border-mist-200/90 p-5">
+          <div className="text-xs text-mist-500">Total Land Area</div>
+          <div className="text-3xl font-bold text-mist-950 font-mono-tabular mt-1">
             87.55 km²
           </div>
-          <div className="text-xs text-stone-500 mt-1">
+          <div className="text-xs text-mist-500 mt-1">
             Lake Lanao Highland Basin (PSA PSGC)
           </div>
         </div>
       </div>
 
       {/* Detailed Fact Sheet Table */}
-      <section className="bg-white rounded-xl border border-stone-200/90 p-6 sm:p-8">
-        <div className="flex flex-wrap items-center justify-between gap-2 pb-4 mb-5 border-b border-stone-100">
-          <h2 className="text-xl font-bold text-stone-900 font-display">
+      <section className="bg-white rounded-xl border border-mist-200/90 p-6 sm:p-8">
+        <div className="flex flex-wrap items-center justify-between gap-2 pb-4 mb-5 border-b border-mist-100">
+          <h2 className="text-xl font-bold text-mist-900 font-display">
             Official City Fact Sheet &amp; Statutory Profile
           </h2>
         </div>
-        <dl className="divide-y divide-stone-100 text-sm">
+        <dl className="divide-y divide-mist-100 text-sm">
           {factSheet.map(([label, val]) => (
             <div
               key={label}
               className="py-3.5 grid grid-cols-1 sm:grid-cols-3 gap-2"
             >
-              <dt className="font-semibold text-stone-600">{label}</dt>
-              <dd className="sm:col-span-2 font-medium text-stone-900">
+              <dt className="font-semibold text-mist-600">{label}</dt>
+              <dd className="sm:col-span-2 font-medium text-mist-900">
                 {val}
               </dd>
             </div>
           ))}
         </dl>
-        <SourceNote item={cityProfileVerification} className="mt-6 pt-4 border-t border-stone-100" />
+        <SourceNote item={cityProfileVerification} className="mt-6 pt-4 border-t border-mist-100" />
       </section>
     </div>
   );

@@ -121,7 +121,7 @@ export function HeroSearchCard({
   });
 
   return (
-    <div className="w-full bg-[#F9FEFF] rounded-3xl shadow-xl p-5 sm:p-8 text-foreground border border-stone-200/80">
+    <div className="w-full bg-[#F9FEFF] rounded-3xl shadow-xl p-5 sm:p-8 text-foreground border border-mist-200/80">
       {/* Heading: body sans font, text-xl, semibold */}
       <h2 className="text-xl font-semibold tracking-tight text-foreground font-sans mb-5">
         {t.findService}
@@ -149,7 +149,7 @@ export function HeroSearchCard({
             onKeyDown={handleKeyDown}
             placeholder={t.searchServicePlaceholder}
             autoComplete="off"
-            className="w-full h-[52px] pl-11 pr-10 rounded-xl border border-stone-300 bg-white text-base text-foreground placeholder:text-foreground-subtle/70 shadow-xs focus:outline-hidden focus:ring-2 focus:ring-brand-800 focus:border-brand-800 transition-shadow"
+            className="w-full h-[52px] pl-11 pr-10 rounded-xl border border-mist-300 bg-white text-base text-foreground placeholder:text-foreground-subtle/70 shadow-xs focus:outline-hidden focus:ring-2 focus:ring-brand-800 focus:border-brand-800 transition-shadow"
           />
           {searchQuery && (
             <button
@@ -169,7 +169,7 @@ export function HeroSearchCard({
         {showResults && (
           <div
             ref={resultsContainerRef}
-            className="absolute left-0 right-0 top-full mt-1.5 bg-white rounded-xl shadow-lg border border-stone-200/90 z-30 divide-y divide-stone-100 max-h-[280px] overflow-y-auto overflow-hidden animate-in fade-in-0 duration-150"
+            className="absolute left-0 right-0 top-full mt-1.5 bg-white rounded-xl shadow-lg border border-mist-200/90 z-30 divide-y divide-mist-100 max-h-[280px] overflow-y-auto overflow-hidden animate-in fade-in-0 duration-150"
           >
             {filteredResults.length > 0 ? (
               filteredResults.map((item, index) => {
@@ -182,26 +182,26 @@ export function HeroSearchCard({
                     className={`flex items-start gap-3 p-3 transition-colors ${
                       isSelected
                         ? "bg-brand-50 text-brand-950"
-                        : "hover:bg-brand-50/60 text-stone-900"
+                        : "hover:bg-brand-50/60 text-mist-900"
                     }`}
                   >
                     <div className="p-1.5 rounded-lg bg-brand-50 text-brand-900 shrink-0 mt-0.5">
                       <Icon className="w-4 h-4" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="text-sm font-semibold text-stone-950 truncate">
+                      <div className="text-sm font-semibold text-mist-950 truncate">
                         {item.title}
                       </div>
-                      <div className="text-xs text-stone-500 line-clamp-1 mt-0.5">
+                      <div className="text-xs text-mist-500 line-clamp-1 mt-0.5">
                         {item.shortDescription}
                       </div>
                     </div>
-                    <ArrowUpRight className="w-4 h-4 text-stone-400 shrink-0 mt-1" />
+                    <ArrowUpRight className="w-4 h-4 text-mist-400 shrink-0 mt-1" />
                   </Link>
                 );
               })
             ) : (
-              <div className="p-4 text-center text-xs text-stone-500 font-medium">
+              <div className="p-4 text-center text-xs text-mist-500 font-medium">
                 {t.noServicesFound} &ldquo;{searchQuery}&rdquo;
               </div>
             )}
@@ -223,14 +223,14 @@ export function HeroSearchCard({
             <Link
               key={service.slug}
               href={`/services/${service.slug}`}
-              className="group flex items-center justify-start gap-2.5 min-w-0 min-h-[76px] p-3 rounded-xl border border-stone-200/90 bg-white hover:border-brand-800 hover:shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-800 transition-all motion-safe:hover:-translate-y-0.5"
+              className="group flex items-center justify-start gap-2.5 min-w-0 min-h-[76px] p-3 rounded-xl border border-mist-200/90 bg-white hover:border-brand-800 hover:shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-800 transition-all motion-safe:hover:-translate-y-0.5"
             >
               {/* Icon beside label */}
               <div className="w-10 h-10 rounded-lg bg-brand-50 text-brand-900 group-hover:bg-accent group-hover:text-brand-950 flex items-center justify-center transition-colors shrink-0">
                 <Icon className="w-5 h-5" aria-hidden="true" />
               </div>
 
-              <span className="min-w-0 text-left text-xs sm:text-sm font-medium text-stone-900 group-hover:text-brand-950 leading-tight line-clamp-2">
+              <span className="min-w-0 text-left text-xs sm:text-sm font-medium text-mist-900 group-hover:text-brand-950 leading-tight line-clamp-2">
                 {service.title}
               </span>
             </Link>

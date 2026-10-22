@@ -13,8 +13,8 @@ export function TransparencySidebar() {
   return (
     <aside className="lg:col-span-4">
       <div className="sticky top-24 space-y-6">
-        <div className="bg-white rounded-xl border border-stone-200/90 p-5">
-          <div className="text-xs font-semibold uppercase tracking-wider text-stone-500 pb-3 mb-3 border-b border-stone-100">
+        <div className="bg-white rounded-xl border border-mist-200/90 p-5">
+          <div className="text-xs font-semibold uppercase tracking-wider text-mist-500 pb-3 mb-3 border-b border-mist-100">
             {t.transparencySections}
           </div>
           <nav aria-label="Transparency Sibling Links" className="space-y-1.5">
@@ -29,14 +29,14 @@ export function TransparencySidebar() {
                   href={item.href}
                   className={`block px-3.5 py-2.5 rounded-lg text-xs transition-colors ${
                     isCurrent
-                      ? 'bg-emerald-900 text-white font-semibold'
-                      : 'text-stone-700 hover:bg-stone-100 font-medium'
+                      ? 'bg-brand-900 text-white font-semibold'
+                      : 'text-mist-700 hover:bg-mist-100 font-medium'
                   }`}
                 >
                   <div>{item.label}</div>
                   <div
                     className={`text-[11px] mt-0.5 line-clamp-1 ${
-                      isCurrent ? 'text-emerald-100' : 'text-stone-500'
+                      isCurrent ? 'text-brand-100' : 'text-mist-500'
                     }`}
                   >
                     {item.description}

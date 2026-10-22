@@ -16,8 +16,8 @@ export function ServiceSidebar({ currentSlug, email }: ServiceSidebarProps) {
   return (
     <aside className="lg:col-span-4">
       <div className="sticky top-24 space-y-6">
-        <div className="bg-white rounded-xl border border-stone-200/90 p-5">
-          <div className="text-xs font-semibold uppercase tracking-wider text-stone-500 pb-3 mb-3 border-b border-stone-100">
+        <div className="bg-white rounded-xl border border-mist-200/90 p-5">
+          <div className="text-xs font-semibold uppercase tracking-wider text-mist-500 pb-3 mb-3 border-b border-mist-100">
             {t.allServicesTitle}
           </div>
           <nav aria-label="Services Sibling Navigation" className="space-y-1">
@@ -29,8 +29,8 @@ export function ServiceSidebar({ currentSlug, email }: ServiceSidebarProps) {
                   href={`/services/${item.slug}`}
                   className={`flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-colors ${
                     active
-                      ? 'bg-emerald-900 text-white font-semibold'
-                      : 'text-stone-700 hover:bg-stone-100'
+                      ? 'bg-brand-900 text-white font-semibold'
+                      : 'text-mist-700 hover:bg-mist-100'
                   }`}
                 >
                   <span className="truncate">{item.title}</span>
@@ -43,14 +43,14 @@ export function ServiceSidebar({ currentSlug, email }: ServiceSidebarProps) {
           </nav>
         </div>
 
-        <div className="bg-stone-900 text-stone-200 rounded-xl p-5 space-y-3">
+        <div className="bg-mist-900 text-mist-200 rounded-xl p-5 space-y-3">
           <div className="text-xs font-semibold uppercase tracking-wider text-accent">
             Anti-Red Tape Act (RA 11032)
           </div>
-          <p className="text-xs text-stone-300 leading-relaxed">
+          <p className="text-xs text-mist-300 leading-relaxed">
             {t.antiRedTapeNotice}
           </p>
-          <div className="pt-2 border-t border-stone-800 text-xs font-mono-tabular space-y-1">
+          <div className="pt-2 border-t border-mist-800 text-xs font-mono-tabular space-y-1">
             <div className="flex items-center gap-2">
               <Mail className="w-3.5 h-3.5 text-accent" />
               <span>{email}</span>

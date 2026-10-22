@@ -21,21 +21,21 @@ export function FOIRequestForm() {
 
   return (
     <div className="space-y-8">
-      <section className="bg-white rounded-xl border border-stone-200/90 p-6 sm:p-8">
-        <h2 className="text-xl font-bold text-stone-900 font-display pb-3 mb-5 border-b border-stone-100">
+      <section className="bg-white rounded-xl border border-mist-200/90 p-6 sm:p-8">
+        <h2 className="text-xl font-bold text-mist-900 font-display pb-3 mb-5 border-b border-mist-100">
           {t.foiHeading}
         </h2>
 
         {foiTrackingNumber ? (
-          <div className="p-6 rounded-xl bg-emerald-50 border border-emerald-800/30 space-y-3">
-            <div className="flex items-center gap-2 text-emerald-900 font-bold">
+          <div className="p-6 rounded-xl bg-brand-50 border border-brand-800/30 space-y-3">
+            <div className="flex items-center gap-2 text-brand-900 font-bold">
               <CheckCircle2 className="w-5 h-5" />
               <span>{t.foiSuccessTitle}</span>
             </div>
-            <p className="text-sm text-stone-700">
+            <p className="text-sm text-mist-700">
               Your public record request has been routed to the Marawi City Public Information Office (PIO) &amp; City Records Unit. Under City Ordinance No. 2024-027, you will receive an official response within 15 working days.
             </p>
-            <div className="p-3 bg-white rounded-lg border border-stone-200 font-mono-tabular text-xs">
+            <div className="p-3 bg-white rounded-lg border border-mist-200 font-mono-tabular text-xs">
               <strong>Tracking Reference:</strong> {foiTrackingNumber} · <strong>Applicant:</strong> {foiName}
             </div>
             <button
@@ -45,7 +45,7 @@ export function FOIRequestForm() {
                 setFoiDocument('');
                 setFoiPurpose('');
               }}
-              className="px-4 py-2 rounded-lg bg-emerald-900 text-white text-xs font-semibold hover:bg-emerald-950 transition-colors"
+              className="px-4 py-2 rounded-lg bg-brand-900 text-white text-xs font-semibold hover:bg-brand-950 transition-colors"
             >
               {t.foiSubmitAnother}
             </button>
@@ -54,7 +54,7 @@ export function FOIRequestForm() {
           <form onSubmit={handleFoiSubmit} className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-stone-700 mb-1">
+                <label className="block text-xs font-semibold text-mist-700 mb-1">
                   {t.foiFullNameLabel}
                 </label>
                 <input
@@ -63,11 +63,11 @@ export function FOIRequestForm() {
                   value={foiName}
                   onChange={(e) => setFoiName(e.target.value)}
                   placeholder="e.g., Najmah M. Balindong"
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-800"
+                  className="w-full px-3.5 py-2.5 rounded-lg border border-mist-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-800"
                 />
               </div>
               <div>
-                <label className="block text-xs font-semibold text-stone-700 mb-1">
+                <label className="block text-xs font-semibold text-mist-700 mb-1">
                   {t.foiEmailLabel}
                 </label>
                 <input
@@ -76,13 +76,13 @@ export function FOIRequestForm() {
                   value={foiEmail}
                   onChange={(e) => setFoiEmail(e.target.value)}
                   placeholder="citizen@example.com"
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-800"
+                  className="w-full px-3.5 py-2.5 rounded-lg border border-mist-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-800"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-stone-700 mb-1">
+              <label className="block text-xs font-semibold text-mist-700 mb-1">
                 {t.foiDocLabel}
               </label>
               <input
@@ -91,12 +91,12 @@ export function FOIRequestForm() {
                 value={foiDocument}
                 onChange={(e) => setFoiDocument(e.target.value)}
                 placeholder="e.g., Certified copy of City Ordinance No. 2026-014 or Q3 Infrastructure POW"
-                className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-800"
+                className="w-full px-3.5 py-2.5 rounded-lg border border-mist-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-800"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-stone-700 mb-1">
+              <label className="block text-xs font-semibold text-mist-700 mb-1">
                 {t.foiPurposeLabel}
               </label>
               <textarea
@@ -105,13 +105,13 @@ export function FOIRequestForm() {
                 value={foiPurpose}
                 onChange={(e) => setFoiPurpose(e.target.value)}
                 placeholder="Briefly state how the requested public information will be used..."
-                className="w-full px-3.5 py-2.5 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-800"
+                className="w-full px-3.5 py-2.5 rounded-lg border border-mist-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-800"
               />
             </div>
 
             <button
               type="submit"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-900 text-white text-sm font-semibold hover:bg-emerald-950 transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-brand-900 text-white text-sm font-semibold hover:bg-brand-950 transition-colors"
             >
               <Send className="w-4 h-4" />
               {t.foiSubmitButton}

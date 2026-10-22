@@ -12,12 +12,12 @@ export function EmergencyBanners() {
   const cho = EMERGENCY_HOTLINES.find((h) => h.id === 'cho');
 
   return (
-    <div className="bg-stone-900 text-stone-100 rounded-xl p-6 space-y-3">
+    <div className="bg-mist-900 text-mist-100 rounded-xl p-6 space-y-3">
       <h2 className="text-base font-bold text-accent font-display">
         {t.emergencyDispatchHeading}
       </h2>
       <div className="space-y-2 text-xs font-mono-tabular">
-        <div className="flex items-center justify-between py-2 border-b border-stone-800 gap-2">
+        <div className="flex items-center justify-between py-2 border-b border-mist-800 gap-2">
           <span>CDRRMO Command Center:</span>
           <div className="flex items-center gap-2">
             <a href="tel:0633520117" className="font-bold text-white hover:text-accent">
@@ -26,7 +26,7 @@ export function EmergencyBanners() {
             <DataStatus item={cdrrmo} />
           </div>
         </div>
-        <div className="flex items-center justify-between py-2 border-b border-stone-800 gap-2">
+        <div className="flex items-center justify-between py-2 border-b border-mist-800 gap-2">
           <span>City Fire Station (BFP Marawi):</span>
           <div className="flex items-center gap-2">
             <a href="tel:09178429910" className="font-bold text-white hover:text-accent">
@@ -35,7 +35,7 @@ export function EmergencyBanners() {
             <DataStatus item={bfp} />
           </div>
         </div>
-        <div className="flex items-center justify-between py-2 border-b border-stone-800 gap-2">
+        <div className="flex items-center justify-between py-2 border-b border-mist-800 gap-2">
           <span>City Police Station (PNP Marawi):</span>
           <div className="flex items-center gap-2">
             <a href="tel:09985986678" className="font-bold text-white hover:text-accent">

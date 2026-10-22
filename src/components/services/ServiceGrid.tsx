@@ -28,7 +28,7 @@ export function ServiceGrid({ services }: ServiceGridProps) {
           value={filterText}
           onChange={(e) => setFilterText(e.target.value)}
           placeholder={t.filterServicesPlaceholder}
-          className="w-full px-4 py-2.5 rounded-xl bg-white border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-800"
+          className="w-full px-4 py-2.5 rounded-xl bg-white border border-mist-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-800"
         />
       </div>
 

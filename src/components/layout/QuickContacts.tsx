@@ -11,7 +11,7 @@ export function QuickContacts() {
     <div
       role="region"
       aria-label="Emergency Quick Contacts"
-      className="relative w-full bg-brand-950 text-[#F9FEFF] text-xs border-t-2 border-t-accent border-b border-stone-800/80 h-10 select-none overflow-hidden"
+      className="relative w-full bg-brand-950 text-[#F9FEFF] text-xs border-t-2 border-t-accent border-b border-mist-800/80 h-10 select-none overflow-hidden"
     >
       <div className="max-w-7xl mx-auto h-full px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-3">
         {/* Pinned Left Label */}

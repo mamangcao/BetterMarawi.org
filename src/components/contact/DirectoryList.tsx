@@ -7,45 +7,45 @@ import { SITE_CONFIG } from '@/config/site';
 export function DirectoryList() {
   const { t } = useTranslation();
   return (
-    <div className="bg-white rounded-xl border border-stone-200/90 p-6 space-y-4">
-      <h2 className="text-lg font-bold text-stone-900 font-display">
+    <div className="bg-white rounded-xl border border-mist-200/90 p-6 space-y-4">
+      <h2 className="text-lg font-bold text-mist-900 font-display">
         {t.trunklineHeading}
       </h2>
-      <div className="space-y-3 text-sm text-stone-700">
+      <div className="space-y-3 text-sm text-mist-700">
         <div className="flex items-start gap-3">
-          <Phone className="w-4 h-4 text-emerald-800 mt-1 shrink-0" />
+          <Phone className="w-4 h-4 text-brand-800 mt-1 shrink-0" />
           <div>
-            <div className="font-bold text-stone-900 font-mono-tabular">
+            <div className="font-bold text-mist-900 font-mono-tabular">
               (063) 352-0117
             </div>
-            <div className="text-xs text-stone-500">Mon–Fri, 8:00 AM – 5:00 PM</div>
+            <div className="text-xs text-mist-500">Mon–Fri, 8:00 AM – 5:00 PM</div>
           </div>
         </div>
         <div className="flex items-start gap-3">
-          <Mail className="w-4 h-4 text-emerald-800 mt-1 shrink-0" />
+          <Mail className="w-4 h-4 text-brand-800 mt-1 shrink-0" />
           <div>
-            <div className="font-bold text-stone-900 font-mono-tabular">
+            <div className="font-bold text-mist-900 font-mono-tabular">
               info@marawicity.gov.ph
             </div>
-            <div className="text-xs text-stone-500">Response within 2 business days</div>
+            <div className="text-xs text-mist-500">Response within 2 business days</div>
           </div>
         </div>
         <div className="flex items-start gap-3">
-          <MapPin className="w-4 h-4 text-emerald-800 mt-1 shrink-0" />
+          <MapPin className="w-4 h-4 text-brand-800 mt-1 shrink-0" />
           <div>
-            <div className="font-bold text-stone-900">
+            <div className="font-bold text-mist-900">
               {SITE_CONFIG.contact.cityHallAddress}
             </div>
-            <div className="text-xs text-stone-500">
+            <div className="text-xs text-mist-500">
               Coordinates: 8.0034, 124.2851
             </div>
           </div>
         </div>
         <div className="flex items-start gap-3">
-          <Clock className="w-4 h-4 text-emerald-800 mt-1 shrink-0" />
+          <Clock className="w-4 h-4 text-brand-800 mt-1 shrink-0" />
           <div>
-            <div className="font-bold text-stone-900">{t.noNoonBreakPolicy}</div>
-            <div className="text-xs text-stone-500">
+            <div className="font-bold text-mist-900">{t.noNoonBreakPolicy}</div>
+            <div className="text-xs text-mist-500">
               {t.noNoonBreakDesc}
             </div>
           </div>

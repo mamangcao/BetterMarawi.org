@@ -110,7 +110,7 @@ export function MobileNav({ isOpen, onClose, topOffset = 64 }: MobileNavProps) {
       role="dialog"
       aria-modal="true"
       aria-label={t.navMenu}
-      className="lg:hidden fixed inset-x-0 bottom-0 z-40 bg-stone-950/50 backdrop-blur-xs flex justify-end"
+      className="lg:hidden fixed inset-x-0 bottom-0 z-40 bg-mist-950/50 backdrop-blur-xs flex justify-end"
       style={{ top: `${topOffset}px` }}
       onClick={(e) => {
         if (e.target === e.currentTarget) {
@@ -120,7 +120,7 @@ export function MobileNav({ isOpen, onClose, topOffset = 64 }: MobileNavProps) {
       }}
     >
       <div
-        className="w-full max-w-md bg-surface h-full overflow-y-auto border-l border-stone-200 p-4 sm:p-5 pt-3.5 sm:pt-4 flex flex-col justify-between shadow-2xl"
+        className="w-full max-w-md bg-surface h-full overflow-y-auto border-l border-mist-200 p-4 sm:p-5 pt-3.5 sm:pt-4 flex flex-col justify-between shadow-2xl"
         style={{ maxHeight: `calc(100dvh - ${topOffset}px)` }}
       >
         <div className="space-y-2">
@@ -130,8 +130,8 @@ export function MobileNav({ isOpen, onClose, topOffset = 64 }: MobileNavProps) {
             onClick={onClose}
             className={`block px-3 py-2.5 rounded-lg text-base font-semibold ${
               pathname === '/'
-                ? 'bg-emerald-900 text-white'
-                : 'text-stone-900 hover:bg-stone-200/60'
+                ? 'bg-brand-900 text-white'
+                : 'text-mist-900 hover:bg-mist-200/60'
             }`}
           >
             {t.navHome}
@@ -142,18 +142,18 @@ export function MobileNav({ isOpen, onClose, topOffset = 64 }: MobileNavProps) {
             const expanded = mobileAccordion === key;
             const items = NAV_DROPDOWNS[key];
             return (
-              <div key={key} className="border-b border-stone-200/80 pb-2">
+              <div key={key} className="border-b border-mist-200/80 pb-2">
                 <button
                   type="button"
                   aria-expanded={expanded}
                   aria-controls={`mobile-submenu-${key}`}
                   onClick={() => handleToggle(key)}
-                  className="w-full flex items-center justify-between px-3 py-2.5 text-base font-semibold text-stone-900 hover:text-emerald-800 text-left rounded-lg transition-colors"
+                  className="w-full flex items-center justify-between px-3 py-2.5 text-base font-semibold text-mist-900 hover:text-brand-800 text-left rounded-lg transition-colors"
                 >
                   <span>{label}</span>
                   <ChevronDown
-                    className={`w-5 h-5 text-stone-600 transition-transform ${
-                      expanded ? 'rotate-180 text-emerald-800' : ''
+                    className={`w-5 h-5 text-mist-600 transition-transform ${
+                      expanded ? 'rotate-180 text-brand-800' : ''
                     }`}
                   />
                 </button>
@@ -163,7 +163,7 @@ export function MobileNav({ isOpen, onClose, topOffset = 64 }: MobileNavProps) {
                     <Link
                       href={rootHref}
                       onClick={onClose}
-                      className="flex items-center gap-1 px-3 py-1.5 text-xs font-semibold text-emerald-800 hover:text-emerald-950"
+                      className="flex items-center gap-1 px-3 py-1.5 text-xs font-semibold text-brand-800 hover:text-brand-950"
                     >
                       {t.viewAll} {label}
                       <ArrowUpRight className="w-3 h-3" />
@@ -175,14 +175,14 @@ export function MobileNav({ isOpen, onClose, topOffset = 64 }: MobileNavProps) {
                         onClick={onClose}
                         className={`flex items-start gap-2.5 px-3 py-2 rounded-lg text-sm ${
                           pathname === sub.href
-                            ? 'bg-emerald-100/80 text-emerald-950 font-semibold'
-                            : 'text-stone-700 hover:bg-stone-200/50'
+                            ? 'bg-brand-100/80 text-brand-950 font-semibold'
+                            : 'text-mist-700 hover:bg-mist-200/50'
                         }`}
                       >
                         <span className="mt-0.5">{ITEM_ICONS[sub.href]}</span>
                         <div>
-                          <div className="font-medium text-stone-900">{sub.label}</div>
-                          <div className="text-xs text-stone-500 line-clamp-1">
+                          <div className="font-medium text-mist-900">{sub.label}</div>
+                          <div className="text-xs text-mist-500 line-clamp-1">
                             {sub.description}
                           </div>
                         </div>
@@ -195,21 +195,21 @@ export function MobileNav({ isOpen, onClose, topOffset = 64 }: MobileNavProps) {
           })}
 
           {/* Emergency / Hotline Dropdown */}
-          <div className="border-b border-stone-200/80 pb-2">
+          <div className="border-b border-mist-200/80 pb-2">
             <button
               type="button"
               aria-expanded={mobileAccordion === 'emergency'}
               aria-controls="mobile-submenu-emergency"
               onClick={() => handleToggle('emergency')}
-              className="w-full flex items-center justify-between px-3 py-2.5 text-base font-semibold text-stone-900 hover:text-emerald-800 text-left rounded-lg transition-colors"
+              className="w-full flex items-center justify-between px-3 py-2.5 text-base font-semibold text-mist-900 hover:text-brand-800 text-left rounded-lg transition-colors"
             >
               <span className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-emerald-800 shrink-0" aria-hidden="true" />
+                <Phone className="w-4 h-4 text-brand-800 shrink-0" aria-hidden="true" />
                 <span>{t.emergencyHotline}</span>
               </span>
               <ChevronDown
-                className={`w-5 h-5 text-stone-600 transition-transform ${
-                  mobileAccordion === 'emergency' ? 'rotate-180 text-emerald-800' : ''
+                className={`w-5 h-5 text-mist-600 transition-transform ${
+                  mobileAccordion === 'emergency' ? 'rotate-180 text-brand-800' : ''
                 }`}
               />
             </button>
@@ -221,13 +221,13 @@ export function MobileNav({ isOpen, onClose, topOffset = 64 }: MobileNavProps) {
                     key={item.id}
                     href={item.telHref}
                     onClick={onClose}
-                    className="flex items-center justify-between px-3 py-2 rounded-lg text-sm text-stone-700 hover:bg-stone-200/50 transition-colors"
+                    className="flex items-center justify-between px-3 py-2 rounded-lg text-sm text-mist-700 hover:bg-mist-200/50 transition-colors"
                   >
                     <div className="flex items-center gap-2.5">
-                      <Phone className="w-3.5 h-3.5 text-emerald-800 shrink-0" aria-hidden="true" />
-                      <span className="font-medium text-stone-900">{item.label}</span>
+                      <Phone className="w-3.5 h-3.5 text-brand-800 shrink-0" aria-hidden="true" />
+                      <span className="font-medium text-mist-900">{item.label}</span>
                     </div>
-                    <span className="text-xs font-semibold text-emerald-800 font-mono-tabular shrink-0">
+                    <span className="text-xs font-semibold text-brand-800 font-mono-tabular shrink-0">
                       {item.number}
                     </span>
                   </a>
@@ -242,8 +242,8 @@ export function MobileNav({ isOpen, onClose, topOffset = 64 }: MobileNavProps) {
             onClick={onClose}
             className={`block px-3 py-2.5 rounded-lg text-base font-semibold ${
               pathname === '/contact'
-                ? 'bg-emerald-900 text-white'
-                : 'text-stone-900 hover:bg-stone-200/60'
+                ? 'bg-brand-900 text-white'
+                : 'text-mist-900 hover:bg-mist-200/60'
             }`}
           >
             {t.navContact}
@@ -253,7 +253,7 @@ export function MobileNav({ isOpen, onClose, topOffset = 64 }: MobileNavProps) {
           <Link
             href="/sitemap"
             onClick={onClose}
-            className="block px-3 py-2 rounded-lg text-sm font-medium text-stone-600 hover:bg-stone-200/60"
+            className="block px-3 py-2 rounded-lg text-sm font-medium text-mist-600 hover:bg-mist-200/60"
           >
             {t.sitemapAndInspector}
           </Link>

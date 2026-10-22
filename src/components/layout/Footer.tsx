@@ -44,7 +44,7 @@ function ExternalLink({ href, children }: { href: string; children: React.ReactN
       className={`${linkClass} inline-flex items-center gap-1`}
     >
       {children}
-      <ArrowUpRight className="w-3.5 h-3.5 text-stone-500 shrink-0" />
+      <ArrowUpRight className="w-3.5 h-3.5 text-mist-500 shrink-0" />
     </a>
   );
 }
@@ -57,7 +57,7 @@ export function Footer() {
   const [notOfficial, builtBy] = t.communityDisclaimer.split(/\.\s+/);
 
   return (
-    <footer className="bg-stone-900 text-stone-300 border-t border-stone-800 mt-16">
+    <footer className="bg-mist-900 text-mist-300 border-t border-mist-800 mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10">
           {/* Column 1: Brand, mission, location, social */}
@@ -75,8 +75,8 @@ export function Footer() {
               />
               <span>BetterMarawi.org</span>
             </Link>
-            <p className="text-sm text-stone-400 leading-relaxed max-w-sm">{t.heroSubtitle}</p>
-            <div className="text-xs text-stone-300 opacity-75 space-y-1 font-mono-tabular">
+            <p className="text-sm text-mist-400 leading-relaxed max-w-sm">{t.heroSubtitle}</p>
+            <div className="text-xs text-mist-300 opacity-75 space-y-1 font-mono-tabular">
               <div>Coordinates: 8°00&apos;N, 124°17&apos;E (8.0034, 124.2851)</div>
               <div>Elevation: ~700m ASL · Lake Lanao Highland Basin</div>
               <div>{SITE_CONFIG.contact.cityHallAddress}</div>
@@ -87,7 +87,7 @@ export function Footer() {
               rel="noopener noreferrer"
               aria-label={SITE_CONFIG.contact.facebookLabel}
               title={SITE_CONFIG.contact.facebookLabel}
-              className="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-stone-800 text-stone-200 hover:bg-stone-700 hover:text-white transition-colors"
+              className="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-mist-800 text-mist-200 hover:bg-mist-700 hover:text-white transition-colors"
             >
               <FacebookIcon className="w-5 h-5" />
             </a>
@@ -95,7 +95,7 @@ export function Footer() {
 
           {/* Column 2: Quick links */}
           <div className="lg:col-span-2 space-y-4">
-            <h2 className="text-xs font-semibold uppercase tracking-wider text-stone-400 font-sans">
+            <h2 className="text-xs font-semibold uppercase tracking-wider text-mist-400 font-sans">
               {t.quickLinks}
             </h2>
             <ul className="space-y-2.5 text-sm">
@@ -119,7 +119,7 @@ export function Footer() {
 
           {/* Column 3: Resources */}
           <div className="lg:col-span-3 space-y-4">
-            <h2 className="text-xs font-semibold uppercase tracking-wider text-stone-400 font-sans">
+            <h2 className="text-xs font-semibold uppercase tracking-wider text-mist-400 font-sans">
               {t.resources}
             </h2>
             <ul className="space-y-2.5 text-sm">
@@ -138,14 +138,14 @@ export function Footer() {
 
           {/* Column 4: Calls to action and data credits */}
           <div className="lg:col-span-3 space-y-3">
-            <div className="inline-flex items-center gap-1 rounded-lg bg-stone-800/70 border border-stone-700/60 px-3.5 py-2 text-sm text-stone-200">
+            <div className="inline-flex items-center gap-1 rounded-lg bg-mist-800/70 border border-mist-700/60 px-3.5 py-2 text-sm text-mist-200">
               {t.costToPeople}
               <span className="text-accent font-bold font-mono-tabular"><Peso />0</span>
             </div>
             <div>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-stone-800 px-4 py-2.5 text-sm text-stone-200 hover:bg-stone-700 hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 rounded-full bg-mist-800 px-4 py-2.5 text-sm text-mist-200 hover:bg-mist-700 hover:text-white transition-colors"
               >
                 <HandHeart className="w-4 h-4" />
                 {t.volunteerWithUs}
@@ -154,16 +154,16 @@ export function Footer() {
             <div>
               <Link
                 href="/sitemap"
-                className="inline-flex items-center gap-2 rounded-full bg-stone-800 px-4 py-2.5 text-sm text-stone-200 hover:bg-stone-700 hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 rounded-full bg-mist-800 px-4 py-2.5 text-sm text-mist-200 hover:bg-mist-700 hover:text-white transition-colors"
               >
                 <Code2 className="w-4 h-4" />
                 {t.contributeGithub}
               </Link>
             </div>
             <div>
-              <ContributorsDialog buttonClassName="inline-flex items-center gap-2 rounded-full bg-stone-800 px-4 py-2.5 text-sm text-stone-200 hover:bg-stone-700 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent" />
+              <ContributorsDialog buttonClassName="inline-flex items-center gap-2 rounded-full bg-mist-800 px-4 py-2.5 text-sm text-mist-200 hover:bg-mist-700 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent" />
             </div>
-            <ul className="pt-3 space-y-3 text-xs text-stone-400">
+            <ul className="pt-3 space-y-3 text-xs text-mist-400">
               <li>
                 <ExternalLink href="https://www.exchangerate-api.com">{t.fxAttribution}</ExternalLink>
                 {formattedFxDate && (
@@ -181,9 +181,9 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t border-stone-800 flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs text-stone-400">
+        <div className="mt-12 pt-6 border-t border-mist-800 flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs text-mist-400">
           <p className="leading-relaxed">
-            <span className="text-stone-300">© 2026 BetterMarawi.org</span>
+            <span className="text-mist-300">© 2026 BetterMarawi.org</span>
             {' · MIT · '}
             <a
               href="https://bettergov.ph/"

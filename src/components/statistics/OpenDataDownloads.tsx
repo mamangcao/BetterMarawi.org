@@ -17,27 +17,27 @@ export function OpenDataDownloads() {
   };
 
   return (
-    <section className="bg-white rounded-xl border border-stone-200/90 p-6 sm:p-8 space-y-6">
-      <div className="pb-4 border-b border-stone-100">
-        <h2 className="text-xl font-bold text-stone-900 font-display flex items-center gap-2">
-          <Database className="w-5 h-5 text-emerald-800" />
+    <section className="bg-white rounded-xl border border-mist-200/90 p-6 sm:p-8 space-y-6">
+      <div className="pb-4 border-b border-mist-100">
+        <h2 className="text-xl font-bold text-mist-900 font-display flex items-center gap-2">
+          <Database className="w-5 h-5 text-brand-800" />
           {t.openDatasetsHeading}
         </h2>
-        <p className="text-xs text-stone-500 mt-0.5">
+        <p className="text-xs text-mist-500 mt-0.5">
           {t.clickToDownload}
         </p>
       </div>
 
       <div className="space-y-4">
-        <div className="p-5 rounded-xl bg-stone-50 border border-stone-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="p-5 rounded-xl bg-mist-50 border border-mist-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <div className="text-xs font-mono-tabular text-emerald-800 font-semibold">
+            <div className="text-xs font-mono-tabular text-brand-800 font-semibold">
               DATASET-MRW-01 · DEMOGRAPHICS &amp; PSGC
             </div>
-            <h3 className="text-base font-bold text-stone-900 mt-0.5">
+            <h3 className="text-base font-bold text-mist-900 mt-0.5">
               Complete 101 Barangays Master Directory (PSGC)
             </h3>
-            <p className="text-xs text-stone-600 mt-1">
+            <p className="text-xs text-mist-600 mt-1">
               Includes 10-digit PSGC codes, correspondence codes, Urban/Rural classification, and 2024 POPCEN population from PSA.
             </p>
           </div>
@@ -45,7 +45,7 @@ export function OpenDataDownloads() {
             <button
               type="button"
               onClick={handleExportBarangaysCSV}
-              className="px-3 py-2 rounded-lg bg-emerald-900 text-white text-xs font-semibold hover:bg-emerald-950 font-mono-tabular"
+              className="px-3 py-2 rounded-lg bg-brand-900 text-white text-xs font-semibold hover:bg-brand-950 font-mono-tabular"
             >
               {t.downloadCSV}
             </button>
@@ -68,22 +68,22 @@ export function OpenDataDownloads() {
                   }))
                 )
               }
-              className="px-3 py-2 rounded-lg bg-white border border-stone-300 text-stone-800 text-xs font-semibold hover:bg-stone-100 font-mono-tabular"
+              className="px-3 py-2 rounded-lg bg-white border border-mist-300 text-mist-800 text-xs font-semibold hover:bg-mist-100 font-mono-tabular"
             >
               {t.downloadJSON}
             </button>
           </div>
         </div>
 
-        <div className="p-5 rounded-xl bg-stone-50 border border-stone-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="p-5 rounded-xl bg-mist-50 border border-mist-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <div className="text-xs font-mono-tabular text-emerald-800 font-semibold">
+            <div className="text-xs font-mono-tabular text-brand-800 font-semibold">
               DATASET-MRW-02 · PUBLIC FINANCE
             </div>
-            <h3 className="text-base font-bold text-stone-900 mt-0.5">
+            <h3 className="text-base font-bold text-mist-900 mt-0.5">
               FY 2026 General Appropriation Budget Breakdown (₱1.845B)
             </h3>
-            <p className="text-xs text-stone-600 mt-1">
+            <p className="text-xs text-mist-600 mt-1">
               Sectoral allocations, NTA share, local revenue sources, and 5% CDRRMF/GAD shares.
             </p>
           </div>
@@ -92,21 +92,21 @@ export function OpenDataDownloads() {
             onClick={() =>
               downloadJSON('marawi_fy2026_budget.json', BUDGET_BREAKDOWN_2026)
             }
-            className="px-3 py-2 rounded-lg bg-emerald-900 text-white text-xs font-semibold hover:bg-emerald-950 font-mono-tabular shrink-0"
+            className="px-3 py-2 rounded-lg bg-brand-900 text-white text-xs font-semibold hover:bg-brand-950 font-mono-tabular shrink-0"
           >
             {t.downloadJSON}
           </button>
         </div>
 
-        <div className="p-5 rounded-xl bg-stone-50 border border-stone-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="p-5 rounded-xl bg-mist-50 border border-mist-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <div className="text-xs font-mono-tabular text-emerald-800 font-semibold">
+            <div className="text-xs font-mono-tabular text-brand-800 font-semibold">
               DATASET-MRW-03 · LEGISLATIVE ARCHIVE
             </div>
-            <h3 className="text-base font-bold text-stone-900 mt-0.5">
+            <h3 className="text-base font-bold text-mist-900 mt-0.5">
               Sangguniang Panlungsod Enacted Ordinances &amp; Codes
             </h3>
-            <p className="text-xs text-stone-600 mt-1">
+            <p className="text-xs text-mist-600 mt-1">
               Structured registry of key city ordinances, enactment dates, sponsors, and categories.
             </p>
           </div>
@@ -115,14 +115,14 @@ export function OpenDataDownloads() {
             onClick={() =>
               downloadJSON('marawi_ordinances.json', ORDINANCES_LIST)
             }
-            className="px-3 py-2 rounded-lg bg-emerald-900 text-white text-xs font-semibold hover:bg-emerald-950 font-mono-tabular shrink-0"
+            className="px-3 py-2 rounded-lg bg-brand-900 text-white text-xs font-semibold hover:bg-brand-950 font-mono-tabular shrink-0"
           >
             {t.downloadJSON}
           </button>
         </div>
       </div>
 
-      <SourceNote item={MARAWI_BARANGAYS[0]} className="pt-2 border-t border-stone-100" />
+      <SourceNote item={MARAWI_BARANGAYS[0]} className="pt-2 border-t border-mist-100" />
     </section>
   );
 }

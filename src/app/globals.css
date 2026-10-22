@@ -104,30 +104,19 @@
   --color-status-info-bg: #F0F6F8;
   --color-status-info-text: #12404F;
 
-  /* Harmony Aliases for standard scales */
-  --color-emerald-50: #EBF5F1;
-  --color-emerald-100: #D4EAE2;
-  --color-emerald-200: #ACD5C5;
-  --color-emerald-300: #7FBFA7;
-  --color-emerald-400: #52A98A;
-  --color-emerald-500: #358F70;
-  --color-emerald-600: #29745B;
-  --color-emerald-700: #225E4A;
-  --color-emerald-800: #1D5341;
-  --color-emerald-900: #1B4D3E;
-  --color-emerald-950: #0E2921;
-
-  --color-stone-50: #F0F7F4;
-  --color-stone-100: #E4EFEA;
-  --color-stone-200: #D3E2DC;
-  --color-stone-300: #B7CDC4;
-  --color-stone-400: #88A599;
-  --color-stone-500: #567067;
-  --color-stone-600: #3D544C;
-  --color-stone-700: #243831;
-  --color-stone-800: #162420;
-  --color-stone-900: #101B17;
-  --color-stone-950: #080E0C;
+  /* Mist neutrals (Ranao palette): green-tinted greys, like highland mist.
+     Used for page text, borders, dividers, and quiet backgrounds. */
+  --color-mist-50: #F0F7F4;
+  --color-mist-100: #E4EFEA;
+  --color-mist-200: #D3E2DC;
+  --color-mist-300: #B7CDC4;
+  --color-mist-400: #88A599;
+  --color-mist-500: #567067;
+  --color-mist-600: #3D544C;
+  --color-mist-700: #243831;
+  --color-mist-800: #162420;
+  --color-mist-900: #101B17;
+  --color-mist-950: #080E0C;
 }
 
 @layer base {

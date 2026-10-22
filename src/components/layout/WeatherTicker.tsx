@@ -31,11 +31,11 @@ export function WeatherTicker({ weather, isLoading }: WeatherTickerProps) {
   if (!mounted || (isLoading && !weather)) {
     return (
       <div
-        className="inline-flex items-center gap-1.5 text-stone-500 select-none font-mono-tabular shrink-0"
+        className="inline-flex items-center gap-1.5 text-mist-500 select-none font-mono-tabular shrink-0"
         aria-hidden="true"
       >
-        <span className="w-3.5 h-3.5 rounded-full bg-stone-800 animate-pulse inline-block shrink-0" />
-        <span className="w-[16ch] h-3.5 rounded bg-stone-800/80 animate-pulse inline-block" />
+        <span className="w-3.5 h-3.5 rounded-full bg-mist-800 animate-pulse inline-block shrink-0" />
+        <span className="w-[16ch] h-3.5 rounded bg-mist-800/80 animate-pulse inline-block" />
       </div>
     );
   }
@@ -59,9 +59,9 @@ export function WeatherTicker({ weather, isLoading }: WeatherTickerProps) {
       role="region"
       aria-label={`${t.weatherAriaLabel}: Marawi City, ${tempRounded}°C, ${conditionLabel}`}
       title={tooltip}
-      className="inline-flex items-center gap-1.5 text-stone-300 shrink-0 whitespace-nowrap select-none"
+      className="inline-flex items-center gap-1.5 text-mist-300 shrink-0 whitespace-nowrap select-none"
     >
-      <IconComponent className="w-3.5 h-3.5 text-stone-400 shrink-0" aria-hidden="true" />
+      <IconComponent className="w-3.5 h-3.5 text-mist-400 shrink-0" aria-hidden="true" />
       <span>Marawi City {tempRounded}°C</span>
       <span className="sr-only">
         ({conditionLabel}, {t.weatherUpdated} {formattedTime})

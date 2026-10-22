@@ -72,7 +72,7 @@ export function FxTicker({ rates, lastUpdated }: FxTickerProps) {
       role="region"
       aria-label={t.fxRatesLabel}
       aria-live="off"
-      className="relative inline-flex items-center h-[18px] w-[16ch] shrink-0 overflow-hidden select-none outline-none focus-visible:ring-1 focus-visible:ring-stone-400 rounded-sm"
+      className="relative inline-flex items-center h-[18px] w-[16ch] shrink-0 overflow-hidden select-none outline-none focus-visible:ring-1 focus-visible:ring-mist-400 rounded-sm"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onFocus={() => setIsPaused(true)}

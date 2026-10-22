@@ -62,21 +62,21 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       <Breadcrumbs items={breadcrumbs} />
 
       {/* Page Header Banner */}
-      <section className="bg-gradient-to-b from-surface-card to-surface border-b border-stone-200/90 py-10 sm:py-14">
+      <section className="bg-gradient-to-b from-surface-card to-surface border-b border-mist-200/90 py-10 sm:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
             <div className="max-w-3xl">
-              <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-emerald-800 mb-3">
+              <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-brand-800 mb-3">
                 <span>Citizen&apos;s Charter Service Guide</span>
                 <span aria-hidden="true">·</span>
                 <span className="font-mono-tabular">{service.officeAcronym}</span>
                 <span aria-hidden="true">·</span>
                 <span>{service.classification}</span>
               </div>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-950 font-display">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-mist-950 font-display">
                 {service.title}
               </h1>
-              <p className="mt-4 text-base text-stone-700 leading-relaxed">
+              <p className="mt-4 text-base text-mist-700 leading-relaxed">
                 {service.heroSummary}
               </p>
               <UnverifiedNotice items={[service]} className='mt-6' />
@@ -85,10 +85,10 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 {service.highlights.map((h) => (
                   <div
                     key={h.label}
-                    className="bg-white rounded-xl border border-stone-200/90 p-3.5"
+                    className="bg-white rounded-xl border border-mist-200/90 p-3.5"
                   >
-                    <div className="text-xs text-stone-500">{h.label}</div>
-                    <div className="text-sm font-bold text-stone-900 font-mono-tabular mt-0.5">
+                    <div className="text-xs text-mist-500">{h.label}</div>
+                    <div className="text-sm font-bold text-mist-900 font-mono-tabular mt-0.5">
                       {formatWithPeso(h.value)}
                     </div>
                   </div>
@@ -97,27 +97,27 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             </div>
 
             {/* Quick Office Contact Card */}
-            <div className="bg-white rounded-xl border border-stone-200/90 p-5 lg:w-80 shrink-0 space-y-3">
-              <div className="text-xs font-semibold uppercase tracking-wider text-stone-500">
+            <div className="bg-white rounded-xl border border-mist-200/90 p-5 lg:w-80 shrink-0 space-y-3">
+              <div className="text-xs font-semibold uppercase tracking-wider text-mist-500">
                 Responsible Office
               </div>
-              <div className="text-sm font-bold text-stone-900">
+              <div className="text-sm font-bold text-mist-900">
                 {service.responsibleOffice}
               </div>
-              <div className="text-xs text-stone-600 space-y-1.5 pt-2 border-t border-stone-100">
+              <div className="text-xs text-mist-600 space-y-1.5 pt-2 border-t border-mist-100">
                 <div className="flex items-start gap-2">
-                  <MapPin className="w-3.5 h-3.5 text-emerald-800 shrink-0 mt-0.5" />
+                  <MapPin className="w-3.5 h-3.5 text-brand-800 shrink-0 mt-0.5" />
                   <span>{service.officeLocation}</span>
                 </div>
                 <div className="flex items-center gap-2 font-mono-tabular">
-                  <Clock className="w-3.5 h-3.5 text-emerald-800 shrink-0" />
+                  <Clock className="w-3.5 h-3.5 text-brand-800 shrink-0" />
                   <span>{service.operatingHours}</span>
                 </div>
               </div>
               <div className="pt-2">
                 <a
                   href={`tel:${service.hotline.replace(/[^0-9]/g, '')}`}
-                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-emerald-900 text-white text-xs font-semibold hover:bg-emerald-950 transition-colors font-mono-tabular"
+                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-brand-900 text-white text-xs font-semibold hover:bg-brand-950 transition-colors font-mono-tabular"
                 >
                   <Phone className="w-3.5 h-3.5" />
                   Call Hotline: {service.hotline}
@@ -136,7 +136,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             {service.slug === 'health-services' && (
               <section
                 aria-labelledby="yakap-detail-heading"
-                className="bg-emerald-950 text-stone-100 rounded-xl p-6 border border-emerald-900"
+                className="bg-brand-950 text-mist-100 rounded-xl p-6 border border-brand-900"
               >
                 <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-accent">
                   <Stethoscope className="w-4 h-4" />
@@ -148,7 +148,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 >
                   PhilHealth YAKAP (Konsulta) Accredited Facilities &amp; 13 Free Lab Tests
                 </h2>
-                <p className="text-sm text-emerald-100/90 mt-2 leading-relaxed">
+                <p className="text-sm text-brand-100/90 mt-2 leading-relaxed">
                   All residents registered at the Marawi City Health Office (CHO), Rural Health Units (RHU 1–4), and Amai Pakpak Medical Center (APMC) receive 100% free outpatient consultations, up to ₱20,000 in annual maintenance medicines, and these 13 diagnostic laboratory tests:
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-4 text-xs font-mono-tabular">
@@ -169,7 +169,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   ].map((lab) => (
                     <div
                       key={lab}
-                      className="bg-emerald-900/70 border border-emerald-800 rounded-lg px-3 py-2 text-emerald-50"
+                      className="bg-brand-900/70 border border-brand-800 rounded-lg px-3 py-2 text-brand-50"
                     >
                       {lab}
                     </div>
@@ -184,11 +184,11 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 <div>
                   <h2
                     id="tourism-directory-heading"
-                    className="text-2xl font-bold text-stone-900 font-display"
+                    className="text-2xl font-bold text-mist-900 font-display"
                   >
                     Registered Cultural &amp; Eco-Tourism Directory (6 Categories)
                   </h2>
-                  <p className="text-sm text-stone-600 mt-1">
+                  <p className="text-sm text-mist-600 mt-1">
                     Curated landmarks across the Islamic City of Marawi and the Lake Lanao highland basin.
                   </p>
                 </div>
@@ -196,16 +196,16 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   {TOURISM_CATEGORIES.map((cat) => (
                     <div
                       key={cat.id}
-                      className="bg-white rounded-xl border border-stone-200/90 p-6"
+                      className="bg-white rounded-xl border border-mist-200/90 p-6"
                     >
-                      <div className="flex items-center justify-between gap-2 pb-3 mb-4 border-b border-stone-100">
+                      <div className="flex items-center justify-between gap-2 pb-3 mb-4 border-b border-mist-100">
                         <div className="flex items-center gap-2">
-                          <Compass className="w-5 h-5 text-emerald-800" />
-                          <h3 className="text-lg font-bold text-stone-900">
+                          <Compass className="w-5 h-5 text-brand-800" />
+                          <h3 className="text-lg font-bold text-mist-900">
                             {cat.title}
                           </h3>
                         </div>
-                        <span className="text-xs font-mono-tabular font-semibold text-emerald-800">
+                        <span className="text-xs font-mono-tabular font-semibold text-brand-800">
                           {cat.countLabel}
                         </span>
                       </div>
@@ -213,17 +213,17 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                         {cat.places.map((place) => (
                           <div
                             key={place.name}
-                            className="p-3.5 rounded-lg bg-stone-50 border border-stone-200/70"
+                            className="p-3.5 rounded-lg bg-mist-50 border border-mist-200/70"
                           >
                             <div className="flex flex-wrap items-center justify-between gap-2">
-                              <span className="text-sm font-bold text-stone-900">
+                              <span className="text-sm font-bold text-mist-900">
                                 {place.name}
                               </span>
-                              <span className="text-xs text-stone-500 font-mono-tabular">
+                              <span className="text-xs text-mist-500 font-mono-tabular">
                                 Brgy. {place.barangay}
                               </span>
                             </div>
-                            <p className="text-xs text-stone-600 mt-1 leading-relaxed">
+                            <p className="text-xs text-mist-600 mt-1 leading-relaxed">
                               {place.note}
                             </p>
                           </div>

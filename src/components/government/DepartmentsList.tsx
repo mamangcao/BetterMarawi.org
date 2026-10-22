@@ -25,13 +25,13 @@ export function DepartmentsList({ departments }: DepartmentsListProps) {
   return (
     <div className="space-y-6">
       <div className="max-w-md relative">
-        <Search className="w-4 h-4 text-stone-400 absolute left-3.5 top-3.5 pointer-events-none" />
+        <Search className="w-4 h-4 text-mist-400 absolute left-3.5 top-3.5 pointer-events-none" />
         <input
           type="search"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder={t.searchDepartmentsPlaceholder}
-          className="w-full pl-10 pr-4 py-2.5 bg-white rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-800"
+          className="w-full pl-10 pr-4 py-2.5 bg-white rounded-xl border border-mist-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-800"
         />
       </div>
 

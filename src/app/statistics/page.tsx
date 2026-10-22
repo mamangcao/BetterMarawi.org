@@ -22,15 +22,15 @@ export default function StatisticsOverviewPage() {
     <main className="pb-16">
       <Breadcrumbs items={breadcrumbs} />
 
-      <section className="bg-gradient-to-b from-surface-card to-surface border-b border-stone-200/90 py-10 sm:py-14">
+      <section className="bg-gradient-to-b from-surface-card to-surface border-b border-mist-200/90 py-10 sm:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-xs font-semibold uppercase tracking-widest text-emerald-800 mb-2">
+          <p className="text-xs font-semibold uppercase tracking-widest text-brand-800 mb-2">
             Statistics &amp; Open Civic Data
           </p>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-950 font-display">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-mist-950 font-display">
             Marawi City Demographics &amp; Data Portal
           </h1>
-          <p className="mt-3 text-base text-stone-700 max-w-3xl leading-relaxed">
+          <p className="mt-3 text-base text-mist-700 max-w-3xl leading-relaxed">
             Official demographic, geographic, DTI CMCI competitiveness, and 101-barangay census statistics for the Islamic City of Marawi, Lanao del Sur.
           </p>
           <UnverifiedNotice items={[cityProfileVerification]} className="mt-6" />

@@ -37,14 +37,14 @@ export function SourceNote({
   const retrievedPrefix = t.retrievedPrefix || 'Retrieved on';
 
   return (
-    <p className={cn('text-xs text-stone-500 font-sans leading-relaxed', className)}>
+    <p className={cn('text-xs text-mist-500 font-sans leading-relaxed', className)}>
       <span>{sourcePrefix} </span>
       {url ? (
         <a
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="underline hover:text-stone-800 transition-colors inline-flex items-center gap-0.5"
+          className="underline hover:text-mist-800 transition-colors inline-flex items-center gap-0.5"
         >
           <span>{sourceLabel}</span>
           <ArrowUpRight className="w-3 h-3 inline-block shrink-0" aria-hidden="true" />
