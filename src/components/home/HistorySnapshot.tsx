@@ -25,10 +25,22 @@ const historyTimeline = [
       "MSU Main Campus was established in Marawi's cool highlands, becoming the premier educational and cultural institution in southern Philippines.",
   },
   {
-    era: 'Present Day',
-    title: 'Modern Islamic City of Marawi',
+    era: '1980',
+    title: 'Islamic City of Marawi',
     description:
-      'Declared the Islamic City of Marawi in 1980; home to 259,993 residents (2024 POPCEN, PSA) across 101 barangays, advancing sustainable rehabilitation, peace, and open governance.',
+      'Declared the Islamic City of Marawi, reflecting the faith and heritage of its predominantly Meranaw Muslim people.',
+  },
+  {
+    era: '2017',
+    title: 'Marawi Siege',
+    description:
+      'From May 23 to October 23, 2017, a five-month armed conflict between government forces and ISIS-affiliated militants devastated the city center and displaced hundreds of thousands of residents.',
+  },
+  {
+    era: 'Present Day',
+    title: 'Rebuilding Marawi',
+    description:
+      'Rehabilitation of the most affected area continues, and the Marawi Siege Victims Compensation Act (RA 11696, 2022) provides for affected residents. Home to 259,993 people across 101 barangays (2024 POPCEN, PSA).',
   },
 ];
 
@@ -78,10 +90,12 @@ export function HistorySnapshot() {
           horizontal on desktop (line across the top). Each item draws the
           connector to the next marker; the present continues as a dashed line.
         */}
-        <ol ref={ref} className="grid grid-cols-1 lg:grid-cols-4 gap-y-8 lg:gap-x-6">
+        <ol ref={ref} className="grid grid-cols-1 lg:grid-cols-3 gap-y-8 lg:gap-y-10 lg:gap-x-6">
           {historyTimeline.map((item, i) => {
             const isNow = i === last;
-            const delay = `${i * 250}ms`;
+            // Last item in a desktop row: line runs to the row edge instead of into the gap
+            const rowEnd = (i + 1) % 3 === 0;
+            const delay = `${i * 200}ms`;
             return (
               <li key={item.era} className="relative pl-11 lg:pl-0 lg:pt-14">
                 {/* Connector to the next marker (solid), or the dashed "ongoing" line after today */}
@@ -93,7 +107,10 @@ export function HistorySnapshot() {
                 ) : (
                   <span
                     aria-hidden="true"
-                    className="absolute bg-surface-border-strong left-[11px] top-7 -bottom-8 w-0.5 lg:left-7 lg:-right-6 lg:top-[11px] lg:bottom-auto lg:w-auto lg:h-0.5"
+                    className={cn(
+                      'absolute bg-surface-border-strong left-[11px] top-7 -bottom-8 w-0.5 lg:left-7 lg:top-[11px] lg:bottom-auto lg:w-auto lg:h-0.5',
+                      rowEnd ? 'lg:right-0' : 'lg:-right-6'
+                    )}
                   >
                     <span
                       className={cn(
