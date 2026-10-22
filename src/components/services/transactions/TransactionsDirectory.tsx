@@ -9,6 +9,8 @@ import { OfficePanel } from './OfficePanel';
 export interface TxDirectoryLabels {
   /** Heading above the list, e.g. "Certificates and clearances" */
   listHeading: string;
+  /** Optional paragraph under the heading */
+  intro?: string;
   searchPlaceholder: string;
   /** Singular and plural for counts, e.g. document / documents */
   noun: { one: string; many: string };
@@ -82,6 +84,7 @@ export function TransactionsDirectory({ data, labels }: Props) {
         <h2 id="tx-list-heading" className="text-2xl font-bold text-brand-950 font-display">
           {labels.listHeading}
         </h2>
+        {labels.intro && <p className="-mt-3 text-sm text-mist-600">{labels.intro}</p>}
 
         <div className="space-y-3">
           <label className="relative block">
