@@ -18,12 +18,15 @@
   --color-primary-hover: #163F33;
   --color-primary-active: #0E2921;
 
-  /* Accent Scale (derived from #FFE135) */
-  --color-accent: #FFE135;
-  --color-accent-hover: #F5D61E;
-  --color-accent-active: #D4B60B;
-  --color-accent-light: #FFF9D6;
-  --color-accent-muted: #E0C41B;
+  /* Accent: Mosque Gold (Ranao palette), after the Grand Mosque dome and Maranao kuning.
+     Use on dark green or as a fill behind dark text. Never as text on light surfaces,
+     except accent-deep, which is dark enough for text and icons on white (5.3:1). */
+  --color-accent: #F2C230;
+  --color-accent-hover: #E5B21F;
+  --color-accent-active: #CF9C12;
+  --color-accent-light: #FDF3D2;
+  --color-accent-muted: #E0A91B;
+  --color-accent-deep: #8A6510;
 
   /* Surface Tokens */
   --color-surface: #F9FEFF;
