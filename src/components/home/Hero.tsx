@@ -21,7 +21,7 @@ export function Hero() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative bg-brand-900 text-[#F9FEFF] pt-14 pb-20 sm:pt-20 sm:pb-28 lg:pt-24 lg:pb-32 border-b border-brand-950"
+      className="relative bg-brand-900 text-[#F9FEFF] pt-14 pb-20 sm:pt-20 sm:pb-28 lg:pt-24 lg:pb-32"
     >
       <HeroBackdrop />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

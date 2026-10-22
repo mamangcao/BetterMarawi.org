@@ -10,6 +10,17 @@ const WAVE_PATH = (() => {
   return d;
 })();
 
+/** Closed, filled wave across a 2880-wide track (two loops of a 1440 view) */
+function filledWave(period: number, mid: number, amp: number, height: number) {
+  let d = `M0 ${mid}`;
+  for (let x = 0; x < 2880; x += period) {
+    d += ` Q${x + period / 4} ${mid - amp} ${x + period / 2} ${mid} T${x + period} ${mid}`;
+  }
+  return `${d} V${height} H0 Z`;
+}
+const SHORE_BACK = filledWave(720, 26, 12, 64);
+const SHORE_FRONT = filledWave(480, 34, 9, 64);
+
 /**
  * Decorative hero background for BetterMarawi.org:
  * - 8-point star lattice (Islamic City of Marawi)
@@ -48,7 +59,7 @@ export function HeroBackdrop() {
       </svg>
 
       {/* Lake Lanao waves */}
-      <div className="absolute bottom-1 left-0 w-full h-6 sm:h-8 overflow-hidden">
+      <div className="absolute bottom-10 sm:bottom-14 left-0 w-full h-6 sm:h-8 overflow-hidden">
         <svg
           className="absolute inset-y-0 left-0 h-full w-[200%] animate-wave-drift"
           viewBox="0 0 2880 40"
@@ -62,6 +73,24 @@ export function HeroBackdrop() {
           preserveAspectRatio="none"
         >
           <path d={WAVE_PATH} fill="none" stroke="white" strokeOpacity="0.08" strokeWidth="1.5" />
+        </svg>
+      </div>
+
+      {/* Wavy bottom edge, like the Lake Lanao shoreline; filled with the next section's colour */}
+      <div className="absolute inset-x-0 -bottom-px h-10 sm:h-14 lg:h-16 overflow-hidden text-surface">
+        <svg
+          className="absolute inset-y-0 left-0 h-full w-[200%] animate-wave-drift-slow"
+          viewBox="0 0 2880 64"
+          preserveAspectRatio="none"
+        >
+          <path d={SHORE_BACK} fill="currentColor" fillOpacity="0.35" />
+        </svg>
+        <svg
+          className="absolute inset-y-0 left-0 h-full w-[200%] animate-wave-drift"
+          viewBox="0 0 2880 64"
+          preserveAspectRatio="none"
+        >
+          <path d={SHORE_FRONT} fill="currentColor" />
         </svg>
       </div>
     </div>
