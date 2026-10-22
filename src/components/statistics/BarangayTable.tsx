@@ -6,6 +6,7 @@ import { BarangayRecord } from '@/types';
 import { downloadCSV, generateBarangaysCSV } from '@/lib/csv';
 import { SourceNote } from '@/components/ui';
 import { useTranslation } from '@/i18n';
+import { CLASSIFICATION_CHIP } from '@/lib/palette';
 
 interface BarangayTableProps {
   barangays: BarangayRecord[];
@@ -109,8 +110,12 @@ export function BarangayTable({ barangays }: BarangayTableProps) {
                     {b.correspondenceCode && ` · Corr.: ${b.correspondenceCode}`}
                   </div>
                 </td>
-                <td className="py-2.5 px-3 text-xs font-medium text-mist-700">
-                  {b.classification}
+                <td className="py-2.5 px-3">
+                  <span
+                    className={`inline-flex items-center rounded-full border px-2 py-0.5 text-[11px] font-semibold ${CLASSIFICATION_CHIP[b.classification]}`}
+                  >
+                    {b.classification}
+                  </span>
                 </td>
                 <td className="py-2.5 px-3 text-right font-mono-tabular text-mist-900">
                   {b.populationLatest.toLocaleString('en-US')}

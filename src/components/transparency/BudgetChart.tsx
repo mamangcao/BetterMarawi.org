@@ -3,6 +3,7 @@ import React from 'react';
 import { BUDGET_BREAKDOWN_2026, budgetVerification } from '@/data/budget';
 import { formatWithPeso, DataStatus } from '@/components/ui';
 import { useTranslation } from '@/i18n';
+import { chartColor } from '@/lib/palette';
 
 export function BudgetChart() {
   const { t } = useTranslation();
@@ -45,10 +46,11 @@ export function BudgetChart() {
         </div>
 
         <div className="space-y-6">
-          {BUDGET_BREAKDOWN_2026.sectors.map((item) => (
+          {BUDGET_BREAKDOWN_2026.sectors.map((item, i) => (
             <div key={item.sector} className="space-y-2">
               <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <h3 className="text-sm font-bold text-mist-900">
+                <h3 className="text-sm font-bold text-mist-900 inline-flex items-center gap-2">
+                  <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${chartColor(i).bar}`} aria-hidden="true" />
                   {item.sector}
                 </h3>
                 <div className="text-sm font-mono-tabular font-bold text-brand-900">
@@ -57,7 +59,7 @@ export function BudgetChart() {
               </div>
               <div className="w-full h-3 bg-mist-100 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-brand-800 rounded-full"
+                  className={`h-full rounded-full ${chartColor(i).bar}`}
                   style={{ width: `${item.percentage}%` }}
                 />
               </div>

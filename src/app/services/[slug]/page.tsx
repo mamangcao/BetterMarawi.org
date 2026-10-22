@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { Phone, MapPin, Clock, Stethoscope, Compass } from 'lucide-react';
 import { SERVICES_DATA } from '@/data/services';
 import { TOURISM_CATEGORIES } from '@/data/tourism';
+import { tourismTone } from '@/lib/palette';
 import { RequirementsChecklist } from '@/components/services/RequirementsChecklist';
 import { CharterSteps } from '@/components/services/CharterSteps';
 import { FeeSchedule } from '@/components/services/FeeSchedule';
@@ -200,7 +201,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                     >
                       <div className="flex items-center justify-between gap-2 pb-3 mb-4 border-b border-mist-100">
                         <div className="flex items-center gap-2">
-                          <Compass className="w-5 h-5 text-brand-800" />
+                          <Compass className={`w-5 h-5 ${tourismTone(cat.id)}`} />
                           <h3 className="text-lg font-bold text-mist-900">
                             {cat.title}
                           </h3>

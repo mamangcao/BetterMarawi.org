@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowUpRight, TrendingUp } from 'lucide-react';
 import { CMCI_PILLARS, CMCI_SUMMARY, cmciVerification } from '@/data/cmci';
 import { SourceNote } from '@/components/ui';
+import { chartColor } from '@/lib/palette';
 
 export function CMCICard() {
   return (
@@ -27,13 +28,14 @@ export function CMCICard() {
       </div>
 
       <div className="space-y-4">
-        {CMCI_PILLARS.map((p) => (
+        {CMCI_PILLARS.map((p, i) => (
           <div
             key={p.pillar}
             className="p-5 rounded-xl bg-mist-50 border border-mist-200/80 space-y-2"
           >
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <h3 className="text-base font-bold text-mist-900">
+              <h3 className="text-base font-bold text-mist-900 inline-flex items-center gap-2">
+                <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${chartColor(i).bar}`} aria-hidden="true" />
                 {p.pillar}
               </h3>
               <div className="flex items-center gap-3 font-mono-tabular text-xs">
