@@ -34,12 +34,12 @@ This document tracks verification for public civic data displayed on BetterMaraw
 
 | Item | Current value in code | File | Official source | Confirmed value | Verified by | Date | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Hon. Shariff Zain Lanto Gandamra (Name) | `Hon. Shariff Zain Lanto Gandamra` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Shariff Zain Lanto Gandamra (Position) | `City Mayor` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Shariff Zain Lanto Gandamra (Term) | `2025–2028` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Majul Usman Gandamra (Name) | `Hon. Majul Usman Gandamra` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Majul Usman Gandamra (Position) | `City Vice Mayor` | `src/data/officials.ts` | | | | | Unverified |
-| Hon. Majul Usman Gandamra (Term) | `2025–2028` | `src/data/officials.ts` | | | | | Unverified |
+| Hon. Shariff Zain Lanto Gandamra (Name) | `Hon. Shariff Zain Lanto Gandamra` | `src/data/officials.ts` | Site owner (local knowledge, current officeholders); photos from the official Facebook group photo | Hon. Shariff Zain Lanto Gandamra | Site owner | 2026-10-22 | Verified by site owner (not yet checked against COMELEC or DILG records) |
+| Hon. Shariff Zain Lanto Gandamra (Position) | `City Mayor` | `src/data/officials.ts` | Site owner (local knowledge, current officeholders); photos from the official Facebook group photo | City Mayor · Local Chief Executive, Office of the City Mayor | Site owner | 2026-10-22 | Verified by site owner (not yet checked against COMELEC or DILG records) |
+| Hon. Shariff Zain Lanto Gandamra (Term) | `2025–2028` | `src/data/officials.ts` | Site owner (local knowledge, current officeholders); photos from the official Facebook group photo | 2025–2028 | Site owner | 2026-10-22 | Verified by site owner (not yet checked against COMELEC or DILG records) |
+| Hon. Majul Usman Gandamra (Name) | `Hon. Majul Usman Gandamra` | `src/data/officials.ts` | Site owner (local knowledge, current officeholders); photos from the official Facebook group photo | Hon. Majul Usman Gandamra | Site owner | 2026-10-22 | Verified by site owner (not yet checked against COMELEC or DILG records) |
+| Hon. Majul Usman Gandamra (Position) | `City Vice Mayor` | `src/data/officials.ts` | Site owner (local knowledge, current officeholders); photos from the official Facebook group photo | City Vice Mayor · Presiding Officer, Sangguniang Panlungsod | Site owner | 2026-10-22 | Verified by site owner (not yet checked against COMELEC or DILG records) |
+| Hon. Majul Usman Gandamra (Term) | `2025–2028` | `src/data/officials.ts` | Site owner (local knowledge, current officeholders); photos from the official Facebook group photo | 2025–2028 | Site owner | 2026-10-22 | Verified by site owner (not yet checked against COMELEC or DILG records) |
 | Hon. Abdani T. Alonto (Name) | `Hon. Abdani T. Alonto` | `src/data/officials.ts` | | | | | Unverified |
 | Hon. Abdani T. Alonto (Position) | `Sangguniang Panlungsod Member` | `src/data/officials.ts` | | | | | Unverified |
 | Hon. Abdani T. Alonto (Term) | `2025–2028` | `src/data/officials.ts` | | | | | Unverified |

@@ -365,6 +365,11 @@ export const mrw: typeof en = {
   viewAllDepartments: 'View All Departments',
   // TODO(mrw-review): needs fluent reviewer. Leadership & Contact keys below fall back to English.
   leadershipContactHeading: 'City Leadership & Contact',
+  // TODO(mrw-review): needs fluent reviewer
+  mayorRole: 'City Mayor',
+  viceMayorRole: 'City Vice Mayor',
+  mayorDuty: 'Local Chief Executive · Office of the City Mayor',
+  viceMayorDuty: 'Presiding Officer · Sangguniang Panlungsod',
   leadershipContactSubheading: 'Elected officials and how to reach City Hall.',
   allOfficialsEyebrow: 'Sangguniang Panlungsod',
   allOfficialsDescription: 'City Councilors and sectoral representatives of the Sangguniang Panlungsod.',

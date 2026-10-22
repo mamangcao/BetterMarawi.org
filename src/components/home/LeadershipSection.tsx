@@ -1,8 +1,9 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Building2, MapPin, MessagesSquare, Users } from 'lucide-react';
-import { ArrowUpRight, UnverifiedBadge } from '@/components/ui';
+import { ArrowUpRight } from '@/components/ui';
 import { useTranslation } from '@/i18n';
 import { SITE_CONFIG } from '@/config/site';
 import {
@@ -19,12 +20,24 @@ import {
   titleClass,
 } from './linkGridStyles';
 
-// Names and terms are not yet verified (docs/VERIFICATION_CHECKLIST.md, Officials).
+// Names, roles, and terms verified by the site owner on 2026-10-22 (docs/VERIFICATION_CHECKLIST.md).
+// Portraits are cropped from the official group photo on the city's Facebook page.
 // Phone numbers and emails are left out until an official source confirms them.
 const OFFICIALS = [
-  { initials: 'SG', name: 'Hon. Shariff Zain Lanto Gandamra', roleKey: 'electedMayor', term: 'City Mayor, 2025–2028' },
-  { initials: 'MG', name: 'Hon. Majul Usman Gandamra', roleKey: 'electedViceMayor', term: 'City Vice Mayor, 2025–2028' },
+  {
+    name: 'Hon. Shariff Zain Lanto Gandamra',
+    photo: '/images/officials/mayor-shariff-zain-gandamra.webp',
+    roleKey: 'mayorRole',
+    dutyKey: 'mayorDuty',
+  },
+  {
+    name: 'Hon. Majul Usman Gandamra',
+    photo: '/images/officials/vice-mayor-majul-gandamra.webp',
+    roleKey: 'viceMayorRole',
+    dutyKey: 'viceMayorDuty',
+  },
 ] as const;
+const TERM = '2025–2028';
 
 export function LeadershipSection() {
   const { t } = useTranslation();
@@ -41,23 +54,17 @@ export function LeadershipSection() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
         {/* Left: elected officials */}
         <div className={`lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 ${gridFrame}`}>
-          {OFFICIALS.map((o, i) => (
-            <div key={o.name} className={`${cellClass} bg-white`}>
-              <span
-                aria-hidden="true"
-                className={`shrink-0 grid place-items-center w-12 h-12 rounded-xl text-white font-display font-bold text-lg ${
-                  i === 0 ? 'bg-brand-900' : 'bg-brand-700'
-                }`}
-              >
-                {o.initials}
+          {OFFICIALS.map((o) => (
+            <div key={o.name} className={`${cellClass} bg-white items-center`}>
+              <span className="relative shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-brand-100 ring-2 ring-white shadow-sm overflow-hidden">
+                <Image src={o.photo} alt={o.name} fill sizes="80px" className="object-cover" />
               </span>
               <div className="min-w-0">
-                <p className="text-xs font-semibold text-brand-700">{t[o.roleKey]}</p>
-                <h3 className={`${titleClass} mt-0.5 leading-snug`}>{o.name}</h3>
-                <p className="mt-3 flex flex-wrap items-center gap-2 text-sm text-foreground-muted">
-                  {o.term}
-                  <UnverifiedBadge />
+                <p className="text-xs font-semibold uppercase tracking-wider text-brand-700">
+                  {t[o.roleKey]} ({TERM})
                 </p>
+                <h3 className={`${titleClass} mt-1 leading-snug`}>{o.name}</h3>
+                <p className="mt-1.5 text-sm text-foreground-muted">{t[o.dutyKey]}</p>
               </div>
             </div>
           ))}
