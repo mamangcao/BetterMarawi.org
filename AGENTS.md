@@ -19,9 +19,15 @@ npm run dev         # http://localhost:3000
 npm run typecheck
 npm run lint
 npm run build
+npm run check:data        # civic data rules (101 barangays, sources, hotlines)
+npm run check:security    # JSON-LD and CSV encoding, CSP header
+npm run check:regressions # titles, hydration, accessibility wiring
+npm run check:translations  # same keys in EN/FIL/MRW, Meranaw placeholders marked
+npm run check:seo         # after build: SEO of the built HTML
+npm run check:browser     # after build: headless Chrome checks (needs Chrome installed)
 ```
 
-Before finishing any task, `typecheck`, `lint`, and `build` must pass.
+Before finishing any task, `typecheck`, `lint`, and `build` must pass. Run the `check:*` scripts that cover what you changed; `check:seo` and `check:browser` need a production build. Never run `npm run build` in a folder where `npm run dev` is running (they share `.next`); use a separate checkout and pass its path, for example `npm run check:browser -- ../copy`.
 
 ## Structure
 
@@ -87,6 +93,19 @@ Rules:
 
 For any UI, color, font, logo, hero, icon, or copy change, follow `.agents/skills/branding-consistency/SKILL.md`.
 Short version: tokens only (no hardcoded hex), Ranao palette (Pine `brand-*`, Mosque Gold `accent`, Lanao Blue `lake-*`, Okir `okir-*`, Langkit `langkit-*`, Mist neutrals `mist-*`), gold is accent only, shared colour choices in `src/lib/palette.ts`, shared `ArrowUpRight` for link arrows, never copy Indang names or colors.
+
+## SEO for public pages (mandatory)
+
+SEO is part of every new public page. A page is not done until:
+
+1. Its indexing is decided in `src/lib/routes.ts`. A page with no content of its own gets `noindex: true` and a `noindexReason`; that sets its robots tag and removes it from `sitemap.xml`.
+2. Its metadata comes from `buildMetadata` (`src/lib/seo.ts`): a unique, descriptive title and a description written for that page, with no unverified figures. Canonical, Open Graph, Twitter, robots, and the share image come from the helper; do not set them by hand.
+3. JSON-LD is added only where the page qualifies (breadcrumbs always; FAQ or service data only for visible, verified content), through `<JsonLd>`.
+4. Related pages link to it.
+5. `npm run build` and `npm run check:seo` pass, and the page source shows the expected tags.
+6. Anything intentionally left out is documented with a reason (`METADATA_EXCEPTIONS` in `scripts/check-regressions.ts`, `SPECIAL_PAGES` in `scripts/check-seo.ts`).
+
+When changing an existing route, keep its title, description, canonical, robots, and sitemap entry correct and rerun `npm run check:seo`. Never leave default, duplicated, empty, or placeholder metadata. Details: `docs/SEO_GUIDE.md`.
 
 ## Security
 

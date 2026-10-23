@@ -135,7 +135,7 @@ All datasets extend the `Verification` type (`level`, `verified`, `source`, `sou
 3. **Confirmed** (`level: "confirmed"` or legacy `verified: true`):
    - Used when a value has been rigorously confirmed directly with City Hall, official local gazettes, enacted ordinances, or live-tested contact lines.
    - In code: set `level: 'confirmed'` (or `verified: true`), `source`, `sourceUrl`, and `verifiedOn`.
-   - UI behavior: renders the green "Verified" badge.
+   - UI behavior: no badge. Only unverified information is marked; confirmed and sourced information is shown plainly. Keep the source and date in the data file and `docs/VERIFICATION_CHECKLIST.md`.
 
 ## Check before committing
 

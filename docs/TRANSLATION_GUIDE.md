@@ -30,14 +30,14 @@ src/i18n/
 │  ├─ fil.ts
 │  └─ mrw.ts
 ├─ index.ts               # exports LanguageProvider, useTranslation, and translations
-├─ LanguageProvider.tsx   # language context, persistence (localStorage + cookie), useTranslation hook
-└─ useTranslation.ts      # re-exports hook and provider
+└─ LanguageProvider.tsx   # language context, persistence (localStorage), useTranslation hook
 ```
 
 - Text is stored as a structured TypeScript object (`en`). `fil.ts` and `mrw.ts` are strictly typed as `typeof en` so every key in `en.ts` must exist in all three files. Keys are camelCase properties or nested objects (for example `dataStatus.unverified`).
 - In components, import `useTranslation` from `@/i18n`. The hook returns `{ language, setLanguage, t }`, where `t` is the translation object accessed via property dot-notation (for example `{t.welcomeEyebrow}` or `{t.dataStatus.unverified}`).
 - `en.ts` defines the key list. TypeScript flags a missing key in `fil.ts` or `mrw.ts`, so run `npm run typecheck` after every change.
-- The language choice is persisted in `localStorage` (`bm_lang`) and a cookie (`bm_lang`), defaulting to `EN`.
+- The language choice is saved in `localStorage` (`bm_lang`), defaulting to `EN`. There is no language cookie: every page is pre-rendered, so the server cannot use one. (An older `bm_lang` cookie is deleted on the next visit.)
+- The server always renders English with `<html lang="en">`. After the page loads, the saved language is applied and `<html lang>` changes to `fil` or `mrw`, so a saved Filipino or Meranaw choice briefly shows English first. This avoids a server/browser mismatch.
 
 ## What is translated, and what is not
 
@@ -115,6 +115,10 @@ Agree on one translation per term and reuse it everywhere. Add terms as you go.
 
 Check the Filipino terms with a native speaker too. These are suggestions.
 
+## Review backlog
+
+`docs/TRANSLATION_BACKLOG.md` lists every string waiting for a reviewer and the pages with English written directly in the code. Regenerate it after changing translations: `npm run check:translations -- --markdown docs/TRANSLATION_BACKLOG.md`.
+
 ## Review process
 
 1. A contributor adds EN and a first FIL and MRW draft.
@@ -136,7 +140,7 @@ Check the Filipino terms with a native speaker too. These are suggestions.
 - [ ] Text fits at 360px with no overflow or wrapping problems
 - [ ] Numbers, dates, phone numbers, and fees are identical to English
 - [ ] Official names match the glossary
-- [ ] Unreviewed Meranaw is marked with `TODO(mrw-review)`
+- [ ] Unreviewed Meranaw is marked with `TODO(mrw-review)` (`npm run check:translations` fails if one is missing)
 - [ ] The language choice still saves after a refresh
 
 ## Future improvements

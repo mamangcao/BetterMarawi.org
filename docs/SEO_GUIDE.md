@@ -22,7 +22,7 @@ Related: `docs/CONTENT_GUIDE.md` (writing), `docs/DEPLOYMENT.md` (domain and Sea
 | Route list (navbar, sitemap) | `src/lib/routes.ts` (`APP_ROUTES`) |
 | Sitemap | `src/app/sitemap.ts` (serves `/sitemap.xml`) |
 | Robots | `src/app/robots.ts` (serves `/robots.txt`) |
-| Icons and share images | `src/app/icon.png`, `src/app/apple-icon.png`, `src/app/opengraph-image.png`, `public/branding/logo.png` |
+| Icons and share image | `src/app/icon.png`, `src/app/apple-icon.png`, `src/app/opengraph-image.png` (1200 x 630 share image, set on every page by `buildMetadata`) |
 | Per-page metadata | `metadata` or `generateMetadata` export in each `page.tsx` |
 
 Production URL: `https://bettermarawi.org`. It is set as `metadataBase`, so relative URLs resolve correctly.
@@ -36,8 +36,9 @@ Each `page.tsx` exports metadata built with the `buildMetadata` helper in `src/l
 | Title | Unique, about 50 to 60 characters, page topic first. `buildMetadata` appends ` \| BetterMarawi.org` automatically (matching the title template in `src/app/layout.tsx`). |
 | Description | Unique, about 140 to 160 characters, says what the page helps you do. Plain language. |
 | Canonical | One URL per page, no trailing slash, no query strings. |
-| Open Graph | Title, description, URL, site name, share image (`/branding/logo.png`, 1200 x 630 px). |
+| Open Graph | Title, description, URL, site name, share image (`src/app/opengraph-image.png`, 1200 x 630 px). |
 | Twitter | Large summary card (`summary_large_image`) with the same title, description, and share image. |
+| Robots | `index, follow`, unless the route is marked `noindex` in `src/lib/routes.ts` (pages with no content of their own yet). `buildMetadata` reads the registry, so robots and `sitemap.xml` always agree. |
 
 Good examples:
 
@@ -59,10 +60,10 @@ Rendered via the `<JsonLd data={...} />` component (`src/components/seo/JsonLd.t
 
 | Type | Builder | Where | Notes |
 | --- | --- | --- | --- |
-| `GovernmentOrganization` | `buildGovernmentOrganizationSchema()` | Root layout (`src/app/layout.tsx`) | Official city government entity with name, alternate names, URL, address, geo coordinates from `SITE_CONFIG.geo` (8.0034, 124.2851), and contact info. |
+| `GovernmentOrganization` | `buildGovernmentOrganizationSchema()` | Root layout (`src/app/layout.tsx`) | Official city government entity with name, alternate names, URL, address, and geo coordinates from `SITE_CONFIG.geo` (8.0034, 124.2851). No phone or email until one is sourced. |
 | `BreadcrumbList` | `buildBreadcrumbSchema(breadcrumbs)` | All pages (`page.tsx`) | Built from `getRouteBreadcrumbs(pathname)` (or `[{ name: 'Home', url }]` on the home page) in order: Home, section, page. |
 | `GovernmentService` | `buildGovernmentServiceSchema(service, pageUrl)` | The 11 `/services/[slug]` pages | Service operator, area served, audience, requirements in terms of service. |
-| `FAQPage` | `buildFAQSchema(faqs)` | Pages that show FAQs (`/services/[slug]`, `/transparency/*`) | Only questions and answers shown on the page. |
+| `FAQPage` | `buildFAQSchema(faqs)` | Pages that show FAQs (`/services/[slug]`, `/services/certificates`, `/transparency/full-disclosure-policy`) | Only questions and answers shown on the page, and only when they are verified. The annual budget FAQ is not marked up because its figures are unverified. |
 
 Rules:
 
@@ -73,7 +74,7 @@ Rules:
 
 ## Sitemap and robots
 
-- `sitemap.xml` is generated from `APP_ROUTES` in `src/lib/routes.ts`. Add a new page to the route registry and it appears in the sitemap and navbar automatically.
+- `sitemap.xml` is generated from `APP_ROUTES` in `src/lib/routes.ts`. Add a new page to the route registry and it appears in the sitemap and navbar automatically. Routes marked `noindex: true` are left out of the sitemap (they stay in the navbar).
 - Each entry includes `url`, `lastModified` (dynamically set to current date in `src/app/sitemap.ts`), `changeFrequency`, and `priority` from `APP_ROUTES`.
 - `robots.txt` allows crawling (`allow: '/'`) for all user agents and points to `${SITE_CONFIG.url}/sitemap.xml`.
 - The `/sitemap` page is a human-readable list of pages. It is not the XML file.
@@ -99,7 +100,7 @@ Rules:
 ## Images and share previews
 
 - Use `next/image` so images are sized and optimized.
-- Share image: 1200 x 630 px, readable text, logo, brand colors (`public/branding/logo.png`).
+- Share image: 1200 x 630 px, readable text, logo, brand colors (`src/app/opengraph-image.png`). Do not point `og:image` at `public/branding/logo.png`: it is 2000 x 2000 px and 2.7 MB.
 - Test shared links on Facebook (Sharing Debugger) and Messenger, since most Philippine sharing happens there.
 
 ## Performance and accessibility
@@ -110,6 +111,22 @@ Search engines reward fast, accessible pages.
 - Load fonts through `next/font`. Avoid layout shift from images and tickers.
 - Keep pages mobile friendly. Most visitors will use phones.
 - Keep contrast and keyboard access passing (see `docs/DESIGN_SYSTEM.md`).
+
+### Measuring performance
+
+Compare speed only on a production build: run `npm run build`, then `npm run start`. The dev server (`npm run dev`) compiles each page the first time you open it and runs a debug build of React, so it is much slower and is not a fair comparison.
+
+Baseline, measured October 2026 in headless Chrome on a local production build. These are emulated figures, not guarantees for real phones:
+
+| Condition | Clicked navigation (page already prefetched) |
+| --- | --- |
+| Desktop, unthrottled | 20–72 ms |
+| Phone emulation: 375 px, 4× CPU slowdown, 150 ms latency at 1.6 Mbps | 181–554 ms (heaviest: `/services/certificates` and `/government/local-officials-directory`) |
+| Dev server (`npm run dev`), first visit to each page | 0.9–2.9 s, mostly on-demand compiling |
+
+On slow devices, navigation time is mostly the browser rendering a large page, not network. Pages with more elements take longer.
+
+Do not use `content-visibility: auto` for long sections. It cut layout time on those two pages by about a quarter, but in Chrome it removed off-screen content from the accessibility tree (screen readers could not find those certificates or barangays) and broke scrolling to some in-page anchors on phones.
 
 ## Languages
 
@@ -136,7 +153,8 @@ Search engines reward fast, accessible pages.
 - [ ] JSON-LD matches visible content
 - [ ] Breadcrumbs show the right path
 - [ ] Links to the page from related pages
-- [ ] `npm run build` passes
+- [ ] Indexing decided in `src/lib/routes.ts` (`noindex` with a reason if the page has no content of its own)
+- [ ] `npm run build` passes, then `npm run check:seo` passes (it reads the built HTML of every page, plus `sitemap.xml` and `robots.txt`)
 - [ ] Checked the rendered HTML (View Source) for the title, description, and JSON-LD
 
 ## Monitoring
@@ -154,6 +172,4 @@ After launch, check Search Console monthly:
 - Do not buy links or use link schemes
 - Do not copy content from other sites
 - Do not use unverified claims in titles or descriptions
-- Do not change the canonical domain after launch without redirects
-
 - Do not change the canonical domain after launch without redirects

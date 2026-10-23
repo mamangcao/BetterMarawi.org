@@ -8,7 +8,7 @@ Part of the [BetterGov.ph](https://bettergov.ph) community model, inspired by Be
 
 ## Features
 
-- 11 citizen services with requirements, steps, fees, offices, and FAQs
+- 12 citizen services (11 Citizen's Charter services plus Certificates & Clearances) with requirements, steps, fees, offices, and FAQs
 - Government directory: departments, officials, and the Sangguniang Panlungsod
 - Transparency pages: Full Disclosure Policy, annual budget, FOI guide
 - Statistics: city profile, DTI CMCI, all 101 barangays, open data downloads (CSV and JSON)
@@ -49,8 +49,14 @@ Open http://localhost:3000.
 | `npm run start` | Run the production build |
 | `npm run lint` | Run ESLint |
 | `npm run typecheck` | Run TypeScript checks |
+| `npm run check:data` | Civic data rules (101 barangays, sources, verified hotlines) |
+| `npm run check:security` | Safe JSON-LD and CSV output, CSP header |
+| `npm run check:regressions` | Titles, navigation, hydration, accessibility wiring |
+| `npm run check:translations` | Same keys in EN, FIL, MRW; untranslated Meranaw marked |
+| `npm run check:seo` | After a build: SEO tags of every page, `sitemap.xml`, `robots.txt` |
+| `npm run check:browser` | After a build: headless Chrome checks (needs Chrome installed) |
 
-Stop the dev server before running `npm run build`, because a running server can lock the `.next` folder.
+Stop the dev server before running `npm run build`, because a running server can lock the `.next` folder. Which checks to run for a change: see "Commands" in [AGENTS.md](AGENTS.md).
 
 ## Environment variables
 
@@ -80,11 +86,14 @@ public/          images and static files (public/branding/ holds the logo)
 | [CONTENT_GUIDE.md](docs/CONTENT_GUIDE.md) | How to write content |
 | [DATA_UPDATE_GUIDE.md](docs/DATA_UPDATE_GUIDE.md) | Updating data safely |
 | [data-sources.md](docs/data-sources.md) | Where data comes from and verification status |
+| [VERIFICATION_CHECKLIST.md](docs/VERIFICATION_CHECKLIST.md) | What has been verified, by whom, and when |
 | [DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md) | Colors, fonts, components |
 | [TRANSLATION_GUIDE.md](docs/TRANSLATION_GUIDE.md) | Filipino and Meranaw text |
+| [TRANSLATION_BACKLOG.md](docs/TRANSLATION_BACKLOG.md) | Strings waiting for a Filipino or Meranaw reviewer |
 | [SEO_GUIDE.md](docs/SEO_GUIDE.md) | Metadata, JSON-LD, sitemap |
 | [DEPLOYMENT.md](docs/DEPLOYMENT.md) | Vercel and domain setup |
 | [LICENSING.md](docs/LICENSING.md) | What each part is licensed under |
+| [AUDIT_STATUS.md](docs/AUDIT_STATUS.md) | Known issues, their status, and what is left to do |
 
 ## Data and accuracy
 

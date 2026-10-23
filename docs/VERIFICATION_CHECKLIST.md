@@ -24,7 +24,7 @@ This document tracks verification for public civic data displayed on BetterMaraw
 | CDRRMO Emergency Hotline | `(063) 352-0117` | `src/config/site.ts` | | | | | Unverified |
 | City Fire Station (BFP) | `0907-022-4843` (was `0917-842-9910`) | `src/config/site.ts` | Site owner | 0907-022-4843 | Site owner | 2026-10-23 | Verified |
 | City Police Station (PNP) | `0998-598-6678` | `src/config/site.ts` | | | | | Unverified |
-| Amai Pakpak Medical Center (APMC) | `(063) 876 0001` (was CHO / APMC `(063) 221-2536`) | `src/config/site.ts` | Site owner | (063) 876 0001 | Site owner | 2026-10-23 | Verified. `(063) 221-2536` is no longer attributed to APMC; it remains on the home slide as the CHO number, unverified |
+| Amai Pakpak Medical Center (APMC) | `(063) 876 0001` (was CHO / APMC `(063) 221-2536`) | `src/config/site.ts` | Site owner | (063) 876 0001 | Site owner | 2026-10-23 | Verified. `(063) 221-2536` is no longer attributed to APMC; as an unverified City Health Office number it was removed from the home slide (2026-10-23), which now links to the facility list |
 
 ---
 
@@ -66,6 +66,8 @@ This document tracks verification for public civic data displayed on BetterMaraw
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Office of the City Mayor (Head) | `Hon. Shariff Zain Lanto Gandamra` | `src/data/departments.ts` (`headVerification`) | Site owner (current officeholder); 2025 election results, https://ph.rappler.com/elections/2025/local-race/lanao-del-sur/marawi-city | Hon. Shariff Zain Lanto Gandamra, City Mayor (2025–2028) | Site owner | 2026-10-23 | Verified (head only; office mandate, location, and services verified separately) |
 | Office of the Vice Mayor & Sangguniang Panlungsod (Head) | `Hon. Majul Usman Gandamra` | `src/data/departments.ts` (`headVerification`) | Site owner (current officeholder); 2025 election results, https://ph.rappler.com/elections/2025/local-race/lanao-del-sur/marawi-city | Hon. Majul Usman Gandamra, City Vice Mayor (2025–2028) | Site owner | 2026-10-23 | Verified (head only; office mandate, location, and services verified separately) |
+| Office of the City Mayor (office details) | Mandate, frontline services, location `2nd Floor, Executive Wing, Marawi City Hall` | `src/data/departments.ts` (`level: 'confirmed'`) | Site owner confirmation | As shown in code | Site owner | 2026-10-23 | Verified (owner-confirmed) |
+| Office of the Vice Mayor & Sangguniang Panlungsod (office details) | Mandate, frontline services, location `Legislative Session Hall, Marawi City Hall Complex` | `src/data/departments.ts` (`level: 'confirmed'`) | Site owner confirmation | As shown in code | Site owner | 2026-10-23 | Verified (owner-confirmed) |
 | Business Permits and Licensing Office (Head) | `Norodin M. Alonto, MPA` | `src/data/departments.ts` | | | | | Unverified |
 | City Health Office (Head) | `Dr. Aliya B. Lucman, MD, MPH` | `src/data/departments.ts` | | | | | Unverified |
 | City Social Welfare and Development Office (Head) | `Sittie Haniah M. Balindong, RSW` | `src/data/departments.ts` | | | | | Unverified |
@@ -296,5 +298,10 @@ Decisions from the Batch 3 review. Each item was removed or qualified because no
 | `public/data` budget, ordinance, and FDP files; Open Data budget and ordinance downloads | Published | Removed | Unsourced contents. Barangay files regenerated from PSA data (101 rows) |
 | JSON-LD `alternateName: BetterMarawi.org` for the City Government | Present | Removed | This site is community-run, not a name of the City Government |
 | Barangay contact numbers repeated across barangays | Kept | Kept | Published that way by DILG; a shared number is not treated as an error without a source |
+| FDP document list (8 records: codes, posting dates, file sizes, "Compliant · Posted on DILG FDP Portal", download buttons) and the FDP page's "100% Compliant" label and posting locations | Shown as Unverified | Removed (Batch 8, owner decision); empty state shown | No source; no actual files existed (each download produced a one-row CSV). No Marawi postings found on the web (2026-10-23) |
+| Reports page scorecard captioned "Verified indicators from DILG-BARMM, BLGF, and CPDO" (4 figures) | Shown as verified | Removed (Batch 8, owner decision); empty state shown | No source for any figure |
+| "Creative Commons CC0" label on the open datasets | Shown | Removed (Batch 8) | Contradicts `docs/LICENSING.md`; PSA content is CC BY 4.0 (section 7) |
+| Local laws and named city programs cited as a fee's legal basis (14 fees, e.g. "Marawi City Revenue Code", "Marawi City Lake Lanao Fishery Ordinance") | Shown | "To be confirmed" (Batch 8, owner decision); fee amounts kept with their Unverified label | Not found in any official or web source (2026-10-23). National-law citations kept |
+| FY 2026 budget figure (₱1.845 billion) in the page description and FAQ structured data | Present | Removed from metadata and JSON-LD; figures stay on the page labelled Unverified (owner decision) | No source |
 
-**Still unverified (labelled on the site):** emergency numbers for CDRRMO, BFP, PNP, and CHO/APMC; FY 2026 budget figures; FDP documents and their compliance status; service fees, steps, processing times, locations, hours, and the local ordinances they cite; department mandates, locations, and key services; committee names.
+**Still unverified (labelled on the site):** emergency numbers for CDRRMO and PNP (BFP and APMC are owner-verified); FY 2026 budget figures; service fees, steps, processing times, locations, and hours; department mandates, locations, and key services; committee names. See `docs/AUDIT_STATUS.md` for the current status of each.

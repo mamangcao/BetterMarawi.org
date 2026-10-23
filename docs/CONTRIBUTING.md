@@ -117,6 +117,7 @@ Rules of thumb:
 ## Before opening a pull request
 
 - [ ] `npm run typecheck`, `npm run lint`, and `npm run build` pass
+- [ ] The checks for what I changed pass (`npm run check:data`, `check:security`, `check:regressions`, `check:translations`; after a build, `check:seo` and `check:browser`). See "Commands" in `AGENTS.md`.
 - [ ] I tested the changed pages on desktop and mobile widths
 - [ ] No console errors or hydration warnings
 - [ ] No secrets, keys, or `.env` files in the commit

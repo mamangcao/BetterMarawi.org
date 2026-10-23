@@ -215,7 +215,8 @@ Rules:
 | Footer | `components/layout/` | Quick links, official resources, cost-to-citizens note |
 | Hero and HeroSearchCard | `components/home/` | Popular services come from `src/data/services.ts` |
 | ArrowUpRight | `components/ui/` | The only link and CTA arrow |
-| Accordion, Card, Button, Badge, PageHeader, Section | `components/ui/` | Reuse before creating new ones |
+| PageHeader | `components/ui/PageHeader.tsx` | Header band for `/services` and the section landing pages. Reuse before creating new ones |
+| LinkCard | `components/ui/LinkCard.tsx` | The linked card on `/services` and the section landing pages. Hub cards take a registry `path`; the title is the page's registry label |
 
 ## Buttons
 
