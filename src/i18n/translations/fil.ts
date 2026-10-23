@@ -290,7 +290,6 @@ export const fil: typeof en = {
   allDepartmentsEyebrow: 'Direktoryo',
   allDepartmentsDescription: 'Mga pinuno ng departamento, opisina, at kung ano ang hawak ng bawat isa.',
   monFriHours: 'Lunes–Biyernes, 8AM–5PM',
-  responseWindow: 'Sasagutin sa loob ng 2 araw ng negosyo',
 
   // Services Directory & Details
   filterServicesPlaceholder: 'Salain ang mga serbisyo ayon sa keyword o opisina...',
@@ -346,8 +345,7 @@ export const fil: typeof en = {
   nationalTaxAllotment: 'National Tax Allotment (NTA)',
   localRevenueSources: 'Lokal na mga Pinagkukunang Kita',
   appropriationsBySector: 'Mga Alokasyon sa FY 2026 Ayon sa Sektor',
-  enactedViaBudget:
-    'Ipinatupad sa bisa ng General Appropriation Ordinance No. 2025-042',
+  enactedViaBudget: 'Ordinansa ng apropriyasyon: kukumpirmahin pa',
   transparencySections: 'Mga Bahagi ng Transparansya (5)',
   barangaysCensusHeading: 'Opisyal na Direktoryo ng Senso ng 101 na Barangay',
   searchBarangayPlaceholder:
@@ -365,25 +363,7 @@ export const fil: typeof en = {
 
   // Contact & FOI Forms
   contactFormTitle: 'Makipag-ugnayan sa Pamahalaang Lungsod',
-  fullNameLabel: 'Inyong Buong Pangalan *',
-  fullNamePlaceholder: 'Buong Pangalan',
-  emailOrPhoneLabel: 'Email o Numero ng Mobile *',
-  destinationOfficeLabel: 'Destinasyong Opisina / Departamento',
-  messageLabel: 'Mensahe, Tanong sa Serbisyo, o Ulat sa Barangay *',
-  messagePlaceholder:
-    'Magbigay ng mga detalye kasama ang pangalan ng Barangay kung nag-uulat ng lokal na usapin...',
-  submitInquiry: 'Ipadala ang Tanong',
-  messageLoggedTitle: 'Naitala ang Mensahe sa Public Assistance Desk',
-  sendAnotherMessage: 'Magpadala ng Isa Pang Mensahe',
   foiHeading: 'Paano Humiling ng Pampublikong Rekord',
-  foiSuccessTitle: 'Matagumpay na Naitala ang FOI Request',
-  foiSubmitAnother: 'Magsumite ng Isa Pang Kahilingan',
-  foiFullNameLabel: 'Buong Pangalan ng Humihiling na Mamamayan *',
-  foiEmailLabel: 'Email Address para sa Digital na Pagpapadala *',
-  foiDocLabel: 'Tiyak na Dokumentong Pampubliko / Datos na Hinihiling *',
-  foiPurposeLabel:
-    'Layunin ng Kahilingan (Pananaliksik, Pamamahayag, Pag-audit ng Komunidad, atbp.) *',
-  foiSubmitButton: 'Gumawa ng Opisyal na FOI Tracking Ticket',
   // Online submission notices (no form submits anywhere yet)
   contactUnavailableTitle: 'Hindi pa maaaring magpadala ng mensahe online',
   contactUnavailableBody: 'Ang BetterMarawi.org ay pinapatakbo ng mga boluntaryo ng komunidad at hindi konektado sa City Hall, kaya hindi makapagpapadala ang site na ito ng mensahe sa mga tanggapan ng lungsod. Direktang makipag-ugnayan sa tanggapang humahawak ng iyong concern.',
@@ -398,9 +378,14 @@ export const fil: typeof en = {
 
   // Contact Info & Emergency Banners
   emergencyDispatchHeading: 'Mga Numero para sa Emergency',
-  trunklineHeading: 'Trunkline at Lokasyon ng Marawi City Hall',
+  trunklineHeading: 'Lokasyon ng Marawi City Hall',
   noNoonBreakPolicy: 'Patakarang Walang Noon Break',
-  noNoonBreakDesc: 'Bukas ang mga frontline window nang 8:00 AM – 5:00 PM alinsunod sa RA 11032',
+  noNoonBreakDesc: 'Ayon sa RA 11032, dapat pagsilbihan ang mga taong nasa loob na ng tanggapan bago ang oras ng pagsasara, kahit sa oras ng tanghalian.',
+  cityHallContactTbc: 'Opisyal na numero ng telepono at email ng City Hall: kukumpirmahin pa',
+  toBeConfirmed: 'Kukumpirmahin pa',
+  verifiedOfficeholder: 'Beripikadong kasalukuyang nanunungkulan',
+  officeDetailsLabel: 'Detalye ng tanggapan',
+  ordinancesPending: 'Wala pang nakalistang ordinansa. Idaragdag ang mga ito kapag nakakuha na ng kopya mula sa Sangguniang Panlungsod o iba pang opisyal na pinagmulan.',
 
   // Common Feedback / Status Pages
   pageNotFound: 'Hindi Nahanap ang Pahina',

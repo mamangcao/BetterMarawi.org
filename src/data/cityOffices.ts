@@ -67,6 +67,8 @@ export interface CityOffice {
   name: string;
   acronym: string;
   description: string;
+  /** Only for verified officeholders (see headVerification in departments.ts) */
+  head?: string;
   services: { label: string; href: string }[];
   /** Transactions this office handles, each linking to its entry */
   handles: { label: string; href: string }[];
@@ -86,6 +88,7 @@ export const CITY_OFFICES: CityOffice[] = CITY_DEPARTMENTS.map((d) => {
     name: d.name,
     acronym: d.acronym,
     description: d.mandate,
+    head: d.headVerification ? d.head : undefined,
     services: links.services,
     handles,
   };

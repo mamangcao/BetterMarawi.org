@@ -34,7 +34,7 @@ export default function AnnualBudgetPage() {
       <section className="bg-gradient-to-b from-surface-card to-surface border-b border-mist-200/90 py-10 sm:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-xs font-semibold uppercase tracking-widest text-brand-800 mb-2">
-            General Appropriation Ordinance No. 2025-042
+            City Budget · Figures Not Yet Verified
           </p>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-mist-950 font-display">
             FY 2026 Annual Budget (₱1.845 Billion)

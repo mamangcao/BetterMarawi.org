@@ -2,7 +2,11 @@
 // Keyed by the barangay's 10-digit PSA PSGC code (see src/data/barangays.ts).
 // Source: DILG Barangay Officials Directory (term 2023–2026), as of September 2026,
 // compiled by the site owner. Contact numbers are the numbers listed there for each official.
-// Lomidong's SK contact is left out: the listed number is Lumbaca Madaya's.
+// Numbers are kept exactly as DILG publishes them. Some appear for more than one barangay
+// (e.g. 09301283332, 09518867028); barangays can share a contact number, so a repeat is not
+// treated as an error unless a source shows that a specific entry is wrong.
+// Lomidong's SK contact is left out because the DILG export lists none (N/A) for that official;
+// the summary list's number for it came from another row.
 // Barangays not in DILG's directory are left out; the page shows "To be added".
 // Barangay and SK elections are scheduled for November 2, 2026: update this list after the new
 // officials take office, and change BARANGAY_LEADERS_AS_OF.

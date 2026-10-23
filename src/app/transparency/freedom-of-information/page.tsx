@@ -14,18 +14,10 @@ export const metadata: Metadata = buildMetadata({
   path: '/transparency/freedom-of-information',
 });
 
-const faqs = [
-  {
-    question: 'How long does it take to process a Freedom of Information (FOI) request in Marawi City?',
-    answer:
-      'Under the Marawi City People’s FOI Ordinance, the Public Information Office (PIO) and Records Officer must respond to and release requested public documents within fifteen (15) working days from receipt.',
-  },
-  {
-    question: 'Is there a fee to file an FOI request?',
-    answer:
-      'Filing an FOI request and receiving digital copies via email is 100% free of charge. Minimal reproduction costs apply only if you request certified printed copies exceeding 20 pages.',
-  },
-];
+// FAQs removed: they cited a "Marawi City People's FOI Ordinance" (No. 2024-027), a 15-working-day
+// deadline, and fee rules. No source was found for any of them (searched Oct 23, 2026).
+// Add answers back only with a citation to the actual ordinance or order.
+const faqs: { question: string; answer: string }[] = [];
 
 export default function FreedomOfInformationPage() {
   const breadcrumbs = getRouteBreadcrumbs('/transparency/freedom-of-information');
@@ -37,10 +29,10 @@ export default function FreedomOfInformationPage() {
       <section className="bg-gradient-to-b from-surface-card to-surface border-b border-mist-200/90 py-10 sm:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-xs font-semibold uppercase tracking-widest text-brand-800 mb-2">
-            City Ordinance No. 2024-027 · Open Governance
+            Open Governance
           </p>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-mist-950 font-display">
-            Freedom of Information (FOI) Citizen Portal
+            Freedom of Information (FOI) Guide
           </h1>
           <p className="mt-3 text-base text-mist-700 max-w-3xl leading-relaxed">
             Every Filipino citizen has the right to access official records, public contracts, and government research data held by the City Government of Marawi.
@@ -59,7 +51,7 @@ export default function FreedomOfInformationPage() {
       </div>
 
       <JsonLd data={buildBreadcrumbSchema(breadcrumbs)} />
-      <JsonLd data={buildFAQSchema(faqs)} />
+      {faqs.length > 0 && <JsonLd data={buildFAQSchema(faqs)} />}
     </main>
   );
 }

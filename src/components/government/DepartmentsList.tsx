@@ -18,7 +18,7 @@ export function DepartmentsList({ departments }: DepartmentsListProps) {
     (d) =>
       d.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       d.acronym.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      d.head.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (d.head ?? '').toLowerCase().includes(searchQuery.toLowerCase()) ||
       d.keyServices.some((s) => s.toLowerCase().includes(searchQuery.toLowerCase()))
   );
 

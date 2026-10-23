@@ -10,7 +10,7 @@ export function EmergencyBanners() {
   const cdrrmo = EMERGENCY_HOTLINES.find((h) => h.id === 'cdrrmo');
   const bfp = EMERGENCY_HOTLINES.find((h) => h.id === 'bfp');
   const pnp = EMERGENCY_HOTLINES.find((h) => h.id === 'pnp');
-  const cho = EMERGENCY_HOTLINES.find((h) => h.id === 'cho');
+  const apmc = EMERGENCY_HOTLINES.find((h) => h.id === 'apmc');
 
   return (
     <div className="bg-mist-900 text-mist-100 rounded-xl p-6 space-y-3">
@@ -48,8 +48,8 @@ export function EmergencyBanners() {
         <div className="flex items-center justify-between py-2 border-b border-mist-800 gap-2">
           <span>City Fire Station (BFP Marawi):</span>
           <div className="flex items-center gap-2">
-            <a href="tel:09178429910" className="font-bold text-white hover:text-accent">
-              0917-842-9910
+            <a href={bfp?.telHref} className="font-bold text-white hover:text-accent">
+              {bfp?.number}
             </a>
             <DataStatus item={bfp} />
           </div>
@@ -64,12 +64,12 @@ export function EmergencyBanners() {
           </div>
         </div>
         <div className="flex items-center justify-between py-2 gap-2">
-          <span>City Health Office / APMC ER:</span>
+          <span>Amai Pakpak Medical Center (APMC):</span>
           <div className="flex items-center gap-2">
-            <a href="tel:0632212536" className="font-bold text-white hover:text-accent">
-              (063) 221-2536
+            <a href={apmc?.telHref} className="font-bold text-white hover:text-accent">
+              {apmc?.number}
             </a>
-            <DataStatus item={cho} />
+            <DataStatus item={apmc} />
           </div>
         </div>
       </div>

@@ -1,52 +1,12 @@
 import { OrdinanceRecord } from '@/types';
 
-export const ORDINANCES_LIST: OrdinanceRecord[] = [
-  {
-    number: 'City Ordinance No. 2026-014',
-    title: 'An Ordinance Institutionalizing the PhilHealth YAKAP (Konsulta) Zero-Copay Primary Care Network Across All 96 Barangays of the Islamic City of Marawi',
-    dateEnacted: 'September 14, 2026',
-    category: 'Health & Social Welfare',
-    sponsor: 'Hon. Soraya M. Lucman',
-    status: 'Enacted & In Force',
-  },
-  {
-    number: 'City Ordinance No. 2026-009',
-    title: 'Kambalingan Residential Building Permit Fee Relief Extension for Returning Homeowners in the 24 Most Affected Area (MAA) Barangays',
-    dateEnacted: 'June 22, 2026',
-    category: 'Housing & Rehabilitation',
-    sponsor: 'Hon. Kamarudin D. Pacasum',
-    status: 'Enacted & In Force',
-  },
-  {
-    number: 'City Ordinance No. 2025-042',
-    title: 'FY 2026 General Appropriation Ordinance Approving the Annual Executive Budget of ₱1,845,200,000.00 of the Islamic City of Marawi',
-    dateEnacted: 'December 11, 2025',
-    category: 'Appropriations & Finance',
-    sponsor: 'Hon. Abdani T. Alonto',
-    status: 'Enacted & In Force',
-  },
-  {
-    number: 'City Ordinance No. 2025-031',
-    title: 'Lake Lanao Shoreline 20-Meter Easement & Plastic Waste Reduction Code of the Islamic City of Marawi',
-    dateEnacted: 'August 19, 2025',
-    category: 'Environment & Lake Lanao',
-    sponsor: 'Hon. Arafat G. Mindalano',
-    status: 'Enacted & In Force',
-  },
-  {
-    number: 'City Ordinance No. 2025-018',
-    title: 'Marawi City Halal Enterprise Development, Labeling Standards, and Padian Market Modernization Code',
-    dateEnacted: 'May 05, 2025',
-    category: 'Business & Halal Trade',
-    sponsor: 'Hon. Nasser P. Balindong',
-    status: 'Enacted & In Force',
-  },
-  {
-    number: 'City Ordinance No. 2024-027',
-    title: 'People’s Freedom of Information (FOI) and Open Civic Data Portal Ordinance of the Islamic City of Marawi',
-    dateEnacted: 'November 12, 2024',
-    category: 'Good Governance & Transparency',
-    sponsor: 'Hon. Majul Usman Gandamra',
-    status: 'Enacted & In Force',
-  },
-];
+// City ordinances of the Islamic City of Marawi. Add an entry only from an official copy
+// (Sangguniang Panlungsod records, the city's official page, or another government source),
+// with `source`, `sourceUrl`, and `retrievedOn` set.
+//
+// Six earlier entries (Nos. 2026-014, 2026-009, 2025-042, 2025-031, 2025-018, 2024-027) were
+// removed on Oct 23, 2026: none had a source, no record of them was found, and their sponsors
+// contradicted the 2025 election results (e.g. "Hon. Abdani T. Alonto", who placed 13th, and
+// "Hon. Soraya M. Lucman", who is not one of the 10 elected councilors). One title also gave
+// "96 barangays"; PSA lists 101.
+export const ORDINANCES_LIST: OrdinanceRecord[] = [];

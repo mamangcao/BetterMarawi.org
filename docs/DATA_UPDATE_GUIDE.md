@@ -24,7 +24,7 @@ Related: `docs/data-sources.md` (sources and verification log), `docs/CONTENT_GU
 | `src/data/budget.ts` | Annual budget and sector breakdown |
 | `src/data/cmci.ts` | DTI CMCI pillars and scores |
 | `src/data/tourism.ts` | Tourism categories and listings |
-| `src/data/barangays.ts` | All 96 barangays and population |
+| `src/data/barangays.ts` | All 101 barangays (PSA PSGC) and population |
 | `src/config/site.ts` | Hotlines, site constants, navigation |
 | `src/i18n/translations/` | EN, FIL, MRW text (see `docs/TRANSLATION_GUIDE.md`) |
 

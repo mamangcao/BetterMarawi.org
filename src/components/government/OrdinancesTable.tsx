@@ -31,11 +31,13 @@ export function OrdinancesTable({ ordinances }: OrdinancesTableProps) {
               <FileText className="w-5 h-5 text-brand-800" />
               {t.ordinancesRegistryHeading}
             </h2>
-            <p className="text-xs text-mist-500 mt-0.5">
-              {t.showingEnactments} {filtered.length} {t.of} {ordinances.length} {t.legislativeEnactments}
-            </p>
+            {ordinances.length > 0 && (
+              <p className="text-xs text-mist-500 mt-0.5">
+                {t.showingEnactments} {filtered.length} {t.of} {ordinances.length} {t.legislativeEnactments}
+              </p>
+            )}
           </div>
-          <div className="max-w-xs w-full relative">
+          <div className={`max-w-xs w-full relative ${ordinances.length === 0 ? 'hidden' : ''}`}>
             <Search className="w-4 h-4 text-mist-400 absolute left-3.5 top-3 pointer-events-none" />
             <input
               type="search"
@@ -48,6 +50,11 @@ export function OrdinancesTable({ ordinances }: OrdinancesTableProps) {
         </div>
 
         <div className="space-y-4">
+          {ordinances.length === 0 && (
+            <p className="rounded-xl border border-dashed border-mist-300 p-6 text-center text-sm text-mist-600">
+              {t.ordinancesPending}
+            </p>
+          )}
           {filtered.map((ord) => (
             <div
               key={ord.number}

@@ -3,6 +3,7 @@ import React from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { DepartmentRecord } from '@/types';
 import { DataStatus } from '@/components/ui';
+import { isUnverified } from '@/lib/verification';
 import { useTranslation } from '@/i18n';
 
 interface DepartmentCardProps {
@@ -19,7 +20,13 @@ export function DepartmentCard({ dept }: DepartmentCardProps) {
             <span className="text-xs font-mono-tabular font-semibold text-brand-800">
               {dept.acronym}
             </span>
-            <DataStatus item={dept} />
+            {/* This badge covers the office's details (mandate, location, services), not its head */}
+            {isUnverified(dept) && (
+              <span className="inline-flex items-center gap-1.5 text-[11px] text-mist-500">
+                {t.officeDetailsLabel}:
+                <DataStatus item={dept} />
+              </span>
+            )}
           </div>
           <h2 className="text-xl font-bold text-mist-900 font-display mt-0.5">
             {dept.name}
@@ -27,7 +34,14 @@ export function DepartmentCard({ dept }: DepartmentCardProps) {
         </div>
         <div className="text-right">
           <div className="text-xs text-mist-500">{dept.designation}</div>
-          <div className="text-sm font-bold text-mist-900">{dept.head}</div>
+          {dept.head && dept.headVerification ? (
+            <>
+              <div className="text-sm font-bold text-mist-900">{dept.head}</div>
+              <div className="text-[11px] font-semibold text-brand-700">{t.verifiedOfficeholder}</div>
+            </>
+          ) : (
+            <div className="text-sm italic text-mist-500">{t.toBeConfirmed}</div>
+          )}
         </div>
       </div>
 
@@ -52,14 +66,18 @@ export function DepartmentCard({ dept }: DepartmentCardProps) {
       </div>
 
       <div className="pt-3 border-t border-mist-100 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-mist-600 font-mono-tabular">
-        <div className="flex items-center gap-1.5">
-          <Phone className="w-3.5 h-3.5 text-brand-800 shrink-0" />
-          <span>{dept.phone}</span>
-        </div>
-        <div className="flex items-center gap-1.5">
-          <Mail className="w-3.5 h-3.5 text-brand-800 shrink-0" />
-          <span className="truncate">{dept.email}</span>
-        </div>
+        {dept.phone && (
+          <div className="flex items-center gap-1.5">
+            <Phone className="w-3.5 h-3.5 text-brand-800 shrink-0" />
+            <span>{dept.phone}</span>
+          </div>
+        )}
+        {dept.email && (
+          <div className="flex items-center gap-1.5">
+            <Mail className="w-3.5 h-3.5 text-brand-800 shrink-0" />
+            <span className="truncate">{dept.email}</span>
+          </div>
+        )}
         <div className="flex items-center gap-1.5 font-sans">
           <MapPin className="w-3.5 h-3.5 text-brand-800 shrink-0" />
           <span className="truncate">{dept.location}</span>

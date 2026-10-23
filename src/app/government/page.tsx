@@ -13,7 +13,7 @@ import { buildMetadata, getRouteBreadcrumbs } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'City Government of Marawi: Officials, Offices & Council | BetterMarawi.org',
   description:
-    'Find who leads the Islamic City of Marawi: the Mayor and Vice Mayor, the 10 City Councilors, city departments, the Sangguniang Panlungsod, and the leaders of all 101 barangays.',
+    'Find who leads the Islamic City of Marawi: the Mayor and Vice Mayor, the 10 City Councilors, city departments, the Sangguniang Panlungsod, and barangay leaders.',
   path: '/government',
 });
 
@@ -23,7 +23,7 @@ const CARDS: HubCard[] = [
     eyebrow: '2025–2028 Term',
     title: 'Local Officials Directory',
     description:
-      'The Mayor and Vice Mayor, the City Council, the city offices and their services, and the leaders of every barangay.',
+      'The Mayor and Vice Mayor, the City Council, the city offices and their services, and barangay leaders.',
     meta: `${EXECUTIVES.length} executives · ${COUNCILORS.length} councilors · ${MARAWI_BARANGAYS.length} barangays`,
     icon: Users,
   },
@@ -39,8 +39,8 @@ const CARDS: HubCard[] = [
     href: '/government/legislative',
     eyebrow: 'Sangguniang Panlungsod',
     title: 'Legislative',
-    description: 'The city council’s ordinances, resolutions, and committees.',
-    meta: 'Ordinances · resolutions · committees',
+    description: 'The city council and its committees. Ordinances will be listed once sourced.',
+    meta: 'City council · committees',
     icon: Gavel,
   },
 ];

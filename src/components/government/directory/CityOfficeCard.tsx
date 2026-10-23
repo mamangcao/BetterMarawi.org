@@ -22,7 +22,14 @@ export function CityOfficeCard({ office }: { office: CityOffice }) {
       <dl className="mt-3 space-y-2 text-sm">
         <div>
           <dt className="text-[11px] font-semibold uppercase tracking-[0.14em] text-mist-500">Office head</dt>
-          <dd className="text-mist-500 italic">To be confirmed</dd>
+          {office.head ? (
+            <dd>
+              <span className="block font-semibold text-brand-950">{office.head}</span>
+              <span className="block text-[11px] font-semibold text-brand-700">Verified current officeholder</span>
+            </dd>
+          ) : (
+            <dd className="text-mist-500 italic">To be confirmed</dd>
+          )}
         </div>
         {office.handles.length > 0 && (
           <div>

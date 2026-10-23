@@ -47,8 +47,6 @@ export interface ServicePageData extends Verification {
   responsibleOffice: string;
   officeAcronym: string;
   officeLocation: string;
-  hotline: string;
-  email: string;
   operatingHours: string;
   totalProcessingTime: string;
   classification: 'Simple Transaction' | 'Complex Transaction' | 'Highly Technical';
@@ -66,12 +64,15 @@ export interface DepartmentRecord extends Verification {
   id: string;
   name: string;
   acronym: string;
-  head: string;
+  /** Only when sourced; otherwise the UI shows "To be confirmed" */
+  head?: string;
+  /** Source for the head only. The rest of the record (mandate, location, services) is verified separately. */
+  headVerification?: Verification;
   designation: string;
   mandate: string;
   location: string;
-  phone: string;
-  email: string;
+  phone?: string;
+  email?: string;
   keyServices: string[];
 }
 

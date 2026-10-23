@@ -7,7 +7,8 @@ export function buildGovernmentOrganizationSchema() {
     '@type': 'GovernmentOrganization',
     '@id': `${SITE_CONFIG.url}/#organization`,
     name: 'City Government of the Islamic City of Marawi',
-    alternateName: ['BetterMarawi.org', 'LGU Marawi City', 'Islamic City of Marawi'],
+    // Not 'BetterMarawi.org': this site is community-run and is not a name of the City Government.
+    alternateName: ['LGU Marawi City', 'Islamic City of Marawi'],
     url: SITE_CONFIG.url,
     // No telephone or email: no official source confirms one for the city (docs/VERIFICATION_CHECKLIST.md).
     address: {

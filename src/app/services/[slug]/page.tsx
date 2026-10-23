@@ -112,7 +112,6 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               offices={getServiceCard(service.slug)?.offices ?? [{ name: service.responsibleOffice }]}
               location={service.officeLocation}
               hours={service.operatingHours}
-              hotline={service.hotline}
             />
           </div>
         </div>
@@ -252,7 +251,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             <ServiceFAQ faqs={service.faqs} />
           </article>
 
-          <ServiceSidebar currentSlug={service.slug} email={service.email} />
+          <ServiceSidebar currentSlug={service.slug} />
         </div>
       </div>
 

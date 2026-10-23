@@ -14,7 +14,7 @@ export const BUDGET_BREAKDOWN_2026 = {
       sector: 'General Public Services & Good Governance',
       amount: '₱572,012,000',
       percentage: 31,
-      description: 'Executive & legislative administration, peace & order, barangay support across 96 villages, and civil registry.',
+      description: 'Executive & legislative administration, peace & order, barangay support across 101 barangays, and civil registry.',
     },
     {
       sector: 'Social Services (Health, Education, CSWDO & Housing)',

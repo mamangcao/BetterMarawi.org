@@ -400,8 +400,6 @@ export const mrw: typeof en = {
   allDepartmentsDescription: 'Department heads, offices, and what each one handles.',
   // TODO(mrw-review): needs fluent reviewer
   monFriHours: 'Mon–Fri, 8AM–5PM',
-  // TODO(mrw-review): needs fluent reviewer
-  responseWindow: 'Response within 2 business days',
 
   // TODO(mrw-review): needs fluent reviewer
   filterServicesPlaceholder: 'Filter services by keyword or office...',
@@ -500,8 +498,7 @@ export const mrw: typeof en = {
   // TODO(mrw-review): needs fluent reviewer
   appropriationsBySector: 'FY 2026 Appropriations by Sector',
   // TODO(mrw-review): needs fluent reviewer
-  enactedViaBudget:
-    'Enacted via General Appropriation Ordinance No. 2025-042',
+  enactedViaBudget: 'Appropriation ordinance: to be confirmed',
   // TODO(mrw-review): needs fluent reviewer
   transparencySections: 'Transparency Sections (5)',
   // TODO(mrw-review): needs fluent reviewer
@@ -530,41 +527,7 @@ export const mrw: typeof en = {
   // TODO(mrw-review): needs fluent reviewer
   contactFormTitle: 'Contact the City Government',
   // TODO(mrw-review): needs fluent reviewer
-  fullNameLabel: 'Your Full Name *',
-  // TODO(mrw-review): needs fluent reviewer
-  fullNamePlaceholder: 'Full Name',
-  // TODO(mrw-review): needs fluent reviewer
-  emailOrPhoneLabel: 'Email or Mobile Number *',
-  // TODO(mrw-review): needs fluent reviewer
-  destinationOfficeLabel: 'Destination Office / Department',
-  // TODO(mrw-review): needs fluent reviewer
-  messageLabel: 'Message, Service Inquiry, or Barangay Report *',
-  // TODO(mrw-review): needs fluent reviewer
-  messagePlaceholder:
-    'Provide details including Barangay name if reporting a local issue...',
-  // TODO(mrw-review): needs fluent reviewer
-  submitInquiry: 'Submit Inquiry',
-  // TODO(mrw-review): needs fluent reviewer
-  messageLoggedTitle: 'Message Logged with Public Assistance Desk',
-  // TODO(mrw-review): needs fluent reviewer
-  sendAnotherMessage: 'Send Another Message',
-  // TODO(mrw-review): needs fluent reviewer
   foiHeading: 'How to Request a Public Record',
-  // TODO(mrw-review): needs fluent reviewer
-  foiSuccessTitle: 'FOI Request Logged Successfully',
-  // TODO(mrw-review): needs fluent reviewer
-  foiSubmitAnother: 'Submit Another Request',
-  // TODO(mrw-review): needs fluent reviewer
-  foiFullNameLabel: 'Full Name of Requesting Citizen *',
-  // TODO(mrw-review): needs fluent reviewer
-  foiEmailLabel: 'Email Address for Digital Release *',
-  // TODO(mrw-review): needs fluent reviewer
-  foiDocLabel: 'Specific Public Document / Dataset Requested *',
-  // TODO(mrw-review): needs fluent reviewer
-  foiPurposeLabel:
-    'Purpose of Request (Academic Research, Journalism, Community Audit, etc.) *',
-  // TODO(mrw-review): needs fluent reviewer
-  foiSubmitButton: 'Generate Official FOI Tracking Ticket',
   // Online submission notices (no form submits anywhere yet)
   // TODO(mrw-review): needs fluent reviewer
   contactUnavailableTitle: 'Online messages are not available yet',
@@ -581,11 +544,17 @@ export const mrw: typeof en = {
   // TODO(mrw-review): needs fluent reviewer
   emergencyDispatchHeading: 'Emergency Numbers',
   // TODO(mrw-review): needs fluent reviewer
-  trunklineHeading: 'Marawi City Hall Trunkline & Location',
+  trunklineHeading: 'Marawi City Hall Location',
   // TODO(mrw-review): needs fluent reviewer
   noNoonBreakPolicy: 'No Noon Break Policy',
   // TODO(mrw-review): needs fluent reviewer
-  noNoonBreakDesc: 'Frontline windows open 8:00 AM – 5:00 PM under RA 11032',
+  noNoonBreakDesc: 'Under RA 11032, people already inside a government office before closing time must be served, even during lunch break.',
+  // TODO(mrw-review): needs fluent reviewer
+  cityHallContactTbc: 'Official City Hall phone number and email: to be confirmed',
+  toBeConfirmed: 'To be confirmed',
+  verifiedOfficeholder: 'Verified current officeholder',
+  officeDetailsLabel: 'Office details',
+  ordinancesPending: 'No ordinances are listed yet. They will be added once copies are obtained from the Sangguniang Panlungsod or another official source.',
 
   // TODO(mrw-review): needs fluent reviewer
   pageNotFound: 'Page Not Found',

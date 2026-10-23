@@ -1,5 +1,9 @@
 import { ServicePageData } from '@/types';
 
+// Office hotlines and emails were removed on Oct 23, 2026: none had a source, several reused the
+// CDRRMO emergency number, and every @marawicity.gov.ph address uses a domain that does not resolve.
+// Fees, steps, processing times, locations, and hours below are still unverified; each service page
+// shows an "unverified" notice. Convert services to the sourced transactions format as data arrives.
 export const SERVICES_DATA: ServicePageData[] = [
   {
     slug: 'health-services',
@@ -13,8 +17,6 @@ export const SERVICES_DATA: ServicePageData[] = [
     responsibleOffice: 'City Health Office (CHO) & Amai Pakpak Medical Center Liaison',
     officeAcronym: 'CHO-Marawi',
     officeLocation: 'City Health Complex, Banggolo / Kormatan Matampay & Datu Saber (APMC), Marawi City',
-    hotline: '(063) 221-2536',
-    email: 'cho@marawicity.gov.ph',
     operatingHours: 'Mon–Fri, 8:00 AM – 5:00 PM (24/7 Emergency at APMC)',
     totalProcessingTime: '25 – 45 Minutes (Outpatient Consultation)',
     classification: 'Simple Transaction',
@@ -76,7 +78,7 @@ export const SERVICES_DATA: ServicePageData[] = [
       },
       {
         question: 'Where do I go for 24/7 emergency and hospital confinement?',
-        answer: 'For emergency trauma, obstetric delivery, dialysis, and inpatient care, proceed directly to Amai Pakpak Medical Center (APMC) in Barangay Datu Saber or call the CDRRMO / CHO medical dispatch at (063) 221-2536.',
+        answer: 'For emergency trauma, obstetric delivery, dialysis, and inpatient care, proceed directly to Amai Pakpak Medical Center (APMC) in Barangay Datu Saber or call APMC at (063) 876 0001.',
       },
     ],
   },
@@ -92,8 +94,6 @@ export const SERVICES_DATA: ServicePageData[] = [
     responsibleOffice: 'Local School Board & MBHTE Marawi City Schools Division Office',
     officeAcronym: 'LSB / MBHTE-Marawi',
     officeLocation: 'City Hall Annex & MBHTE Division Office, Barrio Green / Matampay, Marawi City',
-    hotline: '(063) 352-0117 loc. 108',
-    email: 'education@marawicity.gov.ph',
     operatingHours: 'Mon–Fri, 8:00 AM – 5:00 PM',
     totalProcessingTime: '3 Working Days (Scholarship Evaluation)',
     classification: 'Simple Transaction',
@@ -146,7 +146,7 @@ export const SERVICES_DATA: ServicePageData[] = [
     faqs: [
       {
         question: 'Can Mindanao State University (MSU) students apply for the Marawi City LGU Educational Stipend?',
-        answer: 'Yes. Bonafide residents of any of the 96 barangays of Marawi City enrolled at MSU Main Campus or accredited colleges in Marawi with no failing grades from the previous semester may apply during the first 3 weeks of each semester.',
+        answer: 'Yes. Bonafide residents of any of the 101 barangays of Marawi City enrolled at MSU Main Campus or accredited colleges in Marawi with no failing grades from the previous semester may apply during the first 3 weeks of each semester.',
       },
       {
         question: 'How does the Integrated Madrasah (ALIVE) program work in public schools?',
@@ -166,8 +166,6 @@ export const SERVICES_DATA: ServicePageData[] = [
     responsibleOffice: 'Business Permits and Licensing Office (BPLO) & City Treasurer Office',
     officeAcronym: 'BPLO-Marawi',
     officeLocation: 'Ground Floor, eBOSS Center, Marawi City Hall, Kormatan Matampay, Marawi City',
-    hotline: '(063) 352-0117 loc. 102',
-    email: 'bplo@marawicity.gov.ph',
     operatingHours: 'Mon–Fri, 8:00 AM – 5:00 PM',
     totalProcessingTime: '1 – 2 Hours (Same-Day eBOSS Release)',
     classification: 'Simple Transaction',
@@ -242,8 +240,6 @@ export const SERVICES_DATA: ServicePageData[] = [
     responsibleOffice: 'City Social Welfare and Development Office (CSWDO)',
     officeAcronym: 'CSWDO-Marawi',
     officeLocation: 'Social Services Building, City Hall Compound, Kormatan Matampay, Marawi City',
-    hotline: '(063) 352-0117 loc. 105',
-    email: 'cswdo@marawicity.gov.ph',
     operatingHours: 'Mon–Fri, 8:00 AM – 5:00 PM',
     totalProcessingTime: '45 Minutes (ID Issuance / Crisis Intake)',
     classification: 'Simple Transaction',
@@ -315,8 +311,6 @@ export const SERVICES_DATA: ServicePageData[] = [
     responsibleOffice: 'Office of the City Agriculturist (OCA) & City Veterinary Unit',
     officeAcronym: 'OCA-Marawi',
     officeLocation: 'Agriculture & Livelihood Compound, Bangon / Matampay, Marawi City',
-    hotline: '(063) 352-0117 loc. 114',
-    email: 'agriculture@marawicity.gov.ph',
     operatingHours: 'Mon–Fri, 8:00 AM – 5:00 PM',
     totalProcessingTime: '30 – 45 Minutes',
     classification: 'Simple Transaction',
@@ -384,12 +378,10 @@ export const SERVICES_DATA: ServicePageData[] = [
     shortDescription:
       'How to report damaged roads or drainage, where to request water supply connections, and how to access public facilities and markets.',
     heroSummary:
-      'Report road potholes, clogged drainage, or faulty solar streetlights; apply for excavation and right-of-way clearances; request Marawi City Water District (MCWD) connections; and check ongoing public infrastructure projects across all 96 barangays.',
+      'Report road potholes, clogged drainage, or faulty solar streetlights; apply for excavation and right-of-way clearances; request Marawi City Water District (MCWD) connections; and check ongoing public infrastructure projects across all 101 barangays.',
     responsibleOffice: 'City Engineering Office (CEO) & Marawi City Water District Liaison',
     officeAcronym: 'CEO-Marawi',
     officeLocation: 'Engineering Motorpool & Technical Building, City Hall Complex, Marawi City',
-    hotline: '(063) 352-0117 loc. 110',
-    email: 'engineering@marawicity.gov.ph',
     operatingHours: 'Mon–Fri, 8:00 AM – 5:00 PM',
     totalProcessingTime: '24 – 72 Hours (Field Inspection & Maintenance Dispatch)',
     classification: 'Complex Transaction',
@@ -459,8 +451,6 @@ export const SERVICES_DATA: ServicePageData[] = [
     responsibleOffice: 'City Environment & Solid Waste Management Office (CESWMO)',
     officeAcronym: 'CESWMO / GSO',
     officeLocation: 'Environmental Management Complex, Matampay / Gadongan, Marawi City',
-    hotline: '(063) 352-0117 loc. 119',
-    email: 'solidwaste@marawicity.gov.ph',
     operatingHours: 'Daily Collection Operations: 5:30 AM – 6:00 PM',
     totalProcessingTime: 'Scheduled Daily / Alternate-Day Route',
     classification: 'Simple Transaction',
@@ -529,8 +519,6 @@ export const SERVICES_DATA: ServicePageData[] = [
     responsibleOffice: 'City Environment and Natural Resources Office (CENRO)',
     officeAcronym: 'CENRO-Marawi',
     officeLocation: '2nd Floor, City Hall Annex, Kormatan Matampay, Marawi City',
-    hotline: '(063) 352-0117 loc. 120',
-    email: 'cenro@marawicity.gov.ph',
     operatingHours: 'Mon–Fri, 8:00 AM – 5:00 PM',
     totalProcessingTime: '1 – 2 Working Days',
     classification: 'Simple Transaction',
@@ -602,8 +590,6 @@ export const SERVICES_DATA: ServicePageData[] = [
     responsibleOffice: 'City Disaster Risk Reduction and Management Office (CDRRMO)',
     officeAcronym: 'CDRRMO-Marawi',
     officeLocation: 'CDRRMO Operations Center, City Hall Complex, Kormatan Matampay, Marawi City',
-    hotline: '(063) 352-0117 / 0917-842-9910',
-    email: 'cdrrmo@marawicity.gov.ph',
     operatingHours: '24 Hours / 7 Days a Week (Emergency Command Center)',
     totalProcessingTime: 'Immediate Dispatch (< 5 Minutes Emergency Response)',
     classification: 'Simple Transaction',
@@ -622,7 +608,7 @@ export const SERVICES_DATA: ServicePageData[] = [
       {
         stepNumber: 1,
         title: 'Emergency Call Intake & Geo-Triangulation',
-        clientAction: 'Call CDRRMO at (063) 352-0117, BFP at 0917-842-9910, or PNP at 0998-598-6678 and state the location and incident.',
+        clientAction: 'Call CDRRMO at (063) 352-0117, BFP at 0907-022-4843, or PNP at 0998-598-6678 and state the location and incident.',
         agencyAction: 'Log incident time, verify barangay landmark, and alert the nearest Quick Response Team (QRT), ambulance, or fire truck.',
         officeWindow: '24/7 CDRRMO Radio & Command Room',
         processingTime: '1 – 2 Minutes',
@@ -655,7 +641,7 @@ export const SERVICES_DATA: ServicePageData[] = [
     faqs: [
       {
         question: 'What are the primary emergency numbers to save in Marawi City?',
-        answer: 'Save these four numbers: CDRRMO Command Center: (063) 352-0117; Bureau of Fire Protection (BFP Marawi): 0917-842-9910; Marawi City Police Station (PNP): 0998-598-6678; and City Health Office / APMC: (063) 221-2536.',
+        answer: 'Save these four numbers: CDRRMO Command Center: (063) 352-0117; Bureau of Fire Protection (BFP Marawi): 0907-022-4843; Marawi City Police Station (PNP): 0998-598-6678; and Amai Pakpak Medical Center (APMC): (063) 876 0001.',
       },
       {
         question: 'Where are the main evacuation centers located in case of severe weather or seismic events?',
@@ -675,8 +661,6 @@ export const SERVICES_DATA: ServicePageData[] = [
     responsibleOffice: 'City Planning and Development Office (CPDO) & Office of the Building Official (OBO)',
     officeAcronym: 'CPDO / OBO',
     officeLocation: '2nd Floor, Technical Wing, Marawi City Hall, Kormatan Matampay, Marawi City',
-    hotline: '(063) 352-0117 loc. 111',
-    email: 'cpdo@marawicity.gov.ph',
     operatingHours: 'Mon–Fri, 8:00 AM – 5:00 PM',
     totalProcessingTime: '3 – 5 Working Days (Zoning & Building Permit)',
     classification: 'Complex Transaction',
@@ -747,8 +731,6 @@ export const SERVICES_DATA: ServicePageData[] = [
     responsibleOffice: 'City Tourism and Cultural Affairs Office (CTCAO)',
     officeAcronym: 'CTCAO-Marawi',
     officeLocation: 'Tourism Information Pavilion, City Hall Complex / Lake Lanao Promenade, Marawi City',
-    hotline: '(063) 352-0117 loc. 125',
-    email: 'tourism@marawicity.gov.ph',
     operatingHours: 'Mon–Sat, 8:00 AM – 5:00 PM',
     totalProcessingTime: '15 Minutes (Visitor Orientation & Cultural Tour Coordination)',
     classification: 'Simple Transaction',

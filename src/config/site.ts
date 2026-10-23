@@ -22,16 +22,16 @@ export const SITE_CONFIG = {
     // The city has no official website; this Facebook page is the LGU link listed on DTI CMCI
     facebookUrl: 'https://www.facebook.com/marawicitygovernment',
     facebookLabel: 'Marawi City Government on Facebook',
-    hotline: '+63 (063) 520-2100',
-    emergencyHotline: '911 / (063) 520-2911',
-    cdrrmoHotline: '+63 (063) 520-3000',
+    // Site contact for BetterMarawi.org itself (not a city government address)
     email: 'info@bettermarawi.org',
-    officialEmail: 'lgu.marawicity@gmail.com',
+    // Removed Oct 23, 2026 (unused and unsourced): City Hall trunkline (063) 520-2100, emergency
+    // line (063) 520-2911, CDRRMO (063) 520-3000 (conflicts with the CDRRMO number in
+    // EMERGENCY_HOTLINES), and an "official" Gmail address. Add a contact here only with a source.
   },
 };
 
-// 911 is sourced (EO 56, s. 2018). The local numbers below have no source yet, so the UI
-// labels them "Unverified" (see docs/VERIFICATION_CHECKLIST.md, section 1).
+// 911 is sourced (EO 56, s. 2018); BFP and APMC were confirmed by the site owner (Oct 23, 2026).
+// CDRRMO and PNP have no source yet, so the UI labels them "Unverified" (see docs/VERIFICATION_CHECKLIST.md, section 1).
 export const EMERGENCY_HOTLINES: HotlineItem[] = [
   {
     id: 'ph-911',
@@ -57,9 +57,13 @@ export const EMERGENCY_HOTLINES: HotlineItem[] = [
     id: 'bfp',
     label: 'City Fire Station (BFP)',
     shortLabel: 'BFP Fire',
-    number: '0917-842-9910',
-    telHref: 'tel:+639178429910',
+    number: '0907-022-4843',
+    telHref: 'tel:+639070224843',
     icon: 'Flame',
+    level: 'confirmed',
+    verified: true,
+    source: 'BFP Marawi number confirmed by the BetterMarawi.org team (site owner)',
+    verifiedOn: '2026-10-23',
   },
   {
     id: 'pnp',
@@ -70,12 +74,16 @@ export const EMERGENCY_HOTLINES: HotlineItem[] = [
     icon: 'Shield',
   },
   {
-    id: 'cho-apmc',
-    label: 'City Health Office / APMC',
-    shortLabel: 'CHO / APMC',
-    number: '(063) 221-2536',
-    telHref: 'tel:+63632212536',
+    id: 'apmc',
+    label: 'Amai Pakpak Medical Center (APMC)',
+    shortLabel: 'APMC',
+    number: '(063) 876 0001',
+    telHref: 'tel:+63638760001',
     icon: 'HeartPulse',
+    level: 'confirmed',
+    verified: true,
+    source: 'APMC number confirmed by the BetterMarawi.org team (site owner)',
+    verifiedOn: '2026-10-23',
   },
 ];
 

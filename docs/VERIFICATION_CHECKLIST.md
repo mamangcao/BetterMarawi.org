@@ -22,9 +22,9 @@ This document tracks verification for public civic data displayed on BetterMaraw
 | Emergency Hotline | `911 / (063) 520-2911` | `src/config/site.ts` | | | | | Unverified |
 | CDRRMO Hotline (contact config) | `+63 (063) 520-3000` | `src/config/site.ts` | | | | | Unverified |
 | CDRRMO Emergency Hotline | `(063) 352-0117` | `src/config/site.ts` | | | | | Unverified |
-| City Fire Station (BFP) | `0917-842-9910` | `src/config/site.ts` | | | | | Unverified |
+| City Fire Station (BFP) | `0907-022-4843` (was `0917-842-9910`) | `src/config/site.ts` | Site owner | 0907-022-4843 | Site owner | 2026-10-23 | Verified |
 | City Police Station (PNP) | `0998-598-6678` | `src/config/site.ts` | | | | | Unverified |
-| City Health Office / APMC | `(063) 221-2536` | `src/config/site.ts` | | | | | Unverified |
+| Amai Pakpak Medical Center (APMC) | `(063) 876 0001` (was CHO / APMC `(063) 221-2536`) | `src/config/site.ts` | Site owner | (063) 876 0001 | Site owner | 2026-10-23 | Verified. `(063) 221-2536` is no longer attributed to APMC; it remains on the home slide as the CHO number, unverified |
 
 ---
 
@@ -64,8 +64,8 @@ This document tracks verification for public civic data displayed on BetterMaraw
 
 | Item | Current value in code | File | Official source | Confirmed value | Verified by | Date | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Office of the City Mayor (Head) | `Hon. Shariff Zain Lanto Gandamra` | `src/data/departments.ts` | | | | | Unverified |
-| Office of the Vice Mayor & Sangguniang Panlungsod (Head) | `Hon. Majul Usman Gandamra` | `src/data/departments.ts` | | | | | Unverified |
+| Office of the City Mayor (Head) | `Hon. Shariff Zain Lanto Gandamra` | `src/data/departments.ts` (`headVerification`) | Site owner (current officeholder); 2025 election results, https://ph.rappler.com/elections/2025/local-race/lanao-del-sur/marawi-city | Hon. Shariff Zain Lanto Gandamra, City Mayor (2025–2028) | Site owner | 2026-10-23 | Verified (head only; office mandate, location, and services verified separately) |
+| Office of the Vice Mayor & Sangguniang Panlungsod (Head) | `Hon. Majul Usman Gandamra` | `src/data/departments.ts` (`headVerification`) | Site owner (current officeholder); 2025 election results, https://ph.rappler.com/elections/2025/local-race/lanao-del-sur/marawi-city | Hon. Majul Usman Gandamra, City Vice Mayor (2025–2028) | Site owner | 2026-10-23 | Verified (head only; office mandate, location, and services verified separately) |
 | Business Permits and Licensing Office (Head) | `Norodin M. Alonto, MPA` | `src/data/departments.ts` | | | | | Unverified |
 | City Health Office (Head) | `Dr. Aliya B. Lucman, MD, MPH` | `src/data/departments.ts` | | | | | Unverified |
 | City Social Welfare and Development Office (Head) | `Sittie Haniah M. Balindong, RSW` | `src/data/departments.ts` | | | | | Unverified |
@@ -272,4 +272,29 @@ All rows: source https://psa.gov.ph/classification/psgc/barangays/1903617000, re
 | Official Facebook page | `https://www.facebook.com/marawicitygovernment` | `src/config/site.ts`, Footer, Contact page, JSON-LD `sameAs` | https://cmci.dti.gov.ph/lgu-profile.php?lgu=Marawi | 2026-10-21 | Listed as the LGU link on the CMCI profile | Sourced. Page title: "City Government of Marawi". The city has no official website |
 | LGU phone | Not published | N/A | https://cmci.dti.gov.ph/lgu-profile.php?lgu=Marawi | 2026-10-21 | "NDA" | Not published |
 | LGU email on CMCI | Not published | N/A | https://cmci.dti.gov.ph/lgu-profile.php?lgu=Marawi | 2026-10-21 | Personal address shown | Not published |
-| Postal code `9700` and telephone `(063) 520-2100` in JSON-LD | Unchanged | `src/lib/jsonld.ts` | N/A | N/A | N/A | Unverified (no source found) |
+| Postal code `9700` in JSON-LD | Kept | `src/lib/jsonld.ts` | Wikipedia (Marawi), PhilAtlas (Marawi), FilipiKnow (Lanao del Sur ZIP codes) | 2026-10-23 | 9700 in all three | Sourced from secondary references; not yet confirmed against PHLPost |
+
+
+---
+
+## 9. Data Integrity Review (2026-10-23)
+
+Decisions from the Batch 3 review. Each item was removed or qualified because no source supports it; nothing was replaced with a guess.
+
+| Item | Was | Now | Evidence |
+| --- | --- | --- | --- |
+| `@marawicity.gov.ph` emails (22: departments, services, contact directory) | Shown as office emails | Removed | No source; the domain does not resolve on Google, Cloudflare, or Quad9 DNS (SERVFAIL), so mail cannot be delivered. DTI CMCI lists no official LGU email |
+| Office hotlines (departments, services, City Hall trunkline `(063) 352-0117`) | Shown as office numbers | Removed; City Hall shows "to be confirmed" | No source; the same number is also listed as the CDRRMO emergency line. DTI CMCI lists the LGU phone as "NDA" |
+| Heads of the Office of the City Mayor and the Office of the Vice Mayor & SP | Shown, but the Local Officials Directory said "To be confirmed" | Shown as "Verified current officeholder" on both pages | Site owner verification; names match officials.ts and the 2025 results. Only the head is verified; each office's other details are labelled separately |
+| Department heads other than the Mayor and Vice Mayor (8) | Named | "To be confirmed" | No source |
+| Ordinances (6) and their sponsors | Listed on the Legislative page and in downloads | Removed; empty state shown | No record found; sponsors contradict the 2025 election results (Abdani T. Alonto placed 13th; Soraya M. Lucman is not a councilor) |
+| "City Ordinance No. 2024-027" (FOI) and its 15-working-day deadline and fee FAQs | FOI page label and FAQs | Removed | No Marawi FOI ordinance found (searched 2026-10-23) |
+| "General Appropriation Ordinance No. 2025-042" | Budget page label and summary line | Removed / "to be confirmed" | Same fabricated ordinance list |
+| Contact directory "Response within 2 business days" and "Mon–Fri, 8:00 AM – 5:00 PM" | Shown | Removed | No source |
+| "Frontline windows open 8:00 AM – 5:00 PM under RA 11032" | Shown | Restated as what RA 11032 says | RA 11032 requires serving people inside before closing, even during lunch break; it sets no 8–5 hours (https://lawphil.net/statutes/repacts/ra2018/ra_11032_2018.html) |
+| "96 barangays" (services FAQ, budget, ordinance title, data guide, public files) | 96 | 101 | PSA PSGC (see section 7 and docs/data-sources.md) |
+| `public/data` budget, ordinance, and FDP files; Open Data budget and ordinance downloads | Published | Removed | Unsourced contents. Barangay files regenerated from PSA data (101 rows) |
+| JSON-LD `alternateName: BetterMarawi.org` for the City Government | Present | Removed | This site is community-run, not a name of the City Government |
+| Barangay contact numbers repeated across barangays | Kept | Kept | Published that way by DILG; a shared number is not treated as an error without a source |
+
+**Still unverified (labelled on the site):** emergency numbers for CDRRMO, BFP, PNP, and CHO/APMC; FY 2026 budget figures; FDP documents and their compliance status; service fees, steps, processing times, locations, hours, and the local ordinances they cite; department mandates, locations, and key services; committee names.

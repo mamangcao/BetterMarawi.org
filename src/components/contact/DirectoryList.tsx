@@ -1,9 +1,12 @@
 'use client';
 import React from 'react';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, MapPin, Clock } from 'lucide-react';
 import { useTranslation } from '@/i18n';
 import { SITE_CONFIG } from '@/config/site';
 
+// City Hall phone, email, and office hours are not shown: no official source confirms them, the
+// listed trunkline is also given as the CDRRMO emergency line, and marawicity.gov.ph addresses do
+// not resolve (checked Oct 23, 2026). The address is sourced (DTI CMCI profile).
 export function DirectoryList() {
   const { t } = useTranslation();
   return (
@@ -13,25 +16,7 @@ export function DirectoryList() {
       </h2>
       <div className="space-y-3 text-sm text-mist-700">
         <div className="flex items-start gap-3">
-          <Phone className="w-4 h-4 text-brand-800 mt-1 shrink-0" />
-          <div>
-            <div className="font-bold text-mist-900 font-mono-tabular">
-              (063) 352-0117
-            </div>
-            <div className="text-xs text-mist-500">Mon–Fri, 8:00 AM – 5:00 PM</div>
-          </div>
-        </div>
-        <div className="flex items-start gap-3">
-          <Mail className="w-4 h-4 text-brand-800 mt-1 shrink-0" />
-          <div>
-            <div className="font-bold text-mist-900 font-mono-tabular">
-              info@marawicity.gov.ph
-            </div>
-            <div className="text-xs text-mist-500">Response within 2 business days</div>
-          </div>
-        </div>
-        <div className="flex items-start gap-3">
-          <MapPin className="w-4 h-4 text-brand-800 mt-1 shrink-0" />
+          <MapPin className="w-4 h-4 text-brand-800 mt-1 shrink-0" aria-hidden="true" />
           <div>
             <div className="font-bold text-mist-900">
               {SITE_CONFIG.contact.cityHallAddress}
@@ -42,7 +27,11 @@ export function DirectoryList() {
           </div>
         </div>
         <div className="flex items-start gap-3">
-          <Clock className="w-4 h-4 text-brand-800 mt-1 shrink-0" />
+          <Phone className="w-4 h-4 text-brand-800 mt-1 shrink-0" aria-hidden="true" />
+          <div className="text-mist-600 italic">{t.cityHallContactTbc}</div>
+        </div>
+        <div className="flex items-start gap-3">
+          <Clock className="w-4 h-4 text-brand-800 mt-1 shrink-0" aria-hidden="true" />
           <div>
             <div className="font-bold text-mist-900">{t.noNoonBreakPolicy}</div>
             <div className="text-xs text-mist-500">
@@ -54,4 +43,3 @@ export function DirectoryList() {
     </div>
   );
 }
-

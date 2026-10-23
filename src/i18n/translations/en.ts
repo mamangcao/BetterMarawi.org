@@ -288,7 +288,6 @@ export const en = {
   allDepartmentsEyebrow: 'Directory',
   allDepartmentsDescription: 'Department heads, offices, and what each one handles.',
   monFriHours: 'Mon–Fri, 8AM–5PM',
-  responseWindow: 'Response within 2 business days',
 
   // Services Directory & Details
   filterServicesPlaceholder: 'Filter services by keyword or office...',
@@ -344,8 +343,7 @@ export const en = {
   nationalTaxAllotment: 'National Tax Allotment (NTA)',
   localRevenueSources: 'Local Revenue Sources',
   appropriationsBySector: 'FY 2026 Appropriations by Sector',
-  enactedViaBudget:
-    'Enacted via General Appropriation Ordinance No. 2025-042',
+  enactedViaBudget: 'Appropriation ordinance: to be confirmed',
   transparencySections: 'Transparency Sections (5)',
   barangaysCensusHeading: 'Official 101 Barangays Census Directory',
   searchBarangayPlaceholder:
@@ -363,25 +361,7 @@ export const en = {
 
   // Contact & FOI Forms
   contactFormTitle: 'Contact the City Government',
-  fullNameLabel: 'Your Full Name *',
-  fullNamePlaceholder: 'Full Name',
-  emailOrPhoneLabel: 'Email or Mobile Number *',
-  destinationOfficeLabel: 'Destination Office / Department',
-  messageLabel: 'Message, Service Inquiry, or Barangay Report *',
-  messagePlaceholder:
-    'Provide details including Barangay name if reporting a local issue...',
-  submitInquiry: 'Submit Inquiry',
-  messageLoggedTitle: 'Message Logged with Public Assistance Desk',
-  sendAnotherMessage: 'Send Another Message',
   foiHeading: 'How to Request a Public Record',
-  foiSuccessTitle: 'FOI Request Logged Successfully',
-  foiSubmitAnother: 'Submit Another Request',
-  foiFullNameLabel: 'Full Name of Requesting Citizen *',
-  foiEmailLabel: 'Email Address for Digital Release *',
-  foiDocLabel: 'Specific Public Document / Dataset Requested *',
-  foiPurposeLabel:
-    'Purpose of Request (Academic Research, Journalism, Community Audit, etc.) *',
-  foiSubmitButton: 'Generate Official FOI Tracking Ticket',
   // Online submission notices (no form submits anywhere yet)
   contactUnavailableTitle: 'Online messages are not available yet',
   contactUnavailableBody: 'BetterMarawi.org is run by community volunteers and is not connected to City Hall, so this site cannot send messages to city offices. Please contact the office that handles your concern directly.',
@@ -396,9 +376,14 @@ export const en = {
 
   // Contact Info & Emergency Banners
   emergencyDispatchHeading: 'Emergency Numbers',
-  trunklineHeading: 'Marawi City Hall Trunkline & Location',
+  trunklineHeading: 'Marawi City Hall Location',
   noNoonBreakPolicy: 'No Noon Break Policy',
-  noNoonBreakDesc: 'Frontline windows open 8:00 AM – 5:00 PM under RA 11032',
+  noNoonBreakDesc: 'Under RA 11032, people already inside a government office before closing time must be served, even during lunch break.',
+  cityHallContactTbc: 'Official City Hall phone number and email: to be confirmed',
+  toBeConfirmed: 'To be confirmed',
+  verifiedOfficeholder: 'Verified current officeholder',
+  officeDetailsLabel: 'Office details',
+  ordinancesPending: 'No ordinances are listed yet. They will be added once copies are obtained from the Sangguniang Panlungsod or another official source.',
 
   // Common Feedback / Status Pages
   pageNotFound: 'Page Not Found',
