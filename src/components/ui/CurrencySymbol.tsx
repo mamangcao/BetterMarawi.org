@@ -1,4 +1,5 @@
 import React from 'react';
+import { formatMillions } from '@/lib/money';
 
 interface PesoProps {
   className?: string;
@@ -38,3 +39,8 @@ export function formatWithPeso(text: string | number): React.ReactNode {
   ));
 }
 
+
+/** An amount in millions (see formatMillions) with its peso sign matched to the digits */
+export function pesoMillions(value: number | null): React.ReactNode {
+  return formatWithPeso(formatMillions(value));
+}
