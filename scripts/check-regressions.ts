@@ -23,6 +23,16 @@ import { APP_ROUTES } from '../src/lib/routes';
 import { NAV_DROPDOWNS } from '../src/config/site';
 import { SERVICE_CARDS } from '../src/data/serviceCatalog';
 import { TOURISM_CATEGORIES } from '../src/data/tourism';
+import { formatMillions } from '../src/lib/money';
+import { FDPTable } from '../src/components/transparency/FDPTable';
+import { FDP_DOCUMENTS, FDP_PORTAL_URL, FDP_YEAR } from '../src/data/fdp';
+import { FinancesOverview } from '../src/components/transparency/FinancesOverview';
+import { SpecialFunds } from '../src/components/transparency/SpecialFunds';
+import { AuditSummary } from '../src/components/transparency/AuditSummary';
+import { NationalFunding } from '../src/components/transparency/NationalFunding';
+import { AUDIT_FY2020, LGSF_PROJECTS, NATIONAL_RELEASES } from '../src/data/reports';
+import { CityHistory } from '../src/components/statistics/CityHistory';
+import { CITY_HISTORY } from '../src/data/cityProfile';
 import { YakapLabTests } from '../src/components/services/YakapLabTests';
 import { TourismDirectory } from '../src/components/services/TourismDirectory';
 
@@ -155,6 +165,87 @@ async function main() {
     const counts = [...tourism.matchAll(/>(\d+)<!-- --> <!-- -->(places?)</g)].map((m) => Number(m[1]));
     assert.deepEqual(counts, TOURISM_CATEGORIES.map((c) => c.places.length), 'category counts differ from the places listed');
     assert.ok(tourism.includes('More destinations coming soon!'), 'the "more destinations" note is missing');
+  });
+
+  await test('FDP: headline counts posted documents and unposted ones say so', () => {
+    const html = renderToString(createElement(LanguageProvider, null, createElement(FDPTable, { documents: FDP_DOCUMENTS, year: FDP_YEAR, heading: 'Documents' })));
+    const text = html.replace(/<[^>]+>/g, ''); // visible text only
+    assert.ok(text.includes('12 of 14 documents posted for 2026'), 'headline "12 of 14 documents posted for 2026"');
+    assert.equal((text.match(/Not posted for 2026/g) ?? []).length, 2, 'two unposted documents');
+    const fileLinks = (html.match(/fdpp\.dilg\.gov\.ph\/fdpp\/report\/document-download\?id=\d+/g) ?? []).length;
+    assert.equal(fileLinks, FDP_DOCUMENTS.reduce((n, d) => n + d.files.length, 0), 'one link per posted file');
+    assert.ok(html.includes(FDP_PORTAL_URL.replace(/&/g, '&amp;')), 'portal link in the source line');
+  });
+
+  await test('Finances: actuals render with gaps, footnotes, and sources', () => {
+    const html = renderToString(createElement(LanguageProvider, null, createElement(FinancesOverview), createElement(SpecialFunds)));
+    const text = html.replace(/<[^>]+>/g, '');
+    assert.ok(text.includes('₱1.15B') && text.includes('₱58.4M'), 'FY2025 operating income and local taxes');
+    assert.ok(text.includes('As recorded by BLGF'), '2022 footnote');
+    assert.ok(text.includes('—'), 'SEF 2018 spent is a gap, not ₱0');
+    assert.ok((html.match(/blgf\.gov\.ph/g) ?? []).length >= 2, 'source lines on both components');
+  });
+
+  await test('Reports: audit, LGSF, and national releases render with their sources', () => {
+    const html = renderToString(createElement(LanguageProvider, null, createElement(AuditSummary), createElement(NationalFunding)));
+    const text = html.replace(/<[^>]+>/g, '');
+    assert.ok(text.includes('Qualified'), 'audit opinion');
+    for (const o of AUDIT_FY2020.keyObservations) assert.ok(text.includes(o.replace(/’/g, '’')), `observation: ${o.slice(0, 30)}`);
+    for (const r of NATIONAL_RELEASES) assert.ok(html.includes(r.url), `release link ${r.date} ${r.kind}`);
+    for (const p of LGSF_PROJECTS) assert.ok(text.includes(p.title), `LGSF project ${p.fiscalYear}`);
+    assert.ok(html.includes('coa.gov.ph'), 'COA report link');
+  });
+
+  await test('Peso signs use the Peso component so they match the digits', () => {
+    const html = renderToString(
+      createElement(
+        LanguageProvider,
+        null,
+        createElement(FinancesOverview),
+        createElement(SpecialFunds),
+        createElement(AuditSummary),
+        createElement(NationalFunding),
+      ),
+    );
+    const wrapped = (html.match(/<span[^>]*class="peso[^"]*"[^>]*>₱<\/span>/g) ?? []).length;
+    const bare = html.replace(/<span[^>]*class="peso[^"]*"[^>]*>₱<\/span>/g, '').split('₱').length - 1;
+    assert.ok(wrapped > 50, `expected many wrapped peso signs, found ${wrapped}`);
+    assert.equal(bare, 0, `${bare} bare ₱ signs fall back to another font`);
+  });
+
+  await test('Year tables list the most recent year first', () => {
+    const html = renderToString(
+      createElement(LanguageProvider, null, createElement(FinancesOverview), createElement(SpecialFunds), createElement(NationalFunding)),
+    );
+    const yearOf = (s: string) => Number(s.replace(/<[^>]+>/g, '').match(/(?<!\d)(20\d\d)(?!\d)/)?.[1] ?? NaN);
+    const tables = html.split('<table').slice(1).map((t) => t.split('</table>')[0]);
+    assert.ok(tables.length >= 5, `expected 5 year tables, found ${tables.length}`);
+    // Years run across the header (finances) or down the rows: the first cell in a row that holds a year
+    const lists = tables.map((t) => {
+      const head = (t.split('</thead>')[0].match(/<th[^>]*>[\s\S]*?<\/th>/g) ?? []).map(yearOf).filter((y) => !isNaN(y));
+      if (head.length > 1) return head;
+      const rows = (t.split('<tbody')[1] ?? '').split('<tr').slice(1);
+      return rows
+        .map((r) => (r.match(/<t[hd][^>]*>[\s\S]*?<\/t[hd]>/g) ?? []).map(yearOf).find((y) => !isNaN(y)) ?? NaN)
+        .filter((y) => !isNaN(y));
+    });
+    lists.forEach((years, i) => {
+      assert.ok(years.length > 1, `table ${i + 1} has years`);
+      assert.ok(years.every((y, j) => j === 0 || y <= years[j - 1]), `table ${i + 1} is oldest-first: ${years.join(', ')}`);
+    });
+  });
+
+  await test('City profile: history entries render with their law or source links', () => {
+    const html = renderToString(createElement(LanguageProvider, null, createElement(CityHistory)));
+    for (const e of CITY_HISTORY) {
+      assert.ok(html.includes(String(e.year)) && html.includes(e.sourceUrl!), `history ${e.year} with its source link`);
+    }
+  });
+
+  await test('Money: amounts render exactly as the source shows them', () => {
+    for (const [input, want] of [[58.4, '₱58.4M'], [1080, '₱1.08B'], [1200, '₱1.20B'], [0, '₱0'], [null, '—'], [10.8, '₱10.8M']] as const) {
+      assert.equal(formatMillions(input), want, `formatMillions(${input})`);
+    }
   });
 
   // --- Streaming fallback -----------------------------------------------------------------------

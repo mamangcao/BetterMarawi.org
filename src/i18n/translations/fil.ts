@@ -215,9 +215,9 @@ export const fil: typeof en = {
       description: "Quarterly na ulat pinansyal, paggamit ng badyet, at mga bid sa procurement sa ilalim ng DILG FDP.",
     },
     budget: {
-      title: "Taunang Badyet ng FY 2026",
-      kicker: "Local Budget Circular",
-      description: "₱1.845 bilyong alokasyon ng General Fund ayon sa sektor, at mga pinagkukunan ng kita.",
+      title: "Taunang Badyet at Pananalapi ng Lungsod",
+      kicker: "BLGF Records",
+      description: "Kita at gastos ng lungsod mula 2021 hanggang 2025, at ang ulat ng badyet ng FY2026 sa DILG portal.",
     },
     foi: {
       title: "Freedom of Information (FOI)",
@@ -298,18 +298,8 @@ export const fil: typeof en = {
   governmentSections: 'Mga Bahagi ng Direktoryo ng Pamahalaan',
 
   // Transparency & Statistics
-  fdpHeading: 'Nailathalang mga Dokumento ng Full Disclosure at Pagbili (Procurement)',
-  fdpPending:
-    'Wala pang nakalistang dokumento ng FDP. Idaragdag ang bawat isa kasama ang link sa opisyal na pagkakapaskil nito sa DILG FDP Portal o kopya mula sa City Hall.',
   downloadCSV: 'I-download ang CSV',
   downloadJSON: 'I-download ang JSON',
-  period: 'Panahon:',
-  posted: 'Naipaskil',
-  totalAnnualBudget: 'FY 2026 Kabuuang Taunang Badyet',
-  nationalTaxAllotment: 'National Tax Allotment (NTA)',
-  localRevenueSources: 'Lokal na mga Pinagkukunang Kita',
-  appropriationsBySector: 'Mga Alokasyon sa FY 2026 Ayon sa Sektor',
-  enactedViaBudget: 'Ordinansa ng apropriyasyon: kukumpirmahin pa',
   transparencySections: 'Mga Bahagi ng Transparansya (5)',
   barangaysCensusHeading: 'Opisyal na Direktoryo ng Senso ng 101 na Barangay',
   searchBarangayPlaceholder:

@@ -1,18 +1,17 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { FDP_DOCUMENTS } from '@/data/fdp';
+import { FDP_DOCUMENTS, FDP_YEAR } from '@/data/fdp';
 import { FDPTable, TransparencySidebar } from '@/components/transparency';
 import { ServiceFAQ } from '@/components/services';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { buildBreadcrumbSchema, buildFAQSchema } from '@/lib/jsonld';
-import { UnverifiedNotice } from '@/components/ui';
 import { buildMetadata, getRouteBreadcrumbs } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Full Disclosure Policy (FDP) Documents of Marawi City | BetterMarawi.org',
   description:
-    'What the DILG Full Disclosure Policy requires local governments to publish, and where Marawi City’s budget, financial, and procurement reports will be listed once linked to official postings.',
+    'Marawi City’s budget, financial, and procurement reports posted on the DILG Full Disclosure Policy Portal for 2026, each linked to its official file.',
   path: '/transparency/full-disclosure-policy',
 });
 
@@ -40,16 +39,15 @@ export default function FullDisclosurePolicyPage() {
             Full Disclosure Policy (FDP) Documents
           </h1>
           <p className="mt-3 text-base text-mist-700 max-w-3xl leading-relaxed">
-            Under the DILG Full Disclosure Policy, local governments post their budget, financial, and procurement reports in public places and on the DILG FDP Portal. Marawi City’s documents will be listed here once each one is linked to its official posting.
+            Under the DILG Full Disclosure Policy, local governments post their budget, financial, and procurement reports in public places and on the DILG FDP Portal. Each document below links to the file Marawi City posted there.
           </p>
-          {FDP_DOCUMENTS.length > 0 && <UnverifiedNotice items={FDP_DOCUMENTS} className="mt-6" />}
         </div>
       </section>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           <div className="lg:col-span-8 space-y-8">
-            <FDPTable documents={FDP_DOCUMENTS} />
+            <FDPTable documents={FDP_DOCUMENTS} year={FDP_YEAR} heading={`Documents posted for ${FDP_YEAR}`} />
             <ServiceFAQ faqs={faqs} />
           </div>
           <TransparencySidebar />

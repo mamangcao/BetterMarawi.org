@@ -213,9 +213,9 @@ export const en = {
       description: "Quarterly financial reports, budget use, and procurement bids under the DILG FDP.",
     },
     budget: {
-      title: "FY 2026 Annual Budget",
-      kicker: "Local Budget Circular",
-      description: "₱1.845 Billion General Fund allocations by sector, and revenue sources.",
+      title: "Annual Budget and City Finances",
+      kicker: "BLGF Records",
+      description: "City income and spending 2021–2025, and the FY2026 budget report on the DILG portal.",
     },
     foi: {
       title: "Freedom of Information (FOI)",
@@ -296,18 +296,8 @@ export const en = {
   governmentSections: 'Government Directory Sections',
 
   // Transparency & Statistics
-  fdpHeading: 'Published Full Disclosure & Procurement Documents',
-  fdpPending:
-    'No FDP documents are listed yet. Each one will be added with a link to its official posting on the DILG FDP Portal or a copy from City Hall.',
   downloadCSV: 'Download CSV',
   downloadJSON: 'Download JSON',
-  period: 'Period:',
-  posted: 'Posted',
-  totalAnnualBudget: 'FY 2026 Total Annual Budget',
-  nationalTaxAllotment: 'National Tax Allotment (NTA)',
-  localRevenueSources: 'Local Revenue Sources',
-  appropriationsBySector: 'FY 2026 Appropriations by Sector',
-  enactedViaBudget: 'Appropriation ordinance: to be confirmed',
   transparencySections: 'Transparency Sections (5)',
   barangaysCensusHeading: 'Official 101 Barangays Census Directory',
   searchBarangayPlaceholder:

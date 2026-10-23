@@ -1,29 +1,25 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { budgetVerification } from '@/data/budget';
-import { UnverifiedNotice } from '@/components/ui';
-import { BudgetChart, TransparencySidebar } from '@/components/transparency';
-import { ServiceFAQ } from '@/components/services';
+import { FDP_DOCUMENTS, FDP_YEAR } from '@/data/fdp';
+import { FINANCE_ACTUALS } from '@/data/finances';
+import { ArrowUpRight } from '@/components/ui';
+import { FinancesOverview, SpecialFunds, TransparencySidebar } from '@/components/transparency';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { buildBreadcrumbSchema } from '@/lib/jsonld';
 import { buildMetadata, getRouteBreadcrumbs } from '@/lib/seo';
 
+const FIRST = FINANCE_ACTUALS[0].year;
+const LAST = FINANCE_ACTUALS[FINANCE_ACTUALS.length - 1].year;
+
 export const metadata: Metadata = buildMetadata({
-  title: 'FY 2026 Annual Budget & Sectoral Allocations | BetterMarawi.org',
-  description:
-    'How the FY 2026 budget of the Islamic City of Marawi is divided by sector and fund source. The figures shown have not yet been verified against the appropriation ordinance.',
+  title: `Marawi City Finances ${FIRST}–${LAST} and Annual Budget | BetterMarawi.org`,
+  description: `How the City of Marawi raised and spent public money from ${FIRST} to ${LAST}, by year and by sector, plus its disaster and education funds, from Bureau of Local Government Finance records.`,
   path: '/transparency/annual-budget',
 });
 
-// Not published as FAQ structured data: the figures are unverified (see docs/KNOWN_ISSUES.md).
-const faqs = [
-  {
-    question: 'How is the FY 2026 Annual Budget of Marawi City funded?',
-    answer:
-      'The ₱1,845,200,000 FY 2026 Annual Budget is funded through the National Tax Allotment (NTA) share of ₱1,692,400,000 (91.7%) and Local Revenue Sources (Real Property Tax, Business Tax, Fees & Economic Enterprises) totaling ₱152,800,000 (8.3%).',
-  },
-];
+/** The city's own Annual Budget Report for the current year, on the DILG portal */
+const budgetReport = FDP_DOCUMENTS.find((d) => d.filterId === 1)?.files[0];
 
 export default function AnnualBudgetPage() {
   const breadcrumbs = getRouteBreadcrumbs('/transparency/annual-budget');
@@ -35,23 +31,36 @@ export default function AnnualBudgetPage() {
       <section className="bg-gradient-to-b from-surface-card to-surface border-b border-mist-200/90 py-10 sm:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-xs font-semibold uppercase tracking-widest text-brand-800 mb-2">
-            City Budget · Figures Not Yet Verified
+            City Budget · BLGF Records
           </p>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-mist-950 font-display">
-            FY 2026 Annual Budget (₱1.845 Billion)
+            Annual Budget and City Finances
           </h1>
           <p className="mt-3 text-base text-mist-700 max-w-3xl leading-relaxed">
-            Comprehensive breakdown of how public funds of the Islamic City of Marawi are allocated across Social Services, Economic Development, Infrastructure, and Disaster Risk Reduction.
+            How the Islamic City of Marawi raised and spent public money from {FIRST} to {LAST}, as recorded by the Bureau of Local Government Finance (BLGF). These are actual results, not the planned budget.
           </p>
-          <UnverifiedNotice items={[budgetVerification]} className="mt-6" />
+          {budgetReport && (
+            <p className="mt-3 text-sm text-mist-700">
+              The city’s FY{FDP_YEAR} Annual Budget Report is posted on the DILG Full Disclosure Policy Portal:{' '}
+              <a
+                href={budgetReport.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-0.5 font-semibold text-brand-800 underline underline-offset-2 hover:text-brand-950"
+              >
+                open the report
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            </p>
+          )}
         </div>
       </section>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-          <div className="lg:col-span-8 space-y-8">
-            <BudgetChart />
-            <ServiceFAQ faqs={faqs} />
+          <div className="lg:col-span-8 space-y-8 min-w-0">
+            <FinancesOverview />
+            <SpecialFunds />
           </div>
           <TransparencySidebar />
         </div>
@@ -61,4 +70,3 @@ export default function AnnualBudgetPage() {
     </main>
   );
 }
-

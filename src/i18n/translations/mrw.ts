@@ -335,9 +335,9 @@ export const mrw: typeof en = {
       description: "Quarterly financial reports, budget use, and procurement bids under the DILG FDP.",
     },
     budget: {
-      title: "FY 2026 Annual Budget",
-      kicker: "Local Budget Circular",
-      description: "₱1.845 Billion General Fund allocations by sector, and revenue sources.",
+      title: "Annual Budget and City Finances",
+      kicker: "BLGF Records",
+      description: "City income and spending 2021–2025, and the FY2026 budget report on the DILG portal.",
     },
     foi: {
       title: "Freedom of Information (FOI)",
@@ -471,28 +471,9 @@ export const mrw: typeof en = {
   governmentSections: 'Government Directory Sections',
 
   // TODO(mrw-review): needs fluent reviewer
-  fdpHeading: 'Published Full Disclosure & Procurement Documents',
-  // TODO(mrw-review): needs fluent reviewer
-  fdpPending:
-    'No FDP documents are listed yet. Each one will be added with a link to its official posting on the DILG FDP Portal or a copy from City Hall.',
-  // TODO(mrw-review): needs fluent reviewer
   downloadCSV: 'Download CSV',
   // TODO(mrw-review): needs fluent reviewer
   downloadJSON: 'Download JSON',
-  // TODO(mrw-review): needs fluent reviewer
-  period: 'Period:',
-  // TODO(mrw-review): needs fluent reviewer
-  posted: 'Posted',
-  // TODO(mrw-review): needs fluent reviewer
-  totalAnnualBudget: 'FY 2026 Total Annual Budget',
-  // TODO(mrw-review): needs fluent reviewer
-  nationalTaxAllotment: 'National Tax Allotment (NTA)',
-  // TODO(mrw-review): needs fluent reviewer
-  localRevenueSources: 'Local Revenue Sources',
-  // TODO(mrw-review): needs fluent reviewer
-  appropriationsBySector: 'FY 2026 Appropriations by Sector',
-  // TODO(mrw-review): needs fluent reviewer
-  enactedViaBudget: 'Appropriation ordinance: to be confirmed',
   // TODO(mrw-review): needs fluent reviewer
   transparencySections: 'Transparency Sections (5)',
   // TODO(mrw-review): needs fluent reviewer

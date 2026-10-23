@@ -1,4 +1,4 @@
-import { BarangayRecord, FDPDocument } from '@/types';
+import { BarangayRecord } from '@/types';
 
 export function downloadFile(filename: string, content: string, mimeType: string) {
   if (typeof window === 'undefined') return;
@@ -60,12 +60,3 @@ export function generateBarangaysCSV(barangays: BarangayRecord[]): string {
   );
   return [header, ...rows].join('\n');
 }
-
-/** One FDP document as a small CSV (used by the FDP table's per-document download) */
-export function generateFDPDocumentCSV(doc: FDPDocument): string {
-  return [
-    'Document Code,Title,Period,Date Posted,Responsible Office,Status',
-    csvRow([doc.code, doc.title, doc.latestPeriod, doc.datePosted, doc.officeResponsible, doc.status].map((v) => csvCell(v, { quote: true }))),
-  ].join('\n');
-}
-

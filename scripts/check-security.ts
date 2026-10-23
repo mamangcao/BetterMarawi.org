@@ -19,12 +19,12 @@ import {
   buildGovernmentServiceSchema,
   serializeJsonLd,
 } from '../src/lib/jsonld';
-import { csvCell, generateBarangaysCSV, generateFDPDocumentCSV } from '../src/lib/csv';
+import { csvCell, generateBarangaysCSV } from '../src/lib/csv';
 import { MARAWI_BARANGAYS } from '../src/data/barangays';
 import { SERVICES_DATA } from '../src/data/services';
 import { CERTIFICATES_FAQS } from '../src/data/certificates';
 import { APP_ROUTES } from '../src/lib/routes';
-import type { BarangayRecord, FDPDocument } from '../src/types';
+import type { BarangayRecord } from '../src/types';
 import nextConfig from '../next.config';
 
 const ROOT = path.resolve(__dirname, '..');
@@ -148,21 +148,6 @@ test('CSV: hostile barangay names round-trip through an RFC 4180 parser', () => 
     assert.equal(parsed[i + 1].length, 6, `row ${i + 1} should have 6 columns`);
     const expected = /^[=+\-@\t\r]/.test(names[i]) ? `'${names[i]}` : names[i];
     assert.equal(parsed[i + 1][1], expected, `name column for ${JSON.stringify(names[i])}`);
-  }
-});
-
-test('CSV: hostile FDP values round-trip in the FDP document export', () => {
-  const doc: FDPDocument = {
-    code: 'FDP-01', title: '=cmd|"/c calc"!A1', frequency: 'Quarterly', latestPeriod: 'Q1, 2026',
-    datePosted: '2026-01-01', officeResponsible: 'Office "A"\nAnnex', fileSize: '1 MB',
-    status: 'Compliant · Posted on DILG FDP Portal',
-  };
-  for (const csv of [generateFDPDocumentCSV(doc)]) {
-    const parsed = parseCsv(csv);
-    assert.equal(parsed.length, 2, 'header + one row');
-    assert.equal(parsed[1].length, parsed[0].length, 'column count matches header');
-    assert.ok(parsed[1].includes(`'${doc.title}`), 'formula title is neutralised');
-    assert.ok(parsed[1].includes(doc.officeResponsible), 'quotes and line break preserved');
   }
 });
 

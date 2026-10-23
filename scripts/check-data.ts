@@ -17,6 +17,9 @@ import { CITY_DEPARTMENTS } from '../src/data/departments';
 import { EXECUTIVES } from '../src/data/officials';
 import { EMERGENCY_HOTLINES } from '../src/config/site';
 import { FDP_DOCUMENTS } from '../src/data/fdp';
+import { FINANCE_ACTUALS, FINANCE_SOURCE, LDRRMF } from '../src/data/finances';
+import { AUDIT_FY2020, LGSF_PROJECTS, NATIONAL_RELEASES } from '../src/data/reports';
+import { CITY_FIGURES, CITY_HISTORY } from '../src/data/cityProfile';
 import { SERVICES_DATA } from '../src/data/services';
 import { isUnverified } from '../src/lib/verification';
 import type { Verification } from '../src/types';
@@ -220,7 +223,7 @@ check('Department heads: Mayor and Vice Mayor verified, no other unsourced heads
 check('Every Full Disclosure Policy document links to its official posting', () => {
   for (const d of FDP_DOCUMENTS) {
     if (!hasSource(d) || !d.sourceUrl) {
-      fail('src/data/fdp.ts', d.code, 'has no source and link to the official posting.', 'Add source and sourceUrl (DILG FDP Portal or a City Hall copy), or leave the list empty.');
+      fail('src/data/fdp.ts', d.title, 'has no source and link to the official posting.', 'Add source and sourceUrl (DILG FDP Portal or a City Hall copy), or leave the list empty.');
     }
   }
 });
@@ -255,6 +258,61 @@ check('No open-data licence is claimed for government data', () => {
     const text = fs.readFileSync(file, 'utf8');
     const m = /\bCC0\b|public domain dedication/i.exec(text);
     if (m) fail(path.relative(ROOT, file).split(path.sep).join('/'), `line ${lineOf(text, m.index)}`, `claims a licence ("${m[0]}") for data this project does not own.`, 'Remove the licence claim; point to the data source instead (docs/LICENSING.md).');
+  }
+});
+
+// City finances, FDP, and reports (from the Marawi LGU page; official sources cited) ------------
+check('Finance, FDP, and report records name their official source', () => {
+  const records: [string, string, Verification][] = [
+    ['src/data/finances.ts', 'FINANCE_SOURCE', FINANCE_SOURCE],
+    ['src/data/reports.ts', 'AUDIT_FY2020', AUDIT_FY2020],
+    ['src/data/cityProfile.ts', 'CITY_FIGURES', CITY_FIGURES],
+    ...FDP_DOCUMENTS.map((d): [string, string, Verification] => ['src/data/fdp.ts', d.title, d]),
+    ...LGSF_PROJECTS.map((p): [string, string, Verification] => ['src/data/reports.ts', p.title, p]),
+    ...NATIONAL_RELEASES.map((r): [string, string, Verification] => ['src/data/reports.ts', `${r.kind} ${r.date}`, r]),
+    ...CITY_HISTORY.map((h): [string, string, Verification] => ['src/data/cityProfile.ts', String(h.year), h]),
+  ];
+  for (const [file, name, v] of records) {
+    if (!hasSource(v) || !v.sourceUrl) fail(file, name, 'has no official source and link.', 'Add level, source, sourceUrl, and retrievedOn from the source page.');
+  }
+});
+
+check('FDP files link to the DILG portal', () => {
+  for (const d of FDP_DOCUMENTS) {
+    for (const f of d.files) {
+      if (!f.url.startsWith('https://fdpp.dilg.gov.ph/fdpp/report/document-download?id=')) {
+        fail('src/data/fdp.ts', `${d.title} ${f.period}`, `links to ${f.url}.`, 'Use the DILG FDP Portal download link shown on the source page.');
+      }
+    }
+  }
+});
+
+check('Operating income equals its parts within display rounding', () => {
+  // Amounts are in millions, rounded as displayed: x.xM (half-step 0.05) or x.xxB (half-step 5)
+  const half = (v: number) => (v >= 1000 ? 5 : 0.05);
+  for (const y of FINANCE_ACTUALS) {
+    const { localTaxes: a, nta: b, otherTransfers: c, operatingIncome: total } = y;
+    if (a === null || b === null || c === null || total === null) continue;
+    const tolerance = half(a) + half(b) + half(c) + half(total);
+    if (Math.abs(a + b + c - total) > tolerance + 1e-9) {
+      fail('src/data/finances.ts', String(y.year), `local taxes + NTA + other transfers = ${(a + b + c).toFixed(1)}M, but operating income is ${total}M.`, 'Re-copy the row from the source page.');
+    }
+  }
+});
+
+check('Disaster fund share used matches spent ÷ appropriated', () => {
+  for (const r of LDRRMF) {
+    const computed = Math.round((r.spent / r.appropriated) * 100);
+    if (Math.abs(computed - r.shareUsed) > 1) fail('src/data/finances.ts', `LDRRMF ${r.year}`, `share used is ${r.shareUsed}% but spent ÷ appropriated is ${computed}%.`, 'Re-copy the row from the source page.');
+  }
+});
+
+check('Unsourced FY2026 budget figures are gone', () => {
+  for (const file of SHIPPED.filter((f) => f.includes(`${path.sep}src${path.sep}`))) {
+    const text = fs.readFileSync(file, 'utf8');
+    for (const old of ['1,845,200,000', '1,692,400,000', '₱1.845']) {
+      if (text.includes(old)) fail(rel(file), old, 'still shows the unsourced FY2026 budget figure.', 'Use the BLGF actuals in src/data/finances.ts.');
+    }
   }
 });
 

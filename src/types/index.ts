@@ -85,15 +85,23 @@ export interface OrdinanceRecord extends Verification {
   status: string;
 }
 
+export type FDPPeriod = 'Annual' | 'Q1' | 'Q2' | 'Q3' | 'Q4';
+
+/** One posted file on the DILG Full Disclosure Policy Portal */
+export interface FDPFile {
+  period: FDPPeriod;
+  url: string;
+}
+
+/** A Full Disclosure Policy document type for one year. No files means it is not posted. */
 export interface FDPDocument extends Verification {
-  code: string;
+  /** DILG portal document_filter value */
+  filterId: number;
   title: string;
-  frequency: 'Quarterly' | 'Annual';
-  latestPeriod: string;
-  datePosted: string;
-  officeResponsible: string;
-  fileSize: string;
-  status: 'Compliant · Posted on DILG FDP Portal';
+  frequency: 'Annual' | 'Quarterly';
+  /** Also listed on the Transparency Documents page (procurement plans and bid results) */
+  procurement: boolean;
+  files: FDPFile[];
 }
 
 export interface BarangayRecord extends Verification {
