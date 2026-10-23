@@ -220,6 +220,7 @@ export function Header() {
                     <button
                       type="button"
                       aria-expanded={isOpen}
+                      aria-label={`${label} ${t.directorySuffix}`}
                       onClick={() => setOpenDropdown(isOpen ? null : key)}
                       className="p-1 text-mist-500 hover:text-mist-900 rounded-md"
                     >

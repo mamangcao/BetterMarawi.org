@@ -66,6 +66,39 @@ export function MobileNav({ isOpen, onClose, topOffset = 64 }: MobileNavProps) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose]);
 
+  // Modal focus: move focus into the drawer on open, and keep Tab / Shift+Tab cycling between the
+  // header's close (X) button and the drawer's links. Escape and focus return are handled above
+  // and in Header.
+  useEffect(() => {
+    if (!isOpen) return;
+    const drawer = document.getElementById('mobile-nav-drawer');
+    const focusables = (): HTMLElement[] => {
+      const toggle = document.getElementById('mobile-menu-toggle');
+      const items = drawer
+        ? Array.from(drawer.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'))
+        : [];
+      return toggle ? [toggle, ...items] : items;
+    };
+
+    drawer?.querySelector<HTMLElement>('a[href], button:not([disabled])')?.focus({ preventScroll: true });
+
+    const handleTab = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab') return;
+      const list = focusables();
+      if (list.length === 0) return;
+      const index = list.indexOf(document.activeElement as HTMLElement);
+      if (e.shiftKey && index <= 0) {
+        e.preventDefault();
+        list[list.length - 1].focus();
+      } else if (!e.shiftKey && (index === -1 || index === list.length - 1)) {
+        e.preventDefault();
+        list[0].focus();
+      }
+    };
+    document.addEventListener('keydown', handleTab);
+    return () => document.removeEventListener('keydown', handleTab);
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   const dropdownMeta: { key: 'services' | 'government' | 'transparency' | 'statistics'; label: string; rootHref: string }[] = [
