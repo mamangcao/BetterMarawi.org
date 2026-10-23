@@ -7,8 +7,6 @@ export const fil: typeof en = {
   browseServices: 'Tingnan ang Serbisyo',
   contactUs: 'Makipag-ugnayan',
   searchPlaceholder: 'Maghanap ng Serbisyo, Permit, Barangay, o Ordinansa...',
-  popularServices: 'Mga Sikat na Serbisyo:',
-  cityMetricsBadge: 'Mga Datos ng Lungsod',
   glanceHeadlineLead: 'Isang Islamic City.',
   glanceHeadlineRest: '{barangays} barangay na tanaw ang Lawa ng Lanao.',
   glanceIntro:
@@ -34,17 +32,9 @@ export const fil: typeof en = {
   playSlideshow: 'I-play ang slideshow',
   atAGlance: 'Ang Marawi sa Isang Sulyap',
   viewCityProfile: 'Tingnan ang City Profile',
-  servicesHeading: 'Mga Serbisyo at Impormasyon',
-  servicesSubheading:
-    'Mabilis at madaling ma-access ang mga opisyal na serbisyo ng pamahalaan para sa negosyo, edukasyon, kalusugan, at iba pa.',
   discoverHeading: 'Tuklasin ang Marawi',
-  govActivityHeading: 'Aktibidad ng Pamahalaan',
-  govActivitySubheading: 'Manatiling updated sa mga pinakabagong gawain at anunsyo ng lokal na pamahalaan.',
-  historyHeading: 'Kasaysayan ng Marawi',
-  leadershipHeading: 'Pamunuan ng Lungsod',
   dataStatus: {
     unverified: 'Hindi Pa Nabeberipika',
-    verified: 'Beripikado',
     tooltip: 'Ang impormasyong ito ay hindi pa nasusuri sa opisyal na pinagmulan.',
     notice:
       'Ang ilang impormasyon sa pahinang ito ay hindi pa nabeberipika sa mga opisyal na pinagmulan. Sumangguni sa City Hall bago ito gamitin o pagkatiwalaan.',
@@ -98,10 +88,8 @@ export const fil: typeof en = {
   // Footer
   quickLinks: 'Mabilis na mga Link',
   aboutPortal: 'Tungkol sa Portal',
-  sitemap: 'Sitemap',
   accessibility: 'Aksibilidad',
   resources: 'Mga Sanggunian',
-  communityDiscord: 'Community Discord',
   volunteerWithUs: 'Magboluntaryo Kasama Namin',
   contributeGithub: 'Mag-ambag sa GitHub',
   contributorsButton: "Mga Kontribyutor",
@@ -151,20 +139,12 @@ export const fil: typeof en = {
       description: 'Pag-enroll sa daycare, pampublikong paaralan, at Madrasah, pati mga scholarship ng MSU at ng lungsod.',
     },
   },
-  servicesAndChartersHeading: "Mga Serbisyo at Citizen's Charter",
   servicesAndChartersSubheading: "Mga kailangan, bayarin, at hakbang mula sa bawat Citizen's Charter.",
   viewAll11Services: 'Tingnan Lahat ng 12 Serbisyo',
-  viewCharterAndRequirements: "Tingnan ang Citizen's Charter at mga Kailangan",
 
   // City at a Glance & PhilHealth YAKAP
-  glanceSubheading:
-    'Opisyal na senso, teritoryo, at administratibong batayan ng Islamic City of Marawi.',
-  residentsLabel: 'Mga Residente',
-  latestCensusNote: '2024 Senso ng Populasyon (POPCEN), PSA',
   barangaysLabel: 'Mga Barangay',
-  adminVillagesNote: 'Mga administratibong barangay (PSA PSGC)',
   incomeClassification: 'Klasipikasyon ng kita',
-  capitalLanao: 'Kabisera ng Lanao del Sur',
   totalLandArea: 'Kabuuang sukat ng lupa',
   highlandBasin: 'Highland basin ng Lawa ng Lanao',
   freeHealthCareForAll: 'Libreng Pangangalagang Pangkalusugan Para sa Lahat',
@@ -174,11 +154,10 @@ export const fil: typeof en = {
   coveredLabs: 'Mga Sagot na Lab Test (CBC, ECG, atbp.)',
   zeroCopay: '100% Walang Dagdag-Bayad',
   learnFreeBenefits: 'Alamin ang Libreng mga Benepisyo',
-  callTheCho: 'Tawagan ang CHO: ',
+  seeHealthFacilities: 'Tingnan ang mga ospital at health center',
 
   // Culture & Tourism Spotlight
   summerCapitalSubtitle: 'Pamana, lawa, at kultura sa Summer Capital ng Timog.',
-  viewAllTourism: 'Tingnan lahat ng turismo',
   sitesListed: "{n} lugar na nakalista",
   gettingThere: "Papunta sa Marawi",
   allTourismTitle: "Tingnan Lahat ng Pasyalan",
@@ -206,7 +185,6 @@ export const fil: typeof en = {
       description: "Tradisyonal na pater at palapa ng Meranaw, at mga kapihan sa kabundukan.",
     },
   },
-  exploreSites: 'Tuklasin ang mga lugar',
   planYourVisit: 'Plano ng Pagbisita — Pagpunta sa Marawi',
   currentConditions: 'Kasalukuyang panahon · Marawi City, Lanao del Sur',
   coolHighlandClimate: 'Malamig na Panahong Highland · 700m ASL',
@@ -218,12 +196,10 @@ export const fil: typeof en = {
   fromManila: 'Mula Maynila',
   manilaRoute: 'Lumipad papuntang Laguindingan (~1 oras 35 min), saka magmaneho ng 102 km',
   flightPlus: 'Lipad +',
-  viewVisitorGuide: 'Tingnan ang Kumpletong Gabay sa Pagbisita at Kagandahang-Asal',
 
   // Government Activity & History
   govActivitySectionHeading: 'Aktibidad ng Pamahalaan at Transparansya',
   govActivitySectionSubheading: 'Mga ordinansa, badyet, disclosure, at pampublikong talaan ng lungsod.',
-  openDirectory: 'Buksan ang Direktoryo',
   allGovEyebrow: "Pamahalaan at transparansya",
   allGovTitle: "Tingnan Lahat ng Talaan",
   allGovDescription: "Kasama rin ang Direktoryo ng mga Lokal na Opisyal, mga dokumento ng transparansya, at mga ulat at estatistika.",
@@ -261,15 +237,10 @@ export const fil: typeof en = {
   exploreGeographyProfile: 'Tuklasin ang Heograpiya ng Lungsod',
 
   // Leadership & City Hall Info
-  cityLeadershipSubtitle:
-    'Ehekutibo at Lehislatibong Pamunuan ng Islamic City of Marawi',
   viewAllOfficials: 'Tingnan Lahat ng Opisyal',
-  electedMayor: 'Inihalal na Punong Lungsod',
-  electedViceMayor: 'Inihalal na Pangalawang Punong Lungsod',
   phone: 'Telepono',
   email: 'Email',
   address: 'Tirahan / Lokasyon',
-  cityHallAssistance: 'Opisyal na Tulong at Impormasyon mula sa Pamahalaang Lungsod ng Marawi',
   viewAllDepartments: 'Tingnan Lahat ng Departamento',
   installPromptText: 'I-install ang BetterMarawi.org para sa mabilis na access sa mga serbisyo.',
   installButton: 'I-install',
@@ -289,12 +260,9 @@ export const fil: typeof en = {
   cityHallLabel: 'City Hall',
   allDepartmentsEyebrow: 'Direktoryo',
   allDepartmentsDescription: 'Mga pinuno ng departamento, opisina, at kung ano ang hawak ng bawat isa.',
-  monFriHours: 'Lunes–Biyernes, 8AM–5PM',
 
   // Services Directory & Details
   filterServicesPlaceholder: 'Salain ang mga serbisyo ayon sa keyword o opisina...',
-  requirementsCount: 'Mga Kailangan',
-  stepsCount: 'Hakbang',
   docRequirementsHeading: '1. Talaan ng mga Dokumentong Kailangan',
   whoMayAvail: 'Sino ang maaaring kumuha:',
   preparedCount: 'Naihanda',
@@ -311,18 +279,15 @@ export const fil: typeof en = {
   legalBasisHeader: 'Batayang Legal',
   faqHeading: '4. Mga Madalas Itanong (FAQ)',
   faqSubheading:
-    'Naka-istruktura gamit ang Schema.org FAQPage JSON-LD para sa mabilisang sagot sa mamamayan',
+    'Mga sagot sa mga tanong na madalas itanong ng mamamayan',
   allServicesTitle: 'Lahat ng 12 Serbisyo sa Marawi',
   antiRedTapeNotice:
     'Bawal ang fixer. Ang opisyal na resibo ay eksklusibong ibinibigay ng Tanggapan ng Ingat-Yaman ng Lungsod. Isumbong ang anumang iregularidad sa Public Assistance & Complaints Desk (PACD).',
-  charterServiceGuide: "Gabay sa Serbisyo ng Citizen's Charter",
   responsibleOffice: 'Opisinang Responsable',
-  callHotline: 'Tawagan ang Hotline:',
 
   // Government Directory
   searchDepartmentsPlaceholder: 'Maghanap ng departamento, mandato, o serbisyo...',
   frontlineServices: 'Mga Pangunahing Serbisyo',
-  searchOfficialsPlaceholder: 'Maghanap ng opisyal ayon sa pangalan o komite...',
   ordinancesRegistryHeading: 'Talaan ng mga Naipasang Ordinansa at Resolusyon',
   searchOrdinancesPlaceholder: 'Maghanap ng ordinansa...',
   showingEnactments: 'Ipinapakita ang',
@@ -334,9 +299,8 @@ export const fil: typeof en = {
 
   // Transparency & Statistics
   fdpHeading: 'Nailathalang mga Dokumento ng Full Disclosure at Pagbili (Procurement)',
-  conspicuousPosting:
-    'Mga Lokasyon ng Hayagang Pagpaskil: (1) Marawi City Hall Lobby, (2) New Grand Padian, (3) MSU Commercial Center',
-  downloadSampleCSV: 'I-download ang Halimbawang CSV',
+  fdpPending:
+    'Wala pang nakalistang dokumento ng FDP. Idaragdag ang bawat isa kasama ang link sa opisyal na pagkakapaskil nito sa DILG FDP Portal o kopya mula sa City Hall.',
   downloadCSV: 'I-download ang CSV',
   downloadJSON: 'I-download ang JSON',
   period: 'Panahon:',
@@ -351,9 +315,8 @@ export const fil: typeof en = {
   searchBarangayPlaceholder:
     'Maghanap ayon sa pangalan ng Barangay o PSGC code...',
   exportAllBarangays: 'I-export ang Lahat ng 101 Barangay (CSV)',
-  showingBarangaysSummary: 'Ipinapakita ang 101 na Barangay',
   openDatasetsHeading:
-    'Bukas na Datos ng Mamamayan (Creative Commons CC0 / Open Data PH)',
+    'Bukas na Datos ng Mamamayan',
   clickToDownload:
     'Pindutin ang alinmang buton sa ibaba upang i-download ang datos sa format na CSV o JSON.',
   statisticsSections: 'Estadistika at Bukas na Datos (4)',
@@ -383,7 +346,6 @@ export const fil: typeof en = {
   noNoonBreakDesc: 'Ayon sa RA 11032, dapat pagsilbihan ang mga taong nasa loob na ng tanggapan bago ang oras ng pagsasara, kahit sa oras ng tanghalian.',
   cityHallContactTbc: 'Opisyal na numero ng telepono at email ng City Hall: kukumpirmahin pa',
   toBeConfirmed: 'Kukumpirmahin pa',
-  verifiedOfficeholder: 'Beripikadong kasalukuyang nanunungkulan',
   officeDetailsLabel: 'Detalye ng tanggapan',
   ordinancesPending: 'Wala pang nakalistang ordinansa. Idaragdag ang mga ito kapag nakakuha na ng kopya mula sa Sangguniang Panlungsod o iba pang opisyal na pinagmulan.',
 

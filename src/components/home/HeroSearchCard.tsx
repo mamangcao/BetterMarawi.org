@@ -55,6 +55,10 @@ interface HeroSearchCardProps {
   }[];
 }
 
+// Combobox pattern (ARIA 1.2): focus stays in the input; arrow keys move aria-activedescendant
+const LISTBOX_ID = 'hero-search-results';
+const optionId = (slug: string) => `hero-search-option-${slug}`;
+
 export function HeroSearchCard({
   popularServices,
   searchableServices,
@@ -149,6 +153,15 @@ export function HeroSearchCard({
             onKeyDown={handleKeyDown}
             placeholder={t.searchServicePlaceholder}
             autoComplete="off"
+            role="combobox"
+            aria-autocomplete="list"
+            aria-expanded={showResults && filteredResults.length > 0}
+            aria-controls={LISTBOX_ID}
+            aria-activedescendant={
+              showResults && selectedIndex >= 0 && selectedIndex < filteredResults.length
+                ? optionId(filteredResults[selectedIndex].slug)
+                : undefined
+            }
             className="w-full h-[52px] pl-11 pr-10 rounded-xl border border-mist-300 bg-white text-base text-foreground placeholder:text-foreground-subtle/70 shadow-xs focus:outline-hidden focus:ring-2 focus:ring-brand-800 focus:border-brand-800 transition-shadow"
           />
           {searchQuery && (
@@ -169,6 +182,9 @@ export function HeroSearchCard({
         {showResults && (
           <div
             ref={resultsContainerRef}
+            id={LISTBOX_ID}
+            role={filteredResults.length > 0 ? 'listbox' : undefined}
+            aria-label={filteredResults.length > 0 ? t.findService : undefined}
             className="absolute left-0 right-0 top-full mt-1.5 bg-white rounded-xl shadow-lg border border-mist-200/90 z-30 divide-y divide-mist-100 max-h-[280px] overflow-y-auto overflow-hidden animate-in fade-in-0 duration-150"
           >
             {filteredResults.length > 0 ? (
@@ -178,7 +194,11 @@ export function HeroSearchCard({
                 return (
                   <Link
                     key={item.slug}
+                    id={optionId(item.slug)}
                     href={`/services/${item.slug}`}
+                    role="option"
+                    aria-selected={isSelected}
+                    tabIndex={-1}
                     className={`flex items-start gap-3 p-3 transition-colors ${
                       isSelected
                         ? "bg-brand-50 text-brand-950"
@@ -201,7 +221,7 @@ export function HeroSearchCard({
                 );
               })
             ) : (
-              <div className="p-4 text-center text-xs text-mist-500 font-medium">
+              <div role="status" className="p-4 text-center text-xs text-mist-500 font-medium">
                 {t.noServicesFound} &ldquo;{searchQuery}&rdquo;
               </div>
             )}

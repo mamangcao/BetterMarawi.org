@@ -1,46 +1,76 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Download, Code2 } from 'lucide-react';
 import { ArrowUpRight } from '@/components/ui';
-import { APP_ROUTES } from '@/lib/routes';
+import { APP_ROUTES, isIndexable } from '@/lib/routes';
 import { SITE_CONFIG } from '@/config/site';
-import {
-  buildGovernmentOrganizationSchema,
-  buildBreadcrumbSchema,
-  buildGovernmentServiceSchema,
-  buildFAQSchema,
-} from '@/lib/jsonld';
-import { SERVICES_DATA } from '@/data/services';
+
+interface PageHead {
+  title: string;
+  description: string;
+  canonical: string;
+  robots: string;
+  schemas: unknown[];
+}
+
+/** Read the SEO tags a page actually publishes, from its server-rendered HTML */
+function readHead(html: string): PageHead {
+  const doc = new DOMParser().parseFromString(html, 'text/html');
+  const attr = (selector: string, name: string) => doc.querySelector(selector)?.getAttribute(name) ?? '';
+  const schemas: unknown[] = [];
+  doc.querySelectorAll('script[type="application/ld+json"]').forEach((s) => {
+    try {
+      schemas.push(JSON.parse(s.textContent ?? ''));
+    } catch {
+      schemas.push({ error: 'Invalid JSON-LD' });
+    }
+  });
+  return {
+    title: doc.title,
+    description: attr('meta[name="description"]', 'content'),
+    canonical: attr('link[rel="canonical"]', 'href'),
+    robots: attr('meta[name="robots"]', 'content'),
+    schemas,
+  };
+}
+
+const schemaType = (s: unknown) => String((s as { '@type'?: unknown })?.['@type'] ?? 'Unknown');
 
 export function SitemapInspector() {
   const [selectedPath, setSelectedPath] = useState<string>('/services/health-services');
+  const [loaded, setLoaded] = useState<{ path: string; head?: PageHead; failed?: boolean } | null>(null);
 
   const selectedRoute =
     APP_ROUTES.find((r) => r.path === selectedPath) || APP_ROUTES[0];
 
-  const canonicalUrl = `${SITE_CONFIG.url}${selectedRoute.path === '/' ? '' : selectedRoute.path}`;
+  // Fetch the page itself so the preview shows its real metadata, not a guess
+  useEffect(() => {
+    const path = selectedRoute.path;
+    let cancelled = false;
+    fetch(path, { headers: { Accept: 'text/html' } })
+      .then((res) => {
+        if (!res.ok) throw new Error(String(res.status));
+        return res.text();
+      })
+      .then((html) => {
+        if (!cancelled) setLoaded({ path, head: readHead(html) });
+      })
+      .catch(() => {
+        if (!cancelled) setLoaded({ path, failed: true });
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [selectedRoute.path]);
 
-  // Build the inspected schemas dynamically
-  const schemas: Record<string, unknown>[] = [
-    buildGovernmentOrganizationSchema(),
-    buildBreadcrumbSchema(selectedRoute.breadcrumbs),
-  ];
-
-  if (selectedRoute.path.startsWith('/services/')) {
-    const slug = selectedRoute.path.replace('/services/', '');
-    const service = SERVICES_DATA.find((s) => s.slug === slug);
-    if (service) {
-      schemas.push(buildGovernmentServiceSchema(service, canonicalUrl));
-      if (service.faqs && service.faqs.length > 0) {
-        schemas.push(buildFAQSchema(service.faqs));
-      }
-    }
-  }
+  const current = loaded?.path === selectedRoute.path ? loaded : null;
+  const head = current?.head;
+  const status = !current ? 'Loading…' : current.failed ? 'Could not load this page. Open it and use View Source instead.' : '';
 
   const downloadSitemapXml = () => {
-    const urls = APP_ROUTES.map(
+    const urls = APP_ROUTES.filter(isIndexable).map(
       (r) => `  <url>
     <loc>${SITE_CONFIG.url}${r.path === '/' ? '' : r.path}</loc>
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
@@ -70,7 +100,7 @@ ${urls}
       {/* Left 5 Cols: Complete Indexable URL Tree */}
       <div className="lg:col-span-5 bg-white rounded-xl border border-mist-200/90 p-5">
         <div className="text-xs font-semibold uppercase tracking-wider text-mist-500 pb-3 mb-3 border-b border-mist-100 flex items-center justify-between">
-          <span>All Indexable Routes ({APP_ROUTES.length})</span>
+          <span>All Routes ({APP_ROUTES.length})</span>
           <span>Click to Inspect</span>
         </div>
         <div className="space-y-1 max-h-[680px] overflow-y-auto pr-1">
@@ -92,6 +122,7 @@ ${urls}
                 >
                   <div className="font-mono-tabular font-bold text-brand-900 truncate">
                     {route.path}
+                    {!isIndexable(route) && <span className="ml-1.5 font-semibold text-mist-600">(noindex)</span>}
                   </div>
                   <div className="text-mist-500 truncate mt-0.5">
                     {route.label} — {route.description}
@@ -127,45 +158,54 @@ ${urls}
             </Link>
           </div>
 
-          <div className="space-y-3 text-xs">
-            <div>
-              <span className="font-semibold text-mist-500 block">
-                &lt;title&gt; &amp; og:title
-              </span>
-              <div className="font-bold text-mist-900 text-sm mt-0.5">
-                {selectedRoute.label} | BetterMarawi.org
-              </div>
-            </div>
-            <div>
-              <span className="font-semibold text-mist-500 block">
-                &lt;meta name=&quot;description&quot;&gt;
-              </span>
-              <div className="text-mist-700 mt-0.5 leading-relaxed">
-                {selectedRoute.description}
-              </div>
-            </div>
-            <div>
-              <span className="font-semibold text-mist-500 block">
-                &lt;link rel=&quot;canonical&quot;&gt;
-              </span>
-              <div className="font-mono-tabular text-brand-900 font-semibold mt-0.5">
-                {canonicalUrl}
-              </div>
-            </div>
+          <div className="space-y-3 text-xs" aria-live="polite" aria-busy={!current}>
+            {status ? (
+              <p className="text-mist-600">{status}</p>
+            ) : (
+              <>
+                <div>
+                  <span className="font-semibold text-mist-500 block">
+                    &lt;title&gt;
+                  </span>
+                  <div className="font-bold text-mist-900 text-sm mt-0.5 break-words">
+                    {head?.title || '(none)'}
+                  </div>
+                </div>
+                <div>
+                  <span className="font-semibold text-mist-500 block">
+                    &lt;meta name=&quot;description&quot;&gt;
+                  </span>
+                  <div className="text-mist-700 mt-0.5 leading-relaxed">
+                    {head?.description || '(none)'}
+                  </div>
+                </div>
+                <div>
+                  <span className="font-semibold text-mist-500 block">
+                    &lt;link rel=&quot;canonical&quot;&gt; · &lt;meta name=&quot;robots&quot;&gt;
+                  </span>
+                  <div className="font-mono-tabular text-brand-900 font-semibold mt-0.5 break-all">
+                    {head?.canonical || '(none)'}
+                  </div>
+                  <div className="font-mono-tabular text-mist-700 mt-0.5">
+                    {head?.robots || '(none)'}
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
 
         <div className="bg-mist-950 text-mist-100 rounded-xl p-6 space-y-3">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
             <span className="text-xs font-mono-tabular text-accent font-semibold">
-              Injected &lt;script type=&quot;application/ld+json&quot;&gt; ({schemas.length} Schemas)
+              &lt;script type=&quot;application/ld+json&quot;&gt; ({head?.schemas.length ?? 0} on this page)
             </span>
             <span className="text-[11px] font-mono-tabular text-mist-400">
-              GovernmentOrganization · BreadcrumbList · GovernmentService · FAQPage
+              {head?.schemas.map(schemaType).join(' · ')}
             </span>
           </div>
           <pre className="text-xs font-mono-tabular text-brand-200 overflow-x-auto max-h-[420px] overflow-y-auto p-4 rounded-lg bg-mist-900 border border-mist-800 leading-relaxed">
-            {JSON.stringify(schemas, null, 2)}
+            {status || JSON.stringify(head?.schemas, null, 2)}
           </pre>
         </div>
 
@@ -176,7 +216,7 @@ ${urls}
             className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-brand-900 text-white text-xs font-semibold hover:bg-brand-950 transition-colors whitespace-nowrap shrink-0 font-mono-tabular"
           >
             <Download className="w-4 h-4" />
-            Download sitemap.xml ({APP_ROUTES.length} URLs)
+            Download sitemap.xml ({APP_ROUTES.filter(isIndexable).length} URLs)
           </button>
         </div>
       </div>

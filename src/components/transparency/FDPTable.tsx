@@ -3,7 +3,7 @@
 import React from 'react';
 import { Download, FileCheck2 } from 'lucide-react';
 import { FDPDocument } from '@/types';
-import { downloadCSV } from '@/lib/csv';
+import { downloadCSV, generateFDPDocumentCSV } from '@/lib/csv';
 import { DataStatus } from '@/components/ui';
 import { useTranslation } from '@/i18n';
 
@@ -14,11 +14,7 @@ interface FDPTableProps {
 export function FDPTable({ documents }: FDPTableProps) {
   const { t } = useTranslation();
   const downloadSample = (doc: FDPDocument) => {
-    const csvContent = [
-      'Document Code,Title,Period,Date Posted,Responsible Office,Status',
-      `"${doc.code}","${doc.title}","${doc.latestPeriod}","${doc.datePosted}","${doc.officeResponsible}","${doc.status}"`,
-    ].join('\n');
-    downloadCSV(`${doc.code}.csv`, csvContent);
+    downloadCSV(`${doc.code}.csv`, generateFDPDocumentCSV(doc));
   };
 
   return (
@@ -28,16 +24,15 @@ export function FDPTable({ documents }: FDPTableProps) {
           <h2 className="text-xl font-bold text-mist-900 font-display">
             {t.fdpHeading}
           </h2>
-          <p className="text-xs text-mist-500 mt-0.5">
-            {t.conspicuousPosting}
-          </p>
         </div>
-        <span className="text-xs font-mono-tabular font-semibold text-brand-800">
-          Q3 2026 Updated
-        </span>
       </div>
 
       <div className="space-y-4">
+        {documents.length === 0 && (
+          <p className="rounded-xl border border-dashed border-mist-300 p-6 text-center text-sm text-mist-600">
+            {t.fdpPending}
+          </p>
+        )}
         {documents.map((doc) => (
           <div
             key={doc.code}

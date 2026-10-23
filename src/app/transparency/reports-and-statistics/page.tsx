@@ -1,16 +1,15 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { DocumentsList, TransparencySidebar } from '@/components/transparency';
-import { UnverifiedNotice } from '@/components/ui';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { buildBreadcrumbSchema } from '@/lib/jsonld';
 import { buildMetadata, getRouteBreadcrumbs } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'LGU Reports, Performance Metrics & SGLG Scorecard | BetterMarawi.org',
+  title: 'LGU Reports & Governance Performance | BetterMarawi.org',
   description:
-    'Review quarterly accomplishment reports, fiscal collection efficiency, and Seal of Good Local Governance (SGLG) indicators for the Islamic City of Marawi.',
+    'Where performance reports, revenue figures, and Seal of Good Local Governance (SGLG) results for the Islamic City of Marawi will be listed once linked to official sources.',
   path: '/transparency/reports-and-statistics',
 });
 
@@ -30,9 +29,8 @@ export default function ReportsAndStatisticsPage() {
             Reports &amp; Governance Performance Statistics
           </h1>
           <p className="mt-3 text-base text-mist-700 max-w-3xl leading-relaxed">
-            Review quarterly accomplishment reports, fiscal collection efficiency, and Seal of Good Local Governance (SGLG) indicators for the Islamic City of Marawi.
+            Accomplishment reports, revenue figures, and Seal of Good Local Governance (SGLG) results for the Islamic City of Marawi will be listed here once each one is linked to an official source (DILG, BLGF, or the city government).
           </p>
-          <UnverifiedNotice show={true} className="mt-6" />
         </div>
       </section>
 

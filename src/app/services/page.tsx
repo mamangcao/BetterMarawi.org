@@ -4,6 +4,7 @@ import { SERVICES_DATA } from '@/data/services';
 import { ServiceGrid } from '@/components/services';
 import { SERVICE_CARDS } from '@/data/serviceCatalog';
 import { UnverifiedNotice } from '@/components/ui';
+import { PageHeader } from '@/components/ui/PageHeader';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { buildBreadcrumbSchema } from '@/lib/jsonld';
@@ -23,20 +24,13 @@ export default function ServicesPage() {
     <main className="pb-16">
       <Breadcrumbs items={breadcrumbs} />
 
-      <section className="bg-gradient-to-b from-surface-card to-surface border-b border-mist-200/90 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-xs font-semibold uppercase tracking-widest text-brand-800 mb-2">
-            Citizen&apos;s Charter Directory
-          </p>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-mist-950 font-display">
-            All 12 Citizen Services &amp; Information
-          </h1>
-          <p className="mt-3 text-base text-mist-700 max-w-2xl">
-            Select any service below to open its dedicated Citizen&apos;s Charter page with documentary requirements, step-by-step procedures, fee tables, and responsible offices.
-          </p>
-          <UnverifiedNotice items={SERVICES_DATA} className="mt-6" />
-        </div>
-      </section>
+      <PageHeader
+        eyebrow="Citizen's Charter Directory"
+        title="All 12 Citizen Services & Information"
+        intro="Select any service below to open its dedicated Citizen's Charter page with documentary requirements, step-by-step procedures, fee tables, and responsible offices."
+      >
+        <UnverifiedNotice items={SERVICES_DATA} className="mt-6" />
+      </PageHeader>
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
         <ServiceGrid cards={SERVICE_CARDS} />

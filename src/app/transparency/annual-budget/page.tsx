@@ -6,16 +6,17 @@ import { BudgetChart, TransparencySidebar } from '@/components/transparency';
 import { ServiceFAQ } from '@/components/services';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { JsonLd } from '@/components/seo/JsonLd';
-import { buildBreadcrumbSchema, buildFAQSchema } from '@/lib/jsonld';
+import { buildBreadcrumbSchema } from '@/lib/jsonld';
 import { buildMetadata, getRouteBreadcrumbs } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
   title: 'FY 2026 Annual Budget & Sectoral Allocations | BetterMarawi.org',
   description:
-    'Explore the ₱1.845 Billion FY 2026 General Appropriation Ordinance of the Islamic City of Marawi broken down by Social Services, Economic Development, and DRRM.',
+    'How the FY 2026 budget of the Islamic City of Marawi is divided by sector and fund source. The figures shown have not yet been verified against the appropriation ordinance.',
   path: '/transparency/annual-budget',
 });
 
+// Not published as FAQ structured data: the figures are unverified (see docs/AUDIT_STATUS.md).
 const faqs = [
   {
     question: 'How is the FY 2026 Annual Budget of Marawi City funded?',
@@ -57,7 +58,6 @@ export default function AnnualBudgetPage() {
       </div>
 
       <JsonLd data={buildBreadcrumbSchema(breadcrumbs)} />
-      <JsonLd data={buildFAQSchema(faqs)} />
     </main>
   );
 }

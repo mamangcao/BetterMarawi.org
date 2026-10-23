@@ -1,6 +1,17 @@
 import { Metadata } from 'next';
 import { SITE_CONFIG } from '@/config/site';
-import { APP_ROUTES } from './routes';
+import { APP_ROUTES, isIndexable } from './routes';
+
+/**
+ * Share image for every page: src/app/opengraph-image.png (1200 x 630). Listed explicitly because a
+ * page that sets its own openGraph metadata does not inherit the root file-based image.
+ */
+export const SHARE_IMAGE = {
+  url: '/opengraph-image.png',
+  width: 1200,
+  height: 630,
+  alt: 'BetterMarawi.org, community portal for the Islamic City of Marawi',
+};
 
 export function buildMetadata({
   title,
@@ -12,6 +23,9 @@ export function buildMetadata({
   path?: string;
 }): Metadata {
   const url = `${SITE_CONFIG.url}${path === '/' ? '' : path}`;
+  // Indexing follows the route registry, so robots and sitemap.xml always agree
+  const route = APP_ROUTES.find((r) => r.path === path);
+  const index = route ? isIndexable(route) : true;
   const fullTitle = title.includes('BetterMarawi.org') ? title : `${title} | BetterMarawi.org`;
 
   return {
@@ -29,26 +43,19 @@ export function buildMetadata({
       siteName: SITE_CONFIG.name,
       locale: 'en_PH',
       type: 'website',
-      images: [
-        {
-          url: '/branding/logo.png',
-          width: 1200,
-          height: 630,
-          alt: 'BetterMarawi.org — Islamic City of Marawi Civic Services',
-        },
-      ],
+      images: [SHARE_IMAGE],
     },
     twitter: {
       card: 'summary_large_image',
       title: fullTitle,
       description,
-      images: ['/branding/logo.png'],
+      images: [SHARE_IMAGE.url],
     },
     robots: {
-      index: true,
+      index,
       follow: true,
       googleBot: {
-        index: true,
+        index,
         follow: true,
         'max-video-preview': -1,
         'max-image-preview': 'large',

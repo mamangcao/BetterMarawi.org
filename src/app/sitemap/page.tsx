@@ -5,11 +5,14 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { SitemapInspector } from '@/components/seo/SitemapInspector';
 import { buildBreadcrumbSchema } from '@/lib/jsonld';
 import { buildMetadata, getRouteBreadcrumbs } from '@/lib/seo';
+import { APP_ROUTES, isIndexable } from '@/lib/routes';
+
+const INDEXABLE_COUNT = APP_ROUTES.filter(isIndexable).length;
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Sitemap & SEO Inspector — 30 Canonical Routes | BetterMarawi.org',
+  title: `Sitemap & SEO Inspector — ${INDEXABLE_COUNT} Indexable Pages | BetterMarawi.org`,
   description:
-    'Interactive index of all 30 indexable routes, canonical URLs, and live Schema.org JSON-LD generation for BetterMarawi.org.',
+    `Interactive index of all ${INDEXABLE_COUNT} indexable pages on BetterMarawi.org, with each page's live title, description, canonical URL, and Schema.org JSON-LD.`,
   path: '/sitemap',
 });
 
@@ -29,7 +32,7 @@ export default function SitemapPage() {
             Sitemap &amp; SEO Inspector
           </h1>
           <p className="mt-3 text-base text-mist-700 max-w-3xl leading-relaxed">
-            Live index of all 30 canonical routes across BetterMarawi.org. Inspect dynamically generated Schema.org JSON-LD structured data, meta descriptions, and download XML sitemaps.
+            Live index of all {APP_ROUTES.length} pages on BetterMarawi.org ({INDEXABLE_COUNT} listed for search engines). Pick a page to see the title, description, canonical URL, and Schema.org JSON-LD it actually publishes, or download the XML sitemap.
           </p>
         </div>
       </section>

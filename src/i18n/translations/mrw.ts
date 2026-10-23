@@ -7,50 +7,62 @@ export const mrw: typeof en = {
   browseServices: 'Ilaya so Serbisyo',
   contactUs: 'ibegay sa Totol',
   searchPlaceholder: 'Mbabanog sa Serbisyo, Permit, Barangay, odi na Kokoman...',
-  popularServices: 'Piyaki-ilay a Serbisyo:',
-  // TODO(mrw-review): needs fluent reviewer
-  cityMetricsBadge: 'City Metrics',
   // TODO(mrw-review): needs fluent reviewer (Marawi at a Glance keys below)
   glanceHeadlineLead: 'One Islamic City.',
+  // TODO(mrw-review): needs fluent reviewer
   glanceHeadlineRest: '{barangays} barangays overlooking Lake Lanao.',
+  // TODO(mrw-review): needs fluent reviewer
   glanceIntro:
     'Marawi is the capital of Lanao del Sur and a 3rd class component city in BARMM. These are the latest official figures from the Philippine Statistics Authority.',
+  // TODO(mrw-review): needs fluent reviewer
   statPeopleLabel: 'People',
+  // TODO(mrw-review): needs fluent reviewer
   statPeopleNote: 'Counted in the 2024 Census of Population (POPCEN). The 2020 census counted 207,010.',
+  // TODO(mrw-review): needs fluent reviewer
   statBarangaysNote: '{urban} urban and {rural} rural, as listed in the PSA PSGC as of 31 July 2025.',
+  // TODO(mrw-review): needs fluent reviewer
   statIncomeNote: 'Component city and provincial capital of Lanao del Sur.',
+  // TODO(mrw-review): needs fluent reviewer
   statLandNote: 'Land area of the city, in the Lake Lanao highland basin.',
+  // TODO(mrw-review): needs fluent reviewer
   glanceSourceNote: 'Source: Philippine Statistics Authority, PSGC and 2024 POPCEN.',
   // TODO(mrw-review): needs fluent reviewer (carousel and Explore Marawi keys below)
   summerCapitalBadge: 'Summer Capital of the South',
+  // TODO(mrw-review): needs fluent reviewer
   exploreTitle: 'Explore',
+  // TODO(mrw-review): needs fluent reviewer
   exploreMarawiDescription:
     'The Grand Mosque, royal Torogan houses, Okir brassware, the Aga Khan Museum, and the shores of Lake Lanao, all in the cool highlands of the Islamic City of Marawi.',
+  // TODO(mrw-review): needs fluent reviewer
   tourismCategoriesLabel: 'tourism categories',
+  // TODO(mrw-review): needs fluent reviewer
   highlandClimateShort: 'Cool highland climate',
+  // TODO(mrw-review): needs fluent reviewer
   exploreTourism: 'Explore Tourism',
+  // TODO(mrw-review): needs fluent reviewer
   featuredHighlights: 'Featured highlights',
+  // TODO(mrw-review): needs fluent reviewer
   previousSlide: 'Previous slide',
+  // TODO(mrw-review): needs fluent reviewer
   nextSlide: 'Next slide',
+  // TODO(mrw-review): needs fluent reviewer
   goToSlide: 'Go to slide',
+  // TODO(mrw-review): needs fluent reviewer
   pauseSlideshow: 'Pause slideshow',
+  // TODO(mrw-review): needs fluent reviewer
   playSlideshow: 'Play slideshow',
   atAGlance: 'So Inged a Marawi',
   viewCityProfile: 'Ilaya so City Profile',
-  servicesHeading: 'Manga Serbisyo ago Totol',
-  servicesSubheading:
-    'Maleboda a kapaka-kawa ko manga оpisyal a serbisyo o Gobyerno para ko kapaganad, kandagang, kapiya o lawas, ago so salakaw.',
   discoverHeading: 'Ilaya so Kataid o Marawi',
-  govActivityHeading: 'Galbek o Gobyerno',
-  govActivitySubheading: 'Maka-okit ko bago a manga kokoman ago piyaki-tokaw o Sangguniang Panlungsod ago LGU.',
-  historyHeading: 'Thotholan ko Inged a Marawi',
-  leadershipHeading: 'Manga Datu ago Olowan o Inged',
   dataStatus: {
+    // TODO(mrw-review): needs fluent reviewer
     unverified: 'Unverified',
-    verified: 'Verified',
+    // TODO(mrw-review): needs fluent reviewer
     tooltip: 'This information has not yet been checked against an official source.',
+    // TODO(mrw-review): needs fluent reviewer
     notice:
       'Some information on this page has not yet been verified against official sources. Check with City Hall before relying on it.',
+    // TODO(mrw-review): needs fluent reviewer
     learnMore: 'Learn how we verify data',
     // TODO(mrw-review): needs fluent reviewer
     sourced: 'Sourced',
@@ -144,23 +156,24 @@ export const mrw: typeof en = {
   // TODO(mrw-review): needs fluent reviewer
   aboutPortal: 'About the Portal',
   // TODO(mrw-review): needs fluent reviewer
-  sitemap: 'Sitemap',
-  // TODO(mrw-review): needs fluent reviewer
   accessibility: 'Accessibility',
   // TODO(mrw-review): needs fluent reviewer
   resources: 'Resources',
-  // TODO(mrw-review): needs fluent reviewer
-  communityDiscord: 'Community Discord',
   // TODO(mrw-review): needs fluent reviewer
   volunteerWithUs: 'Volunteer with Us',
   // TODO(mrw-review): needs fluent reviewer
   contributeGithub: 'Contribute at GitHub',
   // TODO(mrw-review): needs fluent reviewer. Contributors keys fall back to English.
   contributorsButton: "Contributors",
+  // TODO(mrw-review): needs fluent reviewer
   contributorsTitle: "Contributors",
+  // TODO(mrw-review): needs fluent reviewer
   contributorsIntro: "Volunteers who build and look after BetterMarawi.org.",
+  // TODO(mrw-review): needs fluent reviewer
   contributorsOpenRoles: "Open for volunteers",
+  // TODO(mrw-review): needs fluent reviewer
   contributorsClose: "Close",
+  // TODO(mrw-review): needs fluent reviewer
   contributorCategories: {
     maintainers: "Maintainers",
     software: "Software Development",
@@ -186,8 +199,10 @@ export const mrw: typeof en = {
   popularServicesTitle: 'Popular Services',
   // TODO(mrw-review): needs fluent reviewer. Popular Services cards fall back to English per CONTENT_GUIDE.
   allServicesEyebrow: 'All services',
+  // TODO(mrw-review): needs fluent reviewer
   viewAllServicesDescription:
     "Agriculture, public works, waste collection, environment, disaster preparedness, tourism, and more, each with its Citizen's Charter.",
+  // TODO(mrw-review): needs fluent reviewer
   serviceCards: {
     'business-and-livelihood': {
       title: 'Business and Livelihood',
@@ -211,29 +226,14 @@ export const mrw: typeof en = {
     },
   },
   // TODO(mrw-review): needs fluent reviewer
-  servicesAndChartersHeading: "Services & Citizen's Charters",
-  // TODO(mrw-review): needs fluent reviewer
   servicesAndChartersSubheading: "Requirements, fees, and steps from each Citizen's Charter.",
   // TODO(mrw-review): needs fluent reviewer
   viewAll11Services: 'View All 12 Services',
-  // TODO(mrw-review): needs fluent reviewer
-  viewCharterAndRequirements: "View Citizen's Charter & Requirements",
 
-  // TODO(mrw-review): needs fluent reviewer
-  glanceSubheading:
-    'Official census, territorial, and administrative baseline of the Islamic City of Marawi.',
-  // TODO(mrw-review): needs fluent reviewer
-  residentsLabel: 'Residents',
-  // TODO(mrw-review): needs fluent reviewer
-  latestCensusNote: '2024 Census of Population (POPCEN), PSA',
   // TODO(mrw-review): needs fluent reviewer
   barangaysLabel: 'Barangays',
   // TODO(mrw-review): needs fluent reviewer
-  adminVillagesNote: 'Administrative villages',
-  // TODO(mrw-review): needs fluent reviewer
   incomeClassification: 'Income classification',
-  // TODO(mrw-review): needs fluent reviewer
-  capitalLanao: 'Capital of Lanao del Sur',
   // TODO(mrw-review): needs fluent reviewer
   totalLandArea: 'Total land area',
   // TODO(mrw-review): needs fluent reviewer
@@ -252,18 +252,21 @@ export const mrw: typeof en = {
   // TODO(mrw-review): needs fluent reviewer
   learnFreeBenefits: 'Learn about Free Benefits',
   // TODO(mrw-review): needs fluent reviewer
-  callTheCho: 'Call the CHO: ',
+  seeHealthFacilities: 'See hospitals & health centers',
 
   // TODO(mrw-review): needs fluent reviewer
   summerCapitalSubtitle: 'Heritage, lakefront, and culture in the Summer Capital of the South.',
-  // TODO(mrw-review): needs fluent reviewer
-  viewAllTourism: 'View all tourism',
   // TODO(mrw-review): needs fluent reviewer. Discover Marawi cards fall back to English per CONTENT_GUIDE.
   sitesListed: "{n} sites listed",
+  // TODO(mrw-review): needs fluent reviewer
   gettingThere: "Getting to Marawi",
+  // TODO(mrw-review): needs fluent reviewer
   allTourismTitle: "View All Tourist Spots",
+  // TODO(mrw-review): needs fluent reviewer
   allTourismEyebrow: "Visitor guide",
+  // TODO(mrw-review): needs fluent reviewer
   allTourismDescription: "Highland and eco sites too, with more spots added as they are verified.",
+  // TODO(mrw-review): needs fluent reviewer
   tourismCards: {
     heritage: {
       title: "Heritage & History",
@@ -287,8 +290,6 @@ export const mrw: typeof en = {
     },
   },
   // TODO(mrw-review): needs fluent reviewer
-  exploreSites: 'Explore sites',
-  // TODO(mrw-review): needs fluent reviewer
   planYourVisit: 'Plan Your Visit — Getting to Marawi',
   // TODO(mrw-review): needs fluent reviewer
   currentConditions: 'Current conditions · Marawi City, Lanao del Sur',
@@ -306,21 +307,22 @@ export const mrw: typeof en = {
   fromCotabato: 'From Cotabato City',
   // TODO(mrw-review): needs fluent reviewer
   fromManila: 'From Manila',
-  manilaRoute: 'Fly to Laguindingan (~1 hr 35 min), then drive 102 km',
-  flightPlus: 'Flight +',
   // TODO(mrw-review): needs fluent reviewer
-  viewVisitorGuide: 'View Complete Visitor & Cultural Etiquette Guide',
+  manilaRoute: 'Fly to Laguindingan (~1 hr 35 min), then drive 102 km',
+  // TODO(mrw-review): needs fluent reviewer
+  flightPlus: 'Flight +',
 
   // TODO(mrw-review): needs fluent reviewer
   govActivitySectionHeading: 'Government Activity & Transparency',
   // TODO(mrw-review): needs fluent reviewer
   govActivitySectionSubheading: 'Ordinances, budgets, disclosures, and public records of the city.',
-  // TODO(mrw-review): needs fluent reviewer
-  openDirectory: 'Open Directory',
   // TODO(mrw-review): needs fluent reviewer. Gov cards fall back to English per CONTENT_GUIDE.
   allGovEyebrow: "Government & transparency",
+  // TODO(mrw-review): needs fluent reviewer
   allGovTitle: "View All Records",
+  // TODO(mrw-review): needs fluent reviewer
   allGovDescription: "Also the Local Officials Directory, transparency documents, and reports and statistics.",
+  // TODO(mrw-review): needs fluent reviewer
   govCards: {
     legislative: {
       title: "City Ordinances & Resolutions",
@@ -359,14 +361,7 @@ export const mrw: typeof en = {
   exploreGeographyProfile: 'Explore Geography Profile',
 
   // TODO(mrw-review): needs fluent reviewer
-  cityLeadershipSubtitle:
-    'Executive & Legislative Leadership of the Islamic City of Marawi',
-  // TODO(mrw-review): needs fluent reviewer
   viewAllOfficials: 'View All Officials',
-  // TODO(mrw-review): needs fluent reviewer
-  electedMayor: 'Elected Mayor',
-  // TODO(mrw-review): needs fluent reviewer
-  electedViceMayor: 'Elected Vice Mayor',
   // TODO(mrw-review): needs fluent reviewer
   phone: 'Phone',
   // TODO(mrw-review): needs fluent reviewer
@@ -374,39 +369,46 @@ export const mrw: typeof en = {
   // TODO(mrw-review): needs fluent reviewer
   address: 'Address',
   // TODO(mrw-review): needs fluent reviewer
-  cityHallAssistance: 'Official Marawi City Hall Assistance & Information',
-  // TODO(mrw-review): needs fluent reviewer
   viewAllDepartments: 'View All Departments',
   // TODO(mrw-review): needs fluent reviewer
   installPromptText: 'Install BetterMarawi.org for quick access to services.',
+  // TODO(mrw-review): needs fluent reviewer
   installButton: 'Install',
+  // TODO(mrw-review): needs fluent reviewer
   installDismiss: 'Dismiss',
+  // TODO(mrw-review): needs fluent reviewer
   installIosHint: 'On iPhone or iPad: tap Share, then “Add to Home Screen”.',
+  // TODO(mrw-review): needs fluent reviewer
   installGotIt: 'Got it',
   // TODO(mrw-review): needs fluent reviewer. Leadership & Contact keys below fall back to English.
   leadershipContactHeading: 'City Leadership & Contact',
   // TODO(mrw-review): needs fluent reviewer
   mayorRole: 'City Mayor',
-  viceMayorRole: 'City Vice Mayor',
-  mayorDuty: 'Local Chief Executive · Office of the City Mayor',
-  viceMayorDuty: 'Presiding Officer · Sangguniang Panlungsod',
-  leadershipContactSubheading: 'Elected officials and how to reach City Hall.',
-  allOfficialsEyebrow: 'Sangguniang Panlungsod',
-  allOfficialsDescription: 'City Councilors and sectoral representatives of the Sangguniang Panlungsod.',
-  officialChannel: 'Official channel',
-  facebookChannelDescription: 'Announcements and updates from the City Government.',
-  cityHallLabel: 'City Hall',
-  allDepartmentsEyebrow: 'Directory',
-  allDepartmentsDescription: 'Department heads, offices, and what each one handles.',
   // TODO(mrw-review): needs fluent reviewer
-  monFriHours: 'Mon–Fri, 8AM–5PM',
+  viceMayorRole: 'City Vice Mayor',
+  // TODO(mrw-review): needs fluent reviewer
+  mayorDuty: 'Local Chief Executive · Office of the City Mayor',
+  // TODO(mrw-review): needs fluent reviewer
+  viceMayorDuty: 'Presiding Officer · Sangguniang Panlungsod',
+  // TODO(mrw-review): needs fluent reviewer
+  leadershipContactSubheading: 'Elected officials and how to reach City Hall.',
+  // TODO(mrw-review): needs fluent reviewer
+  allOfficialsEyebrow: 'Sangguniang Panlungsod',
+  // TODO(mrw-review): needs fluent reviewer
+  allOfficialsDescription: 'City Councilors and sectoral representatives of the Sangguniang Panlungsod.',
+  // TODO(mrw-review): needs fluent reviewer
+  officialChannel: 'Official channel',
+  // TODO(mrw-review): needs fluent reviewer
+  facebookChannelDescription: 'Announcements and updates from the City Government.',
+  // TODO(mrw-review): needs fluent reviewer
+  cityHallLabel: 'City Hall',
+  // TODO(mrw-review): needs fluent reviewer
+  allDepartmentsEyebrow: 'Directory',
+  // TODO(mrw-review): needs fluent reviewer
+  allDepartmentsDescription: 'Department heads, offices, and what each one handles.',
 
   // TODO(mrw-review): needs fluent reviewer
   filterServicesPlaceholder: 'Filter services by keyword or office...',
-  // TODO(mrw-review): needs fluent reviewer
-  requirementsCount: 'Requirements',
-  // TODO(mrw-review): needs fluent reviewer
-  stepsCount: 'Steps',
   // TODO(mrw-review): needs fluent reviewer
   docRequirementsHeading: '1. Documentary Requirements Checklist',
   // TODO(mrw-review): needs fluent reviewer
@@ -438,25 +440,19 @@ export const mrw: typeof en = {
   faqHeading: '4. Frequently Asked Questions (FAQs)',
   // TODO(mrw-review): needs fluent reviewer
   faqSubheading:
-    'Structured with Schema.org FAQPage JSON-LD for instant citizen answers',
+    'Answers to questions citizens often ask',
   // TODO(mrw-review): needs fluent reviewer
   allServicesTitle: 'All 12 Marawi Citizen Services',
   // TODO(mrw-review): needs fluent reviewer
   antiRedTapeNotice:
     'No fixer allowed. Official receipts are issued strictly by the Office of the City Treasurer. Report any irregularity to the Public Assistance & Complaints Desk (PACD).',
   // TODO(mrw-review): needs fluent reviewer
-  charterServiceGuide: "Citizen's Charter Service Guide",
-  // TODO(mrw-review): needs fluent reviewer
   responsibleOffice: 'Responsible Office',
-  // TODO(mrw-review): needs fluent reviewer
-  callHotline: 'Call Hotline:',
 
   // TODO(mrw-review): needs fluent reviewer
   searchDepartmentsPlaceholder: 'Search departments, mandates, or services...',
   // TODO(mrw-review): needs fluent reviewer
   frontlineServices: 'Frontline Services',
-  // TODO(mrw-review): needs fluent reviewer
-  searchOfficialsPlaceholder: 'Search officials by name or committee...',
   // TODO(mrw-review): needs fluent reviewer
   ordinancesRegistryHeading: 'Enacted Ordinances & Resolutions Registry',
   // TODO(mrw-review): needs fluent reviewer
@@ -477,10 +473,8 @@ export const mrw: typeof en = {
   // TODO(mrw-review): needs fluent reviewer
   fdpHeading: 'Published Full Disclosure & Procurement Documents',
   // TODO(mrw-review): needs fluent reviewer
-  conspicuousPosting:
-    'Conspicuous Posting Locations: (1) Marawi City Hall Lobby, (2) New Grand Padian, (3) MSU Commercial Center',
-  // TODO(mrw-review): needs fluent reviewer
-  downloadSampleCSV: 'Download Sample CSV',
+  fdpPending:
+    'No FDP documents are listed yet. Each one will be added with a link to its official posting on the DILG FDP Portal or a copy from City Hall.',
   // TODO(mrw-review): needs fluent reviewer
   downloadCSV: 'Download CSV',
   // TODO(mrw-review): needs fluent reviewer
@@ -509,10 +503,8 @@ export const mrw: typeof en = {
   // TODO(mrw-review): needs fluent reviewer
   exportAllBarangays: 'Export All 101 Barangays (CSV)',
   // TODO(mrw-review): needs fluent reviewer
-  showingBarangaysSummary: 'Showing 101 Barangays',
-  // TODO(mrw-review): needs fluent reviewer
   openDatasetsHeading:
-    'Open Civic Datasets (Creative Commons CC0 / Open Data PH)',
+    'Open Civic Datasets',
   // TODO(mrw-review): needs fluent reviewer
   clickToDownload:
     'Click any button below to download the live dataset in CSV or JSON format.',
@@ -531,14 +523,23 @@ export const mrw: typeof en = {
   // Online submission notices (no form submits anywhere yet)
   // TODO(mrw-review): needs fluent reviewer
   contactUnavailableTitle: 'Online messages are not available yet',
+  // TODO(mrw-review): needs fluent reviewer
   contactUnavailableBody: 'BetterMarawi.org is run by community volunteers and is not connected to City Hall, so this site cannot send messages to city offices. Please contact the office that handles your concern directly.',
+  // TODO(mrw-review): needs fluent reviewer
   contactFindOffice: 'Find the right city office',
+  // TODO(mrw-review): needs fluent reviewer
   emergencyCall911: 'In an emergency, call 911, the national emergency hotline.',
+  // TODO(mrw-review): needs fluent reviewer
   foiUnavailableTitle: 'Online FOI requests are not available yet',
+  // TODO(mrw-review): needs fluent reviewer
   foiUnavailableBody: 'BetterMarawi.org is run by community volunteers, so it cannot receive or forward Freedom of Information requests. Make your request directly to the city office that keeps the record.',
+  // TODO(mrw-review): needs fluent reviewer
   foiChecklistHeading: 'Include these details in your request:',
+  // TODO(mrw-review): needs fluent reviewer
   foiChecklistName: 'Your full name and how to reach you',
+  // TODO(mrw-review): needs fluent reviewer
   foiChecklistDocument: 'The specific document or dataset you need',
+  // TODO(mrw-review): needs fluent reviewer
   foiChecklistPurpose: 'Why you are requesting it (for example, research, journalism, or a community audit)',
 
   // TODO(mrw-review): needs fluent reviewer
@@ -551,9 +552,11 @@ export const mrw: typeof en = {
   noNoonBreakDesc: 'Under RA 11032, people already inside a government office before closing time must be served, even during lunch break.',
   // TODO(mrw-review): needs fluent reviewer
   cityHallContactTbc: 'Official City Hall phone number and email: to be confirmed',
+  // TODO(mrw-review): needs fluent reviewer
   toBeConfirmed: 'To be confirmed',
-  verifiedOfficeholder: 'Verified current officeholder',
+  // TODO(mrw-review): needs fluent reviewer
   officeDetailsLabel: 'Office details',
+  // TODO(mrw-review): needs fluent reviewer
   ordinancesPending: 'No ordinances are listed yet. They will be added once copies are obtained from the Sangguniang Panlungsod or another official source.',
 
   // TODO(mrw-review): needs fluent reviewer

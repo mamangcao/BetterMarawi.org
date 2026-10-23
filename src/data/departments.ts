@@ -21,6 +21,11 @@ export const CITY_DEPARTMENTS: DepartmentRecord[] = [
     mandate: 'Exercise general supervision and control over all programs, projects, services, and activities of the City Government of Marawi.',
     location: '2nd Floor, Executive Wing, Marawi City Hall',
     keyServices: ['Executive Clearances', 'Peace & Order Council', 'Kambalingan Rehabilitation Coordination', 'Public Assistance Desk'],
+    // Office details (mandate, frontline services, location), separate from the head above
+    level: 'confirmed',
+    verified: true,
+    source: 'Mandate, frontline services, and location confirmed by the BetterMarawi.org team (site owner)',
+    verifiedOn: '2026-10-23',
   },
   {
     id: 'sp',
@@ -37,6 +42,11 @@ export const CITY_DEPARTMENTS: DepartmentRecord[] = [
     mandate: 'Enact ordinances, approve resolutions, and appropriate funds for the general welfare of the Islamic City of Marawi and its 101 barangays.',
     location: 'Legislative Session Hall, Marawi City Hall Complex',
     keyServices: ['Certified True Copies of Ordinances', 'Barangay Ordinance Review', 'Public Consultations & Hearings', 'CSO Accreditation'],
+    // Office details (mandate, frontline services, location), separate from the head above
+    level: 'confirmed',
+    verified: true,
+    source: 'Mandate, frontline services, and location confirmed by the BetterMarawi.org team (site owner)',
+    verifiedOn: '2026-10-23',
   },
   {
     id: 'bplo',

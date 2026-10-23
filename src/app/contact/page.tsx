@@ -15,7 +15,7 @@ import { buildMetadata, getRouteBreadcrumbs } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'Contact Us & Emergency Hotlines — Marawi City Hall | BetterMarawi.org',
   description:
-    'Emergency numbers and how to reach Marawi City Hall, CDRRMO, the City Health Office, BFP, and PNP. In an emergency, call 911.',
+    'Emergency numbers for Marawi City, including CDRRMO, BFP, PNP, and Amai Pakpak Medical Center, and how to reach City Hall. In an emergency, call 911.',
   path: '/contact',
 });
 

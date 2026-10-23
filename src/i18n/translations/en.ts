@@ -5,8 +5,6 @@ export const en = {
   browseServices: 'Browse Services',
   contactUs: 'Contact Us',
   searchPlaceholder: 'Search Services, Permits, Barangays, or Ordinances...',
-  popularServices: 'Popular Services:',
-  cityMetricsBadge: 'City Metrics',
   glanceHeadlineLead: 'One Islamic City.',
   glanceHeadlineRest: '{barangays} barangays overlooking Lake Lanao.',
   glanceIntro:
@@ -32,17 +30,9 @@ export const en = {
   playSlideshow: 'Play slideshow',
   atAGlance: 'Marawi at a Glance',
   viewCityProfile: 'View City Profile',
-  servicesHeading: 'Services & Information',
-  servicesSubheading:
-    'Access official government services quickly and easily. Find what you need for citizenship, business, education, and more.',
   discoverHeading: 'Discover Marawi',
-  govActivityHeading: 'Government Activity',
-  govActivitySubheading: 'Stay updated with the latest government activities and announcements.',
-  historyHeading: 'History of Marawi',
-  leadershipHeading: 'City Leadership',
   dataStatus: {
     unverified: 'Unverified',
-    verified: 'Verified',
     tooltip: 'This information has not yet been checked against an official source.',
     notice:
       'Some information on this page has not yet been verified against official sources. Check with City Hall before relying on it.',
@@ -96,10 +86,8 @@ export const en = {
   // Footer
   quickLinks: 'Quick Links',
   aboutPortal: 'About the Portal',
-  sitemap: 'Sitemap',
   accessibility: 'Accessibility',
   resources: 'Resources',
-  communityDiscord: 'Community Discord',
   volunteerWithUs: 'Volunteer with Us',
   contributeGithub: 'Contribute at GitHub',
   contributorsButton: "Contributors",
@@ -149,20 +137,12 @@ export const en = {
       description: 'Daycare, public school, and Madrasah enrollment, plus MSU and city scholarships.',
     },
   } as Record<string, { title: string; description: string }>,
-  servicesAndChartersHeading: "Services & Citizen's Charters",
   servicesAndChartersSubheading: "Requirements, fees, and steps from each Citizen's Charter.",
   viewAll11Services: 'View All 12 Services',
-  viewCharterAndRequirements: "View Citizen's Charter & Requirements",
 
   // City at a Glance & PhilHealth YAKAP
-  glanceSubheading:
-    'Official census, territorial, and administrative baseline of the Islamic City of Marawi.',
-  residentsLabel: 'Residents',
-  latestCensusNote: '2024 Census of Population (POPCEN), PSA',
   barangaysLabel: 'Barangays',
-  adminVillagesNote: 'Administrative villages (PSA PSGC)',
   incomeClassification: 'Income classification',
-  capitalLanao: 'Capital of Lanao del Sur',
   totalLandArea: 'Total land area',
   highlandBasin: 'Lake Lanao highland basin',
   freeHealthCareForAll: 'Free Health Care For All',
@@ -172,11 +152,10 @@ export const en = {
   coveredLabs: 'Covered Labs (CBC, ECG, etc.)',
   zeroCopay: '100% Zero Copay',
   learnFreeBenefits: 'Learn about Free Benefits',
-  callTheCho: 'Call the CHO: ',
+  seeHealthFacilities: 'See hospitals & health centers',
 
   // Culture & Tourism Spotlight
   summerCapitalSubtitle: 'Heritage, lakefront, and culture in the Summer Capital of the South.',
-  viewAllTourism: 'View all tourism',
   sitesListed: "{n} sites listed",
   gettingThere: "Getting to Marawi",
   allTourismTitle: "View All Tourist Spots",
@@ -204,7 +183,6 @@ export const en = {
       description: "Traditional Meranaw pater and palapa, and highland cafés.",
     },
   } as Record<string, { title: string; description: string }>,
-  exploreSites: 'Explore sites',
   planYourVisit: 'Plan Your Visit — Getting to Marawi',
   currentConditions: 'Current conditions · Marawi City, Lanao del Sur',
   coolHighlandClimate: 'Cool Highland Climate · 700m ASL',
@@ -216,12 +194,10 @@ export const en = {
   fromManila: 'From Manila',
   manilaRoute: 'Fly to Laguindingan (~1 hr 35 min), then drive 102 km',
   flightPlus: 'Flight +',
-  viewVisitorGuide: 'View Complete Visitor & Cultural Etiquette Guide',
 
   // Government Activity & History
   govActivitySectionHeading: 'Government Activity & Transparency',
   govActivitySectionSubheading: 'Ordinances, budgets, disclosures, and public records of the city.',
-  openDirectory: 'Open Directory',
   allGovEyebrow: "Government & transparency",
   allGovTitle: "View All Records",
   allGovDescription: "Also the Local Officials Directory, transparency documents, and reports and statistics.",
@@ -259,15 +235,10 @@ export const en = {
   exploreGeographyProfile: 'Explore Geography Profile',
 
   // Leadership & City Hall Info
-  cityLeadershipSubtitle:
-    'Executive & Legislative Leadership of the Islamic City of Marawi',
   viewAllOfficials: 'View All Officials',
-  electedMayor: 'Elected Mayor',
-  electedViceMayor: 'Elected Vice Mayor',
   phone: 'Phone',
   email: 'Email',
   address: 'Address',
-  cityHallAssistance: 'Official Marawi City Hall Assistance & Information',
   viewAllDepartments: 'View All Departments',
   installPromptText: 'Install BetterMarawi.org for quick access to services.',
   installButton: 'Install',
@@ -287,12 +258,9 @@ export const en = {
   cityHallLabel: 'City Hall',
   allDepartmentsEyebrow: 'Directory',
   allDepartmentsDescription: 'Department heads, offices, and what each one handles.',
-  monFriHours: 'Mon–Fri, 8AM–5PM',
 
   // Services Directory & Details
   filterServicesPlaceholder: 'Filter services by keyword or office...',
-  requirementsCount: 'Requirements',
-  stepsCount: 'Steps',
   docRequirementsHeading: '1. Documentary Requirements Checklist',
   whoMayAvail: 'Who may avail:',
   preparedCount: 'Prepared',
@@ -309,18 +277,15 @@ export const en = {
   legalBasisHeader: 'Legal Basis',
   faqHeading: '4. Frequently Asked Questions (FAQs)',
   faqSubheading:
-    'Structured with Schema.org FAQPage JSON-LD for instant citizen answers',
+    'Answers to questions citizens often ask',
   allServicesTitle: 'All 12 Marawi Citizen Services',
   antiRedTapeNotice:
     'No fixer allowed. Official receipts are issued strictly by the Office of the City Treasurer. Report any irregularity to the Public Assistance & Complaints Desk (PACD).',
-  charterServiceGuide: "Citizen's Charter Service Guide",
   responsibleOffice: 'Responsible Office',
-  callHotline: 'Call Hotline:',
 
   // Government Directory
   searchDepartmentsPlaceholder: 'Search departments, mandates, or services...',
   frontlineServices: 'Frontline Services',
-  searchOfficialsPlaceholder: 'Search officials by name or committee...',
   ordinancesRegistryHeading: 'Enacted Ordinances & Resolutions Registry',
   searchOrdinancesPlaceholder: 'Search ordinances...',
   showingEnactments: 'Showing',
@@ -332,9 +297,8 @@ export const en = {
 
   // Transparency & Statistics
   fdpHeading: 'Published Full Disclosure & Procurement Documents',
-  conspicuousPosting:
-    'Conspicuous Posting Locations: (1) Marawi City Hall Lobby, (2) New Grand Padian, (3) MSU Commercial Center',
-  downloadSampleCSV: 'Download Sample CSV',
+  fdpPending:
+    'No FDP documents are listed yet. Each one will be added with a link to its official posting on the DILG FDP Portal or a copy from City Hall.',
   downloadCSV: 'Download CSV',
   downloadJSON: 'Download JSON',
   period: 'Period:',
@@ -349,9 +313,8 @@ export const en = {
   searchBarangayPlaceholder:
     'Search by Barangay name or PSGC code...',
   exportAllBarangays: 'Export All 101 Barangays (CSV)',
-  showingBarangaysSummary: 'Showing 101 Barangays',
   openDatasetsHeading:
-    'Open Civic Datasets (Creative Commons CC0 / Open Data PH)',
+    'Open Civic Datasets',
   clickToDownload:
     'Click any button below to download the live dataset in CSV or JSON format.',
   statisticsSections: 'Statistics & Open Data (4)',
@@ -381,7 +344,6 @@ export const en = {
   noNoonBreakDesc: 'Under RA 11032, people already inside a government office before closing time must be served, even during lunch break.',
   cityHallContactTbc: 'Official City Hall phone number and email: to be confirmed',
   toBeConfirmed: 'To be confirmed',
-  verifiedOfficeholder: 'Verified current officeholder',
   officeDetailsLabel: 'Office details',
   ordinancesPending: 'No ordinances are listed yet. They will be added once copies are obtained from the Sangguniang Panlungsod or another official source.',
 

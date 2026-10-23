@@ -9,9 +9,9 @@ import { UnverifiedNotice } from '@/components/ui';
 import { buildMetadata, getRouteBreadcrumbs } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Sangguniang Panlungsod (Legislative Council & Ordinances) | BetterMarawi.org',
+  title: 'Sangguniang Panlungsod (City Council) of Marawi | BetterMarawi.org',
   description:
-    'Access enacted city ordinances, resolutions, standing committees, and public consultation schedules of the Sangguniang Panlungsod of Marawi City.',
+    'What the Sangguniang Panlungsod of Marawi City does and its standing committees. City ordinances will be listed once copies are obtained from an official source.',
   path: '/government/legislative',
 });
 

@@ -6,6 +6,17 @@ export interface RouteItem {
   priority: number;
   changefreq: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
   breadcrumbs: { name: string; url: string }[];
+  /**
+   * Set when the page has no content of its own yet. The page then gets `noindex, follow`
+   * (via buildMetadata) and is left out of sitemap.xml. Say why in `noindexReason`.
+   */
+  noindex?: boolean;
+  noindexReason?: string;
+}
+
+/** Routes search engines should index: these are the ones listed in sitemap.xml */
+export function isIndexable(route: RouteItem): boolean {
+  return !route.noindex;
 }
 
 const BASE_URL = 'https://bettermarawi.org';
@@ -114,7 +125,7 @@ export const APP_ROUTES: RouteItem[] = [
   },
   {
     path: '/services/garbage-and-waste-disposal',
-    label: 'Garbage & Waste Disposal',
+    label: 'Garbage and Waste Disposal',
     category: 'services',
     description: 'Barangay collection schedules, segregation guidelines & solid waste management.',
     priority: 0.9,
@@ -122,7 +133,7 @@ export const APP_ROUTES: RouteItem[] = [
     breadcrumbs: [
       { name: 'Home', url: BASE_URL },
       { name: 'Services', url: `${BASE_URL}/services` },
-      { name: 'Garbage & Waste Disposal', url: `${BASE_URL}/services/garbage-and-waste-disposal` },
+      { name: 'Garbage and Waste Disposal', url: `${BASE_URL}/services/garbage-and-waste-disposal` },
     ],
   },
   {
@@ -207,7 +218,7 @@ export const APP_ROUTES: RouteItem[] = [
     path: '/government/departments-and-officials',
     label: 'Departments & Officials',
     category: 'government',
-    description: 'Mandates, service windows, department heads, and direct contact directories.',
+    description: 'Mandates, frontline services, department heads, and office locations.',
     priority: 0.85,
     changefreq: 'monthly',
     breadcrumbs: [
@@ -218,9 +229,9 @@ export const APP_ROUTES: RouteItem[] = [
   },
   {
     path: '/government/legislative',
-    label: 'Legislative (Sangguniang Panlungsod)',
+    label: 'Legislative',
     category: 'government',
-    description: 'City ordinances, resolutions, committees, and council proceedings.',
+    description: 'The city council, its standing committees, and ordinances once sourced.',
     priority: 0.85,
     changefreq: 'weekly',
     breadcrumbs: [
@@ -247,7 +258,7 @@ export const APP_ROUTES: RouteItem[] = [
     path: '/transparency',
     label: 'Transparency Portal',
     category: 'transparency',
-    description: 'Full Disclosure Policy, annual budget, COA compliance, and FOI portal.',
+    description: 'Full Disclosure Policy, annual budget, public documents, and FOI requests.',
     priority: 0.9,
     changefreq: 'weekly',
     breadcrumbs: [
@@ -275,6 +286,8 @@ export const APP_ROUTES: RouteItem[] = [
     description: 'Procurement notices, BAC awards, COA audit status & executive orders.',
     priority: 0.85,
     changefreq: 'weekly',
+    noindex: true,
+    noindexReason: 'No documents are listed yet (fabricated records removed Oct 2026). Index again once sourced documents are added.',
     breadcrumbs: [
       { name: 'Home', url: BASE_URL },
       { name: 'Transparency', url: `${BASE_URL}/transparency` },
@@ -288,6 +301,8 @@ export const APP_ROUTES: RouteItem[] = [
     description: 'Local government performance metrics, SGLG compliance & fiscal scorecards.',
     priority: 0.85,
     changefreq: 'monthly',
+    noindex: true,
+    noindexReason: 'No reports are listed yet (unsourced scorecard removed Oct 2026). Index again once sourced reports are added.',
     breadcrumbs: [
       { name: 'Home', url: BASE_URL },
       { name: 'Transparency', url: `${BASE_URL}/transparency` },
@@ -298,7 +313,7 @@ export const APP_ROUTES: RouteItem[] = [
     path: '/transparency/annual-budget',
     label: 'Annual Budget',
     category: 'transparency',
-    description: 'FY 2026 General Appropriation Ordinance breakdown by sector and fund source.',
+    description: 'FY 2026 budget breakdown by sector and fund source.',
     priority: 0.85,
     changefreq: 'monthly',
     breadcrumbs: [
@@ -311,7 +326,7 @@ export const APP_ROUTES: RouteItem[] = [
     path: '/transparency/freedom-of-information',
     label: 'Freedom of Information (FOI)',
     category: 'transparency',
-    description: 'Citizen guide to filing official public record requests under the Marawi FOI Manual.',
+    description: 'Citizen guide to requesting public records from the city government.',
     priority: 0.85,
     changefreq: 'monthly',
     breadcrumbs: [
@@ -376,7 +391,7 @@ export const APP_ROUTES: RouteItem[] = [
     path: '/statistics/open-data-ph',
     label: 'Open Data PH',
     category: 'statistics',
-    description: 'Machine-readable CSV/JSON datasets on population, budget, health & business.',
+    description: 'Download the list of 101 barangays with PSA codes and 2024 census population (CSV/JSON).',
     priority: 0.85,
     changefreq: 'monthly',
     breadcrumbs: [
@@ -390,7 +405,7 @@ export const APP_ROUTES: RouteItem[] = [
     path: '/contact',
     label: 'Contact Us',
     category: 'core',
-    description: 'Official hotlines, emergency directories, City Hall locations & citizen feedback.',
+    description: 'Emergency hotlines, the City Hall address, and how to reach city offices.',
     priority: 0.8,
     changefreq: 'monthly',
     breadcrumbs: [
@@ -412,3 +427,9 @@ export const APP_ROUTES: RouteItem[] = [
   },
 ];
 
+/** The registry entry for a path. Throws, so a mistyped link fails the build instead of shipping. */
+export function getRoute(path: string): RouteItem {
+  const route = APP_ROUTES.find((r) => r.path === path);
+  if (!route) throw new Error(`No route "${path}" in src/lib/routes.ts`);
+  return route;
+}

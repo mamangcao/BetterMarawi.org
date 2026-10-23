@@ -10,9 +10,9 @@ import { UnverifiedNotice } from '@/components/ui';
 import { buildMetadata, getRouteBreadcrumbs } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Full Disclosure Policy (FDP) Compliance Documents | BetterMarawi.org',
+  title: 'Full Disclosure Policy (FDP) Documents of Marawi City | BetterMarawi.org',
   description:
-    'View DILG-mandated quarterly financial disclosures, Statement of Receipts and Expenditures (SRE), 20% NTA utilization, and LDRRMF reports of Marawi City.',
+    'What the DILG Full Disclosure Policy requires local governments to publish, and where Marawi City’s budget, financial, and procurement reports will be listed once linked to official postings.',
   path: '/transparency/full-disclosure-policy',
 });
 
@@ -20,12 +20,7 @@ const faqs = [
   {
     question: 'What is the DILG Full Disclosure Policy (FDP)?',
     answer:
-      'Pursuant to DILG Memorandum Circular No. 2013-140 and the General Appropriations Act, local government units are required to post 14 key financial documents, budget reports, and procurement results in three conspicuous public places and on the online FDP portal.',
-  },
-  {
-    question: 'Where are the physical Full Disclosure Policy boards located in Marawi City?',
-    answer:
-      'Physical FDP bulletin boards are maintained at the Ground Floor Lobby of Marawi City Hall, the New Marawi Grand Padian Entrance, and the Mindanao State University (MSU) Commercial Center.',
+      'The Full Disclosure Policy of the Department of the Interior and Local Government (DILG) requires provinces, cities, and municipalities to post specified financial documents, such as budget, financial, and procurement reports, in at least three conspicuous public places and on the online FDP Portal (fdpp.dilg.gov.ph). The current guidelines are in DILG Memorandum Circular No. 2024-021.',
   },
 ];
 
@@ -39,15 +34,15 @@ export default function FullDisclosurePolicyPage() {
       <section className="bg-gradient-to-b from-surface-card to-surface border-b border-mist-200/90 py-10 sm:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-xs font-semibold uppercase tracking-widest text-brand-800 mb-2">
-            DILG MC No. 2013-140 · 100% Compliant
+            DILG Full Disclosure Policy
           </p>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-mist-950 font-display">
-            Full Disclosure Policy (FDP) Compliance Documents
+            Full Disclosure Policy (FDP) Documents
           </h1>
           <p className="mt-3 text-base text-mist-700 max-w-3xl leading-relaxed">
-            View DILG-mandated quarterly financial disclosures, Statement of Receipts and Expenditures (SRE), 20% NTA utilization, and LDRRMF reports of Marawi City.
+            Under the DILG Full Disclosure Policy, local governments post their budget, financial, and procurement reports in public places and on the DILG FDP Portal. Marawi City’s documents will be listed here once each one is linked to its official posting.
           </p>
-          <UnverifiedNotice items={FDP_DOCUMENTS} className="mt-6" />
+          {FDP_DOCUMENTS.length > 0 && <UnverifiedNotice items={FDP_DOCUMENTS} className="mt-6" />}
         </div>
       </section>
 

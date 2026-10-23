@@ -117,36 +117,6 @@ export interface HotlineItem extends Verification {
   icon: 'Siren' | 'Flame' | 'Shield' | 'HeartPulse';
 }
 
-export interface TourismPlace extends Verification {
-  name: string;
-  barangay: string;
-  note: string;
-}
-
-export interface TourismCategory extends Verification {
-  id: string;
-  title: string;
-  countLabel: string;
-  summary: string;
-  places: TourismPlace[];
-}
-
-export interface BudgetSector {
-  sector: string;
-  amount: string;
-  percentage: number;
-  description: string;
-}
-
-export interface BudgetBreakdown extends Verification {
-  fiscalYear: number;
-  totalBudget: string;
-  ntaShare: string;
-  localSources: string;
-  sectors: BudgetSector[];
-  verification?: Verification;
-}
-
 export interface CMCIPillar extends Verification {
   pillar: string;
   score: number;

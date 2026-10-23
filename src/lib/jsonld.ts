@@ -1,6 +1,16 @@
 import { SITE_CONFIG } from '@/config/site';
 import { FAQItem, ServicePageData } from '@/types';
 
+/**
+ * Serialize structured data for a <script type="application/ld+json"> tag.
+ * JSON.stringify alone can emit "</script>" or "<!--" from a string value, which would end the
+ * script element early and let the rest be parsed as HTML. Escaping every "<" as < keeps
+ * the output inside the script while JSON parsers read it back as the same "<" character.
+ */
+export function serializeJsonLd(data: unknown): string {
+  return JSON.stringify(data).replace(/</g, '\\u003c');
+}
+
 export function buildGovernmentOrganizationSchema() {
   return {
     '@context': 'https://schema.org',

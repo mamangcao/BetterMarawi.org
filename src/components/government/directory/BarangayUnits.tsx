@@ -96,14 +96,14 @@ export function BarangayUnits() {
                     {leader ? (
                       <Official name={leader.punongBarangay} contact={leader.contact} />
                     ) : (
-                      <span className="text-mist-400 italic">To be added</span>
+                      <span className="text-mist-600 italic">To be added</span>
                     )}
                   </td>
                   <td className="py-2.5 px-3">
                     {leader?.skChairperson ? (
                       <Official name={leader.skChairperson} contact={leader.skContact} />
                     ) : (
-                      <span className="text-mist-400">—</span>
+                      <span className="text-mist-600 italic">Not listed</span>
                     )}
                   </td>
                 </tr>

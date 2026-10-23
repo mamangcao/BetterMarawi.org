@@ -8,7 +8,7 @@ import {
   MapPin,
   Mountain,
   Pause,
-  Phone,
+  Hospital,
   Pill,
   Play,
   ShieldCheck,
@@ -54,7 +54,9 @@ export function FeatureCarousel() {
         { icon: Stethoscope, text: t.zeroCopay },
       ],
       primary: { href: '/services/health-services', label: t.learnFreeBenefits },
-      secondary: { href: 'tel:0632212536', label: `${t.callTheCho}(063) 221-2536`, icon: Phone, mono: true },
+      // The City Health Office number is unverified, so this links to the sourced facility list
+      // instead of offering a call (APMC's verified number is a different entity's line).
+      secondary: { href: '/services/health-services#health-facilities-heading', label: t.seeHealthFacilities, icon: Hospital },
       image: {
         src: '/images/home/yakap-doctor-patient.jpg',
         alt: 'A doctor checks the blood pressure of a patient wearing a hijab',

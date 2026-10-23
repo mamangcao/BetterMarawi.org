@@ -9,9 +9,9 @@ import { UnverifiedNotice } from '@/components/ui';
 import { buildMetadata, getRouteBreadcrumbs } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Transparency Documents, Bids & COA Audit Reports | BetterMarawi.org',
+  title: 'Transparency Documents & Procurement Records | BetterMarawi.org',
   description:
-    'Browse official Bids and Awards Committee (BAC) notices, Annual Procurement Plan (APP), Executive Orders, and COA audit compliance records.',
+    'Where Marawi City’s procurement notices, Annual Procurement Plan, executive orders, and COA audit reports will be listed once each is linked to an official source. None are listed yet.',
   path: '/transparency/transparency-documents',
 });
 
@@ -31,9 +31,9 @@ export default function TransparencyDocumentsPage() {
             Transparency Documents &amp; Procurement Archive
           </h1>
           <p className="mt-3 text-base text-mist-700 max-w-3xl leading-relaxed">
-            Browse official Bids and Awards Committee (BAC) notices, Annual Procurement Plan (APP), Executive Orders, and Commission on Audit (COA) audit compliance records.
+            Bids and Awards Committee (BAC) notices, the Annual Procurement Plan (APP), Executive Orders, and Commission on Audit (COA) reports will be listed here once each one is linked to an official source.
           </p>
-          <UnverifiedNotice items={FDP_DOCUMENTS} className="mt-6" />
+          {FDP_DOCUMENTS.length > 0 && <UnverifiedNotice items={FDP_DOCUMENTS} className="mt-6" />}
         </div>
       </section>
 

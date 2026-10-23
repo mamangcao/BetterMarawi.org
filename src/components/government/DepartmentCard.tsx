@@ -14,8 +14,10 @@ export function DepartmentCard({ dept }: DepartmentCardProps) {
   const { t } = useTranslation();
   return (
     <div className="bg-white rounded-xl border border-mist-200/90 p-6 space-y-4">
-      <div className="flex flex-wrap items-start justify-between gap-2 pb-3 border-b border-mist-100">
-        <div>
+      {/* Phones: head below the title. Wider: title on the left, head pinned top-right, so a long
+          office name wraps instead of pushing the head onto its own line. */}
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 pb-3 border-b border-mist-100">
+        <div className="min-w-0 sm:flex-1">
           <div className="flex items-center gap-2">
             <span className="text-xs font-mono-tabular font-semibold text-brand-800">
               {dept.acronym}
@@ -29,16 +31,23 @@ export function DepartmentCard({ dept }: DepartmentCardProps) {
             )}
           </div>
           <h2 className="text-xl font-bold text-mist-900 font-display mt-0.5">
-            {dept.name}
+            {/* Combined offices ("A & B") start the second office on its own line on wider screens */}
+            {dept.name.includes(' & ') ? (
+              <>
+                {dept.name.slice(0, dept.name.indexOf(' & '))}
+                <br className="hidden sm:inline" />{' '}
+                {dept.name.slice(dept.name.indexOf(' & ') + 1)}
+              </>
+            ) : (
+              dept.name
+            )}
           </h2>
         </div>
-        <div className="text-right">
+        <div className="sm:text-right sm:shrink-0 sm:max-w-[45%]">
           <div className="text-xs text-mist-500">{dept.designation}</div>
+          {/* A sourced head is shown plainly; only missing or unverified information is marked */}
           {dept.head && dept.headVerification ? (
-            <>
-              <div className="text-sm font-bold text-mist-900">{dept.head}</div>
-              <div className="text-[11px] font-semibold text-brand-700">{t.verifiedOfficeholder}</div>
-            </>
+            <div className="text-sm font-bold text-mist-900">{dept.head}</div>
           ) : (
             <div className="text-sm italic text-mist-500">{t.toBeConfirmed}</div>
           )}

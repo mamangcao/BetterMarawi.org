@@ -18,33 +18,29 @@ export const metadata: Metadata = buildMetadata({
 
 const CARDS: HubCard[] = [
   {
-    href: '/statistics/city-profile',
+    path: '/statistics/city-profile',
     eyebrow: 'Overview',
-    title: 'City Profile',
     description: 'Marawi’s land, elevation, and people at a glance.',
     meta: 'Geography · population',
     icon: MapPin,
   },
   {
-    href: '/statistics/barangay-data',
+    path: '/statistics/barangay-data',
     eyebrow: 'PSA 2024 Census',
-    title: 'Barangay Data',
     description: 'Population and urban or rural classification for every barangay, searchable and downloadable.',
     meta: `${MARAWI_BARANGAYS.length} barangays`,
     icon: MapPinned,
   },
   {
-    href: '/statistics/dti-cmci-profile',
+    path: '/statistics/dti-cmci-profile',
     eyebrow: `DTI CMCI ${CMCI_SUMMARY.cycleYear}`,
-    title: 'Competitiveness Profile',
     description: 'How Marawi scores on the DTI Cities and Municipalities Competitiveness Index.',
     meta: `${CMCI_PILLARS.length} pillars · rank ${CMCI_SUMMARY.overallRank} among ${CMCI_SUMMARY.category.toLowerCase()}`,
     icon: TrendingUp,
   },
   {
-    href: '/statistics/open-data-ph',
+    path: '/statistics/open-data-ph',
     eyebrow: 'Open Data',
-    title: 'Open Data Downloads',
     description: 'Datasets about Marawi you can download and reuse.',
     meta: 'CSV and JSON files',
     icon: Database,

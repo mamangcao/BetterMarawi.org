@@ -19,26 +19,23 @@ export const metadata: Metadata = buildMetadata({
 
 const CARDS: HubCard[] = [
   {
-    href: '/government/local-officials-directory',
+    path: '/government/local-officials-directory',
     eyebrow: '2025–2028 Term',
-    title: 'Local Officials Directory',
     description:
       'The Mayor and Vice Mayor, the City Council, the city offices and their services, and barangay leaders.',
     meta: `${EXECUTIVES.length} executives · ${COUNCILORS.length} councilors · ${MARAWI_BARANGAYS.length} barangays`,
     icon: Users,
   },
   {
-    href: '/government/departments-and-officials',
+    path: '/government/departments-and-officials',
     eyebrow: 'Executive',
-    title: 'Departments & Officials',
     description: 'The city departments, what each one is responsible for, and the services they handle.',
     meta: `${CITY_DEPARTMENTS.length} city offices`,
     icon: Building2,
   },
   {
-    href: '/government/legislative',
+    path: '/government/legislative',
     eyebrow: 'Sangguniang Panlungsod',
-    title: 'Legislative',
     description: 'The city council and its committees. Ordinances will be listed once sourced.',
     meta: 'City council · committees',
     icon: Gavel,

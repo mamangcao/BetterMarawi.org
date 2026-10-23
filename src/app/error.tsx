@@ -17,8 +17,19 @@ export default function ErrorPage({
     console.error('App Error:', error);
   }, [error]);
 
+  // The page's own metadata stays in <head>, so name the error state while it is shown
+  useEffect(() => {
+    const previous = document.title;
+    document.title = `${t.somethingWentWrong} | BetterMarawi.org`;
+    return () => {
+      document.title = previous;
+    };
+  }, [t.somethingWentWrong]);
+
   return (
     <main className="max-w-2xl mx-auto px-4 py-20 text-center">
+      {/* React places this in <head>; an error state must not be indexed */}
+      <meta name="robots" content="noindex" />
       <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-status-error-bg text-status-error-text mb-6">
         <AlertCircle className="w-8 h-8" />
       </div>

@@ -15,21 +15,6 @@ export function isConfirmed(item?: Verification | null): boolean {
 }
 
 /**
- * Returns true if item has level === 'sourced' (and is not confirmed).
- */
-export function isSourced(item?: Verification | null): boolean {
-  return item?.level === 'sourced' && !isConfirmed(item);
-}
-
-/**
- * Returns true only if item has explicitly verified === true or level === 'confirmed'.
- * Preserves backwards compatibility with existing code calling isVerified().
- */
-export function isVerified(item?: Verification | null): boolean {
-  return isConfirmed(item);
-}
-
-/**
  * isUnverified(item) is true unless level is "sourced" or "confirmed" (or verified is true).
  */
 export function isUnverified(item?: Verification | null): boolean {
@@ -97,34 +82,4 @@ export function formatRetrievedOn(dateString?: string): string {
   }
 
   return trimmed;
-}
-
-/**
- * Formats a verification date into "Verified on Month DD, YYYY" style text.
- */
-export function formatVerifiedOn(dateString?: string): string {
-  if (!dateString) return '';
-  const trimmed = dateString.trim();
-
-  // If already prefixed with "Verified on", return directly
-  if (trimmed.toLowerCase().startsWith('verified on')) {
-    return trimmed;
-  }
-
-  // Handle YYYY-MM-DD
-  const isoMatch = trimmed.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-  if (isoMatch) {
-    const [, year, month, day] = isoMatch;
-    const date = new Date(Number(year), Number(month) - 1, Number(day));
-    if (!isNaN(date.getTime())) {
-      const formatted = date.toLocaleDateString('en-US', {
-        month: 'long',
-        day: 'numeric',
-        year: 'numeric',
-      });
-      return `Verified on ${formatted}`;
-    }
-  }
-
-  return `Verified on ${trimmed}`;
 }

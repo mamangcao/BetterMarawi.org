@@ -11,7 +11,7 @@ import { buildMetadata, getRouteBreadcrumbs } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'Departments & Officials Directory — Marawi City Hall | BetterMarawi.org',
   description:
-    'Complete directory of Marawi City LGU departments, department heads, mandates, service windows, hotlines, and office locations.',
+    'Marawi City Hall departments and offices: what each one does, its frontline services, and where to find it. Department heads are named where confirmed.',
   path: '/government/departments-and-officials',
 });
 
@@ -31,7 +31,7 @@ export default function DepartmentsPage() {
             Departments &amp; Officials Directory
           </h1>
           <p className="mt-3 text-base text-mist-700 max-w-3xl leading-relaxed">
-            Explore local government departments, offices, department heads, mandates, frontline services, and direct contact numbers at Marawi City Hall.
+            Explore local government departments and offices at Marawi City Hall: their mandates, frontline services, locations, and department heads where confirmed.
           </p>
           <UnverifiedNotice items={CITY_DEPARTMENTS} className="mt-6" />
         </div>

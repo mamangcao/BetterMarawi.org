@@ -36,9 +36,8 @@ export const metadata: Metadata = {
     default: 'BetterMarawi.org — Islamic City of Marawi Citizen Services & Transparency Portal',
   },
   description: SITE_CONFIG.description,
-  alternates: {
-    canonical: SITE_CONFIG.url,
-  },
+  // No canonical, og:url, or robots here: they would be inherited by pages without their own
+  // metadata (the 404 page), pointing them at the home page. Each page sets them via buildMetadata.
   // Installed app on iPhone/iPad (Add to Home Screen)
   appleWebApp: {
     capable: true,
@@ -48,28 +47,15 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'BetterMarawi.org — Islamic City of Marawi Citizen Services & Transparency Portal',
     description: SITE_CONFIG.description,
-    url: SITE_CONFIG.url,
     siteName: SITE_CONFIG.name,
     locale: 'en_PH',
     type: 'website',
-    images: [
-      {
-        url: '/branding/logo.png',
-        width: 1200,
-        height: 630,
-        alt: 'BetterMarawi.org',
-      },
-    ],
+    // Share image: src/app/opengraph-image.png, picked up by Next.js here; pages set it via buildMetadata
   },
   twitter: {
     card: 'summary_large_image',
     title: 'BetterMarawi.org — Islamic City of Marawi Citizen Services & Transparency Portal',
     description: SITE_CONFIG.description,
-    images: ['/branding/logo.png'],
-  },
-  robots: {
-    index: true,
-    follow: true,
   },
 };
 

@@ -1,11 +1,5 @@
 import { useState, useEffect, useSyncExternalStore } from 'react';
 
-export const MARAWI_COORDINATES = {
-  latitude: 8.0,
-  longitude: 124.29,
-  timezone: 'Asia/Manila',
-} as const;
-
 export type WeatherConditionKey =
   | 'weatherClearSky'
   | 'weatherMainlyClear'

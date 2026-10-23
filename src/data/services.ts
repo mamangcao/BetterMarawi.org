@@ -65,7 +65,7 @@ export const SERVICES_DATA: ServicePageData[] = [
       { particular: 'Primary Outpatient Consultation & First Patient Encounter', amount: 'FREE (₱0.00)', legalBasis: 'UHC Act RA 11223 / PhilHealth YAKAP' },
       { particular: '13 Accredited Laboratory Tests (CBC, ECG, FBS, Lipid Profile, Urinalysis, X-Ray, etc.)', amount: 'FREE (₱0.00)', legalBasis: 'PhilHealth Konsulta / YAKAP Package' },
       { particular: 'Essential & Maintenance Medicines (Up to ₱20,000 annual benefit cap)', amount: 'FREE (₱0.00)', legalBasis: 'PhilHealth YAKAP Outpatient Drug Benefit' },
-      { particular: 'Sanitary Permit & Food Handler Medical Certificate (Business requirement)', amount: '₱150.00', legalBasis: 'Marawi City Revenue Code' },
+      { particular: 'Sanitary Permit & Food Handler Medical Certificate (Business requirement)', amount: '₱150.00', legalBasis: 'To be confirmed' },
     ],
     faqs: [
       {
@@ -141,7 +141,7 @@ export const SERVICES_DATA: ServicePageData[] = [
     fees: [
       { particular: 'Public School & Integrated Madrasah (ALIVE) Enrollment', amount: 'FREE (₱0.00)', legalBasis: 'DepEd / MBHTE-BARMM No Collection Policy' },
       { particular: 'Barangay Daycare / ECCD Center Registration', amount: 'FREE (₱0.00)', legalBasis: 'RA 10410 Early Years Act' },
-      { particular: 'Marawi City Educational Assistance & MSU Stipend Application', amount: 'FREE (₱0.00)', legalBasis: 'City Special Education Fund (SEF) Ordinance' },
+      { particular: 'Marawi City Educational Assistance & MSU Stipend Application', amount: 'FREE (₱0.00)', legalBasis: 'To be confirmed' },
     ],
     faqs: [
       {
@@ -212,9 +212,9 @@ export const SERVICES_DATA: ServicePageData[] = [
       },
     ],
     fees: [
-      { particular: 'Mayor’s Permit Fee (Micro / Sari-Sari / Market Vendor)', amount: '₱500.00 – ₱1,200.00', legalBasis: 'Marawi City Revised Revenue Code' },
-      { particular: 'Mayor’s Permit Fee (Small & Medium Commercial Enterprise)', amount: '₱2,000.00 – ₱5,000.00', legalBasis: 'Marawi City Revised Revenue Code' },
-      { particular: 'Sanitary Inspection & Health Certificate Fee', amount: '₱200.00', legalBasis: 'Marawi City Revised Revenue Code' },
+      { particular: 'Mayor’s Permit Fee (Micro / Sari-Sari / Market Vendor)', amount: '₱500.00 – ₱1,200.00', legalBasis: 'To be confirmed' },
+      { particular: 'Mayor’s Permit Fee (Small & Medium Commercial Enterprise)', amount: '₱2,000.00 – ₱5,000.00', legalBasis: 'To be confirmed' },
+      { particular: 'Sanitary Inspection & Health Certificate Fee', amount: '₱200.00', legalBasis: 'To be confirmed' },
       { particular: 'BFP Fire Safety Inspection Fee (FSIF)', amount: '15% of all fees charged by LGU (Min. ₱500.00)', legalBasis: 'RA 9514 Revised Fire Code of the Philippines' },
     ],
     faqs: [
@@ -357,9 +357,9 @@ export const SERVICES_DATA: ServicePageData[] = [
     ],
     fees: [
       { particular: 'RSBSA & Municipal Fisherfolk (FishR) Registration', amount: 'FREE (₱0.00)', legalBasis: 'RA 8550 Fisheries Code / MAFAR-BARMM Mandate' },
-      { particular: 'Vegetable, Corn & Upland Rice Seed Starter Kit', amount: 'FREE (₱0.00)', legalBasis: 'City Food Security & Highland Agriculture Program' },
-      { particular: 'Anti-Rabies & Livestock Preventive Vaccination', amount: 'FREE (₱0.00)', legalBasis: 'City Veterinary Public Health Program' },
-      { particular: 'Municipal Fishing Vessel Registration (BoatR)', amount: '₱150.00', legalBasis: 'Marawi City Lake Lanao Fishery Ordinance' },
+      { particular: 'Vegetable, Corn & Upland Rice Seed Starter Kit', amount: 'FREE (₱0.00)', legalBasis: 'To be confirmed' },
+      { particular: 'Anti-Rabies & Livestock Preventive Vaccination', amount: 'FREE (₱0.00)', legalBasis: 'To be confirmed' },
+      { particular: 'Municipal Fishing Vessel Registration (BoatR)', amount: '₱150.00', legalBasis: 'To be confirmed' },
     ],
     faqs: [
       {
@@ -495,8 +495,8 @@ export const SERVICES_DATA: ServicePageData[] = [
     ],
     fees: [
       { particular: 'Household Curbside Solid Waste Collection', amount: 'FREE (₱0.00)', legalBasis: 'Funded via City General Public Services' },
-      { particular: 'Commercial Garbage Fee (Collected annually with Business Permit)', amount: '₱300.00 – ₱2,400.00 / year', legalBasis: 'Marawi City Revenue Code' },
-      { particular: 'Special Bulk Debris Hauling (Private renovation / commercial event)', amount: '₱1,000.00 per truckload', legalBasis: 'City Solid Waste Management Ordinance' },
+      { particular: 'Commercial Garbage Fee (Collected annually with Business Permit)', amount: '₱300.00 – ₱2,400.00 / year', legalBasis: 'To be confirmed' },
+      { particular: 'Special Bulk Debris Hauling (Private renovation / commercial event)', amount: '₱1,000.00 per truckload', legalBasis: 'To be confirmed' },
     ],
     faqs: [
       {
@@ -563,8 +563,8 @@ export const SERVICES_DATA: ServicePageData[] = [
       },
     ],
     fees: [
-      { particular: 'Forest & Fruit Tree Seedlings for Community / School Planting', amount: 'FREE (₱0.00)', legalBasis: 'Greening Marawi Highland Watershed Program' },
-      { particular: 'City Environmental Compliance Clearance (Micro/Small Business)', amount: '₱250.00', legalBasis: 'Marawi City Environmental Code' },
+      { particular: 'Forest & Fruit Tree Seedlings for Community / School Planting', amount: 'FREE (₱0.00)', legalBasis: 'To be confirmed' },
+      { particular: 'City Environmental Compliance Clearance (Micro/Small Business)', amount: '₱250.00', legalBasis: 'To be confirmed' },
       { particular: 'Endorsement for Hazardous Tree Trimming / Cutting (to MENRE-BARMM)', amount: '₱100.00', legalBasis: 'PD 705 / MENRE Administrative Order' },
     ],
     faqs: [
@@ -708,7 +708,7 @@ export const SERVICES_DATA: ServicePageData[] = [
     fees: [
       { particular: 'Locational / Zoning Clearance (Residential)', amount: '₱500.00 – ₱1,500.00', legalBasis: 'HLURB / DHSUD & Local Zoning Ordinance' },
       { particular: 'Building Permit Fee (Standard Residential outside MAA)', amount: '₱23.00 per sq.m. (Schedule of NBC Fees)', legalBasis: 'PD 1096 National Building Code' },
-      { particular: 'Kambalingan MAA Residential Repair / Reconstruction Permit', amount: 'FREE / Waived per SP Ordinance', legalBasis: 'Marawi Rehabilitation Tax Relief Ordinance' },
+      { particular: 'Kambalingan MAA Residential Repair / Reconstruction Permit', amount: 'FREE / Waived per SP Ordinance', legalBasis: 'To be confirmed' },
     ],
     faqs: [
       {
@@ -766,7 +766,7 @@ export const SERVICES_DATA: ServicePageData[] = [
       },
     ],
     fees: [
-      { particular: 'City Tourism Visitor Registration & Heritage Map', amount: 'FREE (₱0.00)', legalBasis: 'Marawi City Cultural Promotion Program' },
+      { particular: 'City Tourism Visitor Registration & Heritage Map', amount: 'FREE (₱0.00)', legalBasis: 'To be confirmed' },
       { particular: 'Aga Khan Museum of Islamic Arts (MSU Main Campus) Entrance', amount: '₱20.00 (Students) / ₱50.00 (Guests)', legalBasis: 'MSU Museum Schedule' },
       { particular: 'DOT-Accredited Community Cultural Guide (Half-Day Optional)', amount: '₱800.00 per group', legalBasis: 'Community Tour Guide Association Tariff' },
     ],

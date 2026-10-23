@@ -1,39 +1,13 @@
-'use client';
-import React from 'react';
-import Link from 'next/link';
-import { ArrowLeft, Search } from 'lucide-react';
-import { useTranslation } from '@/i18n';
+import type { Metadata } from 'next';
+import { NotFoundContent } from '@/components/layout/NotFoundContent';
+
+// Not built with buildMetadata on purpose: a 404 must not be indexed and has no canonical URL.
+export const metadata: Metadata = {
+  title: { absolute: 'Page Not Found | BetterMarawi.org' },
+  description: 'This page does not exist on BetterMarawi.org. Go back to the home page or browse city services.',
+  robots: { index: false, follow: true },
+};
 
 export default function NotFound() {
-  const { t } = useTranslation();
-  return (
-    <main className="max-w-3xl mx-auto px-4 py-20 text-center">
-      <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-100 text-brand-900 font-bold font-display text-2xl mb-6">
-        404
-      </div>
-      <h1 className="text-3xl sm:text-4xl font-bold font-display text-mist-900">
-        {t.pageNotFound}
-      </h1>
-      <p className="mt-4 text-base text-mist-600 max-w-lg mx-auto leading-relaxed">
-        {t.pageNotFoundDesc}
-      </p>
-      <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-brand-900 text-white text-sm font-semibold hover:bg-brand-950 transition-colors"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          {t.backToHome}
-        </Link>
-        <Link
-          href="/services"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white border border-mist-300 text-mist-800 text-sm font-semibold hover:bg-mist-50 transition-colors"
-        >
-          <Search className="w-4 h-4" />
-          {t.browse11Services}
-        </Link>
-      </div>
-    </main>
-  );
+  return <NotFoundContent />;
 }
-
