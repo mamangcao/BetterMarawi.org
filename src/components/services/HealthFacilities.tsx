@@ -9,7 +9,7 @@ import {
   Stethoscope,
   type LucideIcon,
 } from 'lucide-react';
-import { ArrowUpRight } from '@/components/ui';
+import { ArrowUpRight, StatGrid } from '@/components/ui';
 import {
   BARANGAY_HEALTH,
   CITY_HEALTH_OFFICE,
@@ -105,15 +105,7 @@ export function HealthFacilities() {
       </div>
 
       {/* Summary counts */}
-      <dl className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px overflow-hidden rounded-xl border border-mist-200 bg-mist-200">
-        {summary.map((s) => (
-          <div key={s.label} className="bg-white p-4 flex flex-col">
-            <dd className="order-1 text-3xl font-bold font-display text-brand-950 tabular-nums">{s.value}</dd>
-            <dt className="order-2 mt-1 text-sm font-semibold text-brand-800 leading-snug">{s.label}</dt>
-            <span className="order-3 mt-1 text-[11px] text-mist-500">{s.note}</span>
-          </div>
-        ))}
-      </dl>
+      <StatGrid items={summary} columns="grid-cols-2 sm:grid-cols-3 lg:grid-cols-5" />
 
       <Group icon={Hospital} title="Hospitals" count={MARAWI_HOSPITALS.length}>
         <ul className="divide-y divide-mist-100">

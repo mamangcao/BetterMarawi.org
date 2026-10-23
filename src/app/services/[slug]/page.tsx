@@ -15,7 +15,7 @@ import { YakapLabTests } from '@/components/services/YakapLabTests';
 import { TourismDirectory } from '@/components/services/TourismDirectory';
 import { BusinessServices } from '@/components/services/BusinessServices';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
-import { formatWithPeso, UnverifiedNotice } from '@/components/ui';
+import { formatWithPeso, StatGrid, UnverifiedNotice } from '@/components/ui';
 import { JsonLd } from '@/components/seo/JsonLd';
 import {
   buildBreadcrumbSchema,
@@ -91,19 +91,12 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               <UnverifiedNotice items={[service]} className='mt-6' />
 {/* Key Highlights (hidden on Health Services: its facility summary below carries the counts) */}
               {!SOURCED_SLUGS.includes(service.slug) && (
-              <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {service.highlights.map((h) => (
-                  <div
-                    key={h.label}
-                    className="bg-white rounded-xl border border-mist-200/90 p-3.5"
-                  >
-                    <div className="text-xs text-mist-500">{h.label}</div>
-                    <div className="text-sm font-bold text-mist-900 font-mono-tabular mt-0.5">
-                      {formatWithPeso(h.value)}
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <StatGrid
+                items={service.highlights.map((h) => ({ label: h.label, value: formatWithPeso(h.value) }))}
+                columns="grid-cols-1 sm:grid-cols-3"
+                size="phrase"
+                className="mt-6"
+              />
               )}
             </div>
 
