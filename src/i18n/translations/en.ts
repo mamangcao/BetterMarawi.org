@@ -362,8 +362,7 @@ export const en = {
     'Marawi City serves as Kilometer Zero (0.00 km) for all highway distance measurements across the island of Mindanao.',
 
   // Contact & FOI Forms
-  contactFormTitle:
-    'Send a Citizen Inquiry or Public Consultation Feedback',
+  contactFormTitle: 'Contact the City Government',
   fullNameLabel: 'Your Full Name *',
   fullNamePlaceholder: 'Full Name',
   emailOrPhoneLabel: 'Email or Mobile Number *',
@@ -374,7 +373,7 @@ export const en = {
   submitInquiry: 'Submit Inquiry',
   messageLoggedTitle: 'Message Logged with Public Assistance Desk',
   sendAnotherMessage: 'Send Another Message',
-  foiHeading: 'File an Electronic Freedom of Information (eFOI) Request',
+  foiHeading: 'How to Request a Public Record',
   foiSuccessTitle: 'FOI Request Logged Successfully',
   foiSubmitAnother: 'Submit Another Request',
   foiFullNameLabel: 'Full Name of Requesting Citizen *',
@@ -383,9 +382,20 @@ export const en = {
   foiPurposeLabel:
     'Purpose of Request (Academic Research, Journalism, Community Audit, etc.) *',
   foiSubmitButton: 'Generate Official FOI Tracking Ticket',
+  // Online submission notices (no form submits anywhere yet)
+  contactUnavailableTitle: 'Online messages are not available yet',
+  contactUnavailableBody: 'BetterMarawi.org is run by community volunteers and is not connected to City Hall, so this site cannot send messages to city offices. Please contact the office that handles your concern directly.',
+  contactFindOffice: 'Find the right city office',
+  emergencyCall911: 'In an emergency, call 911, the national emergency hotline.',
+  foiUnavailableTitle: 'Online FOI requests are not available yet',
+  foiUnavailableBody: 'BetterMarawi.org is run by community volunteers, so it cannot receive or forward Freedom of Information requests. Make your request directly to the city office that keeps the record.',
+  foiChecklistHeading: 'Include these details in your request:',
+  foiChecklistName: 'Your full name and how to reach you',
+  foiChecklistDocument: 'The specific document or dataset you need',
+  foiChecklistPurpose: 'Why you are requesting it (for example, research, journalism, or a community audit)',
 
   // Contact Info & Emergency Banners
-  emergencyDispatchHeading: '24/7 Emergency Dispatch Numbers',
+  emergencyDispatchHeading: 'Emergency Numbers',
   trunklineHeading: 'Marawi City Hall Trunkline & Location',
   noNoonBreakPolicy: 'No Noon Break Policy',
   noNoonBreakDesc: 'Frontline windows open 8:00 AM – 5:00 PM under RA 11032',

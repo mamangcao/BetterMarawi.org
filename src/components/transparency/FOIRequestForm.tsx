@@ -1,125 +1,48 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Send, CheckCircle2 } from 'lucide-react';
+import React from 'react';
+import { Info } from 'lucide-react';
 import { useTranslation } from '@/i18n';
 
+/**
+ * FOI guidance. This community-run site cannot receive or forward requests, so instead of a
+ * form that sends nothing it explains that and lists what a request should include.
+ * Add a form back only when there is a real, confirmed channel behind it.
+ */
 export function FOIRequestForm() {
   const { t } = useTranslation();
-  const [foiName, setFoiName] = useState('');
-  const [foiEmail, setFoiEmail] = useState('');
-  const [foiDocument, setFoiDocument] = useState('');
-  const [foiPurpose, setFoiPurpose] = useState('');
-  const [foiTrackingNumber, setFoiTrackingNumber] = useState<string | null>(null);
-
-  const handleFoiSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!foiName.trim() || !foiDocument.trim()) return;
-    const randomCode = Math.floor(100000 + Math.random() * 900000);
-    setFoiTrackingNumber(`FOI-MRW-2026-${randomCode}`);
-  };
+  const checklist = [t.foiChecklistName, t.foiChecklistDocument, t.foiChecklistPurpose];
 
   return (
     <div className="space-y-8">
-      <section className="bg-white rounded-xl border border-mist-200/90 p-6 sm:p-8">
-        <h2 className="text-xl font-bold text-mist-900 font-display pb-3 mb-5 border-b border-mist-100">
+      <section
+        aria-labelledby="foi-panel-heading"
+        className="bg-white rounded-xl border border-mist-200/90 p-6 sm:p-8 space-y-5"
+      >
+        <h2
+          id="foi-panel-heading"
+          className="text-xl font-bold text-mist-900 font-display pb-3 border-b border-mist-100"
+        >
           {t.foiHeading}
         </h2>
 
-        {foiTrackingNumber ? (
-          <div className="p-6 rounded-xl bg-brand-50 border border-brand-800/30 space-y-3">
-            <div className="flex items-center gap-2 text-brand-900 font-bold">
-              <CheckCircle2 className="w-5 h-5" />
-              <span>{t.foiSuccessTitle}</span>
-            </div>
-            <p className="text-sm text-mist-700">
-              Your public record request has been routed to the Marawi City Public Information Office (PIO) &amp; City Records Unit. Under City Ordinance No. 2024-027, you will receive an official response within 15 working days.
-            </p>
-            <div className="p-3 bg-white rounded-lg border border-mist-200 font-mono-tabular text-xs">
-              <strong>Tracking Reference:</strong> {foiTrackingNumber} · <strong>Applicant:</strong> {foiName}
-            </div>
-            <button
-              type="button"
-              onClick={() => {
-                setFoiTrackingNumber(null);
-                setFoiDocument('');
-                setFoiPurpose('');
-              }}
-              className="px-4 py-2 rounded-lg bg-brand-900 text-white text-xs font-semibold hover:bg-brand-950 transition-colors"
-            >
-              {t.foiSubmitAnother}
-            </button>
+        <div role="note" className="flex gap-3 rounded-xl border border-mist-200 bg-mist-50 p-4 sm:p-5">
+          <Info className="w-5 h-5 shrink-0 text-brand-700 mt-0.5" aria-hidden="true" />
+          <div className="space-y-2 text-sm">
+            <p className="font-bold text-mist-900">{t.foiUnavailableTitle}</p>
+            <p className="text-mist-700 leading-relaxed">{t.foiUnavailableBody}</p>
           </div>
-        ) : (
-          <form onSubmit={handleFoiSubmit} className="space-y-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs font-semibold text-mist-700 mb-1">
-                  {t.foiFullNameLabel}
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={foiName}
-                  onChange={(e) => setFoiName(e.target.value)}
-                  placeholder="e.g., Najmah M. Balindong"
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-mist-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-800"
-                />
-              </div>
-              <div>
-                <label className="block text-xs font-semibold text-mist-700 mb-1">
-                  {t.foiEmailLabel}
-                </label>
-                <input
-                  type="email"
-                  required
-                  value={foiEmail}
-                  onChange={(e) => setFoiEmail(e.target.value)}
-                  placeholder="citizen@example.com"
-                  className="w-full px-3.5 py-2.5 rounded-lg border border-mist-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-800"
-                />
-              </div>
-            </div>
+        </div>
 
-            <div>
-              <label className="block text-xs font-semibold text-mist-700 mb-1">
-                {t.foiDocLabel}
-              </label>
-              <input
-                type="text"
-                required
-                value={foiDocument}
-                onChange={(e) => setFoiDocument(e.target.value)}
-                placeholder="e.g., Certified copy of City Ordinance No. 2026-014 or Q3 Infrastructure POW"
-                className="w-full px-3.5 py-2.5 rounded-lg border border-mist-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-800"
-              />
-            </div>
-
-            <div>
-              <label className="block text-xs font-semibold text-mist-700 mb-1">
-                {t.foiPurposeLabel}
-              </label>
-              <textarea
-                rows={3}
-                required
-                value={foiPurpose}
-                onChange={(e) => setFoiPurpose(e.target.value)}
-                placeholder="Briefly state how the requested public information will be used..."
-                className="w-full px-3.5 py-2.5 rounded-lg border border-mist-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-800"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-brand-900 text-white text-sm font-semibold hover:bg-brand-950 transition-colors"
-            >
-              <Send className="w-4 h-4" />
-              {t.foiSubmitButton}
-            </button>
-          </form>
-        )}
+        <div>
+          <h3 className="text-sm font-semibold text-mist-900">{t.foiChecklistHeading}</h3>
+          <ul className="mt-2 space-y-1.5 text-sm text-mist-700 list-disc pl-5">
+            {checklist.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
       </section>
     </div>
   );
 }
-

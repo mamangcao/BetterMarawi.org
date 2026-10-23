@@ -15,7 +15,7 @@ import { buildMetadata, getRouteBreadcrumbs } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'Contact Us & Emergency Hotlines — Marawi City Hall | BetterMarawi.org',
   description:
-    'Get in touch with Marawi City Hall, CDRRMO (063) 352-0117, City Health Office (063) 221-2536, BFP, PNP, or submit a citizen feedback message.',
+    'Emergency numbers and how to reach Marawi City Hall, CDRRMO, the City Health Office, BFP, and PNP. In an emergency, call 911.',
   path: '/contact',
 });
 

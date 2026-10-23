@@ -10,7 +10,7 @@ import { buildMetadata, getRouteBreadcrumbs } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'Freedom of Information (FOI) Citizen Request Guide | BetterMarawi.org',
   description:
-    'File a standard or electronic Freedom of Information (FOI) request for public records, ordinances, and financial datasets of the Islamic City of Marawi.',
+    'How to request public records, ordinances, and financial data from the Islamic City of Marawi under Freedom of Information (FOI), and what to include in your request.',
   path: '/transparency/freedom-of-information',
 });
 

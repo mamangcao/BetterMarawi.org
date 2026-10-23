@@ -364,8 +364,7 @@ export const fil: typeof en = {
     'Nagsisilbi ang Lungsod ng Marawi bilang Kilometer Zero (0.00 km) para sa lahat ng sukat ng layo ng highway sa buong isla ng Mindanao.',
 
   // Contact & FOI Forms
-  contactFormTitle:
-    'Magpadala ng Tanong ng Mamamayan o Feedback sa Konsultasyon',
+  contactFormTitle: 'Makipag-ugnayan sa Pamahalaang Lungsod',
   fullNameLabel: 'Inyong Buong Pangalan *',
   fullNamePlaceholder: 'Buong Pangalan',
   emailOrPhoneLabel: 'Email o Numero ng Mobile *',
@@ -376,7 +375,7 @@ export const fil: typeof en = {
   submitInquiry: 'Ipadala ang Tanong',
   messageLoggedTitle: 'Naitala ang Mensahe sa Public Assistance Desk',
   sendAnotherMessage: 'Magpadala ng Isa Pang Mensahe',
-  foiHeading: 'Magsumite ng Electronic Freedom of Information (eFOI) Request',
+  foiHeading: 'Paano Humiling ng Pampublikong Rekord',
   foiSuccessTitle: 'Matagumpay na Naitala ang FOI Request',
   foiSubmitAnother: 'Magsumite ng Isa Pang Kahilingan',
   foiFullNameLabel: 'Buong Pangalan ng Humihiling na Mamamayan *',
@@ -385,9 +384,20 @@ export const fil: typeof en = {
   foiPurposeLabel:
     'Layunin ng Kahilingan (Pananaliksik, Pamamahayag, Pag-audit ng Komunidad, atbp.) *',
   foiSubmitButton: 'Gumawa ng Opisyal na FOI Tracking Ticket',
+  // Online submission notices (no form submits anywhere yet)
+  contactUnavailableTitle: 'Hindi pa maaaring magpadala ng mensahe online',
+  contactUnavailableBody: 'Ang BetterMarawi.org ay pinapatakbo ng mga boluntaryo ng komunidad at hindi konektado sa City Hall, kaya hindi makapagpapadala ang site na ito ng mensahe sa mga tanggapan ng lungsod. Direktang makipag-ugnayan sa tanggapang humahawak ng iyong concern.',
+  contactFindOffice: 'Hanapin ang tamang tanggapan ng lungsod',
+  emergencyCall911: 'Sa emergency, tumawag sa 911, ang pambansang emergency hotline.',
+  foiUnavailableTitle: 'Hindi pa maaaring magsumite ng FOI request online',
+  foiUnavailableBody: 'Ang BetterMarawi.org ay pinapatakbo ng mga boluntaryo ng komunidad, kaya hindi ito makatatanggap o makapagpapasa ng mga Freedom of Information request. Direktang isumite ang iyong kahilingan sa tanggapan ng lungsod na may hawak ng rekord.',
+  foiChecklistHeading: 'Isama ang mga detalyeng ito sa iyong kahilingan:',
+  foiChecklistName: 'Ang iyong buong pangalan at kung paano ka makokontak',
+  foiChecklistDocument: 'Ang tiyak na dokumento o dataset na kailangan mo',
+  foiChecklistPurpose: 'Kung bakit mo ito hinihiling (halimbawa, pananaliksik, pamamahayag, o community audit)',
 
   // Contact Info & Emergency Banners
-  emergencyDispatchHeading: '24/7 Mga Numero ng Emergency Dispatch',
+  emergencyDispatchHeading: 'Mga Numero para sa Emergency',
   trunklineHeading: 'Trunkline at Lokasyon ng Marawi City Hall',
   noNoonBreakPolicy: 'Patakarang Walang Noon Break',
   noNoonBreakDesc: 'Bukas ang mga frontline window nang 8:00 AM – 5:00 PM alinsunod sa RA 11032',

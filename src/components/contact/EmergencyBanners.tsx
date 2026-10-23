@@ -6,6 +6,7 @@ import { useTranslation } from '@/i18n';
 
 export function EmergencyBanners() {
   const { t } = useTranslation();
+  const national = EMERGENCY_HOTLINES.find((h) => h.id === 'ph-911');
   const cdrrmo = EMERGENCY_HOTLINES.find((h) => h.id === 'cdrrmo');
   const bfp = EMERGENCY_HOTLINES.find((h) => h.id === 'bfp');
   const pnp = EMERGENCY_HOTLINES.find((h) => h.id === 'pnp');
@@ -17,6 +18,24 @@ export function EmergencyBanners() {
         {t.emergencyDispatchHeading}
       </h2>
       <div className="space-y-2 text-xs font-mono-tabular">
+        {national && (
+          <div className="flex items-center justify-between py-2 border-b border-mist-800 gap-2">
+            <span>
+              {national.label}:
+              <a
+                href={national.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block font-sans text-[11px] text-mist-400 underline underline-offset-2 hover:text-accent"
+              >
+                EO No. 56, s. 2018
+              </a>
+            </span>
+            <a href={national.telHref} className="font-bold text-white hover:text-accent">
+              {national.number}
+            </a>
+          </div>
+        )}
         <div className="flex items-center justify-between py-2 border-b border-mist-800 gap-2">
           <span>CDRRMO Command Center:</span>
           <div className="flex items-center gap-2">

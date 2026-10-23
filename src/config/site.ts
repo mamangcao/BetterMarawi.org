@@ -30,7 +30,21 @@ export const SITE_CONFIG = {
   },
 };
 
+// 911 is sourced (EO 56, s. 2018). The local numbers below have no source yet, so the UI
+// labels them "Unverified" (see docs/VERIFICATION_CHECKLIST.md, section 1).
 export const EMERGENCY_HOTLINES: HotlineItem[] = [
+  {
+    id: 'ph-911',
+    label: 'National Emergency Hotline',
+    shortLabel: 'Emergency 911',
+    number: '911',
+    telHref: 'tel:911',
+    icon: 'Siren',
+    level: 'sourced',
+    source: 'Executive Order No. 56, s. 2018 (Emergency 911 as the nationwide emergency hotline)',
+    sourceUrl: 'https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/5/83090',
+    retrievedOn: '2026-10-23',
+  },
   {
     id: 'cdrrmo',
     label: 'CDRRMO',

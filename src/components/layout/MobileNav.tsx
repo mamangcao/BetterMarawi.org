@@ -5,8 +5,9 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ChevronDown, Phone } from 'lucide-react';
 import { ArrowUpRight } from '@/components/ui';
-import { NAV_DROPDOWNS } from '@/config/site';
+import { EMERGENCY_HOTLINES, NAV_DROPDOWNS } from '@/config/site';
 import { useTranslation } from '@/i18n';
+import { isUnverified } from '@/lib/verification';
 import { ITEM_ICONS } from './navIcons';
 
 type DropdownKey = 'services' | 'government' | 'transparency' | 'statistics' | 'emergency';
@@ -17,32 +18,6 @@ interface MobileNavProps {
   topOffset?: number;
 }
 
-const EMERGENCY_MENU_ITEMS = [
-  {
-    id: 'cdrrmo',
-    label: 'CDRRMO Rescue',
-    number: '(063) 352-0117',
-    telHref: 'tel:0633520117',
-  },
-  {
-    id: 'bfp',
-    label: 'City Fire Station (BFP)',
-    number: '0917-842-9910',
-    telHref: 'tel:09178429910',
-  },
-  {
-    id: 'pnp',
-    label: 'City Police (PNP)',
-    number: '0998-598-6678',
-    telHref: 'tel:09985986678',
-  },
-  {
-    id: 'cho-apmc',
-    label: 'CHO / APMC Hospital',
-    number: '(063) 221-2536',
-    telHref: 'tel:0632212536',
-  },
-];
 
 export function MobileNav({ isOpen, onClose, topOffset = 64 }: MobileNavProps) {
   const { t } = useTranslation();
@@ -216,22 +191,33 @@ export function MobileNav({ isOpen, onClose, topOffset = 64 }: MobileNavProps) {
 
             {mobileAccordion === 'emergency' && (
               <div id="mobile-submenu-emergency" className="mt-1 pl-3 space-y-1">
-                {EMERGENCY_MENU_ITEMS.map((item) => (
-                  <a
-                    key={item.id}
-                    href={item.telHref}
-                    onClick={onClose}
-                    className="flex items-center justify-between px-3 py-2 rounded-lg text-sm text-mist-700 hover:bg-mist-200/50 transition-colors"
-                  >
-                    <div className="flex items-center gap-2.5">
-                      <Phone className="w-3.5 h-3.5 text-brand-800 shrink-0" aria-hidden="true" />
-                      <span className="font-medium text-mist-900">{item.label}</span>
-                    </div>
-                    <span className="text-xs font-semibold text-brand-800 font-mono-tabular shrink-0">
-                      {item.number}
-                    </span>
-                  </a>
-                ))}
+                {EMERGENCY_HOTLINES.map((item) => {
+                  const unverified = isUnverified(item);
+                  return (
+                    <a
+                      key={item.id}
+                      href={item.telHref}
+                      onClick={onClose}
+                      aria-label={`${item.label}: ${item.number}${unverified ? ` (${t.dataStatus.unverified})` : ''}`}
+                      className="flex items-center justify-between gap-3 px-3 py-2 rounded-lg text-sm text-mist-700 hover:bg-mist-200/50 transition-colors"
+                    >
+                      <div className="flex items-center gap-2.5 min-w-0">
+                        <Phone className="w-3.5 h-3.5 text-brand-800 shrink-0" aria-hidden="true" />
+                        <span className="min-w-0">
+                          <span className="block font-medium text-mist-900">{item.label}</span>
+                          {unverified && (
+                            <span aria-hidden="true" className="block text-[11px] font-semibold uppercase tracking-wider text-accent-deep">
+                              {t.dataStatus.unverified}
+                            </span>
+                          )}
+                        </span>
+                      </div>
+                      <span className="text-xs font-semibold text-brand-800 font-mono-tabular shrink-0">
+                        {item.number}
+                      </span>
+                    </a>
+                  );
+                })}
               </div>
             )}
           </div>

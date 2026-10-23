@@ -528,8 +528,7 @@ export const mrw: typeof en = {
     'Marawi City serves as Kilometer Zero (0.00 km) for all highway distance measurements across the island of Mindanao.',
 
   // TODO(mrw-review): needs fluent reviewer
-  contactFormTitle:
-    'Send a Citizen Inquiry or Public Consultation Feedback',
+  contactFormTitle: 'Contact the City Government',
   // TODO(mrw-review): needs fluent reviewer
   fullNameLabel: 'Your Full Name *',
   // TODO(mrw-review): needs fluent reviewer
@@ -550,7 +549,7 @@ export const mrw: typeof en = {
   // TODO(mrw-review): needs fluent reviewer
   sendAnotherMessage: 'Send Another Message',
   // TODO(mrw-review): needs fluent reviewer
-  foiHeading: 'File an Electronic Freedom of Information (eFOI) Request',
+  foiHeading: 'How to Request a Public Record',
   // TODO(mrw-review): needs fluent reviewer
   foiSuccessTitle: 'FOI Request Logged Successfully',
   // TODO(mrw-review): needs fluent reviewer
@@ -566,9 +565,21 @@ export const mrw: typeof en = {
     'Purpose of Request (Academic Research, Journalism, Community Audit, etc.) *',
   // TODO(mrw-review): needs fluent reviewer
   foiSubmitButton: 'Generate Official FOI Tracking Ticket',
+  // Online submission notices (no form submits anywhere yet)
+  // TODO(mrw-review): needs fluent reviewer
+  contactUnavailableTitle: 'Online messages are not available yet',
+  contactUnavailableBody: 'BetterMarawi.org is run by community volunteers and is not connected to City Hall, so this site cannot send messages to city offices. Please contact the office that handles your concern directly.',
+  contactFindOffice: 'Find the right city office',
+  emergencyCall911: 'In an emergency, call 911, the national emergency hotline.',
+  foiUnavailableTitle: 'Online FOI requests are not available yet',
+  foiUnavailableBody: 'BetterMarawi.org is run by community volunteers, so it cannot receive or forward Freedom of Information requests. Make your request directly to the city office that keeps the record.',
+  foiChecklistHeading: 'Include these details in your request:',
+  foiChecklistName: 'Your full name and how to reach you',
+  foiChecklistDocument: 'The specific document or dataset you need',
+  foiChecklistPurpose: 'Why you are requesting it (for example, research, journalism, or a community audit)',
 
   // TODO(mrw-review): needs fluent reviewer
-  emergencyDispatchHeading: '24/7 Emergency Dispatch Numbers',
+  emergencyDispatchHeading: 'Emergency Numbers',
   // TODO(mrw-review): needs fluent reviewer
   trunklineHeading: 'Marawi City Hall Trunkline & Location',
   // TODO(mrw-review): needs fluent reviewer
