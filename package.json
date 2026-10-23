@@ -9,7 +9,13 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "export:data": "tsx scripts/generate-data-files.ts"
+    "export:data": "tsx scripts/generate-data-files.ts",
+    "check:data": "tsx scripts/check-data.ts",
+    "check:security": "tsx scripts/check-security.ts",
+    "check:regressions": "tsx scripts/check-regressions.ts",
+    "check:seo": "tsx scripts/check-seo.ts",
+    "check:browser": "tsx scripts/check-browser.ts",
+    "check:translations": "tsx scripts/check-translations.ts"
   },
   "dependencies": {
     "lucide-react": "^1.16.0",
