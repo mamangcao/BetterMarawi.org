@@ -81,19 +81,17 @@ This document tracks verification for public civic data displayed on BetterMaraw
 
 ## 4. Budget
 
-> **Suggested source:** Enacted General Appropriation Ordinance (GAO) of the Islamic City of Marawi, DILG Full Disclosure Policy Portal (FDPP), or the Bureau of Local Government Finance (BLGF) certified reports of revenues and expenditures.
+> **Sources in use:** Bureau of Local Government Finance (BLGF) LGU fiscal data, DILG Full Disclosure Policy Portal (FDPP), Commission on Audit (COA) annual audit report, and DBM NCA and SARO releases. The enacted appropriation ordinance is still a useful cross-check.
 
 | Item | Current value in code | File | Official source | Confirmed value | Verified by | Date | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Fiscal Year | `2026` | `src/data/budget.ts` | | | | | Unverified |
-| Total Budget | `₱1,845,200,000` | `src/data/budget.ts` | | | | | Unverified |
-| NTA Share | `₱1,692,400,000 (91.7%)` | `src/data/budget.ts` | | | | | Unverified |
-| Local Sources | `₱152,800,000 (8.3%)` | `src/data/budget.ts` | | | | | Unverified |
-| General Public Services & Good Governance (Sector Amount) | `₱572,012,000` | `src/data/budget.ts` | | | | | Unverified |
-| Social Services (Health, Education, CSWDO & Housing) (Sector Amount) | `₱535,108,000` | `src/data/budget.ts` | | | | | Unverified |
-| Economic Services & Infrastructure Development (20% DF) (Sector Amount) | `₱461,300,000` | `src/data/budget.ts` | | | | | Unverified |
-| Disaster Risk Reduction & Management Fund (5% CDRRMF) (Sector Amount) | `₱92,260,000` | `src/data/budget.ts` | | | | | Unverified |
-| Gender and Development (5% GAD) & Sectoral Allocations (Senior/PWD/LCPC) (Sector Amount) | `₱184,520,000` | `src/data/budget.ts` | | | | | Unverified |
+| City finances 2021–2025 (income, NTA, spending, year-end cash) | `FINANCE_ACTUALS` | `src/data/finances.ts` | BLGF LGU fiscal data | | Claude Code | 2026-10-23 | Sourced (FY2025 preliminary) |
+| Spending by sector, 2025 | `SPENDING_BY_SECTOR` | `src/data/finances.ts` | BLGF LGU fiscal data | | Claude Code | 2026-10-23 | Sourced |
+| Disaster fund (LDRRMF) and Special Education Fund, 2018–2025 | `LDRRMF`, `SEF` | `src/data/finances.ts` | BLGF LGU fiscal data | | Claude Code | 2026-10-23 | Sourced |
+| FDP documents posted for 2026 | `FDP_DOCUMENTS` (14) | `src/data/fdp.ts` | DILG FDP Portal | | Claude Code | 2026-10-23 | Sourced |
+| COA audit, FY2020 | `AUDIT_FY2020` | `src/data/reports.ts` | COA annual audit report | | Claude Code | 2026-10-23 | Sourced |
+| Support-fund projects and NCA/SARO releases | `LGSF_PROJECTS`, `NATIONAL_RELEASES` | `src/data/reports.ts` | DBM | | Claude Code | 2026-10-23 | Sourced |
+| Former FY 2026 budget (₱1,845,200,000 total and sectors) | Removed | `src/data/budget.ts` (deleted) | None found | | Claude Code | 2026-10-23 | Removed; replaced by the sourced data above |
 
 ---
 
@@ -304,4 +302,4 @@ Decisions from the Batch 3 review. Each item was removed or qualified because no
 | Local laws and named city programs cited as a fee's legal basis (14 fees, e.g. "Marawi City Revenue Code", "Marawi City Lake Lanao Fishery Ordinance") | Shown | "To be confirmed" (Batch 8, owner decision); fee amounts kept with their Unverified label | Not found in any official or web source (2026-10-23). National-law citations kept |
 | FY 2026 budget figure (₱1.845 billion) in the page description and FAQ structured data | Present | Removed from metadata and JSON-LD; figures stay on the page labelled Unverified (owner decision) | No source |
 
-**Still unverified (labelled on the site):** emergency numbers for CDRRMO and PNP (BFP and APMC are owner-verified); FY 2026 budget figures; service fees, steps, processing times, locations, and hours; department mandates, locations, and key services; committee names. See `docs/KNOWN_ISSUES.md` for where to find a source for each.
+**Still unverified (labelled on the site):** emergency numbers for CDRRMO and PNP (BFP and APMC are owner-verified); service fees, steps, processing times, locations, and hours; department mandates, locations, and key services; committee names. See `docs/KNOWN_ISSUES.md` for where to find a source for each.

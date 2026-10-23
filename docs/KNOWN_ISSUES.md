@@ -9,10 +9,8 @@ Most of these are shown on the site with an **Unverified** label or "To be confi
 | Information | Where it appears | Where to find a source |
 | --- | --- | --- |
 | CDRRMO and PNP phone numbers | Contact page, hotline bar | The offices themselves; PNP Lanao del Sur Provincial Office; OCD BARMM |
-| FY 2026 city budget figures | Transparency › Annual Budget | Sangguniang Panlungsod (appropriation ordinance); DBM |
 | Service fees | Each service page | Each office's Citizen's Charter; BPLO; City Treasurer |
 | City revenue code (shown as "To be confirmed" on fees) | Service pages | Sangguniang Panlungsod; City Treasurer |
-| Full Disclosure Policy documents (none listed yet) | Transparency › FDP | DILG FDP Portal (fdpp.dilg.gov.ph); City Hall posting boards |
 | Heads of 8 city departments ("To be confirmed") | Government › Departments | City Hall; Civil Service Commission records |
 | SP session schedule ("Tuesdays, 9:00 AM") | Government sidebar | Sangguniang Panlungsod secretariat |
 
@@ -38,13 +36,13 @@ The automated checks (`npm run check:*`) run in Chrome only. Not yet done:
 - `ContactForm` and `FOIRequestForm` no longer contain a form, only a notice; rename them to match.
 - Section 3 of `docs/VERIFICATION_CHECKLIST.md` lists names for the 8 unconfirmed department heads that the site no longer shows.
 - The tourism directory says "Registered", but there is no source for an official registry.
+- The 2026 Annual Budget Report download on the DILG FDP Portal (id 227136) returned a server error on 2026-10-23. Re-check it and update `src/data/fdp.ts` if DILG reposts the file.
 
 ## Decisions for the maintainers
 
 - **Meranaw page language:** in Meranaw mode the page is marked `lang="mrw"`, but most of the text is still English. Options: mark untranslated text as English, or keep `lang="en"` until more is translated.
 - **Content Security Policy:** it reports problems but does not block anything yet. Switch to enforcing it after a period with no reported problems.
 - **Next.js 16 upgrade:** needed to clear a security advisory in a build-time dependency (low practical risk) and to replace the deprecated `next lint`. Plan it as its own change with full testing.
-- **FDP downloads:** when real FDP documents are added, link to the official file instead of the current per-row CSV download.
 
 ## Kept on purpose
 

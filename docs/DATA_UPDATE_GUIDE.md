@@ -20,8 +20,10 @@ Related: `docs/data-sources.md` (sources and verification log), `docs/CONTENT_GU
 | `src/data/departments.ts` | City Hall departments, heads, mandates, hotlines |
 | `src/data/officials.ts` | Mayor, Vice Mayor, SP members, ex-officio members |
 | `src/data/ordinances.ts` | Enacted ordinances and resolutions |
-| `src/data/fdp.ts` | Full Disclosure Policy disclosures |
-| `src/data/budget.ts` | Annual budget and sector breakdown |
+| `src/data/fdp.ts` | Full Disclosure Policy documents posted on the DILG FDP Portal |
+| `src/data/finances.ts` | City finances 2021–2025 (BLGF), spending by sector, disaster and education funds |
+| `src/data/reports.ts` | COA audit summary, support-fund projects, DBM national releases |
+| `src/data/cityProfile.ts` | City history (founding laws), density, and growth since 2020 |
 | `src/data/cmci.ts` | DTI CMCI pillars and scores |
 | `src/data/tourism.ts` | Tourism categories and listings |
 | `src/data/barangays.ts` | All 101 barangays (PSA PSGC) and population |
@@ -65,13 +67,13 @@ Match the format already used in that file. If the file differs from this table,
 3. Check the `tel:` link works.
 4. Record the verification in `docs/data-sources.md`.
 
-### Update the annual budget
+### Update finances and FDP documents
 
-1. Use the official General Appropriation Ordinance or BLGF report.
-2. Update `src/data/budget.ts`.
-3. Check that sector amounts add up to the total.
-4. Check the budget page, charts, and any home page figure.
-5. Update the fiscal year label everywhere it appears.
+1. City finances (`src/data/finances.ts`): use BLGF LGU fiscal data (blgf.gov.ph/lgu-fiscal-data/). Add each year to `FINANCE_ACTUALS` in millions of pesos. Use `null` when BLGF has no record. Move `PRELIMINARY_YEAR` when BLGF marks a newer year preliminary.
+2. FDP documents (`src/data/fdp.ts`): open the DILG FDP Portal for Marawi (`FDP_PORTAL_URL`) and copy the download link of each posted period into `files`. At the start of a new year, change `FDP_YEAR` and clear the old files.
+3. Audit and national funds (`src/data/reports.ts`): use the COA annual audit report and the DBM NCA and SARO release files. Link each release to its DBM file.
+4. Update `retrievedOn` for every record you changed.
+5. Run `npm run check:data` (it checks that operating income equals its parts) and `npm run check:regressions`, then look at the Annual Budget, FDP, Procurement, and Reports pages.
 
 ### Update officials after an election or appointment
 
