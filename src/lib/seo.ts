@@ -15,7 +15,8 @@ export function buildMetadata({
   const fullTitle = title.includes('BetterMarawi.org') ? title : `${title} | BetterMarawi.org`;
 
   return {
-    title: fullTitle,
+    // `absolute` skips the root layout's '%s | BetterMarawi.org' template; fullTitle already has the suffix.
+    title: { absolute: fullTitle },
     description,
     metadataBase: new URL(SITE_CONFIG.url),
     alternates: {
