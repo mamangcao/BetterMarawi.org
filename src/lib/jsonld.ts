@@ -9,8 +9,7 @@ export function buildGovernmentOrganizationSchema() {
     name: 'City Government of the Islamic City of Marawi',
     alternateName: ['BetterMarawi.org', 'LGU Marawi City', 'Islamic City of Marawi'],
     url: SITE_CONFIG.url,
-    telephone: '(063) 520-2100',
-    email: SITE_CONFIG.contact.email,
+    // No telephone or email: no official source confirms one for the city (docs/VERIFICATION_CHECKLIST.md).
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'City Hall Complex, Brgy. Fort',
@@ -60,8 +59,7 @@ export function buildGovernmentServiceSchema(service: ServicePageData, pageUrl: 
     serviceOperator: {
       '@type': 'GovernmentOrganization',
       name: service.responsibleOffice,
-      telephone: service.hotline,
-      email: service.email,
+      // Office hotlines and emails are unverified, so they are not published as structured data.
       parentOrganization: { '@id': `${SITE_CONFIG.url}/#organization` },
     },
     areaServed: {
