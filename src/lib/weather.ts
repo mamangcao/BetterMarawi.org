@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useSyncExternalStore } from 'react';
 
 export const MARAWI_COORDINATES = {
   latitude: 8.0,
@@ -207,38 +207,36 @@ export async function fetchWeather(): Promise<WeatherData | null> {
   return inFlightPromise;
 }
 
+function subscribe(onChange: () => void) {
+  listeners.add(onChange);
+  return () => {
+    listeners.delete(onChange);
+  };
+}
+const getSnapshot = () => memoryCache;
+// The server (and the hydration render) never sees browser storage, so both start with no data.
+const getServerSnapshot = () => null;
+
 export function useWeather() {
-  const [data, setData] = useState<WeatherData | null>(() => {
-    if (memoryCache && Date.now() - memoryCache.timestamp < WEATHER_CACHE_TTL_MS) {
-      return memoryCache;
-    }
-    return readLocalStorageCache();
-  });
-  const [isLoading, setIsLoading] = useState<boolean>(() => !data);
+  const data = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  // Set once the first load attempt finishes, so a failed fetch stops showing "loading".
+  const [attempted, setAttempted] = useState(false);
 
+  // After hydration: load saved weather (or fetch fresh data) and tell every subscriber.
   useEffect(() => {
-    const onDataChange = (newData: WeatherData | null) => {
-      setData(newData);
-      setIsLoading(false);
-    };
-    listeners.add(onDataChange);
-
-    if (!data || Date.now() - data.timestamp >= WEATHER_CACHE_TTL_MS) {
-      setIsLoading(true);
+    if (!memoryCache || Date.now() - memoryCache.timestamp >= WEATHER_CACHE_TTL_MS) {
       fetchWeather().then((result) => {
-        setData(result);
-        setIsLoading(false);
+        if (result) notifyListeners(result);
+        setAttempted(true);
       });
+    } else {
+      setAttempted(true);
     }
-
-    return () => {
-      listeners.delete(onDataChange);
-    };
-  }, [data]);
+  }, []);
 
   return {
     weather: data,
-    isLoading,
+    isLoading: !data && !attempted,
   };
 }
 

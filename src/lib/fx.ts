@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useSyncExternalStore } from 'react';
 
 export const SUPPORTED_CURRENCIES = [
   'USD',
@@ -170,33 +170,27 @@ export async function fetchFxRates(): Promise<FxData | null> {
   return inFlightPromise;
 }
 
+function subscribe(onChange: () => void) {
+  listeners.add(onChange);
+  return () => {
+    listeners.delete(onChange);
+  };
+}
+const getSnapshot = () => memoryCache;
+// The server (and the hydration render) never sees browser storage, so both start with no data.
+const getServerSnapshot = () => null;
+
 export function useFxRates() {
-  const [data, setData] = useState<FxData | null>(() => {
-    if (memoryCache && Date.now() - memoryCache.timestamp < FX_CACHE_TTL_MS) {
-      return memoryCache;
-    }
-    return readLocalStorageCache();
-  });
+  const data = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
+  // After hydration: load saved rates (or fetch fresh ones) and tell every subscriber.
   useEffect(() => {
-    const onDataChange = (newData: FxData | null) => {
-      setData(newData);
-    };
-    listeners.add(onDataChange);
-
-    // If we already have fresh data in state, do not refetch
-    if (!data || Date.now() - data.timestamp >= FX_CACHE_TTL_MS) {
+    if (!memoryCache || Date.now() - memoryCache.timestamp >= FX_CACHE_TTL_MS) {
       fetchFxRates().then((result) => {
-        if (result) {
-          setData(result);
-        }
+        if (result) notifyListeners(result);
       });
     }
-
-    return () => {
-      listeners.delete(onDataChange);
-    };
-  }, [data]);
+  }, []);
 
   return {
     rates: data?.rates ?? [],
