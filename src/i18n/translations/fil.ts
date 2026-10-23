@@ -88,6 +88,13 @@ export const fil: typeof en = {
   // Footer
   quickLinks: 'Mabilis na mga Link',
   aboutPortal: 'Tungkol sa Portal',
+  getInvolved: {
+    eyebrow: 'Makilahok',
+    title: 'Gumaganda ang mga pampublikong rekord\nkapag sinusuri ito ng mga tao.',
+    body: 'May nakitang mali, o may dokumentong sulit idagdag? Bawat pagtatama at bawat sanggunian ay nagpapatibay sa rekord — at ang opisyal na sanggunian ang laging tama kapag kami ang mali.',
+    contribute: 'Mag-ambag',
+    about: 'Tungkol sa proyekto',
+  },
   accessibility: 'Aksibilidad',
   resources: 'Mga Sanggunian',
   volunteerWithUs: 'Magboluntaryo Kasama Namin',

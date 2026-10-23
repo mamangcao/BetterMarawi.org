@@ -9,6 +9,7 @@ import { useTranslation } from '@/i18n';
 import { useFxRates, formatFxDate } from '@/lib/fx';
 import { SITE_CONFIG } from '@/config/site';
 import { ContributorsDialog } from './ContributorsDialog';
+import { GetInvolved } from './GetInvolved';
 
 const linkClass = 'hover:text-white transition-colors';
 
@@ -57,7 +58,9 @@ export function Footer() {
   const [notOfficial, builtBy] = t.communityDisclaimer.split(/\.\s+/);
 
   return (
-    <footer className="bg-mist-900 text-mist-300 border-t border-mist-800 mt-16">
+    <>
+    <GetInvolved className="mt-16" />
+    <footer className="bg-mist-900 text-mist-300 border-t border-mist-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10">
           {/* Column 1: Brand, mission, location, social */}
@@ -202,5 +205,6 @@ export function Footer() {
         </div>
       </div>
     </footer>
+    </>
   );
 }

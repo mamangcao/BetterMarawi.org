@@ -86,6 +86,13 @@ export const en = {
   // Footer
   quickLinks: 'Quick Links',
   aboutPortal: 'About the Portal',
+  getInvolved: {
+    eyebrow: 'Get involved',
+    title: 'Public records get better\nwhen people check them.',
+    body: 'Spotted an error, or have a document worth adding? Every correction and every source makes the record stronger — and the official source is always right where we are wrong.',
+    contribute: 'Contribute',
+    about: 'About the project',
+  },
   accessibility: 'Accessibility',
   resources: 'Resources',
   volunteerWithUs: 'Volunteer with Us',

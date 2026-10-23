@@ -34,6 +34,7 @@ import { AUDIT_FY2020, LGSF_PROJECTS, NATIONAL_RELEASES } from '../src/data/repo
 import { CityHistory } from '../src/components/statistics/CityHistory';
 import { OrdinanceProcess } from '../src/components/government/OrdinanceProcess';
 import { BLGC_SOURCE, ORDINANCE_FAQS, ORDINANCE_STEPS } from '../src/data/ordinanceGuide';
+import { Footer } from '../src/components/layout/Footer';
 import { CITY_HISTORY } from '../src/data/cityProfile';
 import { YakapLabTests } from '../src/components/services/YakapLabTests';
 import { TourismDirectory } from '../src/components/services/TourismDirectory';
@@ -235,6 +236,19 @@ async function main() {
       assert.ok(years.length > 1, `table ${i + 1} has years`);
       assert.ok(years.every((y, j) => j === 0 || y <= years[j - 1]), `table ${i + 1} is oldest-first: ${years.join(', ')}`);
     });
+  });
+
+  await test('Every page: the get-involved band sits above the footer with its two buttons', () => {
+    const html = renderToString(createElement(LanguageProvider, null, createElement(Footer)));
+    const band = html.indexOf('id="get-involved-heading"');
+    assert.ok(band >= 0, 'get-involved heading missing');
+    assert.ok(band < html.indexOf('<footer'), 'band comes before the footer');
+    const text = html.replace(/<[^>]+>/g, '');
+    for (const s of [en.getInvolved.eyebrow, en.getInvolved.title, en.getInvolved.contribute, en.getInvolved.about]) {
+      assert.ok(text.includes(s.replace(/&/g, '&amp;').replace(/'/g, '&#x27;')), `shows "${s}"`);
+    }
+    const section = html.slice(html.lastIndexOf('<section', band), html.indexOf('</section>', band));
+    assert.equal((section.match(/<a [^>]*href="#"/g) ?? []).length, 2, 'two placeholder links until the pages exist');
   });
 
   await test('Legislative: ordinance steps and FAQs cite their BLGC sections', () => {

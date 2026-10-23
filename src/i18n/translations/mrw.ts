@@ -156,6 +156,14 @@ export const mrw: typeof en = {
   // TODO(mrw-review): needs fluent reviewer
   aboutPortal: 'About the Portal',
   // TODO(mrw-review): needs fluent reviewer
+  getInvolved: {
+    eyebrow: 'Get involved',
+    title: 'Public records get better\nwhen people check them.',
+    body: 'Spotted an error, or have a document worth adding? Every correction and every source makes the record stronger — and the official source is always right where we are wrong.',
+    contribute: 'Contribute',
+    about: 'About the project',
+  },
+  // TODO(mrw-review): needs fluent reviewer
   accessibility: 'Accessibility',
   // TODO(mrw-review): needs fluent reviewer
   resources: 'Resources',
