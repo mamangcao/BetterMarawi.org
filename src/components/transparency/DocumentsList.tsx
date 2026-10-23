@@ -6,7 +6,7 @@ import React from 'react';
  * Removed Oct 23, 2026: a "Performance & Governance Scorecard (2025–2026)" captioned "Verified
  * indicators from DILG-BARMM, BLGF, and City Planning & Development Office" (100% FDP compliance,
  * +18.4% revenue growth, 94,200+ PhilHealth YAKAP registrants, 89.6% 20% Development Fund
- * utilization). None of the four figures had a source. See docs/AUDIT_STATUS.md.
+ * utilization). None of the four figures had a source. See docs/VERIFICATION_CHECKLIST.md, section 9.
  */
 export function DocumentsList() {
   return (

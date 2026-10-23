@@ -156,7 +156,7 @@ function main() {
       ...[...groups].flatMap(([g, ks]) => [`### ${g} (${ks.length})`, '', '| Key | English |', '| --- | --- |', ...ks.map(row), '']),
       '## English-only text in pages and components',
       '',
-      'Found by a simple scan for English sentences written straight into JSX, so treat counts as approximate. This text stays English in every language. Server-rendered pages cannot use `useTranslation`, so moving their text into the translation files needs a design decision (see docs/AUDIT_STATUS.md).',
+      'Found by a simple scan for English sentences written straight into JSX, so treat counts as approximate. This text stays English in every language. Server-rendered pages cannot use `useTranslation`, so moving their text into the translation files needs a design decision (see docs/KNOWN_ISSUES.md).',
       '',
       '| File | Sentences | Uses translations elsewhere |',
       '| --- | --- | --- |',

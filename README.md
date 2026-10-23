@@ -93,7 +93,7 @@ public/          images and static files (public/branding/ holds the logo)
 | [SEO_GUIDE.md](docs/SEO_GUIDE.md) | Metadata, JSON-LD, sitemap |
 | [DEPLOYMENT.md](docs/DEPLOYMENT.md) | Vercel and domain setup |
 | [LICENSING.md](docs/LICENSING.md) | What each part is licensed under |
-| [AUDIT_STATUS.md](docs/AUDIT_STATUS.md) | Known issues, their status, and what is left to do |
+| [KNOWN_ISSUES.md](docs/KNOWN_ISSUES.md) | What is unfinished and where you can help |
 
 ## Data and accuracy
 

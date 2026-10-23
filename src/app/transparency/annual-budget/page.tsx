@@ -16,7 +16,7 @@ export const metadata: Metadata = buildMetadata({
   path: '/transparency/annual-budget',
 });
 
-// Not published as FAQ structured data: the figures are unverified (see docs/AUDIT_STATUS.md).
+// Not published as FAQ structured data: the figures are unverified (see docs/KNOWN_ISSUES.md).
 const faqs = [
   {
     question: 'How is the FY 2026 Annual Budget of Marawi City funded?',
