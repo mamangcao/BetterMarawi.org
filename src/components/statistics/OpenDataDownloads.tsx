@@ -3,12 +3,12 @@
 import React from 'react';
 import { Database } from 'lucide-react';
 import { MARAWI_BARANGAYS } from '@/data/barangays';
-import { BUDGET_BREAKDOWN_2026 } from '@/data/budget';
-import { ORDINANCES_LIST } from '@/data/ordinances';
 import { downloadCSV, downloadJSON, generateBarangaysCSV } from '@/lib/csv';
 import { SourceNote } from '@/components/ui';
 import { useTranslation } from '@/i18n';
 
+// Only sourced datasets are offered. The FY 2026 budget (unverified) and the ordinance list
+// (removed: unsourced and contradicted) were taken out on Oct 23, 2026.
 export function OpenDataDownloads() {
   const { t } = useTranslation();
   const handleExportBarangaysCSV = () => {
@@ -75,51 +75,6 @@ export function OpenDataDownloads() {
           </div>
         </div>
 
-        <div className="p-5 rounded-xl bg-mist-50 border border-mist-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div>
-            <div className="text-xs font-mono-tabular text-brand-800 font-semibold">
-              DATASET-MRW-02 · PUBLIC FINANCE
-            </div>
-            <h3 className="text-base font-bold text-mist-900 mt-0.5">
-              FY 2026 General Appropriation Budget Breakdown (₱1.845B)
-            </h3>
-            <p className="text-xs text-mist-600 mt-1">
-              Sectoral allocations, NTA share, local revenue sources, and 5% CDRRMF/GAD shares.
-            </p>
-          </div>
-          <button
-            type="button"
-            onClick={() =>
-              downloadJSON('marawi_fy2026_budget.json', BUDGET_BREAKDOWN_2026)
-            }
-            className="px-3 py-2 rounded-lg bg-brand-900 text-white text-xs font-semibold hover:bg-brand-950 font-mono-tabular shrink-0"
-          >
-            {t.downloadJSON}
-          </button>
-        </div>
-
-        <div className="p-5 rounded-xl bg-mist-50 border border-mist-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div>
-            <div className="text-xs font-mono-tabular text-brand-800 font-semibold">
-              DATASET-MRW-03 · LEGISLATIVE ARCHIVE
-            </div>
-            <h3 className="text-base font-bold text-mist-900 mt-0.5">
-              Sangguniang Panlungsod Enacted Ordinances &amp; Codes
-            </h3>
-            <p className="text-xs text-mist-600 mt-1">
-              Structured registry of key city ordinances, enactment dates, sponsors, and categories.
-            </p>
-          </div>
-          <button
-            type="button"
-            onClick={() =>
-              downloadJSON('marawi_ordinances.json', ORDINANCES_LIST)
-            }
-            className="px-3 py-2 rounded-lg bg-brand-900 text-white text-xs font-semibold hover:bg-brand-950 font-mono-tabular shrink-0"
-          >
-            {t.downloadJSON}
-          </button>
-        </div>
       </div>
 
       <SourceNote item={MARAWI_BARANGAYS[0]} className="pt-2 border-t border-mist-100" />

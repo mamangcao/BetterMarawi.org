@@ -1,97 +1,102 @@
-No,Barangay Name,PSGC Code,District Cluster,2020 Census Population,Latest Census Population,Households,Classification,Sector Status
-1,"Ambolong",153617001,"Lakefront & Saduc",2145,2680,412,Urban,"Regular Barangay"
-2,"Amito Marantao",153617002,"Northwest Highland",1840,2310,355,Urban,"Regular Barangay"
-3,"Bacong",153617003,"Lakefront & Saduc",2290,2875,440,Urban,"Regular Barangay"
-4,"Banga",153617004,"Northwest Highland",1920,2415,372,Urban,"Regular Barangay"
-5,"Bangco",153617005,"Angoyao & East Basin",2110,2650,405,Urban,"Regular Barangay"
-6,"Banggolo Poblacion",153617006,"Central Poblacion",3420,4295,660,Urban,"MAA Rehabilitated Sector"
-7,"Bangon",153617007,"Central Poblacion",2580,3240,498,Urban,"Regular Barangay"
-8,"Basak Malutlut",153617008,"Basak & MSU Corridor",4890,6140,945,Urban,"Regular Barangay"
-9,"Beyaba-Damag",153617009,"Northwest Highland",2150,2700,415,Urban,"Regular Barangay"
-10,"Bito Buadi Itowa",153617010,"Angoyao & East Basin",1760,2210,340,Urban,"Regular Barangay"
-11,"Bito Buadi Parba",153617011,"Angoyao & East Basin",1690,2120,326,Urban,"Regular Barangay"
-12,"Bubonga Cadayonan",153617012,"Basak & MSU Corridor",2040,2560,394,Urban,"Regular Barangay"
-13,"Bubonga Lilod Madaya",153617013,"Central Poblacion",1420,1785,275,Urban,"MAA Rehabilitated Sector"
-14,"Bubonga Marawi",153617014,"Central Poblacion",2210,2775,427,Urban,"Regular Barangay"
-15,"Bubonga Pagalamatan",153617015,"Northwest Highland",1580,1985,305,Rural,"Regular Barangay"
-16,"Bubonga Punod",153617016,"Northwest Highland",1620,2035,313,Urban,"Regular Barangay"
-17,"Cabasaran",153617017,"Angoyao & East Basin",1940,2435,375,Urban,"Regular Barangay"
-18,"Cabingan",153617018,"Basak & MSU Corridor",3890,4885,752,Urban,"Regular Barangay"
-19,"Cadayonan",153617019,"Basak & MSU Corridor",2740,3440,529,Urban,"Regular Barangay"
-20,"Cadayonan II",153617020,"Basak & MSU Corridor",2190,2750,423,Urban,"Regular Barangay"
-21,"Calocan East",153617021,"Lakefront & Saduc",2340,2940,452,Urban,"Regular Barangay"
-22,"Calocan West",153617022,"Lakefront & Saduc",2490,3125,481,Urban,"Regular Barangay"
-23,"Daguduban",153617023,"Central Poblacion",1380,1735,267,Urban,"MAA Rehabilitated Sector"
-24,"Dansalan",153617024,"Central Poblacion",1650,2070,319,Urban,"MAA Rehabilitated Sector"
-25,"Datu Naga",153617025,"Central Poblacion",1480,1860,286,Urban,"MAA Rehabilitated Sector"
-26,"Datu Sa Dansalan",153617026,"Central Poblacion",1520,1910,294,Urban,"MAA Rehabilitated Sector"
-27,"Datu Saber",153617027,"Basak & MSU Corridor",2860,3590,552,Urban,"Regular Barangay"
-28,"Dayawan",153617028,"Lakefront & Saduc",2380,2990,460,Urban,"Regular Barangay"
-29,"Dimalna",153617029,"Basak & MSU Corridor",4120,5175,796,Urban,"Regular Barangay"
-30,"Dulay",153617030,"Northwest Highland",1890,2375,365,Rural,"Regular Barangay"
-31,"Dulay West",153617031,"Northwest Highland",1640,2060,317,Rural,"Regular Barangay"
-32,"East Basak",153617032,"Basak & MSU Corridor",2950,3705,570,Urban,"Regular Barangay"
-33,"Emie Punud",153617033,"Northwest Highland",2310,2900,446,Urban,"Regular Barangay"
-34,"Fort",153617034,"Central Poblacion",2670,3355,516,Urban,"Regular Barangay"
-35,"Gadongan",153617035,"Angoyao & East Basin",3210,4030,620,Urban,"Regular Barangay"
-36,"Guimba",153617036,"Northwest Highland",2080,2610,402,Rural,"Regular Barangay"
-37,"Kapantaran",153617037,"Central Poblacion",1590,1995,307,Urban,"MAA Rehabilitated Sector"
-38,"Kilala",153617038,"Northwest Highland",2140,2685,413,Urban,"Regular Barangay"
-39,"Kormatan Matampay",153617039,"Central Poblacion",3180,3995,615,Urban,"Regular Barangay"
-40,"Larkin (Loksadato)",153617040,"Basak & MSU Corridor",2050,2575,396,Urban,"Regular Barangay"
-41,"Lilod Madaya",153617041,"Central Poblacion",1740,2185,336,Urban,"MAA Rehabilitated Sector"
-42,"Lilod Saduc",153617042,"Lakefront & Saduc",2460,3090,475,Urban,"Regular Barangay"
-43,"Lomidong",153617043,"Basak & MSU Corridor",3120,3920,603,Urban,"Regular Barangay"
-44,"Lumbaca Madaya",153617044,"Central Poblacion",1680,2110,325,Urban,"MAA Rehabilitated Sector"
-45,"Lumbac Marinaut",153617045,"Lakefront & Saduc",1960,2460,379,Urban,"MAA Rehabilitated Sector"
-46,"Lumbaca Toros",153617046,"Angoyao & East Basin",1820,2285,352,Urban,"Regular Barangay"
-47,"Malimono",153617047,"Northwest Highland",1560,1960,302,Rural,"Regular Barangay"
-48,"Marawi Poblacion",153617048,"Central Poblacion",2890,3630,558,Urban,"Regular Barangay"
-49,"Marinaut East",153617049,"Lakefront & Saduc",2120,2660,409,Urban,"MAA Rehabilitated Sector"
-50,"Marinaut West",153617050,"Lakefront & Saduc",2250,2825,435,Urban,"MAA Rehabilitated Sector"
-51,"Matampay",153617051,"Central Poblacion",3340,4195,645,Urban,"Regular Barangay"
-52,"Mipaga Proper",153617052,"Northwest Highland",2190,2750,423,Urban,"Regular Barangay"
-53,"Moncado Colony",153617053,"Central Poblacion",1510,1895,292,Urban,"MAA Rehabilitated Sector"
-54,"Moncado Kadingilan",153617054,"Central Poblacion",1630,2045,315,Urban,"MAA Rehabilitated Sector"
-55,"Moriatao Loksadato",153617055,"Basak & MSU Corridor",2280,2865,441,Urban,"Regular Barangay"
-56,"Navarro (Datu Saber)",153617056,"Basak & MSU Corridor",1870,2350,362,Urban,"Regular Barangay"
-57,"Norhaya Village",153617057,"Central Poblacion",1490,1870,288,Urban,"MAA Rehabilitated Sector"
-58,"Olawa Ambolong",153617058,"Lakefront & Saduc",1930,2425,373,Urban,"Regular Barangay"
-59,"Pagalamatan Gambai",153617059,"Northwest Highland",1710,2145,330,Rural,"Regular Barangay"
-60,"Pagayawan",153617060,"Angoyao & East Basin",2060,2585,398,Urban,"Regular Barangay"
-61,"Pantaon",153617061,"Northwest Highland",1610,2020,311,Rural,"Regular Barangay"
-62,"Papandayan",153617062,"Central Poblacion",2440,3065,472,Urban,"Regular Barangay"
-63,"Papandayan Caniogan",153617063,"Central Poblacion",2180,2735,421,Urban,"Regular Barangay"
-64,"Paridi",153617064,"Northwest Highland",1810,2275,350,Urban,"Regular Barangay"
-65,"Patani",153617065,"Angoyao & East Basin",2390,3000,462,Urban,"Regular Barangay"
-66,"Pindolonan",153617066,"Angoyao & East Basin",2240,2815,433,Urban,"Regular Barangay"
-67,"Poona Marantao",153617067,"Northwest Highland",2020,2535,390,Urban,"Regular Barangay"
-68,"Pugaan",153617068,"Angoyao & East Basin",2540,3190,491,Urban,"Regular Barangay"
-69,"Rapasun MSU",153617069,"Basak & MSU Corridor",4510,5665,872,Urban,"Regular Barangay"
-70,"Raya Madaya I",153617070,"Central Poblacion",1460,1835,282,Urban,"MAA Rehabilitated Sector"
-71,"Raya Madaya II",153617071,"Central Poblacion",1390,1745,268,Urban,"MAA Rehabilitated Sector"
-72,"Raya Saduc",153617072,"Lakefront & Saduc",2310,2900,446,Urban,"Regular Barangay"
-73,"Rorogagus East",153617073,"Angoyao & East Basin",2680,3365,518,Urban,"Regular Barangay"
-74,"Rorogagus Proper",153617074,"Angoyao & East Basin",2910,3655,562,Urban,"Regular Barangay"
-75,"Sabala Manao",153617075,"Central Poblacion",1540,1935,298,Urban,"MAA Rehabilitated Sector"
-76,"Sabala Manao Proper",153617076,"Central Poblacion",1610,2020,311,Urban,"MAA Rehabilitated Sector"
-77,"Saduc Proper",153617077,"Lakefront & Saduc",2790,3505,539,Urban,"Regular Barangay"
-78,"Sagonsongan",153617078,"Northwest Highland",4320,5425,835,Urban,"Regular Barangay"
-79,"Sangcay Dansalan",153617079,"Central Poblacion",1580,1985,305,Urban,"MAA Rehabilitated Sector"
-80,"Somiorang",153617080,"Northwest Highland",1730,2175,335,Rural,"Regular Barangay"
-81,"South Madaya Proper",153617081,"Central Poblacion",1640,2060,317,Urban,"MAA Rehabilitated Sector"
-82,"Sugod Proper",153617082,"Lakefront & Saduc",2290,2875,442,Urban,"Regular Barangay"
-83,"Tampilong",153617083,"Basak & MSU Corridor",2940,3695,568,Urban,"Regular Barangay"
-84,"Timbangalan",153617084,"Lakefront & Saduc",1980,2485,382,Urban,"Regular Barangay"
-85,"Tuca Ambolong",153617085,"Lakefront & Saduc",1860,2335,359,Urban,"Regular Barangay"
-86,"Tuca Marinaut",153617086,"Lakefront & Saduc",2110,2650,408,Urban,"MAA Rehabilitated Sector"
-87,"Tuca",153617087,"Lakefront & Saduc",2840,3565,548,Urban,"Regular Barangay"
-88,"Tolali",153617088,"Central Poblacion",1520,1910,294,Urban,"MAA Rehabilitated Sector"
-89,"Tongantongan-Tuca Timbangalan",153617089,"Lakefront & Saduc",2010,2525,388,Urban,"Regular Barangay"
-90,"Toros",153617090,"Angoyao & East Basin",1940,2435,375,Urban,"Regular Barangay"
-91,"Wawalayan Calocan",153617091,"Lakefront & Saduc",2150,2700,415,Urban,"Regular Barangay"
-92,"Wawalayan Marinaut",153617092,"Lakefront & Saduc",2040,2560,394,Urban,"MAA Rehabilitated Sector"
-93,"Marantao-Poona",153617093,"Northwest Highland",1710,2150,331,Urban,"Regular Barangay"
-94,"Boganga",153617094,"Northwest Highland",2640,3315,510,Urban,"Regular Barangay"
-95,"Boganga II",153617095,"Northwest Highland",1930,2425,373,Urban,"Regular Barangay"
-96,"Dulag-Angoyao",153617096,"Angoyao & East Basin",1915,2453,377,Urban,"Regular Barangay"
+No,Barangay Name,PSGC Code (10-digit),Correspondence Code,Urban/Rural,Population (2024 POPCEN)
+1,"Ambolong",1903617001,153617001,Rural,1313
+2,"Bacolod Chico Proper",1903617003,153617003,Rural,1145
+3,"Banga",1903617006,153617006,Rural,1492
+4,"Bangco",1903617007,153617007,Rural,3642
+5,"Banggolo Poblacion",1903617008,153617008,Rural,3342
+6,"Bangon",1903617009,153617009,Rural,3289
+7,"Beyaba-Damag",1903617010,153617010,Rural,3163
+8,"Bito Buadi Itowa",1903617012,153617012,Rural,1020
+9,"Bito Buadi Parba",1903617013,153617013,Rural,1607
+10,"Bubonga Pagalamatan",1903617014,153617014,Rural,912
+11,"Bubonga Lilod Madaya",1903617015,153617015,Rural,3341
+12,"Boganga",1903617016,153617016,Rural,1860
+13,"Boto Ambolong",1903617017,153617017,Rural,2031
+14,"Bubonga Cadayonan",1903617019,153617019,Rural,1089
+15,"Bubong Lumbac",1903617021,153617021,Rural,808
+16,"Bubonga Marawi",1903617022,153617022,Rural,2156
+17,"Bubonga Punod",1903617023,153617023,Rural,1132
+18,"Cabasaran",1903617024,153617024,Rural,3254
+19,"Cabingan",1903617025,153617025,Rural,5129
+20,"Cadayonan",1903617026,153617026,Rural,4157
+21,"Cadayonan I",1903617027,153617027,Rural,1547
+22,"Calocan East",1903617029,153617029,Rural,1856
+23,"Calocan West",1903617030,153617030,Rural,1492
+24,"Kormatan Matampay",1903617032,153617032,Rural,1598
+25,"Daguduban",1903617033,153617033,Urban,5810
+26,"Dansalan",1903617035,153617035,Rural,2510
+27,"Datu Sa Dansalan",1903617036,153617036,Rural,3553
+28,"Dayawan",1903617037,153617037,Rural,1406
+29,"Dimaluna",1903617039,153617039,Urban,7116
+30,"Dulay",1903617040,153617040,Rural,2229
+31,"Dulay West",1903617042,153617042,Rural,1414
+32,"East Basak",1903617043,153617043,Rural,2528
+33,"Emie Punud",1903617044,153617044,Rural,2056
+34,"Fort",1903617045,153617045,Rural,2356
+35,"Gadongan",1903617046,153617046,Urban,2026
+36,"Buadi Sacayo",1903617048,153617048,Rural,2889
+37,"Guimba",1903617049,153617049,Rural,2465
+38,"Kapantaran",1903617051,153617051,Rural,2658
+39,"Kilala",1903617052,153617052,Rural,1526
+40,"Lilod Madaya",1903617057,153617057,Rural,3202
+41,"Lilod Saduc",1903617058,153617058,Rural,4505
+42,"Lomidong",1903617060,153617060,Urban,5679
+43,"Lumbaca Madaya",1903617062,153617062,Rural,2431
+44,"Lumbac Marinaut",1903617063,153617063,Rural,1350
+45,"Lumbaca Toros",1903617064,153617064,Rural,679
+46,"Malimono",1903617065,153617065,Rural,3286
+47,"Basak Malutlut",1903617066,153617066,Rural,4496
+48,"Gadongan Mapantao",1903617068,153617068,Rural,2108
+49,"Amito Marantao",1903617069,153617069,Rural,1940
+50,"Marinaut East",1903617070,153617070,Rural,1198
+51,"Marinaut West",1903617071,153617071,Rural,2193
+52,"Matampay",1903617072,153617072,Rural,4536
+53,"Pantaon",1903617074,153617074,Rural,966
+54,"Mipaga Proper",1903617075,153617075,Rural,2526
+55,"Moncado Colony",1903617076,153617076,Rural,4042
+56,"Moncado Kadingilan",1903617077,153617077,Urban,5573
+57,"Moriatao Loksadato",1903617079,153617079,Rural,2446
+58,"Datu Naga",1903617080,153617080,Rural,2145
+59,"Navarro",1903617083,153617083,Rural,5580
+60,"Olawa Ambolong",1903617085,153617085,Rural,836
+61,"Pagalamatan Gambai",1903617086,153617086,Rural,2163
+62,"Pagayawan",1903617089,153617089,Rural,1859
+63,"Panggao Saduc",1903617090,153617090,Urban,4926
+64,"Papandayan",1903617097,153617097,Rural,2793
+65,"Paridi",1903617098,153617098,Rural,1129
+66,"Patani",1903617099,153617099,Rural,2781
+67,"Pindolonan",1903617101,153617101,Rural,1150
+68,"Poona Marantao",1903617103,153617103,Rural,3495
+69,"Pugaan",1903617105,153617105,Rural,2003
+70,"Rapasun MSU",1903617107,153617107,Rural,4896
+71,"Raya Madaya I",1903617109,153617109,Rural,3100
+72,"Raya Madaya II",1903617110,153617110,Rural,1583
+73,"Raya Saduc",1903617111,153617111,Rural,3258
+74,"Rorogagus Proper",1903617112,153617112,Urban,5589
+75,"Rorogagus East",1903617113,153617113,Rural,1593
+76,"Sabala Manao",1903617116,153617116,Rural,2553
+77,"Sabala Manao Proper",1903617117,153617117,Rural,1740
+78,"Saduc Proper",1903617118,153617118,Rural,2676
+79,"Sagonsongan",1903617119,153617119,Rural,1650
+80,"Sangcay Dansalan",1903617120,153617120,Rural,2947
+81,"Somiorang",1903617123,153617123,Rural,926
+82,"South Madaya Proper",1903617124,153617124,Rural,1299
+83,"Sugod Proper",1903617125,153617125,Rural,4299
+84,"Tampilong",1903617126,153617126,Rural,2599
+85,"Timbangalan",1903617127,153617127,Rural,2088
+86,"Tuca Ambolong",1903617129,153617129,Rural,1815
+87,"Tolali",1903617131,153617131,Rural,3019
+88,"Toros",1903617133,153617133,Rural,1854
+89,"Tuca",1903617134,153617134,Rural,1195
+90,"Tuca Marinaut",1903617136,153617136,Rural,1330
+91,"Tongantongan-Tuca Timbangalan",1903617137,153617137,Rural,509
+92,"Wawalayan Calocan",1903617138,153617138,Rural,3407
+93,"Wawalayan Marinaut",1903617139,153617139,Rural,2331
+94,"Marawi Poblacion",1903617141,153617141,Rural,4892
+95,"Norhaya Village",1903617142,153617142,Rural,3375
+96,"Papandayan Caniogan",1903617143,153617143,Rural,3912
+97,"Boganga II",1903617144,,Urban,2062
+98,"Datu Dalidigan",1903617145,,Urban,2318
+99,"Angoyao",1903617146,,Urban,2013
+100,"Sultan Corobong",1903617147,,Urban,2062
+101,"Sultan Panoroganan",1903617148,,Urban,2170

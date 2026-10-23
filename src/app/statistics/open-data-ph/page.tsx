@@ -1,8 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { MARAWI_BARANGAYS } from '@/data/barangays';
-import { budgetVerification } from '@/data/budget';
-import { ORDINANCES_LIST } from '@/data/ordinances';
 import { UnverifiedNotice } from '@/components/ui';
 import { OpenDataDownloads, StatisticsSidebar } from '@/components/statistics';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
@@ -13,13 +11,13 @@ import { buildMetadata, getRouteBreadcrumbs } from '@/lib/seo';
 export const metadata: Metadata = buildMetadata({
   title: 'Open Data PH — Downloadable Marawi Civic Datasets (CSV/JSON) | BetterMarawi.org',
   description:
-    'Download open, machine-readable CSV and JSON datasets for Marawi City population census, annual budget, health facilities, and business registrations.',
+    'Download the list of Marawi City’s 101 barangays with PSGC codes, urban or rural classification, and 2024 census population (PSA), as CSV or JSON.',
   path: '/statistics/open-data-ph',
 });
 
 export default function OpenDataPage() {
   const breadcrumbs = getRouteBreadcrumbs('/statistics/open-data-ph');
-  const datasetsVerification = [...MARAWI_BARANGAYS, budgetVerification, ...ORDINANCES_LIST];
+  const datasetsVerification = [...MARAWI_BARANGAYS];
 
   return (
     <main className="pb-16">

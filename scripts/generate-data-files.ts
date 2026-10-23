@@ -1,17 +1,19 @@
 import fs from 'fs';
 import path from 'path';
 import { MARAWI_BARANGAYS } from '../src/data/barangays';
-import { BUDGET_BREAKDOWN_2026 } from '../src/data/budget';
-import { ORDINANCES_LIST } from '../src/data/ordinances';
-import { FDP_DOCUMENTS } from '../src/data/fdp';
-import { generateBarangaysCSV, generateFDPCSV } from '../src/lib/csv';
+import { generateBarangaysCSV } from '../src/lib/csv';
+
+// Writes the public open-data files in public/data. Only sourced datasets are exported:
+// the barangay list (PSA PSGC and 2024 POPCEN). The budget, ordinance, and FDP files were
+// dropped on Oct 23, 2026 because their contents have no source; add a dataset back only
+// once its data is sourced.
 
 const targetDir = path.resolve(__dirname, '../public/data');
 if (!fs.existsSync(targetDir)) {
   fs.mkdirSync(targetDir, { recursive: true });
 }
 
-// 1. Barangays CSV & JSON
+// Barangays CSV & JSON
 fs.writeFileSync(
   path.join(targetDir, 'marawi-barangays.csv'),
   generateBarangaysCSV(MARAWI_BARANGAYS),
@@ -23,31 +25,4 @@ fs.writeFileSync(
   'utf-8'
 );
 
-// 2. Budget JSON
-fs.writeFileSync(
-  path.join(targetDir, 'marawi-budget-2026.json'),
-  JSON.stringify(BUDGET_BREAKDOWN_2026, null, 2),
-  'utf-8'
-);
-
-// 3. Ordinances JSON
-fs.writeFileSync(
-  path.join(targetDir, 'marawi-ordinances.json'),
-  JSON.stringify(ORDINANCES_LIST, null, 2),
-  'utf-8'
-);
-
-// 4. FDP CSV & JSON
-fs.writeFileSync(
-  path.join(targetDir, 'marawi-fdp-2026.csv'),
-  generateFDPCSV(FDP_DOCUMENTS),
-  'utf-8'
-);
-fs.writeFileSync(
-  path.join(targetDir, 'marawi-fdp-2026.json'),
-  JSON.stringify(FDP_DOCUMENTS, null, 2),
-  'utf-8'
-);
-
-console.log('Successfully generated public open data files in public/data');
-
+console.log(`Generated public/data/marawi-barangays.csv and .json (${MARAWI_BARANGAYS.length} barangays)`);
