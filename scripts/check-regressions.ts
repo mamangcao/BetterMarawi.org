@@ -32,6 +32,8 @@ import { AuditSummary } from '../src/components/transparency/AuditSummary';
 import { NationalFunding } from '../src/components/transparency/NationalFunding';
 import { AUDIT_FY2020, LGSF_PROJECTS, NATIONAL_RELEASES } from '../src/data/reports';
 import { CityHistory } from '../src/components/statistics/CityHistory';
+import { OrdinanceProcess } from '../src/components/government/OrdinanceProcess';
+import { BLGC_SOURCE, ORDINANCE_FAQS, ORDINANCE_STEPS } from '../src/data/ordinanceGuide';
 import { CITY_HISTORY } from '../src/data/cityProfile';
 import { YakapLabTests } from '../src/components/services/YakapLabTests';
 import { TourismDirectory } from '../src/components/services/TourismDirectory';
@@ -233,6 +235,19 @@ async function main() {
       assert.ok(years.length > 1, `table ${i + 1} has years`);
       assert.ok(years.every((y, j) => j === 0 || y <= years[j - 1]), `table ${i + 1} is oldest-first: ${years.join(', ')}`);
     });
+  });
+
+  await test('Legislative: ordinance steps and FAQs cite their BLGC sections', () => {
+    const html = renderToString(createElement(LanguageProvider, null, createElement(OrdinanceProcess)));
+    const text = html.replace(/<[^>]+>/g, '');
+    assert.equal(ORDINANCE_STEPS.length, 4, 'four steps');
+    for (const s of ORDINANCE_STEPS) {
+      assert.ok(text.includes(s.title), `step "${s.title}" shown`);
+      assert.ok(s.sections.length > 0 && text.includes(s.sections), `step "${s.title}" cites its sections`);
+    }
+    assert.ok(html.includes(BLGC_SOURCE.sourceUrl!), 'links the official BLGC text');
+    assert.ok(ORDINANCE_FAQS.length >= 5, 'at least five FAQs');
+    for (const f of ORDINANCE_FAQS) assert.match(f.answer, /\(BLGC ss?\. \d+( and \d+)*\)$/, `FAQ "${f.question}" ends with its section`);
   });
 
   await test('City profile: history entries render with their law or source links', () => {

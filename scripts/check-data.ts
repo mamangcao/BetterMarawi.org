@@ -20,6 +20,7 @@ import { FDP_DOCUMENTS } from '../src/data/fdp';
 import { FINANCE_ACTUALS, FINANCE_SOURCE, LDRRMF } from '../src/data/finances';
 import { AUDIT_FY2020, LGSF_PROJECTS, NATIONAL_RELEASES } from '../src/data/reports';
 import { CITY_FIGURES, CITY_HISTORY } from '../src/data/cityProfile';
+import { BLGC_SOURCE } from '../src/data/ordinanceGuide';
 import { SERVICES_DATA } from '../src/data/services';
 import { isUnverified } from '../src/lib/verification';
 import type { Verification } from '../src/types';
@@ -267,6 +268,7 @@ check('Finance, FDP, and report records name their official source', () => {
     ['src/data/finances.ts', 'FINANCE_SOURCE', FINANCE_SOURCE],
     ['src/data/reports.ts', 'AUDIT_FY2020', AUDIT_FY2020],
     ['src/data/cityProfile.ts', 'CITY_FIGURES', CITY_FIGURES],
+    ['src/data/ordinanceGuide.ts', 'BLGC_SOURCE', BLGC_SOURCE],
     ...FDP_DOCUMENTS.map((d): [string, string, Verification] => ['src/data/fdp.ts', d.title, d]),
     ...LGSF_PROJECTS.map((p): [string, string, Verification] => ['src/data/reports.ts', p.title, p]),
     ...NATIONAL_RELEASES.map((r): [string, string, Verification] => ['src/data/reports.ts', `${r.kind} ${r.date}`, r]),

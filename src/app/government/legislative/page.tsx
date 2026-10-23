@@ -1,17 +1,19 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { ORDINANCES_LIST } from '@/data/ordinances';
-import { OrdinancesTable, CommitteesList, GovernmentSidebar } from '@/components/government';
+import { OrdinancesTable, CommitteesList, GovernmentSidebar, OrdinanceProcess } from '@/components/government';
+import { ServiceFAQ } from '@/components/services';
+import { ORDINANCE_FAQS } from '@/data/ordinanceGuide';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { JsonLd } from '@/components/seo/JsonLd';
-import { buildBreadcrumbSchema } from '@/lib/jsonld';
+import { buildBreadcrumbSchema, buildFAQSchema } from '@/lib/jsonld';
 import { UnverifiedNotice } from '@/components/ui';
 import { buildMetadata, getRouteBreadcrumbs } from '@/lib/seo';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Sangguniang Panlungsod (City Council) of Marawi | BetterMarawi.org',
   description:
-    'What the Sangguniang Panlungsod of Marawi City does and its standing committees. City ordinances will be listed once copies are obtained from an official source.',
+    'What the Sangguniang Panlungsod of Marawi City does, how an ordinance becomes law under the Bangsamoro Local Governance Code, and the council’s standing committees.',
   path: '/government/legislative',
 });
 
@@ -41,13 +43,16 @@ export default function LegislativePage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           <div className="lg:col-span-8 space-y-8">
             <OrdinancesTable ordinances={ORDINANCES_LIST} />
+            <OrdinanceProcess />
             <CommitteesList />
+            <ServiceFAQ faqs={ORDINANCE_FAQS} />
           </div>
           <GovernmentSidebar />
         </div>
       </div>
 
       <JsonLd data={buildBreadcrumbSchema(breadcrumbs)} />
+      <JsonLd data={buildFAQSchema(ORDINANCE_FAQS)} />
     </main>
   );
 }
