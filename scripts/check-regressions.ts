@@ -151,6 +151,10 @@ async function main() {
     const places = TOURISM_CATEGORIES.flatMap((c) => c.places.map((p) => p.name));
     const missing = [...TOURISM_CATEGORIES.map((c) => c.title), ...places].filter((n) => !tourism.includes(n.replace(/&/g, '&amp;').replace(/'/g, '&#x27;')));
     assert.deepEqual(missing, [], `not rendered: ${missing.join(', ')}`);
+    // Each category's count must match the places actually listed (it was once typed by hand)
+    const counts = [...tourism.matchAll(/>(\d+)<!-- --> <!-- -->(places?)</g)].map((m) => Number(m[1]));
+    assert.deepEqual(counts, TOURISM_CATEGORIES.map((c) => c.places.length), 'category counts differ from the places listed');
+    assert.ok(tourism.includes('More destinations coming soon!'), 'the "more destinations" note is missing');
   });
 
   // --- Streaming fallback -----------------------------------------------------------------------

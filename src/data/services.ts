@@ -1,4 +1,5 @@
 import { ServicePageData } from '@/types';
+import { TOURISM_CATEGORIES, TOURISM_PLACE_COUNT } from './tourism';
 
 // Office hotlines and emails were removed on Oct 23, 2026: none had a source, several reused the
 // CDRRMO emergency number, and every @marawicity.gov.ph address uses a domain that does not resolve.
@@ -737,7 +738,7 @@ export const SERVICES_DATA: ServicePageData[] = [
     whoMayAvail: 'Domestic and international tourists, academic researchers, cultural pilgrims, and tour operators',
     highlights: [
       { label: 'Highland Elevation', value: '700m ASL (22°C Avg)' },
-      { label: 'Registered Cultural Sites', value: '72 Sites (6 Categories)' },
+      { label: 'Registered Cultural Sites', value: `${TOURISM_PLACE_COUNT} Sites (${TOURISM_CATEGORIES.length} Categories)` },
       { label: 'Ancient Lake Basin', value: 'Lake Lanao (Ranao)' },
     ],
     requirements: [

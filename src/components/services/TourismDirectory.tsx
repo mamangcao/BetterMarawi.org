@@ -12,7 +12,7 @@ export function TourismDirectory() {
           id="tourism-directory-heading"
           className="text-2xl font-bold text-mist-900 font-display"
         >
-          Registered Cultural &amp; Eco-Tourism Directory (6 Categories)
+          Registered Cultural &amp; Eco-Tourism Directory ({TOURISM_CATEGORIES.length} Categories)
         </h2>
         <p className="text-sm text-mist-600 mt-1">
           Curated landmarks across the Islamic City of Marawi and the Lake Lanao highland basin.
@@ -31,8 +31,9 @@ export function TourismDirectory() {
                   {cat.title}
                 </h3>
               </div>
+              {/* Counted from the list, so it always matches the places shown */}
               <span className="text-xs font-mono-tabular font-semibold text-brand-800">
-                {cat.countLabel}
+                {cat.places.length} {cat.places.length === 1 ? 'place' : 'places'}
               </span>
             </div>
             <div className="grid grid-cols-1 gap-3">
@@ -58,6 +59,10 @@ export function TourismDirectory() {
           </div>
         ))}
       </div>
+      <p className="rounded-xl border border-dashed border-mist-300 p-5 text-center text-sm text-mist-600">
+        <span className="font-semibold text-mist-800">More destinations coming soon!</span>{' '}
+        New places will be added to each category as they are reviewed.
+      </p>
     </section>
   );
 }

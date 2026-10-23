@@ -2,7 +2,6 @@ export const TOURISM_CATEGORIES = [
   {
     id: 'heritage',
     title: 'Heritage & History',
-    countLabel: '12 places',
     summary: 'Grand Mosque, Torogan sites, Ground Zero Peace Memorial',
     places: [
       { name: 'Masjid Disomimba / Marawi Grand Mosque (Jameo Mindanao Al-Islamie)', barangay: 'Banggolo Poblacion', note: 'Iconic lakeside Islamic landmark reconstructed as a symbol of faith and resilience.' },
@@ -14,7 +13,6 @@ export const TOURISM_CATEGORIES = [
   {
     id: 'lakefront',
     title: 'Lakefront & Parks',
-    countLabel: '8 places',
     summary: 'Lake Lanao Promenade, Rizal Park, Sarimanok Stadium',
     places: [
       { name: 'Lake Lanao (Ranao) Baywalk & Esplanade', barangay: 'Banggolo / Reclamo', note: 'Scenic lakeside promenade offering panoramic views of the ancient crater lake and mountain breeze.' },
@@ -25,7 +23,6 @@ export const TOURISM_CATEGORIES = [
   {
     id: 'museums',
     title: 'Academic & Museums',
-    countLabel: '6 places',
     summary: 'MSU Main Campus, Aga Khan Museum of Islamic Arts',
     places: [
       { name: 'Aga Khan Museum of Islamic Arts', barangay: 'Rapasun MSU', note: 'Founded in 1962 inside MSU Main Campus; houses priceless Meranaw brassware, kulintang ensembles, and Moro manuscripts.' },
@@ -36,7 +33,6 @@ export const TOURISM_CATEGORIES = [
   {
     id: 'artisan',
     title: 'Artisan & Brassware',
-    countLabel: '15 places',
     summary: 'Tugaya/Marawi Okir brassware, Langkit weaving hubs',
     places: [
       { name: 'New Marawi Grand Padian Artisan & Brassware Arcade', barangay: 'Banggolo Poblacion', note: 'Central market showcasing ceremonial gadur jars, sarimanok carvings, and inlaid betel boxes.' },
@@ -47,7 +43,6 @@ export const TOURISM_CATEGORIES = [
   {
     id: 'dining',
     title: 'Cafés & Halal Dining',
-    countLabel: '24 places',
     summary: 'Traditional Meranaw Pater, Palapa & highland cafés',
     places: [
       { name: 'MSU Commercial Center & Highland Mist Coffee Houses', barangay: 'Rapasun MSU / Lomidong', note: 'Specialty local Lanao civet/arabica coffee paired with browa, tiateg, and dodol.' },
@@ -58,7 +53,6 @@ export const TOURISM_CATEGORIES = [
   {
     id: 'highland',
     title: 'Highland & Eco',
-    countLabel: '7 places',
     summary: 'Mount Mupo, Sleeping Lady mountain viewdecks, Agus River',
     places: [
       { name: 'Mount Mupo Eco-Cultural Trail', barangay: 'Gadongan / Pugaan', note: 'Sacred historical peak in Meranaw epic Darangen offering 360-degree views of the Lanao basin.' },
@@ -68,3 +62,5 @@ export const TOURISM_CATEGORIES = [
   },
 ];
 
+/** Places listed across all categories. Counts on the site come from the lists above, never typed by hand. */
+export const TOURISM_PLACE_COUNT = TOURISM_CATEGORIES.reduce((n, c) => n + c.places.length, 0);
