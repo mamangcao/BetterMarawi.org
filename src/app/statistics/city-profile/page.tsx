@@ -2,7 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import { cityProfileVerification } from '@/lib/verification';
 import { UnverifiedNotice } from '@/components/ui';
-import { DemographicsBlock, StatisticsSidebar } from '@/components/statistics';
+import { CityHistory, DemographicsBlock, StatisticsSidebar } from '@/components/statistics';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { buildBreadcrumbSchema } from '@/lib/jsonld';
@@ -39,8 +39,9 @@ export default function CityProfilePage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-8 space-y-8">
             <DemographicsBlock />
+            <CityHistory />
           </div>
           <StatisticsSidebar />
         </div>

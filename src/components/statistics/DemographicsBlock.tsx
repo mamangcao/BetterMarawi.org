@@ -1,6 +1,7 @@
 import React from 'react';
 import { cityProfileVerification } from '@/lib/verification';
-import { SourceNote, UnverifiedBadge } from '@/components/ui';
+import { SourceNote, StatGrid, UnverifiedBadge } from '@/components/ui';
+import { CITY_FIGURES } from '@/data/cityProfile';
 
 export function DemographicsBlock() {
   const factSheet: [string, React.ReactNode][] = [
@@ -14,6 +15,8 @@ export function DemographicsBlock() {
     ['2020 Census Population', '207,010 (PSA 2020 Census of Population and Housing, Proclamation No. 1179)'],
     ['2020 Census Households', '34,444 households (PSA 2020 Census of Population and Housing)'],
     ['Total Land Area', '87.55 km² (PSA PSGC)'],
+    ['Population Density', `${CITY_FIGURES.densityPerKm2.toLocaleString('en-US')} people per km² (2024 population ÷ land area, PSA)`],
+    ['Growth Since 2020', `+${CITY_FIGURES.growthSince2020Pct}% (2020 to 2024 census, PSA)`],
     ['Geographic Coordinates', '8°00\'12" N, 124°17\'06" E (8.0034, 124.2851)'],
     [
       'Topography & Elevation',
@@ -32,44 +35,15 @@ export function DemographicsBlock() {
   return (
     <div className="space-y-8">
       {/* 4 Key Stat Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div className="bg-white rounded-xl border border-mist-200/90 p-5">
-          <div className="text-xs text-mist-500">Latest Population</div>
-          <div className="text-3xl font-bold text-mist-950 font-mono-tabular mt-1">
-            259,993
-          </div>
-          <div className="text-xs text-mist-500 mt-1">
-            2024 Census of Population (POPCEN), PSA
-          </div>
-        </div>
-        <div className="bg-white rounded-xl border border-mist-200/90 p-5">
-          <div className="text-xs text-mist-500">Barangays</div>
-          <div className="text-3xl font-bold text-mist-950 font-mono-tabular mt-1">
-            101
-          </div>
-          <div className="text-xs text-mist-500 mt-1">
-            PSA PSGC (as of 31 July 2025)
-          </div>
-        </div>
-        <div className="bg-white rounded-xl border border-mist-200/90 p-5">
-          <div className="text-xs text-mist-500">Income Classification</div>
-          <div className="text-3xl font-bold text-mist-950 font-display mt-1">
-            3rd Class
-          </div>
-          <div className="text-xs text-mist-500 mt-1">
-            Component City (PSA PSGC)
-          </div>
-        </div>
-        <div className="bg-white rounded-xl border border-mist-200/90 p-5">
-          <div className="text-xs text-mist-500">Total Land Area</div>
-          <div className="text-3xl font-bold text-mist-950 font-mono-tabular mt-1">
-            87.55 km²
-          </div>
-          <div className="text-xs text-mist-500 mt-1">
-            Lake Lanao Highland Basin (PSA PSGC)
-          </div>
-        </div>
-      </div>
+      <StatGrid
+        columns="grid-cols-2"
+        items={[
+          { value: '259,993', label: 'Latest Population', note: '2024 Census of Population (POPCEN), PSA' },
+          { value: '101', label: 'Barangays', note: 'PSA PSGC (as of 31 July 2025)' },
+          { value: '3rd Class', label: 'Income Classification', note: 'Component City (PSA PSGC)' },
+          { value: '87.55 km²', label: 'Total Land Area', note: 'Lake Lanao Highland Basin (PSA PSGC)' },
+        ]}
+      />
 
       {/* Detailed Fact Sheet Table */}
       <section className="bg-white rounded-xl border border-mist-200/90 p-6 sm:p-8">
